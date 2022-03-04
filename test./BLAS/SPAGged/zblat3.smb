@@ -1,0 +1,791 @@
+**++ Symbol table for subprogram ZBLAT3 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0000087,0000406
+   1         C     / 4/ M          16   /INFOC/INFOT,NOUTC,OK,LERR
+   2         C     / 1/ M           6   /SRNAMC/SRNAMT
+   3          X*16 ( 1) ?? E     4225   AA(NMAX*NMAX)*16
+   4          X*16 ( 2) M? E     8450   AB(NMAX,2*NMAX)*16
+   5          X*16 ( 1) MU E        7   ALF(NALMAX)*16
+   6          X*16 ( 1) ?? E     4225   AS(NMAX*NMAX)*16
+   7          X*16 ( 1) ?? E     4225   BB(NMAX*NMAX)*16
+   8          X*16 ( 1) MU E        7   BET(NBEMAX)*16
+   9          X*16 ( 1) ?? E     4225   BS(NMAX*NMAX)*16
+  10          X*16 ( 2) M? E     4225   C(NMAX,NMAX)*16
+  11          X*16 ( 1) M? E     4225   CC(NMAX*NMAX)*16
+  12          X*16 ( 1) ?? E     4225   CS(NMAX*NMAX)*16
+  13          X*16 ( 1) ?? E       65   CT(NMAX)*16
+  14         fD           XE            DDIFF
+  15          D         MU E            EPS
+  16         I?    ( 1)  U I            EPSILON
+  17          D         ?U E            ERR
+  18          L         MU E            FATAL
+  19          D    ( 1) ?? E       65   G(NMAX)
+  20          I         MU E            I
+  21          I    ( 1) MU E        9   IDIM(NIDMAX)
+  22    1   1 I        CM  E            INFOT
+  23          I         MU E            ISNUM
+  24          I         MU E            J
+  25    1   4 L        C   E            LERR
+  26          L    ( 1) MU E        9   LTEST(NSUBS)
+  27          L         MU E            LTESTT
+  28         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  29         I?    ( 2)  UNI            MAX
+  30         I?    ( 2)  UNI            MIN
+  31          I         MU E            N
+  32          I         MU E            NALF
+  33         PI          U E        7   NALMAX=7
+  34         PI          U E        7   NBEMAX=7
+  35          I         MU E            NBET
+  36          I         MU E            NIDIM
+  37         PI          U E        9   NIDMAX=9
+  38         PI          U E        5   NIN=5
+  39         PI          U E       65   NMAX=65
+  40          I         MU E            NOUT
+  41    1   2 I        CM  E            NOUTC
+  42         PI          U E        9   NSUBS=9
+  43          I         MU E            NTRA
+  44    1   3 L        CM  E            OK
+  45         PX*16       ? E            ONE*16=(1.0D0,0.0D0)
+  46          L         MU E            REWI
+  47         PD          U E            RZERO=0.0D0
+  48          L         MU E            SAME
+  49          L         MU E            SFATAL
+  50          C*6  ( 1)I?U E        9   SNAMES(NSUBS)*6
+  51          C*6       MU E            SNAMET*6
+  52          C*32      MU E            SNAPS*32
+  53    2   1 C*6      CM  E            SRNAMT*6
+  54          C*32      MU E            SUMMRY*32
+  55          D         MU E            THRESH
+  56          L         MU E            TRACE
+  57          C*1       MU E            TRANSA*1
+  58          C*1       MU E            TRANSB*1
+  59          L         MU E            TSTERR
+  60          X*16 ( 1) ?? E      130   W(2*NMAX)*16
+  61         M                    152   ZBLAT3
+  62         s     (26)  UX             ZCHK1
+     (C6L,R8V,R8V,I4V,I4V,L4V,L4V,L4V,I4V,I4A,I4V,XGA,I4V,XGA,I4E,XGA,XGA,XGA
+     ,XGL,XGA,XGA,XGA,XGA,XGA,XGA,R8A)
+  63         s     (26)  UX             ZCHK2
+     (C6L,R8V,R8V,I4V,I4V,L4V,L4V,L4V,I4V,I4A,I4V,XGA,I4V,XGA,I4E,XGA,XGA,XGA
+     ,XGL,XGA,XGA,XGA,XGA,XGA,XGA,R8A)
+  64         s     (22)  UX             ZCHK3
+     (C6L,R8V,R8V,I4V,I4V,L4V,L4V,L4V,I4V,I4A,I4V,XGA,I4E,XGA,XGA,XGA,XGL,XGA
+     ,XGA,XGA,R8A,XGA)
+  65         s     (26)  UX             ZCHK4
+     (C6L,R8V,R8V,I4V,I4V,L4V,L4V,L4V,I4V,I4A,I4V,XGA,I4V,XGA,I4E,XGA,XGA,XGA
+     ,XGL,XGA,XGA,XGA,XGA,XGA,XGA,R8A)
+  66         s     (26)  UX             ZCHK5
+     (C6L,R8V,R8V,I4V,I4V,L4V,L4V,L4V,I4V,I4A,I4V,XGA,I4V,XGA,I4E,XGA,XGA,XGA
+     ,XGA,XGA,XGA,XGA,XGA,XGA,R8A,XGA)
+  67         s     ( 3)  UX             ZCHKE
+     (I4E,C6L,I4V)
+  68         PX*16       U E            ZERO*16=(0.0D0,0.0D0)
+  69         s     (22)  UX             ZMMCH
+     (C1V,C1V,I4V,I4E,I4V,XGE,XGA,I4E,XGL,I4E,XGE,XGA,I4E,XGA,R8A,XGA,I4E,R8V
+     ,R8V,L4V,I4V,L4E)
+**-- END OF SYMBOL TABLE
+**+-!*--ZBLAT391 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHK1 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0000407,0000691
+   1         C     / 4/  U         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2   82  16 X*16 ( 2)A?? E            A(NMAX,NMAX)*16
+   3   82  17 X*16 ( 1)A?U E            AA(NMAX*NMAX)*16
+   4   82  12 X*16 ( 1)A U E            ALF(NALF)*16
+   5          X*16      MU E            ALPHA*16
+   6          X*16      MU E            ALS*16
+   7   82  18 X*16 ( 1)AM? E            AS(NMAX*NMAX)*16
+   8   82  19 X*16 ( 2)A?? E            B(NMAX,NMAX)*16
+   9   82  20 X*16 ( 1)A?U E            BB(NMAX*NMAX)*16
+  10   82  14 X*16 ( 1)A U E            BET(NBET)*16
+  11          X*16      MU E            BETA*16
+  12          X*16      MU E            BLS*16
+  13   82  21 X*16 ( 1)AM? E            BS(NMAX*NMAX)*16
+  14   82  22 X*16 ( 2)A?? E            C(NMAX,NMAX)*16
+  15   82  23 X*16 ( 1)A?U E            CC(NMAX*NMAX)*16
+  16   82  24 X*16 ( 1)AM? E            CS(NMAX*NMAX)*16
+  17   82  25 X*16 ( 1)A?? E            CT(NMAX)*16
+  18   82   2 D        A?? E            EPS
+  19          D         ?U E            ERR
+  20          D         MU E            ERRMAX
+  21   82   8 L        AMU E            FATAL
+  22   82  26 D    ( 1)A?? E            G(NMAX)
+  23          I         MU E            I
+  24          I         MU E            IA
+  25          I         MU E            IB
+  26          I         MU E            ICA
+  27          I         MU E            ICB
+  28          C*3      I U E            ICH*3
+  29   82  10 I    ( 1)A U E            IDIM(NIDIM)
+  30          I         MU E            IK
+  31          I         MU E            IM
+  32          I         MU E            IN
+  33    1   1 I        C   E            INFOT
+  34          L    ( 1) MU E       13   ISAME(13)
+  35          I         MU E            K
+  36          I         MU E            KS
+  37          I         MU E            LAA
+  38          I         MU E            LBB
+  39          I         MU E            LCC
+  40          I         MU E            LDA
+  41          I         MU E            LDAS
+  42          I         MU E            LDB
+  43          I         MU E            LDBS
+  44          I         MU E            LDC
+  45          I         MU E            LDCS
+  46    1   4 L        C   E            LERR
+  47         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  48         fL    ( 7)  UXE            LZERES
+     (C*E,C*E,I4V,I4V,XGA,XGA,I4V)
+  49          I         MU E            M
+  50          I         MU E            MA
+  51         I?    ( 2)  UNI            MAX
+  52          I         MU E            MB
+  53          I         MU E            MS
+  54          I         MU E            N
+  55          I         MU E            NA
+  56   82  11 I        A U E            NALF
+  57          I         MU E            NARGS
+  58          I         MU E            NB
+  59   82  13 I        A U E            NBET
+  60          I         MU E            NC
+  61   82   9 I        A U E            NIDIM
+  62   82  15 I        A?U E            NMAX
+  63   82   4 I        A?U E            NOUT
+  64    1   2 I        C   E            NOUTC
+  65          I         MU E            NS
+  66   82   5 I        A U E            NTRA
+  67          L         MU E            NULL
+  68    1   3 L        C U E            OK
+  69          L         M? E            RESET
+  70   82   7 L        A U E            REWI
+  71         PD          U E            RZERO=0.0D0
+  72          L         MU E            SAME
+  73   82   1 C*6      A U E            SNAME*6
+  74   82   3 D        A U E            THRESH
+  75   82   6 L        A U E            TRACE
+  76          L         MU E            TRANA
+  77          C*1       MU E            TRANAS*1
+  78          L         MU E            TRANB
+  79          C*1       MU E            TRANBS*1
+  80          C*1       MU E            TRANSA*1
+  81          C*1       MU E            TRANSB*1
+  82         S     (26) MU        127   ZCHK1(SNAME,EPS,THRESH,NOUT,NTRA,TRACE,REWI,FATAL,NIDIM,IDIM,NALF,ALF,NBET,BET,NMAX,A,AA,AS,B,BB,BS,C,CC,CS,CT,G)
+  83         PX*16       ? E            ZERO*16=(0.0D0,0.0D0)
+  84         s     (13)  UX             ZGEMM
+     (C1V,C1V,I4V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V)
+  85         s     (11)  UX             ZMAKE
+     (C*E,C*E,C*E,I4V,I4V,XGA,I4V,XGA,I4V,L4V,XGE)
+  86         s     (22)  UX             ZMMCH
+     (C1V,C1V,I4V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V,XGA,R8A,XGA,I4V,R8V
+     ,R8V,L4V,I4V,L4E)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHK1391 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHK2 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0000692,0000970
+   1         C     / 4/  U         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2   77  16 X*16 ( 2)A?? E            A(NMAX,NMAX)*16
+   3   77  17 X*16 ( 1)A?U E            AA(NMAX*NMAX)*16
+   4   77  12 X*16 ( 1)A U E            ALF(NALF)*16
+   5          X*16      MU E            ALPHA*16
+   6          X*16      MU E            ALS*16
+   7   77  18 X*16 ( 1)AM? E            AS(NMAX*NMAX)*16
+   8   77  19 X*16 ( 2)A?? E            B(NMAX,NMAX)*16
+   9   77  20 X*16 ( 1)A?U E            BB(NMAX*NMAX)*16
+  10   77  14 X*16 ( 1)A U E            BET(NBET)*16
+  11          X*16      MU E            BETA*16
+  12          X*16      MU E            BLS*16
+  13   77  21 X*16 ( 1)AM? E            BS(NMAX*NMAX)*16
+  14   77  22 X*16 ( 2)A?? E            C(NMAX,NMAX)*16
+  15   77  23 X*16 ( 1)A?U E            CC(NMAX*NMAX)*16
+  16          L         MU E            CONJ
+  17   77  24 X*16 ( 1)AM? E            CS(NMAX*NMAX)*16
+  18   77  25 X*16 ( 1)A?? E            CT(NMAX)*16
+  19   77   2 D        A?? E            EPS
+  20          D         ?U E            ERR
+  21          D         MU E            ERRMAX
+  22   77   8 L        AMU E            FATAL
+  23   77  26 D    ( 1)A?? E            G(NMAX)
+  24          I         MU E            I
+  25          I         MU E            IA
+  26          I         MU E            IB
+  27          C*2      I U E            ICHS*2
+  28          C*2      I U E            ICHU*2
+  29          I         MU E            ICS
+  30          I         MU E            ICU
+  31   77  10 I    ( 1)A U E            IDIM(NIDIM)
+  32          I         MU E            IM
+  33          I         MU E            IN
+  34    1   1 I        C   E            INFOT
+  35          L    ( 1) MU E       13   ISAME(13)
+  36          I         MU E            LAA
+  37          I         MU E            LBB
+  38          I         MU E            LCC
+  39          I         MU E            LDA
+  40          I         MU E            LDAS
+  41          I         MU E            LDB
+  42          I         MU E            LDBS
+  43          I         MU E            LDC
+  44          I         MU E            LDCS
+  45          L         MU E            LEFT
+  46    1   4 L        C   E            LERR
+  47         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  48         fL    ( 7)  UXE            LZERES
+     (C*E,C*E,I4V,I4V,XGA,XGA,I4V)
+  49          I         MU E            M
+  50         I?    ( 2)  UNI            MAX
+  51          I         MU E            MS
+  52          I         MU E            N
+  53          I         MU E            NA
+  54   77  11 I        A U E            NALF
+  55          I         MU E            NARGS
+  56   77  13 I        A U E            NBET
+  57          I         MU E            NC
+  58   77   9 I        A U E            NIDIM
+  59   77  15 I        A?U E            NMAX
+  60   77   4 I        A?U E            NOUT
+  61    1   2 I        C   E            NOUTC
+  62          I         MU E            NS
+  63   77   5 I        A U E            NTRA
+  64          L         MU E            NULL
+  65    1   3 L        C U E            OK
+  66          L         M? E            RESET
+  67   77   7 L        A U E            REWI
+  68         PD          U E            RZERO=0.0D0
+  69          L         MU E            SAME
+  70          C*1       MU E            SIDE*1
+  71          C*1       MU E            SIDES*1
+  72   77   1 C*6      A?U E            SNAME*6
+  73   77   3 D        A U E            THRESH
+  74   77   6 L        A U E            TRACE
+  75          C*1       MU E            UPLO*1
+  76          C*1       MU E            UPLOS*1
+  77         S     (26) MU        121   ZCHK2(SNAME,EPS,THRESH,NOUT,NTRA,TRACE,REWI,FATAL,NIDIM,IDIM,NALF,ALF,NBET,BET,NMAX,A,AA,AS,B,BB,BS,C,CC,CS,CT,G)
+  78         PX*16       ? E            ZERO*16=(0.0D0,0.0D0)
+  79         s     (12)  UX             ZHEMM
+     (C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V)
+  80         s     (11)  UX             ZMAKE
+     (C*E,C*E,C*E,I4V,I4V,XGA,I4V,XGA,I4V,L4V,XGE)
+  81         s     (22)  UX             ZMMCH
+     (C*E,C*E,I4V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V,XGA,R8A,XGA,I4V,R8V
+     ,R8V,L4V,I4V,L4E)
+  82         s     (12)  UX             ZSYMM
+     (C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHK2672 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHK3 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0000971,0001281
+   1         C     / 4/  U         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2   76  14 X*16 ( 2)A?? E            A(NMAX,NMAX)*16
+   3   76  15 X*16 ( 1)A?U E            AA(NMAX*NMAX)*16
+   4   76  12 X*16 ( 1)A U E            ALF(NALF)*16
+   5          X*16      MU E            ALPHA*16
+   6          X*16      MU E            ALS*16
+   7   76  16 X*16 ( 1)AM? E            AS(NMAX*NMAX)*16
+   8   76  17 X*16 ( 2)A?U E            B(NMAX,NMAX)*16
+   9   76  18 X*16 ( 1)AMU E            BB(NMAX*NMAX)*16
+  10   76  19 X*16 ( 1)AM? E            BS(NMAX*NMAX)*16
+  11   76  22 X*16 ( 2)AM? E            C(NMAX,NMAX)*16
+  12   76  20 X*16 ( 1)A?? E            CT(NMAX)*16
+  13          C*1       MU E            DIAG*1
+  14          C*1       MU E            DIAGS*1
+  15   76   2 D        A?? E            EPS
+  16          D         ?U E            ERR
+  17          D         MU E            ERRMAX
+  18   76   8 L        AMU E            FATAL
+  19   76  21 D    ( 1)A?? E            G(NMAX)
+  20          I         MU E            I
+  21          I         MU E            IA
+  22          I         MU E            ICD
+  23          C*2      I U E            ICHD*2
+  24          C*2      I U E            ICHS*2
+  25          C*3      I U E            ICHT*3
+  26          C*2      I U E            ICHU*2
+  27          I         MU E            ICS
+  28          I         MU E            ICT
+  29          I         MU E            ICU
+  30   76  10 I    ( 1)A U E            IDIM(NIDIM)
+  31          I         MU E            IM
+  32          I         MU E            IN
+  33    1   1 I        C   E            INFOT
+  34          L    ( 1) MU E       13   ISAME(13)
+  35          I         MU E            J
+  36          I         MU E            LAA
+  37          I         MU E            LBB
+  38          I         MU E            LDA
+  39          I         MU E            LDAS
+  40          I         MU E            LDB
+  41          I         MU E            LDBS
+  42          L         MU E            LEFT
+  43    1   4 L        C   E            LERR
+  44         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  45         fL    ( 7)  UXE            LZERES
+     (C*E,C*E,I4V,I4V,XGA,XGA,I4V)
+  46          I         MU E            M
+  47         I?    ( 2)  UNI            MAX
+  48          I         MU E            MS
+  49          I         MU E            N
+  50          I         MU E            NA
+  51   76  11 I        A U E            NALF
+  52          I         MU E            NARGS
+  53          I         MU E            NC
+  54   76   9 I        A U E            NIDIM
+  55   76  13 I        A?U E            NMAX
+  56   76   4 I        A?U E            NOUT
+  57    1   2 I        C   E            NOUTC
+  58          I         MU E            NS
+  59   76   5 I        A U E            NTRA
+  60          L         MU E            NULL
+  61    1   3 L        C U E            OK
+  62         PX*16       ? E            ONE*16=(1.0D0,0.0D0)
+  63          L         M? E            RESET
+  64   76   7 L        A U E            REWI
+  65         PD          U E            RZERO=0.0D0
+  66          L         MU E            SAME
+  67          C*1       MU E            SIDE*1
+  68          C*1       MU E            SIDES*1
+  69   76   1 C*6      A U E            SNAME*6
+  70   76   3 D        A U E            THRESH
+  71   76   6 L        A U E            TRACE
+  72          C*1       MU E            TRANAS*1
+  73          C*1       MU E            TRANSA*1
+  74          C*1       MU E            UPLO*1
+  75          C*1       MU E            UPLOS*1
+  76         S     (22) MU        135   ZCHK3(SNAME,EPS,THRESH,NOUT,NTRA,TRACE,REWI,FATAL,NIDIM,IDIM,NALF,ALF,NMAX,A,AA,AS,B,BB,BS,CT,G,C)
+  77         PX*16       U E            ZERO*16=(0.0D0,0.0D0)
+  78         s     (11)  UX             ZMAKE
+     (C*E,C*E,C*E,I4V,I4V,XGA,I4V,XGA,I4V,L4V,XGE)
+  79         s     (22)  UX             ZMMCH
+     (C*E,C*E,I4V,I4V,I4V,XGE,XGA,I4V,XGA,I4V,XGE,XGA,I4V,XGA,R8A,XGA,I4V,R8V
+     ,R8V,L4V,I4V,L4E)
+  80         s     (11)  UX             ZTRMM
+     (C1V,C1V,C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V)
+  81         s     (11)  UX             ZTRSM
+     (C1V,C1V,C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHK3944 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHK4 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0001282,0001613
+   1         C     / 4/  U         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2   88  16 X*16 ( 2)A?? E            A(NMAX,NMAX)*16
+   3   88  17 X*16 ( 1)A?U E            AA(NMAX*NMAX)*16
+   4   88  12 X*16 ( 1)A U E            ALF(NALF)*16
+   5          X*16      MU E            ALPHA*16
+   6          X*16      MU E            ALS*16
+   7   88  18 X*16 ( 1)AM? E            AS(NMAX*NMAX)*16
+   8   88  19 X*16 ( 2)A   E            B(NMAX,NMAX)*16
+   9   88  20 X*16 ( 1)A   E            BB(NMAX*NMAX)*16
+  10   88  14 X*16 ( 1)A U E            BET(NBET)*16
+  11          X*16      MU E            BETA*16
+  12          X*16      MU E            BETS*16
+  13   88  21 X*16 ( 1)A   E            BS(NMAX*NMAX)*16
+  14   88  22 X*16 ( 2)A?? E            C(NMAX,NMAX)*16
+  15   88  23 X*16 ( 1)A?U E            CC(NMAX*NMAX)*16
+  16          L         MU E            CONJ
+  17   88  24 X*16 ( 1)AM? E            CS(NMAX*NMAX)*16
+  18   88  25 X*16 ( 1)A?? E            CT(NMAX)*16
+  19         ID    ( 1)  UNI            DBLE
+  20         I?    ( 2)  UNI            DCMPLX
+  21   88   2 D        A?? E            EPS
+  22          D         ?U E            ERR
+  23          D         MU E            ERRMAX
+  24   88   8 L        AMU E            FATAL
+  25   88  26 D    ( 1)A?? E            G(NMAX)
+  26          I         MU E            I
+  27          I         MU E            IA
+  28          I         MU E            IB
+  29          C*2      I U E            ICHT*2
+  30          C*2      I U E            ICHU*2
+  31          I         MU E            ICT
+  32          I         MU E            ICU
+  33   88  10 I    ( 1)A U E            IDIM(NIDIM)
+  34          I         MU E            IK
+  35          I         MU E            IN
+  36    1   1 I        C   E            INFOT
+  37          L    ( 1) MU E       13   ISAME(13)
+  38          I         MU E            J
+  39          I         MU E            JC
+  40          I         MU E            JJ
+  41          I         MU E            K
+  42          I         MU E            KS
+  43          I         MU E            LAA
+  44          I         MU E            LCC
+  45          I         MU E            LDA
+  46          I         MU E            LDAS
+  47          I         MU E            LDC
+  48          I         MU E            LDCS
+  49    1   4 L        C   E            LERR
+  50          I         M? E            LJ
+  51         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  52         fL    ( 7)  UXE            LZERES
+     (C*V,C1V,I4V,I4V,XGA,XGA,I4V)
+  53          I         MU E            MA
+  54         I?    ( 2)  UNI            MAX
+  55          I         MU E            N
+  56          I         MU E            NA
+  57   88  11 I        A U E            NALF
+  58          I         MU E            NARGS
+  59   88  13 I        A U E            NBET
+  60          I         MU E            NC
+  61   88   9 I        A U E            NIDIM
+  62   88  15 I        A?U E            NMAX
+  63   88   4 I        A?U E            NOUT
+  64    1   2 I        C   E            NOUTC
+  65          I         MU E            NS
+  66   88   5 I        A U E            NTRA
+  67          L         MU E            NULL
+  68    1   3 L        C U E            OK
+  69          D         MU E            RALPHA
+  70          D         MU E            RALS
+  71          D         MU E            RBETA
+  72          D         MU E            RBETS
+  73          L         M? E            RESET
+  74   88   7 L        A U E            REWI
+  75         PD          U E            RONE=1.0D0
+  76         PD          U E            RZERO=0.0D0
+  77          L         MU E            SAME
+  78   88   1 C*6      A?U E            SNAME*6
+  79   88   3 D        A U E            THRESH
+  80   88   6 L        A U E            TRACE
+  81          L         MU E            TRAN
+  82          C*1       MU E            TRANS*1
+  83          C*1       MU E            TRANSS*1
+  84          C*1       M? E            TRANST*1
+  85          C*1       MU E            UPLO*1
+  86          C*1       MU E            UPLOS*1
+  87          L         MU E            UPPER
+  88         S     (26) MU        167   ZCHK4(SNAME,EPS,THRESH,NOUT,NTRA,TRACE,REWI,FATAL,NIDIM,IDIM,NALF,ALF,NBET,BET,NMAX,A,AA,AS,B,BB,BS,C,CC,CS,CT,G)
+  89         PX*16       ? E            ZERO*16=(0.0D0,0.0D0)
+  90         s     (10)  UX             ZHERK
+     (C1V,C1V,I4V,I4V,R8V,XGA,I4V,R8V,XGA,I4V)
+  91         s     (11)  UX             ZMAKE
+     (C*E,C*E,C*E,I4V,I4V,XGA,I4V,XGA,I4V,L4V,XGE)
+  92         s     (22)  UX             ZMMCH
+     (C*E,C*E,I4V,I4E,I4V,XGV,XGL,I4V,XGL,I4V,XGV,XGL,I4V,XGA,R8A,XGL,I4V,R8V
+     ,R8V,L4V,I4V,L4E)
+  93         s     (10)  UX             ZSYRK
+     (C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGV,XGA,I4V)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHK41241 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHK5 in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0001614,0001987
+   1         C     / 4/  U         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2   92  17 X*16 ( 1)A?U E            AA(NMAX*NMAX)*16
+   3   92  16 X*16 ( 1)A?U E            AB(2*NMAX*NMAX)*16
+   4   92  12 X*16 ( 1)A U E            ALF(NALF)*16
+   5          X*16      MU E            ALPHA*16
+   6          X*16      MU E            ALS*16
+   7   92  18 X*16 ( 1)AM? E            AS(NMAX*NMAX)*16
+   8   92  19 X*16 ( 1)A?U E            BB(NMAX*NMAX)*16
+   9   92  14 X*16 ( 1)A U E            BET(NBET)*16
+  10          X*16      MU E            BETA*16
+  11          X*16      MU E            BETS*16
+  12   92  20 X*16 ( 1)AM? E            BS(NMAX*NMAX)*16
+  13   92  21 X*16 ( 2)A?? E            C(NMAX,NMAX)*16
+  14   92  22 X*16 ( 1)A?U E            CC(NMAX*NMAX)*16
+  15          L         MU E            CONJ
+  16   92  23 X*16 ( 1)AM? E            CS(NMAX*NMAX)*16
+  17   92  24 X*16 ( 1)A?? E            CT(NMAX)*16
+  18         ID    ( 1)  UNI            DBLE
+  19         I?    ( 2)  UNI            DCMPLX
+  20         I?    ( 1)  UNI            DCONJG
+  21   92   2 D        A?? E            EPS
+  22          D         ?U E            ERR
+  23          D         MU E            ERRMAX
+  24   92   8 L        AMU E            FATAL
+  25   92  25 D    ( 1)A?? E            G(NMAX)
+  26          I         MU E            I
+  27          I         MU E            IA
+  28          I         MU E            IB
+  29          C*2      I U E            ICHT*2
+  30          C*2      I U E            ICHU*2
+  31          I         MU E            ICT
+  32          I         MU E            ICU
+  33   92  10 I    ( 1)A U E            IDIM(NIDIM)
+  34          I         MU E            IK
+  35          I         MU E            IN
+  36    1   1 I        C   E            INFOT
+  37          L    ( 1) MU E       13   ISAME(13)
+  38          I         MU E            J
+  39          I         MU E            JC
+  40          I         MU E            JJ
+  41          I         MU E            JJAB
+  42          I         MU E            K
+  43          I         MU E            KS
+  44          I         MU E            LAA
+  45          I         MU E            LBB
+  46          I         MU E            LCC
+  47          I         MU E            LDA
+  48          I         MU E            LDAS
+  49          I         MU E            LDB
+  50          I         MU E            LDBS
+  51          I         MU E            LDC
+  52          I         MU E            LDCS
+  53    1   4 L        C   E            LERR
+  54          I         M? E            LJ
+  55         fL    ( 3)  UXE            LZE
+     (XGA,XGA,I4V)
+  56         fL    ( 7)  UXE            LZERES
+     (C*E,C1V,I4V,I4V,XGA,XGA,I4V)
+  57          I         MU E            MA
+  58         I?    ( 2)  UNI            MAX
+  59          I         MU E            N
+  60          I         MU E            NA
+  61   92  11 I        A U E            NALF
+  62          I         MU E            NARGS
+  63   92  13 I        A U E            NBET
+  64          I         MU E            NC
+  65   92   9 I        A U E            NIDIM
+  66   92  15 I        A?U E            NMAX
+  67   92   4 I        A?U E            NOUT
+  68    1   2 I        C   E            NOUTC
+  69          I         MU E            NS
+  70   92   5 I        A U E            NTRA
+  71          L         MU E            NULL
+  72    1   3 L        C U E            OK
+  73         PX*16       ? E            ONE*16=(1.0D0,0.0D0)
+  74          D         MU E            RBETA
+  75          D         MU E            RBETS
+  76          L         M? E            RESET
+  77   92   7 L        A U E            REWI
+  78         PD          U E            RONE=1.0D0
+  79         PD          U E            RZERO=0.0D0
+  80          L         MU E            SAME
+  81   92   1 C*6      A?U E            SNAME*6
+  82   92   3 D        A U E            THRESH
+  83   92   6 L        A U E            TRACE
+  84          L         MU E            TRAN
+  85          C*1       MU E            TRANS*1
+  86          C*1       MU E            TRANSS*1
+  87          C*1       M? E            TRANST*1
+  88          C*1       MU E            UPLO*1
+  89          C*1       MU E            UPLOS*1
+  90          L         MU E            UPPER
+  91   92  26 X*16 ( 1)AM? E            W(2*NMAX)*16
+  92         S     (26) MU        191   ZCHK5(SNAME,EPS,THRESH,NOUT,NTRA,TRACE,REWI,FATAL,NIDIM,IDIM,NALF,ALF,NBET,BET,NMAX,AB,AA,AS,BB,BS,C,CC,CS,CT,G,W)
+  93         PX*16       U E            ZERO*16=(0.0D0,0.0D0)
+  94         s     (12)  UX             ZHER2K
+     (C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,R8V,XGA,I4V)
+  95         s     (11)  UX             ZMAKE
+     (C*E,C*E,C*E,I4V,I4V,XGA,I4E,XGA,I4V,L4V,XGE)
+  96         s     (22)  UX             ZMMCH
+     (C*E,C*E,I4V,I4E,I4E,XGE,XGL,I4E,XGA,I4E,XGV,XGL,I4V,XGA,R8A,XGL,I4V,R8V
+     ,R8V,L4V,I4V,L4E)
+  97         s     (12)  UX             ZSYR2K
+     (C1V,C1V,I4V,I4V,XGV,XGA,I4V,XGA,I4V,XGV,XGA,I4V)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHK51563 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZCHKE in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0001988,0002931
+   1         C     / 4/ MU         16   /INFOC/INFOT,NOUTC,OK,LERR
+   2          X*16 ( 2) ?? E        2   A(2,1)*16
+   3          X*16      M? E            ALPHA*16
+   4          X*16 ( 2) ?? E        2   B(2,1)*16
+   5          X*16      M? E            BETA*16
+   6          X*16 ( 2) ?? E        2   C(2,1)*16
+   7         s     ( 5)  UX             CHKXER
+     (C6V,I4V,I4V,L4V,L4V)
+   8         I?    ( 2)  UNI            DCMPLX
+   9    1   1 I        CM? E            INFOT
+  10   20   1 I        A U E            ISNUM
+  11    1   4 L        CM? E            LERR
+  12   20   3 I        A?U E            NOUT
+  13    1   2 I        C   E            NOUTC
+  14    1   3 L        CMU E            OK
+  15         PR          U E            ONE=1.0D0
+  16          D         M? E            RALPHA
+  17          D         M? E            RBETA
+  18   20   2 C*6      A?U E            SRNAMT*6
+  19         PR          U E            TWO=2.0D0
+  20         S     ( 3) ?U        885   ZCHKE(ISNUM,SRNAMT,NOUT)
+  21         s     (13)  UX             ZGEMM
+     (C*E,C*E,I4E,I4E,I4E,XGV,XGA,I4E,XGA,I4E,XGV,XGA,I4E)
+  22         s     (12)  UX             ZHEMM
+     (C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E,XGV,XGA,I4E)
+  23         s     (12)  UX             ZHER2K
+     (C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E,R8V,XGA,I4E)
+  24         s     (10)  UX             ZHERK
+     (C*E,C*E,I4E,I4E,R8V,XGA,I4E,R8V,XGA,I4E)
+  25         s     (12)  UX             ZSYMM
+     (C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E,XGV,XGA,I4E)
+  26         s     (12)  UX             ZSYR2K
+     (C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E,XGV,XGA,I4E)
+  27         s     (10)  UX             ZSYRK
+     (C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGV,XGA,I4E)
+  28         s     (11)  UX             ZTRMM
+     (C*E,C*E,C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E)
+  29         s     (11)  UX             ZTRSM
+     (C*E,C*E,C*E,C*E,I4E,I4E,XGV,XGA,I4E,XGA,I4E)
+**-- END OF SYMBOL TABLE
+**+-!*--ZCHKE1917 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZMAKE in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0002932,0003060
+   1   33   6 X*16 ( 2)AMU E            A(NMAX,*)*16
+   2   33   8 X*16 ( 1)AMU E            AA(*)*16
+   3         ID    ( 1)  UNI            DBLE
+   4         I?    ( 2)  UNI            DCMPLX
+   5         I?    ( 1)  UNI            DCONJG
+   6   33   3 C*1      A U E            DIAG*1
+   7          L         MU E            GEN
+   8          L         MU E            HER
+   9          I         MU E            I
+  10          I         MU E            IBEG
+  11          I         MU E            IEND
+  12          I         MU E            J
+  13          I         MU E            JJ
+  14   33   9 I        A U E            LDA
+  15          L         MU E            LOWER
+  16   33   4 I        A U E            M
+  17   33   5 I        A U E            N
+  18   33   7 I        A U E            NMAX
+  19         PX*16       U E            ONE*16=(1.0D0,0.0D0)
+  20   33  10 L        A?? E            RESET
+  21         PX*16       U E            ROGUE*16=(-1.0D10,1.0D10)
+  22         PD          U E            RROGUE=-1.0D10
+  23         PD          U E            RZERO=0.0D0
+  24          L         MU E            SYM
+  25   33  11 X*16     A U E            TRANSL*16
+  26          L         MU E            TRI
+  27   33   1 C*2      A U E            TYPE*2
+  28          L         MU E            UNIT
+  29   33   2 C*1      A U E            UPLO*1
+  30          L         MU E            UPPER
+  31         fX*16 ( 1)  UXE            ZBEG*16
+     (L4V)
+  32         PX*16       U E            ZERO*16=(0.0D0,0.0D0)
+  33         S     (11) MU         69   ZMAKE(TYPE,UPLO,DIAG,M,N,A,NMAX,AA,LDA,RESET,TRANSL)
+**-- END OF SYMBOL TABLE
+**+-!*--ZMAKE2864 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZMMCH in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003061,0003250
+   1   42   7 X*16 ( 2)A U E            A(LDA,*)*16
+   2         I?    ( 1)  UNI            ABS
+   3         GD    ( 1)  U E            ABS1
+   4   42   6 X*16     A U E            ALPHA*16
+   5   42   9 X*16 ( 2)A U E            B(LDB,*)*16
+   6   42  11 X*16     A U E            BETA*16
+   7   42  12 X*16 ( 2)A U E            C(LDC,*)*16
+   8   42  16 X*16 ( 2)A U E            CC(LDCC,*)*16
+   9          X*16      ?U E            CL*16
+  10   42  14 X*16 ( 1)AMU E            CT(*)*16
+  11          L         MU E            CTRANA
+  12          L         MU E            CTRANB
+  13         ID    ( 1)  UNI            DBLE
+  14         I?    ( 1)  UNI            DCONJG
+  15         I?    ( 1)  UNI            DIMAG
+  16   42  18 D        A U E            EPS
+  17   42  19 D        AMU E            ERR
+  18          D         MU E            ERRI
+  19   42  20 L        AM  E            FATAL
+  20   42  15 D    ( 1)AMU E            G(*)
+  21          I         MU E            I
+  22          I         MU E            J
+  23          I         MU E            K
+  24   42   5 I        A U E            KK
+  25   42   8 I        A U E            LDA
+  26   42  10 I        A U E            LDB
+  27   42  13 I        A U E            LDC
+  28   42  17 I        A U E            LDCC
+  29   42   3 I        A U E            M
+  30         I?    ( 2)  UNI            MAX
+  31   42  22 L        A U E            MV
+  32   42   4 I        A U E            N
+  33   42  21 I        A U E            NOUT
+  34         PD          U E            RONE=1.0D0
+  35         PD          U E            RZERO=0.0D0
+  36         I?    ( 1)  UNI            SQRT
+  37          L         MU E            TRANA
+  38          L         MU E            TRANB
+  39   42   1 C*1      A U E            TRANSA*1
+  40   42   2 C*1      A U E            TRANSB*1
+  41         PX*16       U E            ZERO*16=(0.0D0,0.0D0)
+  42         S     (22) MU        109   ZMMCH(TRANSA,TRANSB,M,N,KK,ALPHA,A,LDA,B,LDB,BETA,C,LDC,CT,G,CC,LDCC,EPS,ERR,FATAL,NOUT,MV)
+**-- END OF SYMBOL TABLE
+**+-!*--ZMMCH2990 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram LZE in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003251,0003282
+   1          I         MU E            I
+   2    3   3 I        A U E            LR
+   3         FL    ( 3) MU E        8   LZE(RI,RJ,LR)
+   4    3   1 X*16 ( 1)A U E            RI(*)*16
+   5    3   2 X*16 ( 1)A U E            RJ(*)*16
+**-- END OF SYMBOL TABLE
+**+-!*--LZE3163 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram LZERES in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003283,0003343
+   1    8   5 X*16 ( 2)A U E            AA(LDA,*)*16
+   2    8   6 X*16 ( 2)A U E            AS(LDA,*)*16
+   3          I         MU E            I
+   4          I         MU E            IBEG
+   5          I         MU E            IEND
+   6          I         MU E            J
+   7    8   7 I        A U E            LDA
+   8         FL    ( 7) MU E       29   LZERES(TYPE,UPLO,M,N,AA,AS,LDA)
+   9    8   3 I        A U E            M
+  10    8   4 I        A U E            N
+  11    8   1 C*2      A U E            TYPE*2
+  12    8   2 C*1      A U E            UPLO*1
+  13          L         MU E            UPPER
+**-- END OF SYMBOL TABLE
+**+-!*--LZERES3195 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram ZBEG in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003344,0003397
+   1         I?    ( 2)  UNI            DCMPLX
+   2          I        SMU E            I
+   3          I        SMU E            IC
+   4          I        SMU E            J
+   5          I        SMU E            MI
+   6          I        SMU E            MJ
+   7    8   1 L        AMU E            RESET
+   8         FX*16 ( 1) MU E       19   ZBEG*16(RESET)
+**-- END OF SYMBOL TABLE
+**+-!*--ZBEG3254 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram DDIFF in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003398,0003416
+   1         FD    ( 2) MU E        2   DDIFF(X,Y)
+   2    1   1 D        A U E            X
+   3    1   2 D        A U E            Y
+**-- END OF SYMBOL TABLE
+**+-!*--DDIFF3313 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram CHKXER in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003417,0003446
+   1         S     ( 5) MU          6   CHKXER(SRNAMT,INFOT,NOUT,LERR,OK)
+   2    1   2 I        A U E            INFOT
+   3    1   4 L        AMU E            LERR
+   4    1   3 I        A U E            NOUT
+   5    1   5 L        AM  E            OK
+   6    1   1 C*6      A U E            SRNAMT*6
+**-- END OF SYMBOL TABLE
+**+-!*--CHKXER3334 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90
+**++ Symbol table for subprogram XERBLA in file zblat3.f
+     produced by SPAG     7.51RB-40 at 20:37:25 on  3 Mar 2022
+   0         X                           zblat3.f,0003447,0003501
+   1         C     / 4/ MU         16   /INFOC/INFOT,NOUT,OK,LERR
+   2         C     / 1/  U          6   /SRNAMC/SRNAMT
+   3   10   2 I        A U E            INFO
+   4    1   1 I        C U E            INFOT
+   5    1   4 L        CM  E            LERR
+   6    1   2 I        C U E            NOUT
+   7    1   3 L        CM  E            OK
+   8   10   1 C*6      A U E            SRNAME*6
+   9    2   1 C*6      C U E            SRNAMT*6
+  10         S     ( 2)  U         14   XERBLA(SRNAME,INFO)
+**-- END OF SYMBOL TABLE
+**+-!*--XERBLA3367 /home/urbanjs/venus/V600/github/lapack_/feed/my_lapack/BLAS/TESTING/SPAGged/zblat3.f90

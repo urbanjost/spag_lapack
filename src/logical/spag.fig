@@ -1,0 +1,489 @@
+  #====================================#
+  #======== Global Run Control ========#
+  #====================================#
+
+1=3    Type of Run
+         0=no source output
+         1=beautify only
+         2=and relabel
+         3=and restructure
+         4=dynamic analysis
+
+2=2    Symbol Table Output
+        -1=no symbol table
+         0=generate table
+         1=write to file
+         3=Verbose
+
+3=3    Clutter Checks
+         0=no clutter checks
+         1=checks only
+         2-5=remove clutter
+
+4=76   Declaration Standardization
+         0=no inserted declarations
+         1=insert type stmt for
+           undefined variables
+         2=add IMPLICIT NONE
+         3=rewrite all decs F77 style
+         4=add IMPLICIT NONE
+         5=rewrite all decs F90 style
+         6=add IMPLICIT NONE
+           +10 add EXTERNAL     (F77)
+               or create INTERFACE
+               modules          (F90)
+           +20 add INTENT for
+               arguments        (F90)
+           +40 create modules for
+               COMMONs and INCLUDE
+               files            (F90)
+       100=use all F90 extensions
+
+5=0    Variable Renaming
+         0=no name changes
+         1=change symbol names
+             (see 211)
+
+6=0    Coverage Analysis
+         0=no call trace
+         1=insert CALL & RETURN trace
+           stmnts (see 243-246)
+         2=insert coverage analysis
+           probes & create .cvr files
+
+7=0    Complexity Metrics
+         0=no metrics
+         1='before and after' metrics
+
+8=1    Embed Interface Description
+         0=no interface description
+         1=insert markers which GXCHK
+           replaces with subprogram
+           interface description.
+
+10=1   Output File Organization
+         0=one output file
+         1=one output file per input
+         2=one output file per routine
+
+11=-1  Interface Module Organization
+         0=one output file
+         1=one output file per input
+         2=one output file per routine
+
+12=0   Safe Functions
+         0=functions not in safe func
+           list assumed unsafe
+         1=assumed safe
+
+18=0   Configuration Data Summary
+         0=no summary
+         1=insert summary in output
+
+  #====================================#
+  #== Primary Restructuring Controls ==#
+  #====================================#
+
+20=2  Computed GOTO
+        0=leave comp GOTO alone
+        1=convert to block IF
+        2=convert to SELECT CASE
+
+21=0  SELECT CASE
+        0=leave SELECT CASE alone
+        1=convert to block IF
+
+22=1  Arithmetic IF
+        0=leave arithmetic IF alone
+        1=convert to block IF
+
+23=1  Logical IF + GOTO
+        0=leave log IF+GOTO alone
+        1=convert to block IF
+
+24=3  DO WHILE
+       -3=remove DO WHILE
+        0=no change
+        3=use DO WHILE where possible
+
+25=3  EXIT and CYCLE
+        0=don't use F90 EXIT or CYCLE
+        1=use EXIT
+        2=use CYCLE
+        3=use both
+
+26=1  Code Replication
+        0=no code replication
+        1=allow replication
+        2=comment replications
+        3=prompt before replicating
+
+27=0  Relocation into DO loop
+        0=don't allow code to be
+          relocated into a DO loop
+        1=allow it
+
+28=1  Relocation of RETURN or STOP
+        0=allow relocation of RETURN
+          and STOP followed by END
+        1=disallow if followed by END
+
+29=0  Unreachable Code
+        0=message
+        1=delete unreachable code
+
+30=1  VAX structure
+        0=leave VAX structures
+        1=convert to F90 derived types
+
+35=2  Dynamic Analysis Resolution
+        minimum datum size (bytes)
+
+36=0  Dynamic Analysis Assumptions
+        0=assume local vars dynamic
+        1=assume local vars static
+
+  #====================================#
+  #===== Output Language Choices ======#
+  #====================================#
+
+40=2  Relocation of FORMATs
+        0=don't move FORMAT statements
+        1=relocate before END statement#
+        2=FORMATs which are used once
+          are placed after statement
+          that uses them. Others are
+          relocated before END.
+
+41=0  CONTINUE at labels
+        0=no CONTINUE for every label
+        1=insert CONTINUE for labels
+
+42=2  Single Statement block IFs
+        0=no change
+        1=convert to logical IF + GOTO
+        2=always convert to logical IF
+       -1=convert logical IFs to
+          single statement block IFs
+
+43=1  Null IF blocks
+        0=don't convert null IF
+          followed by ELSE
+        1=convert be reversing logic
+
+44=0  Require ELSE after ELSEIF
+        0=don't add redundant ELSE
+        1=ensure ELSE follows ELSEIF
+
+45=2  DO loop terminator
+        0=CONTINUE as DO terminator
+        1=use ENDDO on DO WHILE loops
+        2=always use ENDDO
+
+46=0  Hollerith Constants and "
+        0=convert Holleriths to
+          character constants
+        1=and convert " to '
+        2=preserve Holleriths
+
+47=1  Relational Operators
+       -1=don't change relational ops
+        0=use F77 style (.LT. etc)
+        1=use F90 style (<,<= etc.)
+
+48=2  END statements
+        0=leave END alone
+        1=use END SUBROUTINE (etc)
+        2=use END SUBROUTINE name
+
+49=1  Redundant RETURN and STOP
+        0=leave RETURN/STOP
+        1=remove redundant RETURN/STOP
+          before END
+
+  #====================================#
+  #====== Input Language Choices ======#
+  #====================================#
+
+51=72 Input file record length (<=512)
+
+52=1  Continued Character Constants
+        0=don't pad continued character#
+          constants with spaces
+        1=do pad
+
+53=0  Unpaired Apostrophe
+        0=disallow use of unpaired '
+          in DEFINE FILE etc
+        1=allow it
+
+54=0  PARAMETER with no brackets
+        0=disallow PDP style PARAMETER
+          with no brackets
+        1=allow it
+
+55=0  FUNCTION with no arguments
+        0=disallow FUNCTION with no
+          argument list
+        1=allow it
+
+56=1  Location of INCLUDE files
+        0=INCLUDE files assumed
+          in current directory
+        1=assumed in source directory
+
+59=0  Embedded SQL
+        0=disallow EXEC SQL
+        1=allow EXEC SQL
+
+  #====================================#
+  #====== Spacing and formatting ======#
+  #====================================#
+
+60=0  Reformat all Declarations
+        0=reformat declarations
+        1=implied "ASIS" for all
+          declaration statements
+
+61=0  Use of TAB character
+        0=don't use tabs in output
+        n =use tabs (every nth column)
+
+      Spacing in Fortran Keywords
+62=0    0 for GOTO
+        1 for GO TO
+63=0    0 for ELSEIF, ENDIF, ENDDO
+        1 for ELSE IF, END IF, END DO
+64=0    0 for BLOCKDATA
+        1 for BLOCK DATA
+65=1    0 for DOUBLEPRECISION
+        1 for DOUBLE PRECISION
+66=2    0=no space after keywords
+        1=space except before (
+        2=space after all keywords
+
+      Spacing around Fortran Operators
+67=1    space either side of + and -
+        if <n brackets open
+68=1    space either side of =
+        if <n brackets open
+69=4    space either side of .AND. .OR.#
+        if <n brackets open
+70=1    space either side of ,
+        if <n brackets open
+         (no space before , if n -ive)
+71=1    0=no extra space inside ( )
+          of IF
+        1=extra space
+73=0    space either side of //
+        if <n brackets open
+
+79=0  "One per Line" Declarations
+          (if item 4=3 or 4)
+        0=no special formatting
+        1=One per Line declarations
+        2=also in PARAMETER, SAVE,
+          EXTERNAL and INTRINSIC
+
+  #====================================#
+  #========= Statement Labels =========#
+  #====================================#
+
+80=0   Regenerate Statement Labels
+         0=complete relabel
+         n=preserve existing labels
+           >=n if possible
+
+       Label Base and Increments
+81=0     start number for re-labelling
+            (except FORMAT statements)
+82=100   increment for unindented code
+83=50    increment for 1 indent code
+84=20    increment for 2 indent code
+85=10    increment for 3 indent code
+86=5     increment for 4 indent code
+87=2     increment for >=5 indent code
+
+       Format Label Base and Increment
+88=99000 start number for re-labelling
+                 (FORMAT statements)
+89=1     FORMAT label increment
+
+90=2   Label Justification
+         0=right justified column 5
+         n=left  justified column n
+
+  #====================================#
+  #=== Use of upper and lower case ====#
+  #====================================#
+
+       Case of Variables etc
+           (-1=leave,0=lower
+             n=n caps then lower
+             9=upper)
+100=0    case of local variables
+101=3    case of COMMON variables
+102=1    case of dummy arguments
+103=9    case of PARAMETERS
+104=9    case of other symbols
+
+       Case of Other Elements
+106=1    case of logical operators
+           (0=lower,1=upper)
+107=1    case of FORTRAN keywords
+           (0=lower,1=upper)
+108=0    case of character strings
+           (0=leave,-1=lower,1=upper)
+109=0    case of comments
+           (0=leave,-1=lower,1=upper)
+
+  #====================================#
+  #===== Margins and indentation ======#
+  #====================================#
+
+121=72 Right margin
+
+122=7  Left  margin (unindented code)
+
+123=3  Indentation increment for each
+           DO and block IF
+
+124=42 Maximum left margin
+           (for indented code)
+
+125=38 Continuation character code
+           '&' is 38 (ASCII)
+                  80 (EBCDIC)
+
+126=0  Comment character code
+           0  = leave
+           33 = '!'
+           42 = '*'
+           67 = 'C'
+           99 = 'c'   (ASCII)
+
+127=0  Comment Re-formatting
+         0 = don't reformat comments
+         n = left justify at column n
+         81= align with surrounding
+                code (DRA spec)
+
+  #====================================#
+  # Additional Static Analysis Checks
+  #====================================#
+
+130=1  COMMON variable Alignment
+         0=no action
+         1=warn if COMMON appears to
+           be inefficiently aligned
+
+131=1  Unsafe Equality Tests
+         0=no action
+         1=warn if program tests for
+           equality of reals
+
+132=1  Check for "Reserved" words
+         0=no action
+         1=warn if symbol same as
+           Fortran keyword / INTRINSIC
+
+133=1  Check subprogram arguments for consistency
+         0=no check (recommended for F90 source code)
+         1=perform checks
+
+134=2  Check for unused variables, PARAMETERs and dummy arguments
+         0=No checks on unused variables.
+         1=SPAG issues a warning if a local variable, PARAMETER or 
+           dummy argument is declared, but never set or used.
+         2=In addition, SPAG issues a warning if a local variable 
+           is declared, and assigned a value but never used.
+ 
+135=1  Check for "Used but not set" error
+				 0=No checks for used but not set.
+         1=SPAG issues a warning if it is sure that a local variable 
+           is not set when used. Not all such errors will be flagged.
+
+136=1  Check for unused COMMON blocks and INCLUDE files
+         0=No checks on unused COMMON blocks and INCLUDE files.
+         1=SPAG issues a warning if a COMMON block or INCLUDE files 
+           is unused in the current subprogram.
+
+  #====================================#
+  #====== Source Form Conversion ======#
+  #====================================#
+
+140=0  Input Code Source Form
+         0=auto-select based on extension
+         1=free  format (F90 style)
+         2=fixed format (F77 style)
+
+141=2  Output Code Source Form
+         0=fixed format (F77 style)
+         1=free  format (F90 style)
+         2=F77 and F90 compatible
+            (but using ! for comments)
+
+  #====================================#
+  # Filenames and other Character Data
+  #====================================#
+
+       # "Safe" Function File
+210=f90func.txt
+
+       # Variable Rename Details
+211=renames.txt
+
+       # Module Containing KINDs for
+       # INTEGER*2 etc.
+213=f77kinds.f90
+
+       # Search list for INCLUDE files - multiple "215=" lines are permitted
+215=c:\include
+
+       # 4 char Header record ID
+220=!*==
+
+       # Interface Description Comment
+       # Header and Trailer
+221=!*--
+222=!*++
+
+       # Comment to insert at start of
+       # executable code
+223=
+
+       # Output Directory - replaces 230, 231, 232, 234 and 236
+229=SPAGged 
+
+       # Directory & Extension for
+       # Output Code Files
+230=
+231=.spg
+
+       # Directory & Extension for
+       # Output Symbol Files
+232=
+233=.smb
+
+       # Directory & Extension for
+       # Output Coverage Data Files
+234=
+235=.cvr
+
+       # Directory & Extension for
+       # Output Module Files
+236=
+237=.f90
+
+       # Dynamic Analysis prefixes
+240=QD$
+241=MD$
+242=UD$
+
+       # Coverage Analysis Routines
+243=CALL_PR$ENT
+244=CALL_PR$EXI
+245=CALL_SB$ENT
+246=CALL_SB$EXI
+247=CALL_BL$ENT
+

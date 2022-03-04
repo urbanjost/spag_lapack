@@ -1,0 +1,12 @@
+!*==intfaces.f90  created by SPAG 7.51RB at 21:36 on  3 Mar 2022
+MODULE S_LSAMEN
+   INTERFACE
+      FUNCTION LSAMEN(N,Ca,Cb)
+      IMPLICIT NONE
+      LOGICAL :: LSAMEN
+      INTEGER , INTENT(IN) :: N
+      CHARACTER(*) :: Ca
+      CHARACTER(*) :: Cb
+      END FUNCTION LSAMEN
+   END INTERFACE
+END MODULE S_LSAMEN
