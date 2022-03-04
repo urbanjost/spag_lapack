@@ -1,7 +1,12 @@
 # EXPERIMENT
-  close of lapack being run through plusFORT spag utility
+  clone of LAPACK being run through plusFORT spag utility
 
   Not in production or tested
+
+  See the many other optimized versions of LAPACK or the reference
+  sites for a production version of LAPACK.
+
+  This has other uses. From the original documentation ...
 
 # LAPACK
 
