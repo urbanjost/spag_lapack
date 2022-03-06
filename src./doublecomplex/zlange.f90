@@ -200,9 +200,7 @@
 !
 !        Find normI(A).
 !
-         DO i = 1 , M
-            Work(i) = ZERO
-         ENDDO
+         Work(1:M) = ZERO
          DO j = 1 , N
             DO i = 1 , M
                Work(i) = Work(i) + ABS(A(i,j))

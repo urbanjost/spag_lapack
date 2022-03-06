@@ -164,7 +164,7 @@
 !
 !        Compute Householder transform when N=1
 !
-         CALL SLARFG(N,A,A(1,MIN(2,N)),Lda,T)
+         CALL SLARFG(N,A(1,1),A(1,MIN(2,N)),Lda,T(1,1))
 !
       ELSE
 !

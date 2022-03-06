@@ -232,9 +232,9 @@
      &                        Lhous,Work,Lwork,Info)
 !
 #if defined(_OPENMP)
+      USE OMP_LIB
 #endif
 !
-      USE OMP_LIB
       IMPLICIT NONE
 !*--DSYTRD_SB2ST239
 !

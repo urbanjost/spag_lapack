@@ -115,11 +115,13 @@
 !     November 2017
 !
 !     .. Scalar Arguments ..
-      INTEGER Incx , N
-      DOUBLE PRECISION Alpha , Tau
+      INTEGER N
+      DOUBLE PRECISION Alpha
+      DOUBLE PRECISION X(*)
+      INTEGER Incx
+      DOUBLE PRECISION Tau
 !     ..
 !     .. Array Arguments ..
-      DOUBLE PRECISION X(*)
 !     ..
 !
 !  =====================================================================

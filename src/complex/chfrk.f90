@@ -175,13 +175,17 @@
 !  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 !     December 2016
 !
-!     .. Scalar Arguments ..
-      REAL Alpha , Beta
-      INTEGER K , Lda , N
-      CHARACTER Trans , Transr , Uplo
-!     ..
-!     .. Array Arguments ..
-      COMPLEX A(Lda,*) , C(*)
+!     .. Arguments ..
+      CHARACTER Transr 
+      CHARACTER Uplo
+      CHARACTER Trans 
+      INTEGER N
+      INTEGER K 
+      REAL Alpha 
+      COMPLEX A(Lda,*) 
+      INTEGER Lda 
+      REAL Beta
+      COMPLEX C(*)
 !     ..
 !
 !  =====================================================================

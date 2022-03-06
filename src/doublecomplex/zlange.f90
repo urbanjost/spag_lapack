@@ -122,16 +122,12 @@
 !     December 2016
 !
       IMPLICIT NONE
-!*--ZLANGE125
-!     .. Scalar Arguments ..
-      CHARACTER Norm
-      INTEGER Lda , M , N
-!     ..
-!     .. Array Arguments ..
-      DOUBLE PRECISION Work(*)
-      COMPLEX*16 A(Lda,*)
-!     ..
-!
+      CHARACTER, INTENT(IN) :: Norm
+      INTEGER,   INTENT(IN) :: M
+      INTEGER,   INTENT(IN) :: N
+      COMPLEX*16,INTENT(IN) :: A(Lda,*)
+      INTEGER ,  INTENT(IN) :: Lda
+      DOUBLE PRECISION      :: Work(*)
 ! =====================================================================
 !
 !     .. Parameters ..

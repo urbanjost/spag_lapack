@@ -182,12 +182,18 @@
 !     December 2016
 !
 !     .. Scalar Arguments ..
-      DOUBLE PRECISION Alpha , Beta
-      INTEGER K , Lda , Ldc , N
-      CHARACTER Trans , Uplo
+      CHARACTER Uplo
+      CHARACTER Trans
+      INTEGER N
+      INTEGER K 
+      DOUBLE PRECISION Alpha
+      COMPLEX*16 A(Lda,*) 
+      INTEGER Lda
+      DOUBLE PRECISION Beta
+      COMPLEX*16 C(Ldc,*)
+      INTEGER Ldc
 !     ..
 !     .. Array Arguments ..
-      COMPLEX*16 A(Lda,*) , C(Ldc,*)
 !     ..
 !
 !  =====================================================================
