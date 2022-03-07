@@ -6,9 +6,52 @@
   See the many other optimized versions of LAPACK or the reference
   sites for a production version of LAPACK.
 
-  This has other uses. From the original documentation ...
+  This has other uses.
+
+  * package is so big it hits limits in EXECUTE_COMMAND_LINE(3f) on some platforms when using fpm(1).
+    using a response file or breaking the ar(1) command are possible solutions.
+
+  * had trouble getting the test programs to load, left the main programs in test/ but made a package
+    out of the routines and modules and placed them in test_aux and used them as a local dependency 
+    without a separate .git history.
+
+    Cannot have routines outside of a module in test/ directory be found?
+
+  * even with auto discovery on had to put one test program into the fpm.toml file or it would not
+    allow a test.dependency line; might be a syntax that works without doing that but oould not come
+    up with one yet. Need to check the code.
+
+  * to run the codes with just a simple "fpm test" need to change the file opens. Would be nice if
+    there were a way to indicate the test commands.
+
+  * there were originally a lot of duplicates which caused load problems, but changed test procedures
+    into modules, leaving the files as individual files but using INCLUDE to make them easier to 
+    manage; build does not currently detect changes in include files unless remove build directory
+    or make a trivial change to the files that do the INCLUDE to rebuild after changing the included
+    files.
+
+  * the test programs had a lot of real and complex values passed where there should have been complex
+    and double complex, double values passed where real should have been passed and so on. I think I
+    got all of them in the test/ and test_aux/ code.
+
+  * because the actual library routines do non-standard things like passing arrays without regard to
+    shape might take changes in the interface beyond just a 'USE M_LAPACK' and 'USE_BLAS', might be
+    more practical to make a wrapper module and make names generic via that and so on.
+
+  * test/LAPACK/EIG/schkec.f90(192): error #8284: If the actual argument
+  is scalar, the dummy argument shall be scalar unless the actual argument
+  is of type character or is an element of an array that is not assumed
+  shape, pointer, or polymorphic.   [NINFO]
+
+      CALL SGET40(rtgexc,ltgexc,ntgexc,ktgexc,Nin)
+      -----------^
+
+## TODO
+  * need to verify all tests and make a script to run them properly to get a unit test running that
+    does not require additional intrastructure
 
 # LAPACK
+  From the original documentation ...
 
 [![Build Status](https://travis-ci.org/Reference-LAPACK/lapack.svg?branch=master)](https://travis-ci.org/Reference-LAPACK/lapack)
 [![Appveyor](https://ci.appveyor.com/api/projects/status/bh38iin398msrbtr?svg=true)](https://ci.appveyor.com/project/langou/lapack/)
