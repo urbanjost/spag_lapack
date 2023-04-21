@@ -1,4 +1,3 @@
-!*==cchkee.f90  processed by SPAG 7.51RB at 23:29 on  6 Mar 2022
 !> \brief \b CCHKEE
 !
 !  =========== DOCUMENTATION ===========
@@ -1033,51 +1032,37 @@
 !> \ingroup complex_eig
 !
 !  =====================================================================
-      PROGRAM CCHKEE
-      USE M_TST_EIG , ONLY:ALAREQ , CCHKBB , CCHKBD , CCHKBK
-      USE M_TST_EIG , ONLY:CCHKBL , CCHKEC , CCHKGG , CCHKGK
-      USE M_TST_EIG , ONLY:CCHKGL , CCHKHB , CCHKHB2STG , CCHKHS
-      USE M_TST_EIG , ONLY:CCHKST , CCHKST2STG , CCKCSD , CCKGLM
-      USE M_TST_EIG , ONLY:CCKGQR , CCKGSV , CCKLSE , CDRGES
-      USE M_TST_EIG , ONLY:CDRGES3 , CDRGEV , CDRGEV3 , CDRGSX
-      USE M_TST_EIG , ONLY:CDRGVX , CDRVBD , CDRVES , CDRVEV
-      USE M_TST_EIG , ONLY:CDRVSG , CDRVST , CDRVST2STG , CDRVSX
-      USE M_TST_EIG , ONLY:CDRVVX , CERRBD , CERRED , CERRGG
-      USE M_TST_EIG , ONLY:CERRHS , CERRST , XLAENV
-      USE M_TST_EIG , ONLY:CDRVSG2STG
+PROGRAM CCHKEE
+   USE M_TST_EIG , ONLY:ALAREQ  , CCHKBB     , CCHKBD     , CCHKBK
+   USE M_TST_EIG , ONLY:CCHKBL  , CCHKEC     , CCHKGG     , CCHKGK
+   USE M_TST_EIG , ONLY:CCHKGL  , CCHKHB     , CCHKHB2STG , CCHKHS
+   USE M_TST_EIG , ONLY:CCHKST  , CCHKST2STG , CCKCSD     , CCKGLM
+   USE M_TST_EIG , ONLY:CCKGQR  , CCKGSV     , CCKLSE     , CDRGES
+   USE M_TST_EIG , ONLY:CDRGES3 , CDRGEV     , CDRGEV3    , CDRGSX
+   USE M_TST_EIG , ONLY:CDRGVX  , CDRVBD     , CDRVES     , CDRVEV
+   USE M_TST_EIG , ONLY:CDRVSG  , CDRVST     , CDRVST2STG , CDRVSX
+   USE M_TST_EIG , ONLY:CDRVVX  , CERRBD     , CERRED     , CERRGG
+   USE M_TST_EIG , ONLY:CERRHS  , CERRST     , XLAENV
+   USE M_TST_EIG , ONLY:CDRVSG2STG
 #if defined(_OPENMP)
-      USE OMP_LIB
+   USE OMP_LIB
 #endif
       IMPLICIT NONE
-!*--CCHKEE1050
-!*** Start of declarations inserted by SPAG
-!*** End of declarations inserted by SPAG
-!
 !
 !  -- LAPACK test routine (version 3.7.0) --
 !  -- LAPACK is a software package provided by Univ. of Tennessee,    --
 !  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--
 !     June 2016
-!
 !  =====================================================================
-!
 !     .. Parameters ..
-      INTEGER NMAX
-      PARAMETER (NMAX=132)
-      INTEGER NCMAX
-      PARAMETER (NCMAX=20)
-      INTEGER NEED
-      PARAMETER (NEED=14)
-      INTEGER LWORK
-      PARAMETER (LWORK=NMAX*(5*NMAX+20))
-      INTEGER LIWORK
-      PARAMETER (LIWORK=NMAX*(NMAX+20))
-      INTEGER MAXIN
-      PARAMETER (MAXIN=20)
-      INTEGER MAXT
-      PARAMETER (MAXT=30)
-      INTEGER NIN , NOUT
-      PARAMETER (NIN=5,NOUT=6)
+      INTEGER,PARAMETER :: NMAX=132
+      INTEGER,PARAMETER :: NCMAX=20
+      INTEGER,PARAMETER :: NEED=14
+      INTEGER,PARAMETER :: LWORK=NMAX*(5*NMAX+20)
+      INTEGER,PARAMETER :: LIWORK=NMAX*(NMAX+20)
+      INTEGER,PARAMETER :: MAXIN=20
+      INTEGER,PARAMETER :: MAXT=30
+      INTEGER,PARAMETER :: NIN=5,NOUT=6
 !     ..
 !     .. Local Scalars ..
       LOGICAL cbb , cbk , cbl , ces , cev , cgg , cgk , cgl , cgs ,     &
@@ -2470,4 +2455,4 @@
 !
 !     End of CCHKEE
 !
-      END PROGRAM CCHKEE
+END PROGRAM CCHKEE

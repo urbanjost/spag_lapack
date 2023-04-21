@@ -49,6 +49,11 @@
 ## TODO
   * need to verify all tests and make a script to run them properly to get a unit test running that
     does not require additional intrastructure
+  * for now, no XBLAS, no C/C++ interfaces
+  * need to make tests for OpenMP version
+  * set up to generate Doxygen documentation and generate man-pages and HTML documents
+  * perhaps an fman(1) for the LAPACK routines; seperate test routines from standard library routines
+  * make optional build for built-in timing
 
 # LAPACK
   From the original documentation ...
