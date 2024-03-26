@@ -111,7 +111,7 @@
 !
 !  =====================================================================
       PROGRAM SCHKAA
-      USE M_TST_LIN, only : &
+      USE M_TST__LIN, only : &
       &  ALAREQ       , SCHKEQ      , SCHKGB    , SCHKGE    , SCHKGT   , SCHKLQ , &
       &  SCHKORHR_COL , SCHKPB      , SCHKPO    , SCHKPS    , SCHKPP   ,          &
       &  SCHKPT       , SCHKQ3      , SCHKQL    , SCHKQR    , SCHKRQ   , SCHKSP , &

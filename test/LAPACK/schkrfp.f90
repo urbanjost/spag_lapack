@@ -59,19 +59,19 @@
 !
 !  =====================================================================
       PROGRAM SCHKRFP
-use M_tst_lin, only: aladhd, alahd, cgennd, cqpt01, cqrt11, cqrt12, cqrt14, cqrt17
-use M_tst_lin, only: crzt01, crzt02, dgennd, dget06, dqpt01, dqrt11, dqrt12, dqrt14
-use M_tst_lin, only: dqrt17, drzt01, drzt02, alaerh, alasvm, sdrvrf2, sdrvrf3, sdrvrf4
-use M_tst_lin, only: slarhs, spot01, spot02, spot03, sdrvrf1, sdrvrfp, serrrfp, sgennd
-use M_tst_lin, only: sqpt01, sqrt11, sqrt12, sqrt14, sqrt17, srzt01, srzt02, zgennd
-use M_tst_lin, only: zqpt01, zqrt11, zqrt12, zqrt14, zqrt17, zrzt01, zrzt02
-use M_tst_matgen, only : clagge, claghe, clagsy, clakf2, clarge, clarnd, claror, clarot
-use M_tst_matgen, only : clatm1, clatm2, clatm3, clatms, clatmt, dlagge, dlagsy, dlakf2
-use M_tst_matgen, only : dlaran, dlarge, dlarnd, dlaror, dlarot, dlatm1, dlatm2, dlatm3
-use M_tst_matgen, only : dlatm7, dlatms, dlatmt, slagge, slagsy, slakf2, slaran, slarge
-use M_tst_matgen, only : slarnd, slaror, slarot, slatm1, slatm2, slatm3, slatm7, slatms
-use M_tst_matgen, only : slatmt, zlagge, zlaghe, zlagsy, zlakf2, zlarge, zlarnd, zlaror
-use M_tst_matgen, only : zlarot, zlatm1, zlatm2, zlatm3, zlatms, zlatmt
+use M_tst__lin, only: aladhd, alahd, cgennd, cqpt01, cqrt11, cqrt12, cqrt14, cqrt17
+use M_tst__lin, only: crzt01, crzt02, dgennd, dget06, dqpt01, dqrt11, dqrt12, dqrt14
+use M_tst__lin, only: dqrt17, drzt01, drzt02, alaerh, alasvm, sdrvrf2, sdrvrf3, sdrvrf4
+use M_tst__lin, only: slarhs, spot01, spot02, spot03, sdrvrf1, sdrvrfp, serrrfp, sgennd
+use M_tst__lin, only: sqpt01, sqrt11, sqrt12, sqrt14, sqrt17, srzt01, srzt02, zgennd
+use M_tst__lin, only: zqpt01, zqrt11, zqrt12, zqrt14, zqrt17, zrzt01, zrzt02
+use M_tst__matgen, only : clagge, claghe, clagsy, clakf2, clarge, clarnd, claror, clarot
+use M_tst__matgen, only : clatm1, clatm2, clatm3, clatms, clatmt, dlagge, dlagsy, dlakf2
+use M_tst__matgen, only : dlaran, dlarge, dlarnd, dlaror, dlarot, dlatm1, dlatm2, dlatm3
+use M_tst__matgen, only : dlatm7, dlatms, dlatmt, slagge, slagsy, slakf2, slaran, slarge
+use M_tst__matgen, only : slarnd, slaror, slarot, slatm1, slatm2, slatm3, slatm7, slatms
+use M_tst__matgen, only : slatmt, zlagge, zlaghe, zlagsy, zlakf2, zlarge, zlarnd, zlaror
+use M_tst__matgen, only : zlarot, zlatm1, zlatm2, zlatm3, zlatms, zlatmt
       IMPLICIT NONE
 !*--SCHKRFP63
 !

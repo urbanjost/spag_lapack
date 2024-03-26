@@ -59,7 +59,7 @@
 !
 !  =====================================================================
       PROGRAM DCHKRFP
-      use M_tst_lin, only : DERRRFP, DDRVRFP, DDRVRF1, DDRVRF2, DDRVRF3, DDRVRF4
+      use M_tst__lin, only : DERRRFP, DDRVRFP, DDRVRF1, DDRVRF2, DDRVRF3, DDRVRF4
 
       IMPLICIT NONE
 !*--DCHKRFP63

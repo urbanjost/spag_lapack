@@ -117,14 +117,14 @@
 !
 !  =====================================================================
       PROGRAM CCHKAA
-use M_tst_lin, only : alareq, cchkeq, cchkgb, cchkge, cchkgt, cchkhe_aa_2stage, cchkhe_aa, cchkhe
-use M_tst_lin, only : cchkhe_rk, cchkhe_rook, cchkhp, cchklq, cchklqt, cchklqtp, cchkpb, cchkpo
-use M_tst_lin, only : cchkpp, cchkps, cchkpt, cchkq3, cchkql, cchkqr, cchkqrt, cchkqrtp
-use M_tst_lin, only : cchkrq, cchksp, cchksy_aa_2stage, cchksy_aa, cchksy, cchksy_rk, cchksy_rook, cchktb
-use M_tst_lin, only : cchktp, cchktr, cchktsqr, cchktz, cchkunhr_col, cdrvgb, cdrvge, cdrvgt
-use M_tst_lin, only : cdrvhe_aa_2stage, cdrvhe_aa, cdrvhe, cdrvhe_rk, cdrvhe_rook, cdrvhp, cdrvls, cdrvpb
-use M_tst_lin, only : cdrvpo, cdrvpp, cdrvpt, cdrvsp, cdrvsy_aa_2stage, cdrvsy_aa, cdrvsy, cdrvsy_rk
-use M_tst_lin, only : cdrvsy_rook
+use M_tst__lin, only : alareq, cchkeq, cchkgb, cchkge, cchkgt, cchkhe_aa_2stage, cchkhe_aa, cchkhe
+use M_tst__lin, only : cchkhe_rk, cchkhe_rook, cchkhp, cchklq, cchklqt, cchklqtp, cchkpb, cchkpo
+use M_tst__lin, only : cchkpp, cchkps, cchkpt, cchkq3, cchkql, cchkqr, cchkqrt, cchkqrtp
+use M_tst__lin, only : cchkrq, cchksp, cchksy_aa_2stage, cchksy_aa, cchksy, cchksy_rk, cchksy_rook, cchktb
+use M_tst__lin, only : cchktp, cchktr, cchktsqr, cchktz, cchkunhr_col, cdrvgb, cdrvge, cdrvgt
+use M_tst__lin, only : cdrvhe_aa_2stage, cdrvhe_aa, cdrvhe, cdrvhe_rk, cdrvhe_rook, cdrvhp, cdrvls, cdrvpb
+use M_tst__lin, only : cdrvpo, cdrvpp, cdrvpt, cdrvsp, cdrvsy_aa_2stage, cdrvsy_aa, cdrvsy, cdrvsy_rk
+use M_tst__lin, only : cdrvsy_rook
       IMPLICIT NONE
 !*--CCHKAA121
 !

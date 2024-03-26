@@ -117,7 +117,7 @@
 !
 !  =====================================================================
       PROGRAM ZCHKAA
-      use M_TST_LIN, only : &
+      use M_TST__LIN, only : &
      &         ALAREQ , ZCHKEQ , ZCHKGB , ZCHKGE , ZCHKGT , ZCHKHE ,    &
      &         ZCHKHE_ROOK , ZCHKHE_RK , ZCHKHE_AA , ZCHKHP , ZCHKLQ ,  &
      &         ZCHKUNHR_COL , ZCHKPB , ZCHKPO , ZCHKPS , ZCHKPP ,       &

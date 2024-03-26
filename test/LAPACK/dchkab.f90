@@ -73,7 +73,7 @@
 !
 !  =====================================================================
       PROGRAM DCHKAB
-      use M_tst_lin, only :  ALAREQ , DDRVAB , DDRVAC , DERRAB , DERRAC
+      use M_tst__lin, only :  ALAREQ , DDRVAB , DDRVAC , DERRAB , DERRAC
       IMPLICIT NONE
 !*--DCHKAB77
 !

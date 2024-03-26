@@ -59,7 +59,7 @@
 !
 !  =====================================================================
       PROGRAM CCHKRFP
-      use M_tst_lin, only : CDRVRFP , CDRVRF1 , CDRVRF2 , CDRVRF3 , CDRVRF4, CERRRFP
+      use M_tst__lin, only : CDRVRFP , CDRVRF1 , CDRVRF2 , CDRVRF3 , CDRVRF4, CERRRFP
       IMPLICIT NONE
 !*--CCHKRFP63
 !

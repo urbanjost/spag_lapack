@@ -59,7 +59,7 @@
 !
 !  =====================================================================
       PROGRAM ZCHKRFP
-      use M_tst_lin, only : ZDRVRFP , ZDRVRF1 , ZDRVRF2 , ZDRVRF3 , ZDRVRF4, ZERRRFP
+      use M_tst__lin, only : ZDRVRFP , ZDRVRF1 , ZDRVRF2 , ZDRVRF3 , ZDRVRF4, ZERRRFP
       IMPLICIT NONE
 !*--ZCHKRFP63
 !

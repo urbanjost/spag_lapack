@@ -113,17 +113,17 @@
 !
 !  =====================================================================
       PROGRAM DCHKAA
-use M_tst_lin, only : alareq, dchkeq, dchkgb, dchkge, dchkgt
-use M_tst_lin, only : dchklq, dchklqt, dchklqtp, dchkorhr_col, dchkpb
-use M_tst_lin, only : dchkpo, dchkpp, dchkps, dchkpt, dchkq3
-use M_tst_lin, only : dchkql, dchkqr, dchkqrt, dchkqrtp, dchkrq
-use M_tst_lin, only : dchksp, dchksy, dchksy_aa, dchksy_aa_2stage, dchksy_rk
-use M_tst_lin, only : dchksy_rook, dchktb, dchktp, dchktr, dchktsqr
-use M_tst_lin, only : dchktz, ddrvgb, ddrvge, ddrvgt, ddrvls
-use M_tst_lin, only : ddrvpb, ddrvpo, ddrvpp, ddrvpt, ddrvsp
-use M_tst_lin, only : ddrvsy, ddrvsy_aa, ddrvsy_aa_2stage, ddrvsy_rk, ddrvsy_rook
-use M_tst_lin
-use M_tst_matgen
+use M_tst__lin, only : alareq, dchkeq, dchkgb, dchkge, dchkgt
+use M_tst__lin, only : dchklq, dchklqt, dchklqtp, dchkorhr_col, dchkpb
+use M_tst__lin, only : dchkpo, dchkpp, dchkps, dchkpt, dchkq3
+use M_tst__lin, only : dchkql, dchkqr, dchkqrt, dchkqrtp, dchkrq
+use M_tst__lin, only : dchksp, dchksy, dchksy_aa, dchksy_aa_2stage, dchksy_rk
+use M_tst__lin, only : dchksy_rook, dchktb, dchktp, dchktr, dchktsqr
+use M_tst__lin, only : dchktz, ddrvgb, ddrvge, ddrvgt, ddrvls
+use M_tst__lin, only : ddrvpb, ddrvpo, ddrvpp, ddrvpt, ddrvsp
+use M_tst__lin, only : ddrvsy, ddrvsy_aa, ddrvsy_aa_2stage, ddrvsy_rk, ddrvsy_rook
+use M_tst__lin
+use M_tst__matgen
       IMPLICIT NONE
 !*--DCHKAA117
 !

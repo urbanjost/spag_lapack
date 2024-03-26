@@ -73,7 +73,7 @@
 !
 !  =====================================================================
       PROGRAM ZCHKAB
-      use M_tst_lin, only : ALAREQ , ZDRVAB , ZDRVAC , ZERRAB , ZERRAC
+      use M_tst__lin, only : ALAREQ , ZDRVAB , ZDRVAC , ZERRAB , ZERRAC
       IMPLICIT NONE
 !*--ZCHKAB77
 !
