@@ -1,0 +1,1050 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>ZLA_GEAMV &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>ZLA_GEAMV
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">151 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/zla_geamv.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/zla_geamv.f90.html'>zla_geamv.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ZLA_GEAMV</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-cabs1~111">CABS1</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-one~786">ONE</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-zero~753">ZERO</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-cdum~22">cdum</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-i~864">i</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-info~86">info</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-iy~44">iy</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-j~653">j</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-jx~50">jx</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-kx~65">kx</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-ky~29">ky</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-lenx~8">lenx</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-leny~8">leny</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-safe1~41">safe1</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-symb_zero~9">symb_zero</a>
+            <a class="list-group-item" href="../proc/zla_geamv.html#variable-temp~158">temp</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/zla_geamv.html#src">ZLA_GEAMV</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine ZLA_GEAMV(Trans, M, N, Alpha, A, Lda, X, Incx, Beta, Y, Incy)  
+</h2>
+    
+
+    <p>\brief \b ZLA_GEAMV computes a matrix-vector product using a general matrix to calculate error bounds.
+ \htmlonly
+ Download ZLA_GEAMV + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zla_geamv.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zla_geamv.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zla_geamv.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>ZLA_GEAMV  performs one of the matrix-vector operations</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="nv">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">beta</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">y</span><span class="p">),</span><span class="w"></span>
+<span class="ow">or</span><span class="w">   </span><span class="nv">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">beta</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">y</span><span class="p">),</span><span class="w"></span>
+</code></pre></div>
+
+<p>where alpha and beta are scalars, x and y are vectors and A is an
+ m by n matrix.</p>
+<p>This function is primarily used in calculating error bounds.
+ To protect against underflow during evaluation, components in
+ the resulting vector are perturbed away from zero by (N+1)
+ times the underflow threshold.  To prevent unnecessarily large
+ errors for block-structure embedded in general matrices,
+ &ldquo;symbolically&rdquo; zero components are not perturbed.  A zero
+ entry is considered &ldquo;symbolic&rdquo; if all multiplications involved
+ in computing that entry have at least one zero multiplicand.
+ \endverbatim
+ \param[in] TRANS
+ \verbatim
+          TRANS is INTEGER
+           On entry, TRANS specifies the operation to be performed as
+           follows:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">         </span><span class="nv">BLAS_NO_TRANS</span><span class="w">      </span><span class="nv">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">beta</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="nv">BLAS_TRANS</span><span class="w">         </span><span class="nv">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">A</span><span class="o">**</span><span class="nv">T</span><span class="p">)</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">beta</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="nv">BLAS_CONJ_TRANS</span><span class="w">    </span><span class="nv">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">alpha</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">A</span><span class="o">**</span><span class="nv">T</span><span class="p">)</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">beta</span><span class="o">*</span><span class="nf">abs</span><span class="p">(</span><span class="nv">y</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">       </span><span class="nv">Unchanged</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">exit</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+           On entry, M specifies the number of rows of the matrix A.
+           M must be at least zero.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+           On entry, N specifies the number of columns of the matrix A.
+           N must be at least zero.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] ALPHA
+ \verbatim
+          ALPHA is DOUBLE PRECISION
+           On entry, ALPHA specifies the scalar alpha.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] A
+ \verbatim
+          A is COMPLEX*16 array, dimension ( LDA, n )
+           Before entry, the leading m by n part of the array A must
+           contain the matrix of coefficients.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+           On entry, LDA specifies the first dimension of A as declared
+           in the calling (sub) program. LDA must be at least
+           max( 1, m ).
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] X
+ \verbatim
+          X is COMPLEX<em>16 array, dimension at least
+           ( 1 + ( n - 1 )</em>abs( INCX ) ) when TRANS = &lsquo;N&rsquo; or &lsquo;n&rsquo;
+           and at least
+           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+           Before entry, the incremented array X must contain the
+           vector x.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] INCX
+ \verbatim
+          INCX is INTEGER
+           On entry, INCX specifies the increment for the elements of
+           X. INCX must not be zero.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in] BETA
+ \verbatim
+          BETA is DOUBLE PRECISION
+           On entry, BETA specifies the scalar beta. When BETA is
+           supplied as zero then Y need not be set on input.
+           Unchanged on exit.
+ \endverbatim</p>
+<p>\param[in,out] Y
+ \verbatim
+          Y is DOUBLE PRECISION array, dimension
+           ( 1 + ( m - 1 )<em>abs( INCY ) ) when TRANS = &lsquo;N&rsquo; or &lsquo;n&rsquo;
+           and at least
+           ( 1 + ( n - 1 )</em>abs( INCY ) ) otherwise.
+           Before entry with BETA non-zero, the incremented array Y
+           must contain the vector y. On exit, Y is overwritten by the
+           updated vector y.
+ \endverbatim</p>
+<p>\param[in] INCY
+ \verbatim
+          INCY is INTEGER
+           On entry, INCY specifies the increment for the elements of
+           Y. INCY must not be zero.
+           Unchanged on exit.</p>
+<p>Level 2 Blas routine.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date June 2017
+ \ingroup complex16GEcomputational
+&ndash;ZLA_GEAMV178</p>
+<p>&ndash; LAPACK computational routine (version 3.7.1) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2017</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-trans~181"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Trans</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~434"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1176"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~92"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alpha</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~728"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~701"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~213"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incx~105"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Incx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~83"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Beta</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~72"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incy~52"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Incy</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cabs1~111"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>CABS1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~786"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~753"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cdum~22"></span>
+              complex(kind=16),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cdum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~864"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~86"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>info</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iy~44"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~653"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jx~50"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kx~65"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ky~29"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ky</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenx~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-leny~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>leny</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-safe1~41"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>safe1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-symb_zero~9"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>symb_zero</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~158"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">ZLA_GEAMV</span><span class="p">(</span><span class="n">Trans</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Alpha</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Incx</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Incy</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--ZLA_GEAMV178</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.1) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2017</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Alpha</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Beta</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Incx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Incy</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Trans</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">symb_zero</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">temp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">safe1</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ky</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">leny</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">cdum</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">XERBLA</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">ILATRANS</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ILATRANS</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">REAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DIMAG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SIGN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Statement Functions ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">CABS1</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Statement Function Definitions ..</span>
+<span class="w">      </span><span class="n">CABS1</span><span class="p">(</span><span class="n">cdum</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="nb">DBLE</span><span class="p">(</span><span class="n">cdum</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">DIMAG</span><span class="p">(</span><span class="n">cdum</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Trans</span><span class="o">/=</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Trans</span><span class="o">/=</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="p">(</span><span class="n">Trans</span><span class="o">/=</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incx</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incy</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;ZLA_GEAMV &#39;</span><span class="p">,</span><span class="n">info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">((</span><span class="n">Alpha</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Beta</span><span class="o">==</span><span class="n">ONE</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Set  LENX  and  LENY, the lengths of the vectors x and y, and set</span>
+<span class="c">!     up the start points in  X  and  Y.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Trans</span><span class="o">==</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">lenx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="n">leny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">lenx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">         </span><span class="n">leny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incx</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">lenx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Incx</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incy</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">ky</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">ky</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">leny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Incy</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Set SAFE1 essentially to be the underflow threshold times the</span>
+<span class="c">!     number of additions in each row.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">safe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Safe minimum&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">safe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">safe1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Form  y := alpha*abs(A)*abs(x) + beta*abs(y).</span>
+<span class="c">!</span>
+<span class="c">!     The O(M*N) SYMB_ZERO tests could be replaced by O(N) queries to</span>
+<span class="c">!     the inexact flag.  Still doesn&#39;t help change the iteration order</span>
+<span class="c">!     to per-column.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ky</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incx</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Trans</span><span class="o">==</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">leny</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Beta</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D+0</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Beta</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alpha</span><span class="o">/=</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenx</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">symb_zero</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">temp</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">                     </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Alpha</span><span class="o">*</span><span class="n">CABS1</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span>
+<span class="k"> </span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">symb_zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">safe1</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">               </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incy</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ELSE</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">leny</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Beta</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D+0</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Beta</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alpha</span><span class="o">/=</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenx</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">symb_zero</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">temp</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">                     </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Alpha</span><span class="o">*</span><span class="n">CABS1</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span>
+<span class="k"> </span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">symb_zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">safe1</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">               </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incy</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Trans</span><span class="o">==</span><span class="n">ILATRANS</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">leny</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Beta</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D+0</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Beta</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alpha</span><span class="o">/=</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenx</span><span class="w"></span>
+<span class="w">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">symb_zero</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                        </span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">jx</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">temp</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Alpha</span><span class="o">*</span><span class="n">CABS1</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">jx</span><span class="p">))</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incx</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">            ENDIF</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">symb_zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">safe1</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">            </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incy</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">      ELSE</span>
+<span class="k">         DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">leny</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Beta</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D+0</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="o">==</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Beta</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alpha</span><span class="o">/=</span><span class="mf">0.0D+0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenx</span><span class="w"></span>
+<span class="w">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">symb_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">symb_zero</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                        </span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">jx</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">temp</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Alpha</span><span class="o">*</span><span class="n">CABS1</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">jx</span><span class="p">))</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="n">jx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incx</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">            ENDIF</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">symb_zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">safe1</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="n">iy</span><span class="p">))</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">            </span><span class="n">iy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Incy</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k"> </span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of ZLA_GEAMV</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">ZLA_GEAMV</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

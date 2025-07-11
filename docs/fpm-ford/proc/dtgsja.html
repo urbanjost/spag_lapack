@@ -1,0 +1,1698 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DTGSJA &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DTGSJA
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">141 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dtgsja.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dtgsja.f90.html'>dtgsja.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DTGSJA</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-maxit~3">MAXIT</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-one~631">ONE</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-zero~599">ZERO</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-a1~3">a1</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-a2~5">a2</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-a3~3">a3</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-b1~7">b1</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-b2~5">b2</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-b3~3">b3</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-csq~3">csq</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-csu~3">csu</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-csv~3">csv</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-error~3">error</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-gamma~6">gamma</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-i~686">i</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-initq~5">initq</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-initu~3">initu</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-initv~3">initv</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-j~519">j</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-kcycle~3">kcycle</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-rwk~3">rwk</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-snq~3">snq</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-snu~3">snu</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-snv~3">snv</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-ssmin~3">ssmin</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-upper~244">upper</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-wantq~19">wantq</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-wantu~9">wantu</a>
+            <a class="list-group-item" href="../proc/dtgsja.html#variable-wantv~7">wantv</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dtgsja.html#src">DTGSJA</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DTGSJA(Jobu, Jobv, Jobq, M, P, N, K, L, A, Lda, B, Ldb, Tola, Tolb, Alpha, Beta, U, Ldu, V, Ldv, Q, Ldq, Work, Ncycle, Info)  
+</h2>
+    
+
+    <p>\brief \b DTGSJA
+ \htmlonly
+ Download DTGSJA + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dtgsja.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dtgsja.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dtgsja.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DTGSJA computes the generalized singular value decomposition (GSVD)
+ of two real upper triangular (or trapezoidal) matrices A and B.</p>
+<p>On entry, it is assumed that matrices A and B have the following
+ forms, which may be obtained by the preprocessing subroutine DGGSVP
+ from a general M-by-N matrix A and P-by-N matrix B:</p>
+<div class="codehilite"><pre><span></span><code>          <span class="nv">N</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span>  <span class="nv">K</span>    <span class="nv">L</span>
+<span class="nv">A</span> <span class="o">=</span>    <span class="nv">K</span> <span class="ss">(</span> <span class="mi">0</span>    <span class="nv">A12</span>  <span class="nv">A13</span> <span class="ss">)</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="c1">;</span>
+       <span class="nv">L</span> <span class="ss">(</span> <span class="mi">0</span>     <span class="mi">0</span>   <span class="nv">A23</span> <span class="ss">)</span>
+   <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="ss">(</span> <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>  <span class="ss">)</span>
+
+        <span class="nv">N</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span>  <span class="nv">K</span>    <span class="nv">L</span>
+<span class="nv">A</span> <span class="o">=</span>  <span class="nv">K</span> <span class="ss">(</span> <span class="mi">0</span>    <span class="nv">A12</span>  <span class="nv">A13</span> <span class="ss">)</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="c1">;</span>
+   <span class="nv">M</span><span class="o">-</span><span class="nv">K</span> <span class="ss">(</span> <span class="mi">0</span>     <span class="mi">0</span>   <span class="nv">A23</span> <span class="ss">)</span>
+
+        <span class="nv">N</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span>  <span class="nv">K</span>    <span class="nv">L</span>
+<span class="nv">B</span> <span class="o">=</span>  <span class="nv">L</span> <span class="ss">(</span> <span class="mi">0</span>     <span class="mi">0</span>   <span class="nv">B13</span> <span class="ss">)</span>
+   <span class="nv">P</span><span class="o">-</span><span class="nv">L</span> <span class="ss">(</span> <span class="mi">0</span>     <span class="mi">0</span>    <span class="mi">0</span>  <span class="ss">)</span>
+</code></pre></div>
+
+<p>where the K-by-K matrix A12 and L-by-L matrix B13 are nonsingular
+ upper triangular; A23 is L-by-L upper triangular if M-K-L &gt;= 0,
+ otherwise A23 is (M-K)-by-L upper trapezoidal.</p>
+<p>On exit,</p>
+<div class="codehilite"><pre><span></span><code>    U**T *A*Q = D1*( 0 R ),    V**T *B*Q = D2*( 0 R ),
+</code></pre></div>
+
+<p>where U, V and Q are orthogonal matrices.
+ R is a nonsingular upper triangular matrix, and D1 and D2 are
+ ``diagonal&rsquo;&rsquo; matrices, which are of the following structures:</p>
+<p>If M-K-L &gt;= 0,</p>
+<div class="codehilite"><pre><span></span><code>                 K  L
+    D1 =     K ( I  0 )
+             L ( 0  C )
+         M-K-L ( 0  0 )
+
+               K  L
+    D2 = L   ( 0  S )
+         P-L ( 0  0 )
+
+            N-K-L  K    L
+</code></pre></div>
+
+<p>( 0 R ) = K (  0   R11  R12 ) K
+             L (  0    0   R22 ) L</p>
+<p>where</p>
+<p>C = diag( ALPHA(K+1), &hellip; , ALPHA(K+L) ),
+   S = diag( BETA(K+1),  &hellip; , BETA(K+L) ),
+   C<strong>2 + S</strong>2 = I.</p>
+<p>R is stored in A(1:K+L,N-K-L+1:N) on exit.</p>
+<p>If M-K-L &lt; 0,</p>
+<div class="codehilite"><pre><span></span><code>            K M-K K+L-M
+ D1 =   K ( I  0    0   )
+      M-K ( 0  C    0   )
+
+              K M-K K+L-M
+ D2 =   M-K ( 0  S    0   )
+      K+L-M ( 0  0    I   )
+        P-L ( 0  0    0   )
+
+            N-K-L  K   M-K  K+L-M
+</code></pre></div>
+
+<p>( 0 R ) =    K ( 0    R11  R12  R13  )
+           M-K ( 0     0   R22  R23  )
+         K+L-M ( 0     0    0   R33  )</p>
+<p>where
+ C = diag( ALPHA(K+1), &hellip; , ALPHA(M) ),
+ S = diag( BETA(K+1),  &hellip; , BETA(M) ),
+ C<strong>2 + S</strong>2 = I.</p>
+<p>R = ( R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N) and R33 is stored
+     (  0  R22 R23 )
+ in B(M-K+1:L,N+M-K-L+1:N) on exit.</p>
+<p>The computation of the orthogonal transformation matrices U, V or Q
+ is optional.  These matrices may either be formed explicitly, or they
+ may be postmultiplied into input matrices U1, V1, or Q1.
+ \endverbatim
+ \param[in] JOBU
+ \verbatim
+          JOBU is CHARACTER<em>1
+          = &lsquo;U&rsquo;:  U must contain an orthogonal matrix U1 on entry, and
+                  the product U1</em>U is returned;
+          = &lsquo;I&rsquo;:  U is initialized to the unit matrix, and the
+                  orthogonal matrix U is returned;
+          = &lsquo;N&rsquo;:  U is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBV
+ \verbatim
+          JOBV is CHARACTER<em>1
+          = &lsquo;V&rsquo;:  V must contain an orthogonal matrix V1 on entry, and
+                  the product V1</em>V is returned;
+          = &lsquo;I&rsquo;:  V is initialized to the unit matrix, and the
+                  orthogonal matrix V is returned;
+          = &lsquo;N&rsquo;:  V is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBQ
+ \verbatim
+          JOBQ is CHARACTER<em>1
+          = &lsquo;Q&rsquo;:  Q must contain an orthogonal matrix Q1 on entry, and
+                  the product Q1</em>Q is returned;
+          = &lsquo;I&rsquo;:  Q is initialized to the unit matrix, and the
+                  orthogonal matrix Q is returned;
+          = &lsquo;N&rsquo;:  Q is not computed.
+ \endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] P
+ \verbatim
+          P is INTEGER
+          The number of rows of the matrix B.  P &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrices A and B.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] K
+ \verbatim
+          K is INTEGER
+ \endverbatim</p>
+<p>\param[in] L
+ \verbatim
+          L is INTEGER</p>
+<div class="codehilite"><pre><span></span><code>      K and L specify the subblocks in the input matrices A and B:
+      A23 = A(K+1:MIN(K+L,M),N-L+1:N) and B13 = B(1:L,N-L+1:N)
+      of A and B, whose GSVD is going to be computed by DTGSJA.
+      See Further Details.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, A(N-K+1:N,1:MIN(K+L,M) ) contains the triangular
+          matrix R or part of R.  See Purpose for details.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A. LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, if necessary, B(M-K+1:L,N+M-K-L+1:N) contains
+          a part of R.  See Purpose for details.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B. LDB &gt;= max(1,P).
+ \endverbatim</p>
+<p>\param[in] TOLA
+ \verbatim
+          TOLA is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in] TOLB
+ \verbatim
+          TOLB is DOUBLE PRECISION</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">TOLA</span> <span class="nv">and</span> <span class="nv">TOLB</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">convergence</span> <span class="nv">criteria</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">Jacobi</span><span class="o">-</span>
+      <span class="nv">Kogbetliantz</span> <span class="nv">iteration</span> <span class="nv">procedure</span>. <span class="nv">Generally</span>, <span class="nv">they</span> <span class="nv">are</span> <span class="nv">the</span>
+      <span class="nv">same</span> <span class="nv">as</span> <span class="nv">used</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">preprocessing</span> <span class="nv">step</span>, <span class="nv">say</span>
+          <span class="nv">TOLA</span> <span class="o">=</span> <span class="nv">max</span><span class="ss">(</span><span class="nv">M</span>,<span class="nv">N</span><span class="ss">)</span><span class="o">*</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">A</span><span class="ss">)</span><span class="o">*</span><span class="nv">MAZHEPS</span>,
+          <span class="nv">TOLB</span> <span class="o">=</span> <span class="nv">max</span><span class="ss">(</span><span class="nv">P</span>,<span class="nv">N</span><span class="ss">)</span><span class="o">*</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">B</span><span class="ss">)</span><span class="o">*</span><span class="nv">MAZHEPS</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] ALPHA
+ \verbatim
+          ALPHA is DOUBLE PRECISION array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] BETA
+ \verbatim
+          BETA is DOUBLE PRECISION array, dimension (N)</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">ALPHA</span> <span class="nv">and</span> <span class="nv">BETA</span> <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">generalized</span> <span class="nv">singular</span>
+      <span class="nv">value</span> <span class="nv">pairs</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">and</span> <span class="nv">B</span><span class="c1">;</span>
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">K</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">1</span>,
+        <span class="nv">BETA</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">K</span><span class="ss">)</span>  <span class="o">=</span> <span class="mi">0</span>,
+      <span class="nv">and</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&gt;=</span> <span class="mi">0</span>,
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">diag</span><span class="ss">(</span><span class="nv">C</span><span class="ss">)</span>,
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span>  <span class="o">=</span> <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span>,
+      <span class="nv">or</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&lt;</span> <span class="mi">0</span>,
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">M</span><span class="ss">)</span><span class="o">=</span> <span class="nv">C</span>, <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">M</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span><span class="o">=</span> <span class="mi">0</span>
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">M</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">S</span>, <span class="nv">BETA</span><span class="ss">(</span><span class="nv">M</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">1</span>.
+      <span class="nv">Furthermore</span>, <span class="k">if</span> <span class="nv">K</span><span class="o">+</span><span class="nv">L</span> <span class="o">&lt;</span> <span class="nv">N</span>,
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">N</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="nv">and</span>
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">N</span><span class="ss">)</span>  <span class="o">=</span> <span class="mi">0</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] U
+ \verbatim
+          U is DOUBLE PRECISION array, dimension (LDU,M)
+          On entry, if JOBU = &lsquo;U&rsquo;, U must contain a matrix U1 (usually
+          the orthogonal matrix returned by DGGSVP).
+          On exit,
+          if JOBU = &lsquo;I&rsquo;, U contains the orthogonal matrix U;
+          if JOBU = &lsquo;U&rsquo;, U contains the product U1*U.
+          If JOBU = &lsquo;N&rsquo;, U is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDU
+ \verbatim
+          LDU is INTEGER
+          The leading dimension of the array U. LDU &gt;= max(1,M) if
+          JOBU = &lsquo;U&rsquo;; LDU &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[in,out] V
+ \verbatim
+          V is DOUBLE PRECISION array, dimension (LDV,P)
+          On entry, if JOBV = &lsquo;V&rsquo;, V must contain a matrix V1 (usually
+          the orthogonal matrix returned by DGGSVP).
+          On exit,
+          if JOBV = &lsquo;I&rsquo;, V contains the orthogonal matrix V;
+          if JOBV = &lsquo;V&rsquo;, V contains the product V1*V.
+          If JOBV = &lsquo;N&rsquo;, V is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDV
+ \verbatim
+          LDV is INTEGER
+          The leading dimension of the array V. LDV &gt;= max(1,P) if
+          JOBV = &lsquo;V&rsquo;; LDV &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[in,out] Q
+ \verbatim
+          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+          On entry, if JOBQ = &lsquo;Q&rsquo;, Q must contain a matrix Q1 (usually
+          the orthogonal matrix returned by DGGSVP).
+          On exit,
+          if JOBQ = &lsquo;I&rsquo;, Q contains the orthogonal matrix Q;
+          if JOBQ = &lsquo;Q&rsquo;, Q contains the product Q1*Q.
+          If JOBQ = &lsquo;N&rsquo;, Q is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDQ
+ \verbatim
+          LDQ is INTEGER
+          The leading dimension of the array Q. LDQ &gt;= max(1,N) if
+          JOBQ = &lsquo;Q&rsquo;; LDQ &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array, dimension (2*N)
+ \endverbatim</p>
+<p>\param[out] NCYCLE
+ \verbatim
+          NCYCLE is INTEGER
+          The number of cycles required for convergence.
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          = 1:  the procedure does not converge after MAXIT cycles.
+ \endverbatim</p>
+<p>\verbatim
+  Internal Parameters
+  ===================</p>
+<p>MAXIT   INTEGER
+          MAXIT specifies the total loops that the iterative procedure
+          may take. If after MAXIT cycles, the routine fails to
+          converge, we return INFO = 1.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup doubleOTHERcomputational
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>DTGSJA essentially uses a variant of Kogbetliantz algorithm to reduce
+  min(L,M-K)-by-L triangular (or trapezoidal) matrix A23 and L-by-L
+  matrix B13 to the form:</p>
+<div class="codehilite"><pre><span></span><code>       U1**T *A13*Q1 = C1*R1; V1**T *B13*Q1 = S1*R1,
+</code></pre></div>
+
+<p>where U1, V1 and Q1 are orthogonal matrix, and Z**T is the transpose
+  of Z.  C1 and S1 are diagonal matrices satisfying</p>
+<div class="codehilite"><pre><span></span><code>            C1**2 + S1**2 = I,
+</code></pre></div>
+
+<p>and R1 is an L-by-L nonsingular upper triangular matrix.
+ \endverbatim</p>
+<p>&ndash;DTGSJA381</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobu~19"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobv~20"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobq~7"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~346"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~33"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~943"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~104"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>K</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~35"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~581"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~560"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~273"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~262"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tola~4"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tola</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tolb~4"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tolb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~73"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alpha</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~60"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Beta</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~28"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U</strong>(Ldu,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu~28"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~62"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(Ldv,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldv~45"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~53"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong>(Ldq,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldq~36"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~559"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncycle~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ncycle</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~743"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxit~3"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MAXIT</strong></td>
+<td> =</td>
+                <td>40</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~631"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~599"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a1~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a2~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a3~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b1~7"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b2~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b3~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-csq~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>csq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-csu~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>csu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-csv~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>csv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-error~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>error</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gamma~6"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gamma</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~686"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-initq~5"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>initq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-initu~3"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>initu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-initv~3"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>initv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~519"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kcycle~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kcycle</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rwk~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rwk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-snq~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>snq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-snu~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>snu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-snv~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>snv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ssmin~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ssmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~244"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantq~19"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantu~9"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantv~7"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DTGSJA</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="n">Jobv</span><span class="p">,</span><span class="n">Jobq</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Tola</span><span class="p">,</span><span class="n">Tolb</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ldq</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ncycle</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DTGSJA381</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Jobq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobv</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">Ncycle</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Tola</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Tolb</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Alpha</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Beta</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Q</span><span class="p">(</span><span class="n">Ldq</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">Ldu</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">Ldv</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">MAXIT</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">MAXIT</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">initq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">initu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">initv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantv</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kcycle</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">a1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">csq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">csu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">error</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">gamma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rwk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">snq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">snu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">snv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ssmin</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAGS2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAPLL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLARTG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASET</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DROT</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">DSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Decode and test the input parameters</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">initu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initu</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">initv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">initq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobq</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initq</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobq</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">initu</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantu</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">initv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">initq</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantq</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobq</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldu</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantu</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldu</span><span class="o">&lt;</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">18</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldv</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantv</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldv</span><span class="o">&lt;</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">20</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldq</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantq</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldq</span><span class="o">&lt;</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">22</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DTGSJA&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize U, V and Q, if necessary</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initu</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initv</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initq</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ldq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Loop until convergence</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">kcycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">MAXIT</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLAGS2</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="n">csu</span><span class="p">,</span><span class="n">snu</span><span class="p">,</span><span class="n">csv</span><span class="p">,</span><span class="n">snv</span><span class="p">,</span><span class="n">csq</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">snq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Update (K+I)-th and (K+J)-th rows of matrix A: U**T *A</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                                 </span><span class="n">Lda</span><span class="p">,</span><span class="n">csu</span><span class="p">,</span><span class="n">snu</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Update I-th and J-th rows of matrix B: V**T *B</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">csv</span><span class="p">,</span><span class="n">snv</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Update (N-L+I)-th and (N-L+J)-th columns of matrices</span>
+<span class="c">!              A and B: A*Q and B*Q</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="nb">MIN</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">csq</span><span class="p">,</span><span class="n">snq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">csq</span><span class="p">,</span><span class="n">snq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">B</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Update orthogonal matrices U, V, Q, if desired.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w">                                </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">U</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">U</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">csu</span><span class="p">,</span><span class="n">snu</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">csv</span><span class="p">,</span><span class="n">snv</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantq</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DROT</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Q</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">csq</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                                </span><span class="n">snq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           The matrices A13 and B13 were lower triangular at the start</span>
+<span class="c">!           of the cycle, and are now upper triangular.</span>
+<span class="c">!</span>
+<span class="c">!           Convergence test: test the parallelism of the corresponding</span>
+<span class="c">!           rows of A and B.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLAPLL</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ssmin</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">error</span><span class="p">,</span><span class="n">ssmin</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">&lt;=</span><span class="nb">MIN</span><span class="p">(</span><span class="n">Tola</span><span class="p">,</span><span class="n">Tolb</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        End of cycle loop</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     The algorithm has not converged after MAXIT cycles.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">200</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     If ERROR &lt;= MIN(TOLA,TOLB), then the algorithm has converged.</span>
+<span class="c">!     Compute the generalized singular value pairs (ALPHA, BETA), and</span>
+<span class="c">!     set the triangular matrix R to array A.</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">         </span><span class="n">Alpha</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">         </span><span class="n">Beta</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">a1</span><span class="o">/=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="nb">gamma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b1</span><span class="o">/</span><span class="n">a1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           change sign if necessary</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">gamma</span><span class="o">&lt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARTG</span><span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="nb">gamma</span><span class="p">),</span><span class="n">ONE</span><span class="p">,</span><span class="n">Beta</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Alpha</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">rwk</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alpha</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">Beta</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="o">/</span><span class="n">Alpha</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="o">/</span><span class="n">Beta</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">Alpha</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="n">Beta</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Post-assignment</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">         </span><span class="n">Alpha</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">         </span><span class="n">Beta</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">+</span><span class="n">L</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">Alpha</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="n">Beta</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">200</span><span class="w">  </span><span class="n">Ncycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kcycle</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of DTGSJA</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DTGSJA</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

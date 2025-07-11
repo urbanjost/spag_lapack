@@ -1,0 +1,1970 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SLA_SYRFSX_EXTENDED &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>SLA_SYRFSX_EXTENDED
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">181 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sla_syrfsx_extended.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/sla_syrfsx_extended.f90.html'>sla_syrfsx_extended.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SLA_SYRFSX_EXTENDED</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-base_residual~14">BASE_RESIDUAL</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-conv_state~14">CONV_STATE</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-extra_residual~14">EXTRA_RESIDUAL</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-extra_y~14">EXTRA_Y</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-la_linrx_err_i~31">LA_LINRX_ERR_I</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-lsame~1144">LSAME</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-noprog_state~14">NOPROG_STATE</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-slamch~269">SLAMCH</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-unstable_state~14">UNSTABLE_STATE</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-working_state~14">WORKING_STATE</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-cnt~18">cnt</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dx_x~14">dx_x</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dxrat~14">dxrat</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dxratmax~14">dxratmax</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dyk~14">dyk</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dz_z~14">dz_z</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dzrat~14">dzrat</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-dzratmax~14">dzratmax</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-eps~257">eps</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-final_dx_x~14">final_dx_x</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-final_dz_z~14">final_dz_z</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-hugeval~14">hugeval</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-i~1195">i</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-incr_prec~14">incr_prec</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-incr_thresh~14">incr_thresh</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-j~930">j</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-normdx~14">normdx</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-normx~14">normx</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-normy~14">normy</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-prev_dz_z~14">prev_dz_z</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-prevnormdx~14">prevnormdx</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-uplo2~8">uplo2</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-upper~420">upper</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-x_state~14">x_state</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-y_prec_state~14">y_prec_state</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-yk~14">yk</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-ymin~14">ymin</a>
+            <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#variable-z_state~14">z_state</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/sla_syrfsx_extended.html#src">SLA_SYRFSX_EXTENDED</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine SLA_SYRFSX_EXTENDED(Prec_type, Uplo, N, Nrhs, A, Lda, Af, Ldaf, Ipiv, Colequ, C, B, Ldb, Y, Ldy, Berr_out, N_norms, Err_bnds_norm, Err_bnds_comp, Res, Ayb, Dy, Y_tail, Rcond, Ithresh, Rthresh, Dz_ub, Ignore_cwise, Info)  
+</h2>
+    
+
+    <p>\brief \b SLA_SYRFSX_EXTENDED improves the computed solution to a system of linear equations for symmetric indefinite matrices by performing extra-precise iterative refinement and provides error bounds and backward error estimates for the solution.
+ \htmlonly
+ Download SLA_SYRFSX_EXTENDED + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/sla_syrfsx_extended.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/sla_syrfsx_extended.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/sla_syrfsx_extended.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>SLA_SYRFSX_EXTENDED improves the computed solution to a system of
+ linear equations by performing extra-precise iterative refinement
+ and provides error bounds and backward error estimates for the solution.
+ This subroutine is called by SSYRFSX to perform iterative refinement.
+ In addition to normwise error bound, the code provides maximum
+ componentwise error bound if possible. See comments for ERR_BNDS_NORM
+ and ERR_BNDS_COMP for details of the error bounds. Note that this
+ subroutine is only resonsible for setting the second fields of
+ ERR_BNDS_NORM and ERR_BNDS_COMP.
+ \endverbatim
+ \param[in] PREC_TYPE
+ \verbatim
+          PREC_TYPE is INTEGER
+     Specifies the intermediate precision to be used in refinement.
+     The value is defined by ILAPREC(P) where P is a CHARACTER and P
+          = &lsquo;S&rsquo;:  Single
+          = &lsquo;D&rsquo;:  Double
+          = &lsquo;I&rsquo;:  Indigenous
+          = &lsquo;X&rsquo; or &lsquo;E&rsquo;:  Extra
+ \endverbatim</p>
+<p>\param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+       = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+       = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] NRHS
+ \verbatim
+          NRHS is INTEGER
+     The number of right-hand-sides, i.e., the number of columns of the
+     matrix B.
+ \endverbatim</p>
+<p>\param[in] A
+ \verbatim
+          A is REAL array, dimension (LDA,N)
+     On entry, the N-by-N matrix A.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+     The leading dimension of the array A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in] AF
+ \verbatim
+          AF is REAL array, dimension (LDAF,N)
+     The block diagonal matrix D and the multipliers used to
+     obtain the factor U or L as computed by SSYTRF.
+ \endverbatim</p>
+<p>\param[in] LDAF
+ \verbatim
+          LDAF is INTEGER
+     The leading dimension of the array AF.  LDAF &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in] IPIV
+ \verbatim
+          IPIV is INTEGER array, dimension (N)
+     Details of the interchanges and the block structure of D
+     as determined by SSYTRF.
+ \endverbatim</p>
+<p>\param[in] COLEQU
+ \verbatim
+          COLEQU is LOGICAL
+     If .TRUE. then column equilibration was done to A before calling
+     this routine. This is needed to compute the solution and error
+     bounds correctly.
+ \endverbatim</p>
+<p>\param[in] C
+ \verbatim
+          C is REAL array, dimension (N)
+     The column scale factors for A. If COLEQU = .FALSE., C
+     is not accessed. If C is input, each element of C should be a power
+     of the radix to ensure a reliable solution and error estimates.
+     Scaling by powers of the radix does not cause rounding errors unless
+     the result underflows or overflows. Rounding errors during scaling
+     lead to refining with a matrix that is not equivalent to the
+     input matrix, producing error estimates that may not be
+     reliable.
+ \endverbatim</p>
+<p>\param[in] B
+ \verbatim
+          B is REAL array, dimension (LDB,NRHS)
+     The right-hand-side matrix B.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+     The leading dimension of the array B.  LDB &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] Y
+ \verbatim
+          Y is REAL array, dimension (LDY,NRHS)
+     On entry, the solution matrix X, as computed by SSYTRS.
+     On exit, the improved solution matrix Y.
+ \endverbatim</p>
+<p>\param[in] LDY
+ \verbatim
+          LDY is INTEGER
+     The leading dimension of the array Y.  LDY &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] BERR_OUT
+ \verbatim
+          BERR_OUT is REAL array, dimension (NRHS)
+     On exit, BERR_OUT(j) contains the componentwise relative backward
+     error for right-hand-side j from the formula
+         max(i) ( abs(RES(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )
+     where abs(Z) is the componentwise absolute value of the matrix
+     or vector Z. This is computed by SLA_LIN_BERR.
+ \endverbatim</p>
+<p>\param[in] N_NORMS
+ \verbatim
+          N_NORMS is INTEGER
+     Determines which error bounds to return (see ERR_BNDS_NORM
+     and ERR_BNDS_COMP).
+     If N_NORMS &gt;= 1 return normwise error bounds.
+     If N_NORMS &gt;= 2 return componentwise error bounds.
+ \endverbatim</p>
+<p>\param[in,out] ERR_BNDS_NORM
+ \verbatim
+          ERR_BNDS_NORM is REAL array, dimension (NRHS, N_ERR_BNDS)
+     For each right-hand side, this array contains information about
+     various error bounds and condition numbers corresponding to the
+     normwise relative error, which is defined as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">Normwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">ith</span> <span class="nv">solution</span> <span class="nv">vector</span>:
+         <span class="nv">max_j</span> <span class="ss">(</span><span class="nv">abs</span><span class="ss">(</span><span class="nv">XTRUE</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)</span> <span class="o">-</span> <span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)))</span>
+        <span class="o">------------------------------</span>
+              <span class="nv">max_j</span> <span class="nv">abs</span><span class="ss">(</span><span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+
+ <span class="nv">The</span> <span class="nv">array</span> <span class="nv">is</span> <span class="nv">indexed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">type</span> <span class="nv">of</span> <span class="nv">error</span> <span class="nv">information</span> <span class="nv">as</span> <span class="nv">described</span>
+ <span class="nv">below</span>. <span class="nv">There</span> <span class="nv">currently</span> <span class="nv">are</span> <span class="nv">up</span> <span class="nv">to</span> <span class="nv">three</span> <span class="nv">pieces</span> <span class="nv">of</span> <span class="nv">information</span>
+ <span class="nv">returned</span>.
+
+ <span class="nv">The</span> <span class="nv">first</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_NORM</span><span class="ss">(</span><span class="nv">i</span>,:<span class="ss">)</span> <span class="nv">corresponds</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">ith</span>
+ <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>.
+
+ <span class="nv">The</span> <span class="nv">second</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_NORM</span><span class="ss">(</span>:,<span class="nv">err</span><span class="ss">)</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">following</span>
+ <span class="nv">three</span> <span class="nv">fields</span>:
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">1</span> <span class="s2">&quot;</span><span class="s">Trust/don&#39;t trust</span><span class="s2">&quot;</span> <span class="nv">boolean</span>. <span class="nv">Trust</span> <span class="nv">the</span> <span class="nv">answer</span> <span class="k">if</span> <span class="nv">the</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">2</span> <span class="s2">&quot;</span><span class="s">Guaranteed</span><span class="s2">&quot;</span> <span class="nv">error</span> <span class="nv">bound</span>: <span class="nv">The</span> <span class="nv">estimated</span> <span class="nv">forward</span> <span class="nv">error</span>,
+          <span class="nv">almost</span> <span class="nv">certainly</span> <span class="nv">within</span> <span class="nv">a</span> <span class="nv">factor</span> <span class="nv">of</span> <span class="mi">10</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">true</span> <span class="nv">error</span>
+          <span class="nv">so</span> <span class="nv">long</span> <span class="nv">as</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">entry</span> <span class="nv">is</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>. <span class="nv">This</span> <span class="nv">error</span> <span class="nv">bound</span> <span class="nv">should</span> <span class="nv">only</span>
+          <span class="nv">be</span> <span class="nv">trusted</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">previous</span> <span class="nv">boolean</span> <span class="nv">is</span> <span class="nv">true</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">3</span>  <span class="nv">Reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>: <span class="nv">Estimated</span> <span class="nv">normwise</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>.  <span class="nv">Compared</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">error</span>
+          <span class="nv">estimate</span> <span class="nv">is</span> <span class="s2">&quot;</span><span class="s">guaranteed</span><span class="s2">&quot;</span>. <span class="nv">These</span> <span class="nv">reciprocal</span> <span class="nv">condition</span>
+          <span class="nv">numbers</span> <span class="nv">are</span> <span class="mi">1</span> <span class="o">/</span> <span class="ss">(</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span><span class="o">^</span>{<span class="o">-</span><span class="mi">1</span>},<span class="nv">inf</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span>,<span class="nv">inf</span><span class="ss">))</span> <span class="k">for</span> <span class="nv">some</span>
+          <span class="nv">appropriately</span> <span class="nv">scaled</span> <span class="nv">matrix</span> <span class="nv">Z</span>.
+          <span class="nv">Let</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">S</span><span class="o">*</span><span class="nv">A</span>, <span class="nv">where</span> <span class="nv">S</span> <span class="nv">scales</span> <span class="nv">each</span> <span class="nv">row</span> <span class="nv">by</span> <span class="nv">a</span> <span class="nv">power</span> <span class="nv">of</span> <span class="nv">the</span>
+          <span class="nv">radix</span> <span class="nv">so</span> <span class="nv">all</span> <span class="nv">absolute</span> <span class="nv">row</span> <span class="nv">sums</span> <span class="nv">of</span> <span class="nv">Z</span> <span class="nv">are</span> <span class="nv">approximately</span> <span class="mi">1</span>.
+
+ <span class="nv">This</span> <span class="nv">subroutine</span> <span class="nv">is</span> <span class="nv">only</span> <span class="nv">responsible</span> <span class="k">for</span> <span class="nv">setting</span> <span class="nv">the</span> <span class="nv">second</span> <span class="nv">field</span>
+ <span class="nv">above</span>.
+ <span class="nv">See</span> <span class="nv">Lapack</span> <span class="nv">Working</span> <span class="nv">Note</span> <span class="mi">165</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span> <span class="nv">and</span> <span class="nv">extra</span>
+ <span class="nv">cautions</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] ERR_BNDS_COMP
+ \verbatim
+          ERR_BNDS_COMP is REAL array, dimension (NRHS, N_ERR_BNDS)
+     For each right-hand side, this array contains information about
+     various error bounds and condition numbers corresponding to the
+     componentwise relative error, which is defined as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">Componentwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">ith</span> <span class="nv">solution</span> <span class="nv">vector</span>:
+                <span class="nv">abs</span><span class="ss">(</span><span class="nv">XTRUE</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)</span> <span class="o">-</span> <span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+         <span class="nv">max_j</span> <span class="o">----------------------</span>
+                     <span class="nv">abs</span><span class="ss">(</span><span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+
+ <span class="nv">The</span> <span class="nv">array</span> <span class="nv">is</span> <span class="nv">indexed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span> <span class="nv">i</span> <span class="ss">(</span><span class="nv">on</span> <span class="nv">which</span> <span class="nv">the</span>
+ <span class="nv">componentwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">depends</span><span class="ss">)</span>, <span class="nv">and</span> <span class="nv">the</span> <span class="nv">type</span> <span class="nv">of</span> <span class="nv">error</span>
+ <span class="nv">information</span> <span class="nv">as</span> <span class="nv">described</span> <span class="nv">below</span>. <span class="nv">There</span> <span class="nv">currently</span> <span class="nv">are</span> <span class="nv">up</span> <span class="nv">to</span> <span class="nv">three</span>
+ <span class="nv">pieces</span> <span class="nv">of</span> <span class="nv">information</span> <span class="nv">returned</span> <span class="k">for</span> <span class="nv">each</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>. <span class="k">If</span>
+ <span class="nv">componentwise</span> <span class="nv">accuracy</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">requested</span> <span class="ss">(</span><span class="nb">PARAMS</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">0</span>.<span class="mi">0</span><span class="ss">)</span>, <span class="k">then</span>
+ <span class="nv">ERR_BNDS_COMP</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">accessed</span>.  <span class="k">If</span> <span class="nv">N_ERR_BNDS</span> <span class="o">&lt;</span> <span class="mi">3</span>, <span class="k">then</span> <span class="nv">at</span> <span class="nv">most</span>
+ <span class="nv">the</span> <span class="nv">first</span> <span class="ss">(</span>:,<span class="nv">N_ERR_BNDS</span><span class="ss">)</span> <span class="nv">entries</span> <span class="nv">are</span> <span class="nv">returned</span>.
+
+ <span class="nv">The</span> <span class="nv">first</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_COMP</span><span class="ss">(</span><span class="nv">i</span>,:<span class="ss">)</span> <span class="nv">corresponds</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">ith</span>
+ <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>.
+
+ <span class="nv">The</span> <span class="nv">second</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_COMP</span><span class="ss">(</span>:,<span class="nv">err</span><span class="ss">)</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">following</span>
+ <span class="nv">three</span> <span class="nv">fields</span>:
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">1</span> <span class="s2">&quot;</span><span class="s">Trust/don&#39;t trust</span><span class="s2">&quot;</span> <span class="nv">boolean</span>. <span class="nv">Trust</span> <span class="nv">the</span> <span class="nv">answer</span> <span class="k">if</span> <span class="nv">the</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">2</span> <span class="s2">&quot;</span><span class="s">Guaranteed</span><span class="s2">&quot;</span> <span class="nv">error</span> <span class="nv">bound</span>: <span class="nv">The</span> <span class="nv">estimated</span> <span class="nv">forward</span> <span class="nv">error</span>,
+          <span class="nv">almost</span> <span class="nv">certainly</span> <span class="nv">within</span> <span class="nv">a</span> <span class="nv">factor</span> <span class="nv">of</span> <span class="mi">10</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">true</span> <span class="nv">error</span>
+          <span class="nv">so</span> <span class="nv">long</span> <span class="nv">as</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">entry</span> <span class="nv">is</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>. <span class="nv">This</span> <span class="nv">error</span> <span class="nv">bound</span> <span class="nv">should</span> <span class="nv">only</span>
+          <span class="nv">be</span> <span class="nv">trusted</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">previous</span> <span class="nv">boolean</span> <span class="nv">is</span> <span class="nv">true</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">3</span>  <span class="nv">Reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>: <span class="nv">Estimated</span> <span class="nv">componentwise</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>.  <span class="nv">Compared</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">slamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">error</span>
+          <span class="nv">estimate</span> <span class="nv">is</span> <span class="s2">&quot;</span><span class="s">guaranteed</span><span class="s2">&quot;</span>. <span class="nv">These</span> <span class="nv">reciprocal</span> <span class="nv">condition</span>
+          <span class="nv">numbers</span> <span class="nv">are</span> <span class="mi">1</span> <span class="o">/</span> <span class="ss">(</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span><span class="o">^</span>{<span class="o">-</span><span class="mi">1</span>},<span class="nv">inf</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span>,<span class="nv">inf</span><span class="ss">))</span> <span class="k">for</span> <span class="nv">some</span>
+          <span class="nv">appropriately</span> <span class="nv">scaled</span> <span class="nv">matrix</span> <span class="nv">Z</span>.
+          <span class="nv">Let</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">S</span><span class="o">*</span><span class="ss">(</span><span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span>, <span class="nv">where</span> <span class="nv">x</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">solution</span> <span class="k">for</span> <span class="nv">the</span>
+          <span class="nv">current</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span> <span class="nv">and</span> <span class="nv">S</span> <span class="nv">scales</span> <span class="nv">each</span> <span class="nv">row</span> <span class="nv">of</span>
+          <span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> <span class="nv">by</span> <span class="nv">a</span> <span class="nv">power</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">radix</span> <span class="nv">so</span> <span class="nv">all</span> <span class="nv">absolute</span> <span class="nv">row</span>
+          <span class="nv">sums</span> <span class="nv">of</span> <span class="nv">Z</span> <span class="nv">are</span> <span class="nv">approximately</span> <span class="mi">1</span>.
+
+ <span class="nv">This</span> <span class="nv">subroutine</span> <span class="nv">is</span> <span class="nv">only</span> <span class="nv">responsible</span> <span class="k">for</span> <span class="nv">setting</span> <span class="nv">the</span> <span class="nv">second</span> <span class="nv">field</span>
+ <span class="nv">above</span>.
+ <span class="nv">See</span> <span class="nv">Lapack</span> <span class="nv">Working</span> <span class="nv">Note</span> <span class="mi">165</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span> <span class="nv">and</span> <span class="nv">extra</span>
+ <span class="nv">cautions</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] RES
+ \verbatim
+          RES is REAL array, dimension (N)
+     Workspace to hold the intermediate residual.
+ \endverbatim</p>
+<p>\param[in] AYB
+ \verbatim
+          AYB is REAL array, dimension (N)
+     Workspace. This can be the same workspace passed for Y_TAIL.
+ \endverbatim</p>
+<p>\param[in] DY
+ \verbatim
+          DY is REAL array, dimension (N)
+     Workspace to hold the intermediate solution.
+ \endverbatim</p>
+<p>\param[in] Y_TAIL
+ \verbatim
+          Y_TAIL is REAL array, dimension (N)
+     Workspace to hold the trailing bits of the intermediate solution.
+ \endverbatim</p>
+<p>\param[in] RCOND
+ \verbatim
+          RCOND is REAL
+     Reciprocal scaled condition number.  This is an estimate of the
+     reciprocal Skeel condition number of the matrix A after
+     equilibration (if done).  If this is less than the machine
+     precision (in particular, if it is zero), the matrix is singular
+     to working precision.  Note that the error may still be small even
+     if this number is very small and the matrix appears ill-
+     conditioned.
+ \endverbatim</p>
+<p>\param[in] ITHRESH
+ \verbatim
+          ITHRESH is INTEGER
+     The maximum number of residual computations allowed for
+     refinement. The default is 10. For &lsquo;aggressive&rsquo; set to 100 to
+     permit convergence using approximate factorizations or
+     factorizations other than LU. If the factorization uses a
+     technique other than Gaussian elimination, the guarantees in
+     ERR_BNDS_NORM and ERR_BNDS_COMP may no longer be trustworthy.
+ \endverbatim</p>
+<p>\param[in] RTHRESH
+ \verbatim
+          RTHRESH is REAL
+     Determines when to stop refinement if the error estimate stops
+     decreasing. Refinement will stop when the next solution no longer
+     satisfies norm(dx_{i+1}) &lt; RTHRESH * norm(dx_i) where norm(Z) is
+     the infinity norm of Z. RTHRESH satisfies 0 &lt; RTHRESH &lt;= 1. The
+     default value is 0.5. For &lsquo;aggressive&rsquo; set to 0.9 to permit
+     convergence on extremely ill-conditioned matrices. See LAWN 165
+     for more details.
+ \endverbatim</p>
+<p>\param[in] DZ_UB
+ \verbatim
+          DZ_UB is REAL
+     Determines when to start considering componentwise convergence.
+     Componentwise convergence is only considered after each component
+     of the solution Y is stable, which we define as the relative
+     change in each component being less than DZ_UB. The default value
+     is 0.25, requiring the first bit to be stable. See LAWN 165 for
+     more details.
+ \endverbatim</p>
+<p>\param[in] IGNORE_CWISE
+ \verbatim
+          IGNORE_CWISE is LOGICAL
+     If .TRUE. then ignore componentwise convergence. Default value
+     is .FALSE..
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+       = 0:  Successful exit.
+       &lt; 0:  if INFO = -i, the ith argument to SLA_SYRFSX_EXTENDED had an illegal
+             value
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup realSYcomputational
+&ndash;SLA_SYRFSX_EXTENDED399</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prec_type~14"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Prec_type</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~728"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1628"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrhs~289"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nrhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~1015"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~978"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-af~88"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Af</strong>(Ldaf,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldaf~88"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldaf</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipiv~359"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipiv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-colequ~14"></span>
+              logical
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Colequ</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~246"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~474"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~457"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~94"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(Ldy,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldy~25"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldy</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-berr_out~14"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Berr_out</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_norms~14"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N_norms</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err_bnds_norm~43"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Err_bnds_norm</strong>(Nrhs,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err_bnds_comp~43"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Err_bnds_comp</strong>(Nrhs,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-res~18"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Res</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ayb~18"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ayb</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dy~20"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dy</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y_tail~14"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y_tail</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rcond~146"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rcond</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ithresh~14"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ithresh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rthresh~14"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rthresh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dz_ub~14"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dz_ub</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ignore_cwise~14"></span>
+              logical
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ignore_cwise</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1262"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-base_residual~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>BASE_RESIDUAL</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-conv_state~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>CONV_STATE</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-extra_residual~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXTRA_RESIDUAL</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-extra_y~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXTRA_Y</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-la_linrx_err_i~31"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>LA_LINRX_ERR_I</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lsame~1144"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LSAME</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-noprog_state~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>NOPROG_STATE</strong></td>
+<td> =</td>
+                <td>3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-slamch~269"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SLAMCH</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-unstable_state~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>UNSTABLE_STATE</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-working_state~14"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>WORKING_STATE</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cnt~18"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cnt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dx_x~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dx_x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dxrat~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dxrat</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dxratmax~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dxratmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dyk~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dyk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dz_z~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dz_z</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dzrat~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dzrat</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dzratmax~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dzratmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eps~257"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eps</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-final_dx_x~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>final_dx_x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-final_dz_z~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>final_dz_z</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hugeval~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hugeval</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1195"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incr_prec~14"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>incr_prec</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incr_thresh~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>incr_thresh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~930"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-normdx~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>normdx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-normx~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>normx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-normy~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>normy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prev_dz_z~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prev_dz_z</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prevnormdx~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prevnormdx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo2~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>uplo2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~420"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x_state~14"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x_state</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y_prec_state~14"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>y_prec_state</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yk~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>yk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ymin~14"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ymin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z_state~14"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>z_state</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">SLA_SYRFSX_EXTENDED</span><span class="p">(</span><span class="n">Prec_type</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                               </span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">Colequ</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ldy</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                               </span><span class="n">Berr_out</span><span class="p">,</span><span class="n">N_norms</span><span class="p">,</span><span class="n">Err_bnds_norm</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                               </span><span class="n">Err_bnds_comp</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="n">Ayb</span><span class="p">,</span><span class="n">Dy</span><span class="p">,</span><span class="n">Y_tail</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                               </span><span class="n">Rcond</span><span class="p">,</span><span class="n">Ithresh</span><span class="p">,</span><span class="n">Rthresh</span><span class="p">,</span><span class="n">Dz_ub</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                               </span><span class="n">Ignore_cwise</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--SLA_SYRFSX_EXTENDED399</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldaf</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldy</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nrhs</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Prec_type</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">N_norms</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ithresh</span><span class="w"></span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">Colequ</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ignore_cwise</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Rthresh</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dz_ub</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ipiv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Af</span><span class="p">(</span><span class="n">Ldaf</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">Ldy</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Res</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">Dy</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Y_tail</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">C</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ayb</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Rcond</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Berr_out</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Err_bnds_norm</span><span class="p">(</span><span class="n">Nrhs</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">Err_bnds_comp</span><span class="p">(</span><span class="n">Nrhs</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">uplo2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">x_state</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">z_state</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">yk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dyk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">normy</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">normx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">normdx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dxrat</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dzrat</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">prevnormdx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">prev_dz_z</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dxratmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dzratmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dx_x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dz_z</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">final_dx_x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">final_dz_z</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">hugeval</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">incr_thresh</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">incr_prec</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">UNSTABLE_STATE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CONV_STATE</span><span class="w"> </span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">NOPROG_STATE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">y_prec_state</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">BASE_RESIDUAL</span><span class="w"> </span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">EXTRA_RESIDUAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">EXTRA_Y</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">UNSTABLE_STATE</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">WORKING_STATE</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">CONV_STATE</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">NOPROG_STATE</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">BASE_RESIDUAL</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">EXTRA_RESIDUAL</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">EXTRA_Y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">LA_LINRX_ERR_I</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">LA_LINRX_ERR_I</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">ILAUPLO</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ILAUPLO</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SAXPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSYTRS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSYMV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">BLAS_SSYMV_X</span><span class="w"> </span><span class="p">,</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">BLAS_SSYMV2_X</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLA_SYAMV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLA_WWADDW</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLA_LIN_BERR</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nrhs</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldaf</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">8</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">13</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldy</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">15</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;SLA_SYRFSX_EXTENDED&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span>
+<span class="k">      </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Epsilon&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">hugeval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Overflow&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     Force HUGEVAL to Inf</span>
+<span class="w">      </span><span class="n">hugeval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="o">*</span><span class="n">hugeval</span><span class="w"></span>
+<span class="c">!     Using HUGEVAL may lead to spurious underflows.</span>
+<span class="w">      </span><span class="n">incr_thresh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">eps</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">uplo2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILAUPLO</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">uplo2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILAUPLO</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">      DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nrhs</span><span class="w"></span>
+<span class="w">         </span><span class="n">y_prec_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EXTRA_RESIDUAL</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">==</span><span class="n">EXTRA_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y_tail</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k"> </span>
+<span class="k">         </span><span class="n">dxrat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">         </span><span class="n">dxratmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">         </span><span class="n">dzrat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">         </span><span class="n">dzratmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">         </span><span class="n">final_dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">         </span><span class="n">final_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">         </span><span class="n">prevnormdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">         </span><span class="n">prev_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">         </span><span class="n">dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">         </span><span class="n">dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="n">x_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WORKING_STATE</span><span class="w"></span>
+<span class="w">         </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UNSTABLE_STATE</span><span class="w"></span>
+<span class="w">         </span><span class="n">incr_prec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">DO </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ithresh</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute residual RES = B_s - op(A_s) * Y,</span>
+<span class="c">!            op(A) = A, A**T, or A**H depending on TRANS (and type).</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">SCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">==</span><span class="n">BASE_RESIDUAL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">SSYMV</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">==</span><span class="n">EXTRA_RESIDUAL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">BLAS_SSYMV_X</span><span class="p">(</span><span class="n">uplo2</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="n">Prec_type</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               CALL </span><span class="n">BLAS_SSYMV2_X</span><span class="p">(</span><span class="n">uplo2</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="n">Y_tail</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                            </span><span class="mf">1.0</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Prec_type</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!         XXX: RES is no longer needed.</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">SCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Dy</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">SSYTRS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">Dy</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!         Calculate relative changes DX_X, DZ_Z and ratios DXRAT, DZRAT.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">normx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="n">normy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="n">normdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="n">dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">yk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">dyk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dy</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yk</span><span class="o">/=</span><span class="mf">0.0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">dz_z</span><span class="p">,</span><span class="n">dyk</span><span class="o">/</span><span class="n">yk</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dyk</span><span class="o">/=</span><span class="mf">0.0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">               </span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span><span class="n">yk</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">               </span><span class="n">normy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">normy</span><span class="p">,</span><span class="n">yk</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Colequ</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">normx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">normx</span><span class="p">,</span><span class="n">yk</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">normdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">normdx</span><span class="p">,</span><span class="n">dyk</span><span class="o">*</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">normx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normy</span><span class="w"></span>
+<span class="w">                  </span><span class="n">normdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">normdx</span><span class="p">,</span><span class="n">dyk</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDDO</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">normx</span><span class="o">/=</span><span class="mf">0.0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normdx</span><span class="o">/</span><span class="n">normx</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">normdx</span><span class="o">==</span><span class="mf">0.0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">            </span><span class="n">dxrat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normdx</span><span class="o">/</span><span class="n">prevnormdx</span><span class="w"></span>
+<span class="w">            </span><span class="n">dzrat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dz_z</span><span class="o">/</span><span class="n">prev_dz_z</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!         Check termination criteria.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ymin</span><span class="o">*</span><span class="n">Rcond</span><span class="o">&lt;</span><span class="n">incr_thresh</span><span class="o">*</span><span class="n">normy</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">y_prec_state</span><span class="o">&lt;</span><span class="n">EXTRA_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">incr_prec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x_state</span><span class="o">==</span><span class="n">NOPROG_STATE</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">dxrat</span><span class="o">&lt;=</span><span class="n">Rthresh</span><span class="w"> </span><span class="p">)</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">x_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WORKING_STATE</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x_state</span><span class="o">==</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dx_x</span><span class="o">&lt;=</span><span class="n">eps</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">x_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONV_STATE</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dxrat</span><span class="o">&gt;</span><span class="n">Rthresh</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">/=</span><span class="n">EXTRA_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">incr_prec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     </span><span class="n">x_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOPROG_STATE</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ELSE</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dxrat</span><span class="o">&gt;</span><span class="n">dxratmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dxratmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dxrat</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x_state</span><span class="o">&gt;</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">final_dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx_x</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">z_state</span><span class="o">==</span><span class="n">UNSTABLE_STATE</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">dz_z</span><span class="o">&lt;=</span><span class="n">Dz_ub</span><span class="w"> </span><span class="p">)</span><span class="w">            </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WORKING_STATE</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">z_state</span><span class="o">==</span><span class="n">NOPROG_STATE</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">dzrat</span><span class="o">&lt;=</span><span class="n">Rthresh</span><span class="w"> </span><span class="p">)</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WORKING_STATE</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">z_state</span><span class="o">==</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dz_z</span><span class="o">&lt;=</span><span class="n">eps</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONV_STATE</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dz_z</span><span class="o">&gt;</span><span class="n">Dz_ub</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UNSTABLE_STATE</span><span class="w"></span>
+<span class="w">                  </span><span class="n">dzratmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">                  </span><span class="n">final_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hugeval</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dzrat</span><span class="o">&gt;</span><span class="n">Rthresh</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">/=</span><span class="n">EXTRA_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">incr_prec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     </span><span class="n">z_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOPROG_STATE</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ELSE</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dzrat</span><span class="o">&gt;</span><span class="n">dzratmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dzratmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dzrat</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">z_state</span><span class="o">&gt;</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">final_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dz_z</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x_state</span><span class="o">/=</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">                           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="p">(</span><span class="n">Ignore_cwise</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">z_state</span><span class="o">/=</span><span class="n">WORKING_STATE</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span>
+<span class="k"> </span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">incr_prec</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">incr_prec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">y_prec_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y_prec_state</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Y_tail</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">            ENDIF</span>
+<span class="k"> </span>
+<span class="k">            </span><span class="n">prevnormdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normdx</span><span class="w"></span>
+<span class="w">            </span><span class="n">prev_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dz_z</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Update soluton.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">y_prec_state</span><span class="o">&lt;</span><span class="n">EXTRA_Y</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">SAXPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">Dy</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               CALL </span><span class="n">SLA_WWADDW</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="n">Y_tail</span><span class="p">,</span><span class="n">Dy</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k"> </span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!        Target of &quot;IF (Z_STOP .AND. X_STOP)&quot;.  Sun&#39;s f77 won&#39;t EXIT.</span>
+<span class="c">!</span>
+<span class="c">!     Set final_* when cnt hits ithresh.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x_state</span><span class="o">==</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">final_dx_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx_x</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">z_state</span><span class="o">==</span><span class="n">WORKING_STATE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">final_dz_z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dz_z</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute error bounds.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N_norms</span><span class="o">&gt;=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Err_bnds_norm</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">LA_LINRX_ERR_I</span><span class="p">)</span><span class="w">              </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">final_dx_x</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">dxratmax</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N_norms</span><span class="o">&gt;=</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Err_bnds_comp</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">LA_LINRX_ERR_I</span><span class="p">)</span><span class="w">              </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">final_dz_z</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">dzratmax</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute componentwise relative backward error from formula</span>
+<span class="c">!         max(i) ( abs(R(i)) / ( abs(op(A_s))*abs(Y) + abs(B_s) )(i) )</span>
+<span class="c">!     where abs(Z) is the componentwise absolute value of the matrix</span>
+<span class="c">!     or vector Z.</span>
+<span class="c">!</span>
+<span class="c">!        Compute residual RES = B_s - op(A_s) * Y,</span>
+<span class="c">!            op(A) = A, A**T, or A**H depending on TRANS (and type).</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SSYMV</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">Ayb</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute abs(op(A_s))*abs(Y) + abs(B_s).</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SLA_SYAMV</span><span class="p">(</span><span class="n">uplo2</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">Ayb</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SLA_LIN_BERR</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Res</span><span class="p">,</span><span class="n">Ayb</span><span class="p">,</span><span class="n">Berr_out</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of loop for each RHS.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">SLA_SYRFSX_EXTENDED</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,794 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CTPQRT2 &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CTPQRT2
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">63 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ctpqrt2.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ctpqrt2.f90.html'>ctpqrt2.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CTPQRT2</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-one~1070">ONE</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-zero~1016">ZERO</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-alpha~87">alpha</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-i~1169">i</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-j~908">j</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-mp~9">mp</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-np~15">np</a>
+            <a class="list-group-item" href="../proc/ctpqrt2.html#variable-p~60">p</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/ctpqrt2.html#src">CTPQRT2</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CTPQRT2(M, N, L, A, Lda, B, Ldb, T, Ldt, Info)  
+</h2>
+    
+
+    <p>\brief \b CTPQRT2 computes a QR factorization of a real or complex &ldquo;triangular-pentagonal&rdquo; matrix, which is composed of a triangular block and a pentagonal block, using the compact WY representation for Q.
+ \htmlonly
+ Download CTPQRT2 + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ctpqrt2.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ctpqrt2.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ctpqrt2.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>CTPQRT2 computes a QR factorization of a complex &ldquo;triangular-pentagonal&rdquo;
+ matrix C, which is composed of a triangular block A and pentagonal block B,
+ using the compact WY representation for Q.
+ \endverbatim
+ \param[in] M
+ \verbatim
+          M is INTEGER
+          The total number of rows of the matrix B.
+          M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrix B, and the order of
+          the triangular matrix A.
+          N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] L
+ \verbatim
+          L is INTEGER
+          The number of rows of the upper trapezoidal part of B.
+          MIN(M,N) &gt;= L &gt;= 0.  See Further Details.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is COMPLEX array, dimension (LDA,N)
+          On entry, the upper triangular N-by-N matrix A.
+          On exit, the elements on and above the diagonal of the array
+          contain the upper triangular matrix R.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is COMPLEX array, dimension (LDB,N)
+          On entry, the pentagonal M-by-N matrix B.  The first M-L rows
+          are rectangular, and the last L rows are upper trapezoidal.
+          On exit, B contains the pentagonal matrix V.  See Further Details.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B.  LDB &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] T
+ \verbatim
+          T is COMPLEX array, dimension (LDT,N)
+          The N-by-N upper triangular factor T of the block reflector.
+          See Further Details.
+ \endverbatim</p>
+<p>\param[in] LDT
+ \verbatim
+          LDT is INTEGER
+          The leading dimension of the array T.  LDT &gt;= max(1,N)
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0: successful exit
+          &lt; 0: if INFO = -i, the i-th argument had an illegal value
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup complexOTHERcomputational
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>The input matrix C is a (N+M)-by-N matrix</p>
+<div class="codehilite"><pre><span></span><code>           C = [ A ]
+               [ B ]
+</code></pre></div>
+
+<p>where A is an upper triangular N-by-N matrix, and B is M-by-N pentagonal
+  matrix consisting of a (M-L)-by-N rectangular matrix B1 on top of a L-by-N
+  upper trapezoidal matrix B2:</p>
+<div class="codehilite"><pre><span></span><code>           <span class="n">B</span> <span class="o">=</span> <span class="p">[</span> <span class="n">B1</span> <span class="p">]</span>  <span class="o">&lt;-</span> <span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span> <span class="n">rectangular</span>
+               <span class="p">[</span> <span class="n">B2</span> <span class="p">]</span>  <span class="o">&lt;-</span>     <span class="n">L</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span> <span class="n">upper</span> <span class="n">trapezoidal.</span>
+</code></pre></div>
+
+<p>The upper trapezoidal matrix B2 consists of the first L rows of a
+  N-by-N upper triangular matrix, where 0 &lt;= L &lt;= MIN(M,N).  If L=0,
+  B is rectangular M-by-N; if M=L=N, B is upper triangular.</p>
+<p>The matrix W stores the elementary reflectors H(i) in the i-th column
+  below the diagonal (of A) in the (N+M)-by-N input matrix C</p>
+<div class="codehilite"><pre><span></span><code>           <span class="n">C</span> <span class="o">=</span> <span class="p">[</span> <span class="n">A</span> <span class="p">]</span>  <span class="o">&lt;-</span> <span class="n">upper</span> <span class="n">triangular</span> <span class="n">N</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span>
+               <span class="p">[</span> <span class="n">B</span> <span class="p">]</span>  <span class="o">&lt;-</span> <span class="n">M</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span> <span class="n">pentagonal</span>
+</code></pre></div>
+
+<p>so that W can be represented as</p>
+<div class="codehilite"><pre><span></span><code>           <span class="n">W</span> <span class="o">=</span> <span class="p">[</span> <span class="n">I</span> <span class="p">]</span>  <span class="o">&lt;-</span> <span class="n">identity</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span>
+               <span class="p">[</span> <span class="n">V</span> <span class="p">]</span>  <span class="o">&lt;-</span> <span class="n">M</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">same</span> <span class="n">form</span> <span class="n">as</span> <span class="n">B.</span>
+</code></pre></div>
+
+<p>Thus, all of information needed for W is contained on exit in B, which
+  we call V above.  Note that V has the same form as B; that is,</p>
+<div class="codehilite"><pre><span></span><code>           <span class="n">V</span> <span class="o">=</span> <span class="p">[</span> <span class="n">V1</span> <span class="p">]</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">)</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span> <span class="n">rectangular</span>
+               <span class="p">[</span> <span class="n">V2</span> <span class="p">]</span> <span class="o">&lt;-</span>     <span class="n">L</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">N</span> <span class="n">upper</span> <span class="n">trapezoidal.</span>
+</code></pre></div>
+
+<p>The columns of V represent the vectors which define the H(i)&rsquo;s.
+  The (M+N)-by-(M+N) block reflector H is then given by</p>
+<div class="codehilite"><pre><span></span><code>           H = I - W * T * W**H
+</code></pre></div>
+
+<p>where W**H is the conjugate transpose of W and T is the upper triangular
+  factor of the block reflector.
+ \endverbatim</p>
+<p>&ndash;CTPQRT2177</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~593"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1597"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~60"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~990"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~954"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~464"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~447"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~141"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>T</strong>(Ldt,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldt~127"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1235"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~1070"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>(1.0,0.0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~1016"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>(0.0,0.0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~87"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1169"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~908"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mp~9"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-np~15"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>np</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~60"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">CTPQRT2</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--CTPQRT2177</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">Ldt</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span><span class="n">ZERO</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">np</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">alpha</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">CLARFG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CGEMV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CGERC</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CTRMV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input arguments</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">L</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">L</span><span class="o">&gt;</span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldt</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CTPQRT2&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Generate elementary reflector H(I) to annihilate B(:,I)</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CLARFG</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           W(1:N-I) := C(I:M,I+1:N)**H * C(I:M,I) [use W = T(:,N)]</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">               </span><span class="n">T</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">CGEMV</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           C(I:M,I+1:N) = C(I:m,I+1:N) + alpha*C(I:M,I)*W(1:N-1)**H</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">alpha</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">CGERC</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        T(1:I-1,I) := C(I:M,1:I-1)**H * (alpha * C(I:M,I))</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">T</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">         </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">L</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Triangular part of B2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"></span>
+<span class="w">            </span><span class="n">T</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alpha</span><span class="o">*</span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">         CALL </span><span class="n">CTRMV</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Rectangular part of B2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CGEMV</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">T</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        B1</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CGEMV</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        T(1:I-1,I) := T(1:I-1,1:I-1) * T(1:I-1,I)</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CTRMV</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        T(I,I) = tau(I)</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!</span>
+<span class="c">!     End of CTPQRT2</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">CTPQRT2</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

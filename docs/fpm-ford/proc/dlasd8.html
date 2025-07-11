@@ -1,0 +1,981 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DLASD8 &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DLASD8
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">84 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlasd8.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dlasd8.f90.html'>dlasd8.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DLASD8</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-one~726">ONE</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-diflj~4">diflj</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-difrj~4">difrj</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-dj~4">dj</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-dsigj~4">dsigj</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-dsigjp~4">dsigjp</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-i~801">i</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-iwk1~2">iwk1</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-iwk2~2">iwk2</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-iwk2i~2">iwk2i</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-iwk3~2">iwk3</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-iwk3i~2">iwk3i</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-j~607">j</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-rho~3">rho</a>
+            <a class="list-group-item" href="../proc/dlasd8.html#variable-temp~150">temp</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlasd8.html#src">DLASD8</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DLASD8(Icompq, K, D, Z, Vf, Vl, Difl, Difr, Lddifr, Dsigma, Work, Info)  
+</h2>
+    
+
+    <p>\brief \b DLASD8 finds the square roots of the roots of the secular equation, and stores, for each element in D, the distance to its two nearest poles. Used by sbdsdc.
+ \htmlonly
+ Download DLASD8 + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dlasd8.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dlasd8.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dlasd8.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DLASD8 finds the square roots of the roots of the secular equation,
+ as defined by the values in DSIGMA and Z. It makes the appropriate
+ calls to DLASD4, and stores, for each  element in D, the distance
+ to its two nearest poles (elements in DSIGMA). It also updates
+ the arrays VF and VL, the first and last components of all the
+ right singular vectors of the original bidiagonal matrix.</p>
+<p>DLASD8 is called from DLASD6.
+ \endverbatim
+ \param[in] ICOMPQ
+ \verbatim
+          ICOMPQ is INTEGER
+          Specifies whether singular vectors are to be computed in
+          factored form in the calling routine:
+          = 0: Compute singular values only.
+          = 1: Compute singular vectors in factored form as well.
+ \endverbatim</p>
+<p>\param[in] K
+ \verbatim
+          K is INTEGER
+          The number of terms in the rational function to be solved
+          by DLASD4.  K &gt;= 1.
+ \endverbatim</p>
+<p>\param[out] D
+ \verbatim
+          D is DOUBLE PRECISION array, dimension ( K )
+          On output, D contains the updated singular values.
+ \endverbatim</p>
+<p>\param[in,out] Z
+ \verbatim
+          Z is DOUBLE PRECISION array, dimension ( K )
+          On entry, the first K elements of this array contain the
+          components of the deflation-adjusted updating row vector.
+          On exit, Z is updated.
+ \endverbatim</p>
+<p>\param[in,out] VF
+ \verbatim
+          VF is DOUBLE PRECISION array, dimension ( K )
+          On entry, VF contains  information passed through DBEDE8.
+          On exit, VF contains the first K components of the first
+          components of all right singular vectors of the bidiagonal
+          matrix.
+ \endverbatim</p>
+<p>\param[in,out] VL
+ \verbatim
+          VL is DOUBLE PRECISION array, dimension ( K )
+          On entry, VL contains  information passed through DBEDE8.
+          On exit, VL contains the first K components of the last
+          components of all right singular vectors of the bidiagonal
+          matrix.
+ \endverbatim</p>
+<p>\param[out] DIFL
+ \verbatim
+          DIFL is DOUBLE PRECISION array, dimension ( K )
+          On exit, DIFL(I) = D(I) - DSIGMA(I).
+ \endverbatim</p>
+<p>\param[out] DIFR
+ \verbatim
+          DIFR is DOUBLE PRECISION array,
+                   dimension ( LDDIFR, 2 ) if ICOMPQ = 1 and
+                   dimension ( K ) if ICOMPQ = 0.
+          On exit, DIFR(I,1) = D(I) - DSIGMA(I+1), DIFR(K,1) is not
+          defined and will not be referenced.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">ICOMPQ</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">DIFR</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">K</span>,<span class="mi">2</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span> <span class="nv">containing</span> <span class="nv">the</span>
+      <span class="nv">normalizing</span> <span class="nv">factors</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">right</span> <span class="nv">singular</span> <span class="nv">vector</span> <span class="nv">matrix</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDDIFR
+ \verbatim
+          LDDIFR is INTEGER
+          The leading dimension of DIFR, must be at least K.
+ \endverbatim</p>
+<p>\param[in,out] DSIGMA
+ \verbatim
+          DSIGMA is DOUBLE PRECISION array, dimension ( K )
+          On entry, the first K elements of this array contain the old
+          roots of the deflated updating problem.  These are the poles
+          of the secular equation.
+          On exit, the elements of DSIGMA may be very slightly altered
+          in value.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array, dimension (3*K)
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit.
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          &gt; 0:  if INFO = 1, a singular value did not converge
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date June 2017
+ \ingroup OTHERauxiliary
+ \par Contributors:</p>
+<div class="codehilite"><pre><span></span><code> Ming Gu and Huan Ren, Computer Science Division, University of
+ California at Berkeley, USA
+</code></pre></div>
+
+<p>&ndash;DLASD8170</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.1) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2017</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icompq~9"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Icompq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~132"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>K</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~153"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z~111"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Z</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vf~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Vf</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vl~71"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Vl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-difl~5"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Difl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-difr~5"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Difr</strong>(Lddifr,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lddifr~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lddifr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsigma~6"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dsigma</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~645"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~840"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~726"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diflj~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>diflj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-difrj~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>difrj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dj~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsigj~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsigj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsigjp~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsigjp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~801"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwk1~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwk1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwk2~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwk2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwk2i~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwk2i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwk3~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwk3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwk3i~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwk3i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~607"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rho~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rho</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~150"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DLASD8</span><span class="p">(</span><span class="n">Icompq</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Vf</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Difl</span><span class="p">,</span><span class="n">Difr</span><span class="p">,</span><span class="n">Lddifr</span><span class="p">,</span><span class="n">Dsigma</span><span class="p">,</span><span class="n">Work</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DLASD8170</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.1) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2017</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Icompq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lddifr</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">D</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Difl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Difr</span><span class="p">(</span><span class="n">Lddifr</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dsigma</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Vf</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Vl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwk1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwk2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwk2i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwk3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwk3i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">diflj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">difrj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dsigj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dsigjp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASCL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASD4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASET</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DDOT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMC3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DNRM2</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DDOT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMC3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DNRM2</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SIGN</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SQRT</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Icompq</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Icompq</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lddifr</span><span class="o">&lt;</span><span class="n">K</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DLASD8&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">Difl</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Icompq</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Difl</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="n">Difr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Modify values DSIGMA(i) to make sure all DSIGMA(i)-DSIGMA(j) can</span>
+<span class="c">!     be computed with high relative accuracy (barring over/underflow).</span>
+<span class="c">!     This is a problem on machines without a guard digit in</span>
+<span class="c">!     add/subtract (Cray XMP, Cray YMP, Cray C 90 and Cray 2).</span>
+<span class="c">!     The following code replaces DSIGMA(I) by 2*DSIGMA(I)-DSIGMA(I),</span>
+<span class="c">!     which on any of these machines zeros out the bottommost</span>
+<span class="c">!     bit of DSIGMA(I) if it is 1; this makes the subsequent</span>
+<span class="c">!     subtractions DSIGMA(I)-DSIGMA(J) unproblematic when cancellation</span>
+<span class="c">!     occurs. On binary machines with a guard digit (almost all</span>
+<span class="c">!     machines) it does not change DSIGMA(I) at all. On hexadecimal</span>
+<span class="c">!     and decimal machines with a guard digit, it slightly</span>
+<span class="c">!     changes the bottommost bits of DSIGMA(I). It does not account</span>
+<span class="c">!     for hexadecimal or decimal machines without guard digits</span>
+<span class="c">!     (we know of none). We use a subroutine call to compute</span>
+<span class="c">!     2*DLAMBDA(I) to prevent optimizing compilers from eliminating</span>
+<span class="c">!     this code.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">         </span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMC3</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Book keeping.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">iwk1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">iwk2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iwk1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">      </span><span class="n">iwk3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iwk2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">      </span><span class="n">iwk2i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iwk2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">iwk3i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iwk3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Normalize Z.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DNRM2</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rho</span><span class="o">*</span><span class="n">rho</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize WORK(IWK3).</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3</span><span class="p">),</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the updated singular values, the arrays DIFL, DIFR,</span>
+<span class="c">!     and the updated Z.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DLASD4</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">Dsigma</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk1</span><span class="p">),</span><span class="n">rho</span><span class="p">,</span><span class="n">D</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2</span><span class="p">),</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        If the root finder fails, report the convergence failure.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Difl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Work</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Difr</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Work</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">         DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2i</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">      ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute updated Z.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">         </span><span class="n">Z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="nb">SQRT</span><span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">i</span><span class="p">))),</span><span class="n">Z</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Update VF and VL.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">         </span><span class="n">diflj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Difl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">dj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">dsigj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">K</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">difrj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Difr</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">dsigjp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Z</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">diflj</span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="n">dj</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">DLAMC3</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">dsigj</span><span class="p">)</span><span class="o">-</span><span class="n">diflj</span><span class="p">)</span><span class="w">              </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">dj</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">         DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">DLAMC3</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">dsigjp</span><span class="p">)</span><span class="o">+</span><span class="n">difrj</span><span class="p">)</span><span class="w">             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="o">/</span><span class="p">(</span><span class="n">Dsigma</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">dj</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">         </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DNRM2</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DDOT</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Vf</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">temp</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3i</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DDOT</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">temp</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Icompq</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Difr</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk2</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vf</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwk3</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DLASD8</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DLASD8</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

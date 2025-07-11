@@ -1,0 +1,883 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CHPSVX &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CHPSVX
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">51 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/chpsvx.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/chpsvx.f90.html'>chpsvx.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CHPSVX</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/chpsvx.html#variable-zero~322">ZERO</a>
+            <a class="list-group-item" href="../proc/chpsvx.html#variable-anorm~24">anorm</a>
+            <a class="list-group-item" href="../proc/chpsvx.html#variable-nofact~10">nofact</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/chpsvx.html#src">CHPSVX</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CHPSVX(Fact, Uplo, N, Nrhs, Ap, Afp, Ipiv, B, Ldb, X, Ldx, Rcond, Ferr, Berr, Work, Rwork, Info)  
+</h2>
+    
+
+    <p>\brief <b> CHPSVX computes the solution to system of linear equations A * X = B for OTHER matrices</b>
+ \htmlonly
+ Download CHPSVX + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chpsvx.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chpsvx.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chpsvx.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>CHPSVX uses the diagonal pivoting factorization A = U<em>D</em>U<strong>H or
+ A = L<em>D</em>L</strong>H to compute the solution to a complex system of linear
+ equations A * X = B, where A is an N-by-N Hermitian matrix stored
+ in packed format and X and B are N-by-NRHS matrices.</p>
+<p>Error bounds on the solution and a condition estimate are also
+ provided.
+ \endverbatim
+ \par Description:</p>
+<p>\verbatim</p>
+<p>The following steps are performed:</p>
+<ol>
+<li>
+<p>If FACT = &lsquo;N&rsquo;, the diagonal pivoting method is used to factor A as
+       A = U * D * U<strong>H,  if UPLO = &lsquo;U&rsquo;, or
+       A = L * D * L</strong>H,  if UPLO = &lsquo;L&rsquo;,
+    where U (or L) is a product of permutation and unit upper (lower)
+    triangular matrices and D is Hermitian and block diagonal with
+    1-by-1 and 2-by-2 diagonal blocks.</p>
+</li>
+<li>
+<p>If some D(i,i)=0, so that D is exactly singular, then the routine
+    returns with INFO = i. Otherwise, the factored form of A is used
+    to estimate the condition number of the matrix A.  If the
+    reciprocal of the condition number is less than machine precision,
+    INFO = N+1 is returned as a warning, but the routine still goes on
+    to solve for X and compute error bounds as described below.</p>
+</li>
+<li>
+<p>The system of equations is solved for X using the factored form
+    of A.</p>
+</li>
+<li>
+<p>Iterative refinement is applied to improve the computed solution
+    matrix and calculate error bounds and backward error estimates
+    for it.
+ \endverbatim
+ \param[in] FACT
+ \verbatim
+          FACT is CHARACTER*1
+          Specifies whether or not the factored form of A has been
+          supplied on entry.
+          = &lsquo;F&rsquo;:  On entry, AFP and IPIV contain the factored form of
+                  A.  AFP and IPIV will not be modified.
+          = &lsquo;N&rsquo;:  The matrix A will be copied to AFP and factored.
+ \endverbatim</p>
+</li>
+</ol>
+<p>\param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+          = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+          = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of linear equations, i.e., the order of the
+          matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] NRHS
+ \verbatim
+          NRHS is INTEGER
+          The number of right hand sides, i.e., the number of columns
+          of the matrices B and X.  NRHS &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] AP
+ \verbatim
+          AP is COMPLEX array, dimension (N<em>(N+1)/2)
+          The upper or lower triangle of the Hermitian matrix A, packed
+          columnwise in a linear array.  The j-th column of A is stored
+          in the array AP as follows:
+          if UPLO = &lsquo;U&rsquo;, AP(i + (j-1)</em>j/2) = A(i,j) for 1&lt;=i&lt;=j;
+          if UPLO = &lsquo;L&rsquo;, AP(i + (j-1)<em>(2</em>n-j)/2) = A(i,j) for j&lt;=i&lt;=n.
+          See below for further details.
+ \endverbatim</p>
+<p>\param[in,out] AFP
+ \verbatim
+          AFP is COMPLEX array, dimension (N<em>(N+1)/2)
+          If FACT = &lsquo;F&rsquo;, then AFP is an input argument and on entry
+          contains the block diagonal matrix D and the multipliers used
+          to obtain the factor U or L from the factorization
+          A = U</em>D<em>U</em><em>H or A = L</em>D<em>L</em>*H as computed by CHPTRF, stored as
+          a packed triangular matrix in the same storage format as A.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span>, <span class="k">then</span> <span class="nv">AFP</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">output</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">on</span> <span class="k">exit</span>
+      <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">block</span> <span class="nv">diagonal</span> <span class="nv">matrix</span> <span class="nv">D</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">multipliers</span> <span class="nv">used</span>
+      <span class="nv">to</span> <span class="nv">obtain</span> <span class="nv">the</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">factorization</span>
+      <span class="nv">A</span> <span class="o">=</span> <span class="nv">U</span><span class="o">*</span><span class="nv">D</span><span class="o">*</span><span class="nv">U</span><span class="o">**</span><span class="nv">H</span> <span class="nv">or</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">L</span><span class="o">*</span><span class="nv">D</span><span class="o">*</span><span class="nv">L</span><span class="o">**</span><span class="nv">H</span> <span class="nv">as</span> <span class="nv">computed</span> <span class="nv">by</span> <span class="nv">CHPTRF</span>, <span class="nv">stored</span> <span class="nv">as</span>
+      <span class="nv">a</span> <span class="nv">packed</span> <span class="nv">triangular</span> <span class="nv">matrix</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">same</span> <span class="nv">storage</span> <span class="nv">format</span> <span class="nv">as</span> <span class="nv">A</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] IPIV
+ \verbatim
+          IPIV is INTEGER array, dimension (N)
+          If FACT = &lsquo;F&rsquo;, then IPIV is an input argument and on entry
+          contains details of the interchanges and the block structure
+          of D, as determined by CHPTRF.
+          If IPIV(k) &gt; 0, then rows and columns k and IPIV(k) were
+          interchanged and D(k,k) is a 1-by-1 diagonal block.
+          If UPLO = &lsquo;U&rsquo; and IPIV(k) = IPIV(k-1) &lt; 0, then rows and
+          columns k-1 and -IPIV(k) were interchanged and D(k-1:k,k-1:k)
+          is a 2-by-2 diagonal block.  If UPLO = &lsquo;L&rsquo; and IPIV(k) =
+          IPIV(k+1) &lt; 0, then rows and columns k+1 and -IPIV(k) were
+          interchanged and D(k:k+1,k:k+1) is a 2-by-2 diagonal block.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span>, <span class="k">then</span> <span class="nv">IPIV</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">output</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">on</span> <span class="k">exit</span>
+      <span class="nv">contains</span> <span class="nv">details</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">interchanges</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">block</span> <span class="nv">structure</span>
+      <span class="nv">of</span> <span class="nv">D</span>, <span class="nv">as</span> <span class="nv">determined</span> <span class="nv">by</span> <span class="nv">CHPTRF</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] B
+ \verbatim
+          B is COMPLEX array, dimension (LDB,NRHS)
+          The N-by-NRHS right hand side matrix B.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B.  LDB &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] X
+ \verbatim
+          X is COMPLEX array, dimension (LDX,NRHS)
+          If INFO = 0 or INFO = N+1, the N-by-NRHS solution matrix X.
+ \endverbatim</p>
+<p>\param[in] LDX
+ \verbatim
+          LDX is INTEGER
+          The leading dimension of the array X.  LDX &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] RCOND
+ \verbatim
+          RCOND is REAL
+          The estimate of the reciprocal condition number of the matrix
+          A.  If RCOND is less than the machine precision (in
+          particular, if RCOND = 0), the matrix is singular to working
+          precision.  This condition is indicated by a return code of
+          INFO &gt; 0.
+ \endverbatim</p>
+<p>\param[out] FERR
+ \verbatim
+          FERR is REAL array, dimension (NRHS)
+          The estimated forward error bound for each solution vector
+          X(j) (the j-th column of the solution matrix X).
+          If XTRUE is the true solution corresponding to X(j), FERR(j)
+          is an estimated upper bound for the magnitude of the largest
+          element in (X(j) - XTRUE) divided by the magnitude of the
+          largest element in X(j).  The estimate is as reliable as
+          the estimate for RCOND, and is almost always a slight
+          overestimate of the true error.
+ \endverbatim</p>
+<p>\param[out] BERR
+ \verbatim
+          BERR is REAL array, dimension (NRHS)
+          The componentwise relative backward error of each solution
+          vector X(j) (i.e., the smallest relative change in
+          any element of A or B that makes X(j) an exact solution).
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is COMPLEX array, dimension (2*N)
+ \endverbatim</p>
+<p>\param[out] RWORK
+ \verbatim
+          RWORK is REAL array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0: successful exit
+          &lt; 0: if INFO = -i, the i-th argument had an illegal value
+          &gt; 0:  if INFO = i, and i is
+                &lt;= N:  D(i,i) is exactly zero.  The factorization
+                       has been completed but the factor D is exactly
+                       singular, so the solution and error bounds could
+                       not be computed. RCOND = 0 is returned.
+                = N+1: D is nonsingular, but RCOND is less than machine
+                       precision, meaning that the matrix is singular
+                       to working precision.  Nevertheless, the
+                       solution and error bounds are computed because
+                       there are a number of situations where the
+                       computed solution can be more accurate than the
+                       value of RCOND would suggest.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date April 2012
+ \ingroup complexOTHERsolve
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>The packed storage scheme is illustrated by the following example
+  when N = 4, UPLO = &lsquo;U&rsquo;:</p>
+<p>Two-dimensional storage of the Hermitian matrix A:</p>
+<div class="codehilite"><pre><span></span><code> a11 a12 a13 a14
+     a22 a23 a24
+         a33 a34     (aij = conjg(aji))
+             a44
+</code></pre></div>
+
+<p>Packed storage of the upper triangle of A:</p>
+<p>AP = [ a11, a12, a22, a13, a23, a33, a14, a24, a34, a44 ]
+ \endverbatim</p>
+<p>&ndash;CHPSVX281</p>
+<p>&ndash; LAPACK driver routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     April 2012</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fact~10"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Fact</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~220"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~498"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrhs~96"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nrhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ap~45"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ap</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-afp~3"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Afp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipiv~106"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipiv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~141"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~137"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~73"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(Ldx,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldx~34"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rcond~41"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rcond</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ferr~19"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ferr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-berr~28"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Berr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~293"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rwork~75"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~402"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~322"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-anorm~24"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>anorm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nofact~10"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nofact</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">CHPSVX</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">Ap</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">,</span><span class="n">Rcond</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ferr</span><span class="p">,</span><span class="n">Berr</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Rwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--CHPSVX281</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK driver routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     April 2012</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Fact</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nrhs</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Rcond</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ipiv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Berr</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ferr</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">Afp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">Ldx</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">nofact</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">anorm</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">CLANHP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CLANHP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">CCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CHPCON</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CHPRFS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CHPTRF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CHPTRS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CLACPY</span><span class="w"> </span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">nofact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">nofact</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nrhs</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldx</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">11</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CHPSVX&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nofact</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute the factorization A = U*D*U**H or A = L*D*L**H.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CCOPY</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">Ap</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CHPTRF</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Return if INFO is non-zero.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Rcond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">RETURN</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the norm of the matrix A.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">anorm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CLANHP</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ap</span><span class="p">,</span><span class="n">Rwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the reciprocal of the condition number of A.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CHPCON</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">anorm</span><span class="p">,</span><span class="n">Rcond</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the solution vectors X.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CLACPY</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CHPTRS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Use iterative refinement to improve the computed solutions and</span>
+<span class="c">!     compute error bounds and backward error estimates for them.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CHPRFS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">Ap</span><span class="p">,</span><span class="n">Afp</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">,</span><span class="n">Ferr</span><span class="p">,</span><span class="n">Berr</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Rwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Set INFO = N+1 if the matrix is singular to working precision.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Rcond</span><span class="o">&lt;</span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Epsilon&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of CHPSVX</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">CHPSVX</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

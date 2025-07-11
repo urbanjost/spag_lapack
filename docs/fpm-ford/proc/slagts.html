@@ -1,0 +1,917 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SLAGTS &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>SLAGTS
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">183 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/slagts.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/slagts.f90.html'>slagts.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SLAGTS</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/slagts.html#variable-one~985">ONE</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-zero~931">ZERO</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-absak~2">absak</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-ak~44">ak</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-bignum~201">bignum</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-eps~225">eps</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-k~373">k</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-pert~2">pert</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-sfmin~43">sfmin</a>
+            <a class="list-group-item" href="../proc/slagts.html#variable-temp~200">temp</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/slagts.html#src">SLAGTS</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine SLAGTS(Job, N, A, B, C, D, In, Y, Tol, Info)  
+</h2>
+    
+
+    <p>\brief \b SLAGTS solves the system of equations (T-λI)x = y or (T-λI)Tx = y,where T is a general tridiagonal matrix and λ a scalar, using the LU factorization computed by slagtf.
+ \htmlonly
+ Download SLAGTS + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slagts.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slagts.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slagts.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>SLAGTS may be used to solve one of the systems of equations</p>
+<div class="codehilite"><pre><span></span><code>(T - lambda*I)*x = y   or   (T - lambda*I)**T*x = y,
+</code></pre></div>
+
+<p>where T is an n by n tridiagonal matrix, for x, following the
+ factorization of (T - lambda*I) as</p>
+<div class="codehilite"><pre><span></span><code>(T - lambda*I) = P*L*U ,
+</code></pre></div>
+
+<p>by routine SLAGTF. The choice of equation to be solved is
+ controlled by the argument JOB, and in each case there is an option
+ to perturb zero or very small diagonal elements of U, this option
+ being intended for use in applications such as inverse iteration.
+ \endverbatim
+ \param[in] JOB
+ \verbatim
+          JOB is INTEGER
+          Specifies the job to be performed by SLAGTS as follows:
+          =  1: The equations  (T - lambda<em>I)x = y  are to be solved,
+                but diagonal elements of U are not to be perturbed.
+          = -1: The equations  (T - lambda</em>I)x = y  are to be solved
+                and, if overflow would otherwise occur, the diagonal
+                elements of U are to be perturbed. See argument TOL
+                below.
+          =  2: The equations  (T - lambda<em>I)</em><em>Tx = y  are to be solved,
+                but diagonal elements of U are not to be perturbed.
+          = -2: The equations  (T - lambda</em>I)**Tx = y  are to be solved
+                and, if overflow would otherwise occur, the diagonal
+                elements of U are to be perturbed. See argument TOL
+                below.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrix T.
+ \endverbatim</p>
+<p>\param[in] A
+ \verbatim
+          A is REAL array, dimension (N)
+          On entry, A must contain the diagonal elements of U as
+          returned from SLAGTF.
+ \endverbatim</p>
+<p>\param[in] B
+ \verbatim
+          B is REAL array, dimension (N-1)
+          On entry, B must contain the first super-diagonal elements of
+          U as returned from SLAGTF.
+ \endverbatim</p>
+<p>\param[in] C
+ \verbatim
+          C is REAL array, dimension (N-1)
+          On entry, C must contain the sub-diagonal elements of L as
+          returned from SLAGTF.
+ \endverbatim</p>
+<p>\param[in] D
+ \verbatim
+          D is REAL array, dimension (N-2)
+          On entry, D must contain the second super-diagonal elements
+          of U as returned from SLAGTF.
+ \endverbatim</p>
+<p>\param[in] IN
+ \verbatim
+          IN is INTEGER array, dimension (N)
+          On entry, IN must contain details of the matrix P as returned
+          from SLAGTF.
+ \endverbatim</p>
+<p>\param[in,out] Y
+ \verbatim
+          Y is REAL array, dimension (N)
+          On entry, the right hand side vector y.
+          On exit, Y is overwritten by the solution vector x.
+ \endverbatim</p>
+<p>\param[in,out] TOL
+ \verbatim
+          TOL is REAL
+          On entry, with  JOB &lt; 0, TOL should be the minimum
+          perturbation to be made to very small diagonal elements of U.
+          TOL should normally be chosen as about eps<em>norm(U), where eps
+          is the relative machine precision, but if TOL is supplied as
+          non-positive, then it is reset to eps</em>max( abs( u(i,j) ) ).
+          If  JOB &gt; 0  then TOL is not referenced.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">TOL</span> <span class="nv">is</span> <span class="nv">changed</span> <span class="nv">as</span> <span class="nv">described</span> <span class="nv">above</span>, <span class="nv">only</span> <span class="k">if</span> <span class="nv">TOL</span> <span class="nv">is</span>
+      <span class="nv">non</span><span class="o">-</span><span class="nv">positive</span> <span class="nv">on</span> <span class="nv">entry</span>. <span class="nv">Otherwise</span> <span class="nv">TOL</span> <span class="nv">is</span> <span class="nv">unchanged</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0: successful exit
+          &lt; 0: if INFO = -i, the i-th argument had an illegal value
+          &gt; 0: overflow would occur when computing the INFO(th)
+               element of the solution vector x. This can only occur
+               when JOB is supplied as positive and either means
+               that a diagonal element of U is very small, or that
+               the elements of the right-hand side vector y are very
+               large.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup OTHERauxiliary
+&ndash;SLAGTS165</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-job~31"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Job</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1464"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~904"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~429"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~214"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~212"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-in~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>In</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~88"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tol~10"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1142"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~985"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~931"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absak~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absak</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ak~44"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ak</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bignum~201"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bignum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eps~225"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eps</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~373"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pert~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pert</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sfmin~43"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sfmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~200"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">SLAGTS</span><span class="p">(</span><span class="n">Job</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">In</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Tol</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--SLAGTS165</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Job</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Tol</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">In</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">A</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">k</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">absak</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ak</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bignum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">pert</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sfmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SIGN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Job</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Job</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;SLAGTS&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Epsilon&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">sfmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Safe minimum&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">bignum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">sfmin</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Job</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Tol</span><span class="o">&lt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">Tol</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="nb">ABS</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">Tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">Tol</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">)),</span><span class="nb">ABS</span><span class="p">(</span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span><span class="nb">ABS</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">Tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tol</span><span class="o">*</span><span class="n">eps</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Tol</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Job</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">In</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDDO</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Job</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;=</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">==</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">absak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="n">sfmin</span><span class="o">&gt;</span><span class="n">absak</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                        </span><span class="k">RETURN</span>
+<span class="k">                     ELSE</span>
+<span class="k">                        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                        </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">&gt;</span><span class="n">absak</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                     </span><span class="k">RETURN</span>
+<span class="k">                  ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">/</span><span class="n">ak</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ELSE</span>
+<span class="k">            DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;=</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">==</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">Tol</span><span class="p">,</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO</span>
+<span class="k">                  </span><span class="n">absak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="n">sfmin</span><span class="o">&gt;</span><span class="n">absak</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                       </span><span class="k">THEN</span>
+<span class="k">                           </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pert</span><span class="w"></span>
+<span class="w">                           </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">pert</span><span class="w"></span>
+<span class="w">                           </span><span class="k">CYCLE</span>
+<span class="k">                        ELSE</span>
+<span class="k">                           </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                           </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDIF</span>
+<span class="k">                     </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">&gt;</span><span class="n">absak</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pert</span><span class="w"></span>
+<span class="w">                        </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">pert</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CYCLE</span>
+<span class="k">                     ENDIF</span>
+<span class="k">                  ENDIF</span>
+<span class="k">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">/</span><span class="n">ak</span><span class="w"></span>
+<span class="w">                  </span><span class="k">EXIT</span>
+<span class="k">               ENDDO</span>
+<span class="k">            ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Come to here if  JOB = 2 or -2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Job</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">absak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="n">sfmin</span><span class="o">&gt;</span><span class="n">absak</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                        </span><span class="k">RETURN</span>
+<span class="k">                     ELSE</span>
+<span class="k">                        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                        </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">&gt;</span><span class="n">absak</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                     </span><span class="k">RETURN</span>
+<span class="k">                  ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">/</span><span class="n">ak</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ELSE</span>
+<span class="k">            DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">SIGN</span><span class="p">(</span><span class="n">Tol</span><span class="p">,</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO</span>
+<span class="k">                  </span><span class="n">absak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">ak</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">&lt;</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absak</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">*</span><span class="n">sfmin</span><span class="o">&gt;</span><span class="n">absak</span><span class="w"> </span><span class="p">)</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                       </span><span class="k">THEN</span>
+<span class="k">                           </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pert</span><span class="w"></span>
+<span class="w">                           </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">pert</span><span class="w"></span>
+<span class="w">                           </span><span class="k">CYCLE</span>
+<span class="k">                        ELSE</span>
+<span class="k">                           </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                           </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="o">*</span><span class="n">bignum</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDIF</span>
+<span class="k">                     </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">&gt;</span><span class="n">absak</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">ak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pert</span><span class="w"></span>
+<span class="w">                        </span><span class="n">pert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">pert</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CYCLE</span>
+<span class="k">                     ENDIF</span>
+<span class="k">                  ENDIF</span>
+<span class="k">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">/</span><span class="n">ak</span><span class="w"></span>
+<span class="w">                  </span><span class="k">EXIT</span>
+<span class="k">               ENDDO</span>
+<span class="k">            ENDDO</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">In</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDDO</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of SLAGTS</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">SLAGTS</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

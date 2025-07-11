@@ -1,0 +1,1271 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DGGSVD &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DGGSVD
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">74 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dggsvd.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dggsvd.f90.html'>dggsvd.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DGGSVD</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-anorm~120">anorm</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-bnorm~23">bnorm</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-i~1374">i</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-ibnd~8">ibnd</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-isub~10">isub</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-j~1061">j</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-ncycle~8">ncycle</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-smax~41">smax</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-temp~253">temp</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-tola~8">tola</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-tolb~8">tolb</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-ulp~44">ulp</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-unfl~24">unfl</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-wantq~45">wantq</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-wantu~24">wantu</a>
+            <a class="list-group-item" href="../proc/dggsvd.html#variable-wantv~20">wantv</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dggsvd.html#src">DGGSVD</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DGGSVD(Jobu, Jobv, Jobq, M, N, P, K, L, A, Lda, B, Ldb, Alpha, Beta, U, Ldu, V, Ldv, Q, Ldq, Work, Iwork, Info)  
+</h2>
+    
+
+    <p>\brief <b> DGGSVD computes the singular value decomposition (SVD) for OTHER matrices</b>
+ \htmlonly
+ Download DGGSVD + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggsvd.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggsvd.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggsvd.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>This routine is deprecated and has been replaced by routine DGGSVD3.</p>
+<p>DGGSVD computes the generalized singular value decomposition (GSVD)
+ of an M-by-N real matrix A and P-by-N real matrix B:</p>
+<div class="codehilite"><pre><span></span><code>   U**T*A*Q = D1*( 0 R ),    V**T*B*Q = D2*( 0 R )
+</code></pre></div>
+
+<p>where U, V and Q are orthogonal matrices.
+ Let K+L = the effective numerical rank of the matrix (A<strong>T,B</strong>T)**T,
+ then R is a K+L-by-K+L nonsingular upper triangular matrix, D1 and
+ D2 are M-by-(K+L) and P-by-(K+L) &ldquo;diagonal&rdquo; matrices and of the
+ following structures, respectively:</p>
+<p>If M-K-L &gt;= 0,</p>
+<div class="codehilite"><pre><span></span><code>                 K  L
+    D1 =     K ( I  0 )
+             L ( 0  C )
+         M-K-L ( 0  0 )
+
+               K  L
+    D2 =   L ( 0  S )
+         P-L ( 0  0 )
+
+             N-K-L  K    L
+</code></pre></div>
+
+<p>( 0 R ) = K (  0   R11  R12 )
+             L (  0    0   R22 )</p>
+<p>where</p>
+<p>C = diag( ALPHA(K+1), &hellip; , ALPHA(K+L) ),
+   S = diag( BETA(K+1),  &hellip; , BETA(K+L) ),
+   C<strong>2 + S</strong>2 = I.</p>
+<p>R is stored in A(1:K+L,N-K-L+1:N) on exit.</p>
+<p>If M-K-L &lt; 0,</p>
+<div class="codehilite"><pre><span></span><code>               K M-K K+L-M
+    D1 =   K ( I  0    0   )
+         M-K ( 0  C    0   )
+
+                 K M-K K+L-M
+    D2 =   M-K ( 0  S    0  )
+         K+L-M ( 0  0    I  )
+           P-L ( 0  0    0  )
+
+                N-K-L  K   M-K  K+L-M
+</code></pre></div>
+
+<p>( 0 R ) =     K ( 0    R11  R12  R13  )
+               M-K ( 0     0   R22  R23  )
+             K+L-M ( 0     0    0   R33  )</p>
+<p>where</p>
+<p>C = diag( ALPHA(K+1), &hellip; , ALPHA(M) ),
+   S = diag( BETA(K+1),  &hellip; , BETA(M) ),
+   C<strong>2 + S</strong>2 = I.</p>
+<p>(R11 R12 R13 ) is stored in A(1:M, N-K-L+1:N), and R33 is stored
+   ( 0  R22 R23 )
+   in B(M-K+1:L,N+M-K-L+1:N) on exit.</p>
+<p>The routine computes C, S, R, and optionally the orthogonal
+ transformation matrices U, V and Q.</p>
+<p>In particular, if B is an N-by-N nonsingular matrix, then the GSVD of
+ A and B implicitly gives the SVD of A<em>inv(B):
+                      A</em>inv(B) = U<em>(D1</em>inv(D2))<em>V</em><em>T.
+ If ( A</em><em>T,B</em><em>T)</em><em>T  has orthonormal columns, then the GSVD of A and B is
+ also equal to the CS decomposition of A and B. Furthermore, the GSVD
+ can be used to derive the solution of the eigenvalue problem:
+                      A</em><em>T</em>A x = lambda<em> B</em><em>T</em>B x.
+ In some literature, the GSVD of A and B is presented in the form
+                  U<strong>T<em>A</em>X = ( 0 D1 ),   V</strong>T<em>B</em>X = ( 0 D2 )
+ where U and V are orthogonal and X is nonsingular, D1 and D2 are
+ ``diagonal&rsquo;&lsquo;.  The former GSVD form can be converted to the latter
+ form by taking the nonsingular matrix X as</p>
+<div class="codehilite"><pre><span></span><code>                  X = Q*( I   0    )
+                        ( 0 inv(R) ).
+</code></pre></div>
+
+<p>\endverbatim
+ \param[in] JOBU
+ \verbatim
+          JOBU is CHARACTER*1
+          = &lsquo;U&rsquo;:  Orthogonal matrix U is computed;
+          = &lsquo;N&rsquo;:  U is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBV
+ \verbatim
+          JOBV is CHARACTER*1
+          = &lsquo;V&rsquo;:  Orthogonal matrix V is computed;
+          = &lsquo;N&rsquo;:  V is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBQ
+ \verbatim
+          JOBQ is CHARACTER*1
+          = &lsquo;Q&rsquo;:  Orthogonal matrix Q is computed;
+          = &lsquo;N&rsquo;:  Q is not computed.
+ \endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrices A and B.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] P
+ \verbatim
+          P is INTEGER
+          The number of rows of the matrix B.  P &gt;= 0.
+ \endverbatim</p>
+<p>\param[out] K
+ \verbatim
+          K is INTEGER
+ \endverbatim</p>
+<p>\param[out] L
+ \verbatim
+          L is INTEGER</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">K</span> <span class="nv">and</span> <span class="nv">L</span> <span class="nv">specify</span> <span class="nv">the</span> <span class="nv">dimension</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">subblocks</span>
+      <span class="nv">described</span> <span class="nv">in</span> <span class="nv">Purpose</span>.
+      <span class="nv">K</span> <span class="o">+</span> <span class="nv">L</span> <span class="o">=</span> <span class="nv">effective</span> <span class="nv">numerical</span> <span class="nv">rank</span> <span class="nv">of</span> <span class="ss">(</span><span class="nv">A</span><span class="o">**</span><span class="nv">T</span>,<span class="nv">B</span><span class="o">**</span><span class="nv">T</span><span class="ss">)</span><span class="o">**</span><span class="nv">T</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA,N)
+          On entry, the M-by-N matrix A.
+          On exit, A contains the triangular matrix R, or part of R.
+          See Purpose for details.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A. LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is DOUBLE PRECISION array, dimension (LDB,N)
+          On entry, the P-by-N matrix B.
+          On exit, B contains the triangular matrix R if M-K-L &lt; 0.
+          See Purpose for details.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B. LDB &gt;= max(1,P).
+ \endverbatim</p>
+<p>\param[out] ALPHA
+ \verbatim
+          ALPHA is DOUBLE PRECISION array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] BETA
+ \verbatim
+          BETA is DOUBLE PRECISION array, dimension (N)</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">ALPHA</span> <span class="nv">and</span> <span class="nv">BETA</span> <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">generalized</span> <span class="nv">singular</span>
+      <span class="nv">value</span> <span class="nv">pairs</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">and</span> <span class="nv">B</span><span class="c1">;</span>
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">K</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">1</span>,
+        <span class="nv">BETA</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">K</span><span class="ss">)</span>  <span class="o">=</span> <span class="mi">0</span>,
+      <span class="nv">and</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&gt;=</span> <span class="mi">0</span>,
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">C</span>,
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span>  <span class="o">=</span> <span class="nv">S</span>,
+      <span class="nv">or</span> <span class="k">if</span> <span class="nv">M</span><span class="o">-</span><span class="nv">K</span><span class="o">-</span><span class="nv">L</span> <span class="o">&lt;</span> <span class="mi">0</span>,
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">M</span><span class="ss">)</span><span class="o">=</span><span class="nv">C</span>, <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">M</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span><span class="o">=</span><span class="mi">0</span>
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">M</span><span class="ss">)</span> <span class="o">=</span><span class="nv">S</span>, <span class="nv">BETA</span><span class="ss">(</span><span class="nv">M</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="ss">)</span> <span class="o">=</span><span class="mi">1</span>
+      <span class="nv">and</span>
+        <span class="nv">ALPHA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">N</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nv">BETA</span><span class="ss">(</span><span class="nv">K</span><span class="o">+</span><span class="nv">L</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">N</span><span class="ss">)</span>  <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] U
+ \verbatim
+          U is DOUBLE PRECISION array, dimension (LDU,M)
+          If JOBU = &lsquo;U&rsquo;, U contains the M-by-M orthogonal matrix U.
+          If JOBU = &lsquo;N&rsquo;, U is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDU
+ \verbatim
+          LDU is INTEGER
+          The leading dimension of the array U. LDU &gt;= max(1,M) if
+          JOBU = &lsquo;U&rsquo;; LDU &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[out] V
+ \verbatim
+          V is DOUBLE PRECISION array, dimension (LDV,P)
+          If JOBV = &lsquo;V&rsquo;, V contains the P-by-P orthogonal matrix V.
+          If JOBV = &lsquo;N&rsquo;, V is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDV
+ \verbatim
+          LDV is INTEGER
+          The leading dimension of the array V. LDV &gt;= max(1,P) if
+          JOBV = &lsquo;V&rsquo;; LDV &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[out] Q
+ \verbatim
+          Q is DOUBLE PRECISION array, dimension (LDQ,N)
+          If JOBQ = &lsquo;Q&rsquo;, Q contains the N-by-N orthogonal matrix Q.
+          If JOBQ = &lsquo;N&rsquo;, Q is not referenced.
+ \endverbatim</p>
+<p>\param[in] LDQ
+ \verbatim
+          LDQ is INTEGER
+          The leading dimension of the array Q. LDQ &gt;= max(1,N) if
+          JOBQ = &lsquo;Q&rsquo;; LDQ &gt;= 1 otherwise.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array,
+                      dimension (max(3*N,M,P)+N)
+ \endverbatim</p>
+<p>\param[out] IWORK
+ \verbatim
+          IWORK is INTEGER array, dimension (N)
+          On exit, IWORK stores the sorting information. More
+          precisely, the following loop will sort ALPHA
+             for I = K+1, min(M,K+L)
+                 swap ALPHA(I) and ALPHA(IWORK(I))
+             endfor
+          such that ALPHA(1) &gt;= ALPHA(2) &gt;= &hellip; &gt;= ALPHA(N).
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          &gt; 0:  if INFO = 1, the Jacobi-type procedure failed to
+                converge.  For further details, see subroutine DTGSJA.
+ \endverbatim
+ \par Internal Parameters:</p>
+<p>\verbatim
+  TOLA    DOUBLE PRECISION
+  TOLB    DOUBLE PRECISION
+          TOLA and TOLB are the thresholds to determine the effective
+          rank of (A&rsquo;,B&rsquo;)<em><em>T. Generally, they are set to
+                   TOLA = MAX(M,N)</em>norm(A)</em>MAZHEPS,
+                   TOLB = MAX(P,N)<em>norm(B)</em>MAZHEPS.
+          The size of TOLA and TOLB may affect the size of backward
+          errors of the decomposition.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup doubleOTHERsing
+ \par Contributors:</p>
+<div class="codehilite"><pre><span></span><code> Ming Gu and Huan Ren, Computer Science Division, University of
+ California at Berkeley, USA
+</code></pre></div>
+
+<p>&ndash;DGGSVD337</p>
+<p>&ndash; LAPACK driver routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobu~40"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobv~40"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobq~20"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~698"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1868"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~75"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~227"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>K</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~75"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~1162"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~1115"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~545"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~521"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~149"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alpha</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~134"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Beta</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~57"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U</strong>(Ldu,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu~57"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~124"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(Ldv,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldv~94"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~121"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong>(Ldq,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldq~84"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~1117"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~280"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1455"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-anorm~120"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>anorm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnorm~23"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnorm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1374"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ibnd~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ibnd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-isub~10"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>isub</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~1061"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncycle~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncycle</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smax~41"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~253"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tola~8"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tola</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tolb~8"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tolb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ulp~44"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ulp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-unfl~24"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>unfl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantq~45"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantu~24"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantv~20"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DGGSVD</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="n">Jobv</span><span class="p">,</span><span class="n">Jobq</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ldq</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DGGSVD337</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK driver routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Jobq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobv</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Iwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Alpha</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Beta</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Q</span><span class="p">(</span><span class="n">Ldq</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">Ldu</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">Ldv</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">wantq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantv</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ibnd</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">isub</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ncycle</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">anorm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bnorm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tola</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tolb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ulp</span><span class="w"> </span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">unfl</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLANGE</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLANGE</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DGGSVP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DTGSJA</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">wantu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobq</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">wantu</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">wantv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">wantq</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobq</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldu</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantu</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldu</span><span class="o">&lt;</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">16</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldv</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantv</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldv</span><span class="o">&lt;</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">18</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldq</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantq</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldq</span><span class="o">&lt;</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">20</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DGGSVD&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the Frobenius norm of matrices A and B</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">anorm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">bnorm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Get machine precision and set up threshold for determining</span>
+<span class="c">!     the effective numerical rank of the matrices A and B.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ulp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">unfl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Safe Minimum&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">tola</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="nb">MAX</span><span class="p">(</span><span class="n">anorm</span><span class="p">,</span><span class="n">unfl</span><span class="p">)</span><span class="o">*</span><span class="n">ulp</span><span class="w"></span>
+<span class="w">      </span><span class="n">tolb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="nb">MAX</span><span class="p">(</span><span class="n">bnorm</span><span class="p">,</span><span class="n">unfl</span><span class="p">)</span><span class="o">*</span><span class="n">ulp</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Preprocessing</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DGGSVP</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="n">Jobv</span><span class="p">,</span><span class="n">Jobq</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">tola</span><span class="p">,</span><span class="n">tolb</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ldq</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the GSVD of two upper &quot;triangular&quot; matrices</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DTGSJA</span><span class="p">(</span><span class="n">Jobu</span><span class="p">,</span><span class="n">Jobv</span><span class="p">,</span><span class="n">Jobq</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">tola</span><span class="p">,</span><span class="n">tolb</span><span class="p">,</span><span class="n">Alpha</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Beta</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ldq</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">ncycle</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Sort the singular values and store the pivot indices in IWORK</span>
+<span class="c">!     Copy ALPHA to WORK, then sort ALPHA in WORK</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Alpha</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ibnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ibnd</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Scan for largest ALPHA(K+I)</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">isub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">         </span><span class="n">smax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ibnd</span><span class="w"></span>
+<span class="w">            </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">temp</span><span class="o">&gt;</span><span class="n">smax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">isub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">               </span><span class="n">smax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDDO</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">isub</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">isub</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smax</span><span class="w"></span>
+<span class="w">            </span><span class="n">Iwork</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">isub</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">Iwork</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DGGSVD</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DGGSVD</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

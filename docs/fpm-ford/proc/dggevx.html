@@ -1,0 +1,2175 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DGGEVX &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DGGEVX
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">289 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dggevx.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dggevx.f90.html'>dggevx.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DGGEVX</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dggevx.html#variable-one~992">ONE</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-zero~937">ZERO</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-anrm~109">anrm</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-anrmto~20">anrmto</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-bignum~203">bignum</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-bnrm~38">bnrm</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-bnrmto~20">bnrmto</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-chtemp~12">chtemp</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-eps~227">eps</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-i~1081">i</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-icols~22">icols</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ierr~85">ierr</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ijobvl~22">ijobvl</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ijobvr~22">ijobvr</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ilascl~20">ilascl</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ilbscl~20">ilbscl</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ilv~12">ilv</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ilvl~12">ilvl</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ilvr~12">ilvr</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-in~34">in</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-irows~22">irows</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-itau~47">itau</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-iwrk~31">iwrk</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-iwrk1~3">iwrk1</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-j~835">j</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-jc~52">jc</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-jr~21">jr</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-ldumma~12">ldumma</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-lquery~375">lquery</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-m~49">m</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-maxwrk~36">maxwrk</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-minwrk~39">minwrk</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-mm~12">mm</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-noscl~3">noscl</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-pair~10">pair</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-smlnum~238">smlnum</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-temp~202">temp</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-wantsb~8">wantsb</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-wantse~8">wantse</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-wantsn~8">wantsn</a>
+            <a class="list-group-item" href="../proc/dggevx.html#variable-wantsv~8">wantsv</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dggevx.html#src">DGGEVX</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DGGEVX(Balanc, Jobvl, Jobvr, Sense, N, A, Lda, B, Ldb, Alphar, Alphai, Beta, Vl, Ldvl, Vr, Ldvr, Ilo, Ihi, Lscale, Rscale, Abnrm, Bbnrm, Rconde, Rcondv, Work, Lwork, Iwork, Bwork, Info)  
+</h2>
+    
+
+    <p>\brief <b> DGGEVX computes the eigenvalues and, optionally, the left and/or right eigenvectors for GE matrices</b>
+ \htmlonly
+ Download DGGEVX + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dggevx.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dggevx.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dggevx.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DGGEVX computes for a pair of N-by-N real nonsymmetric matrices (A,B)
+ the generalized eigenvalues, and optionally, the left and/or right
+ generalized eigenvectors.</p>
+<p>Optionally also, it computes a balancing transformation to improve
+ the conditioning of the eigenvalues and eigenvectors (ILO, IHI,
+ LSCALE, RSCALE, ABNRM, and BBNRM), reciprocal condition numbers for
+ the eigenvalues (RCONDE), and reciprocal condition numbers for the
+ right eigenvectors (RCONDV).</p>
+<p>A generalized eigenvalue for a pair of matrices (A,B) is a scalar
+ lambda or a ratio alpha/beta = lambda, such that A - lambda*B is
+ singular. It is usually represented as the pair (alpha,beta), as
+ there is a reasonable interpretation for beta=0, and even for both
+ being zero.</p>
+<p>The right eigenvector v(j) corresponding to the eigenvalue lambda(j)
+ of (A,B) satisfies</p>
+<div class="codehilite"><pre><span></span><code>              A * v(j) = lambda(j) * B * v(j) .
+</code></pre></div>
+
+<p>The left eigenvector u(j) corresponding to the eigenvalue lambda(j)
+ of (A,B) satisfies</p>
+<div class="codehilite"><pre><span></span><code>              u(j)**H * A  = lambda(j) * u(j)**H * B.
+</code></pre></div>
+
+<p>where u(j)**H is the conjugate-transpose of u(j).</p>
+<p>\endverbatim
+ \param[in] BALANC
+ \verbatim
+          BALANC is CHARACTER*1
+          Specifies the balance option to be performed.
+          = &lsquo;N&rsquo;:  do not diagonally scale or permute;
+          = &lsquo;P&rsquo;:  permute only;
+          = &lsquo;S&rsquo;:  scale only;
+          = &lsquo;B&rsquo;:  both permute and scale.
+          Computed reciprocal condition numbers will be for the
+          matrices after permuting and/or balancing. Permuting does
+          not change condition numbers (in exact arithmetic), but
+          balancing does.
+ \endverbatim</p>
+<p>\param[in] JOBVL
+ \verbatim
+          JOBVL is CHARACTER*1
+          = &lsquo;N&rsquo;:  do not compute the left generalized eigenvectors;
+          = &lsquo;V&rsquo;:  compute the left generalized eigenvectors.
+ \endverbatim</p>
+<p>\param[in] JOBVR
+ \verbatim
+          JOBVR is CHARACTER*1
+          = &lsquo;N&rsquo;:  do not compute the right generalized eigenvectors;
+          = &lsquo;V&rsquo;:  compute the right generalized eigenvectors.
+ \endverbatim</p>
+<p>\param[in] SENSE
+ \verbatim
+          SENSE is CHARACTER*1
+          Determines which reciprocal condition numbers are computed.
+          = &lsquo;N&rsquo;: none are computed;
+          = &lsquo;E&rsquo;: computed for eigenvalues only;
+          = &lsquo;V&rsquo;: computed for eigenvectors only;
+          = &lsquo;B&rsquo;: computed for eigenvalues and eigenvectors.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrices A, B, VL, and VR.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA, N)
+          On entry, the matrix A in the pair (A,B).
+          On exit, A has been overwritten. If JOBVL=&rsquo;V&rsquo; or JOBVR=&rsquo;V&rsquo;
+          or both, then A contains the first part of the real Schur
+          form of the &ldquo;balanced&rdquo; versions of the input A and B.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is DOUBLE PRECISION array, dimension (LDB, N)
+          On entry, the matrix B in the pair (A,B).
+          On exit, B has been overwritten. If JOBVL=&rsquo;V&rsquo; or JOBVR=&rsquo;V&rsquo;
+          or both, then B contains the second part of the real Schur
+          form of the &ldquo;balanced&rdquo; versions of the input A and B.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of B.  LDB &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] ALPHAR
+ \verbatim
+          ALPHAR is DOUBLE PRECISION array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] ALPHAI
+ \verbatim
+          ALPHAI is DOUBLE PRECISION array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] BETA
+ \verbatim
+          BETA is DOUBLE PRECISION array, dimension (N)
+          On exit, (ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,&hellip;,N, will
+          be the generalized eigenvalues.  If ALPHAI(j) is zero, then
+          the j-th eigenvalue is real; if positive, then the j-th and
+          (j+1)-st eigenvalues are a complex conjugate pair, with
+          ALPHAI(j+1) negative.</p>
+<div class="codehilite"><pre><span></span><code>      Note: the quotients ALPHAR(j)/BETA(j) and ALPHAI(j)/BETA(j)
+      may easily over- or underflow, and BETA(j) may even be zero.
+      Thus, the user should avoid naively computing the ratio
+      ALPHA/BETA. However, ALPHAR and ALPHAI will be always less
+      than and usually comparable with norm(A) in magnitude, and
+      BETA always less than and usually comparable with norm(B).
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] VL
+ \verbatim
+          VL is DOUBLE PRECISION array, dimension (LDVL,N)
+          If JOBVL = &lsquo;V&rsquo;, the left eigenvectors u(j) are stored one
+          after another in the columns of VL, in the same order as
+          their eigenvalues. If the j-th eigenvalue is real, then
+          u(j) = VL(:,j), the j-th column of VL. If the j-th and
+          (j+1)-th eigenvalues form a complex conjugate pair, then
+          u(j) = VL(:,j)+i<em>VL(:,j+1) and u(j+1) = VL(:,j)-i</em>VL(:,j+1).
+          Each eigenvector will be scaled so the largest component have
+          abs(real part) + abs(imag. part) = 1.
+          Not referenced if JOBVL = &lsquo;N&rsquo;.
+ \endverbatim</p>
+<p>\param[in] LDVL
+ \verbatim
+          LDVL is INTEGER
+          The leading dimension of the matrix VL. LDVL &gt;= 1, and
+          if JOBVL = &lsquo;V&rsquo;, LDVL &gt;= N.
+ \endverbatim</p>
+<p>\param[out] VR
+ \verbatim
+          VR is DOUBLE PRECISION array, dimension (LDVR,N)
+          If JOBVR = &lsquo;V&rsquo;, the right eigenvectors v(j) are stored one
+          after another in the columns of VR, in the same order as
+          their eigenvalues. If the j-th eigenvalue is real, then
+          v(j) = VR(:,j), the j-th column of VR. If the j-th and
+          (j+1)-th eigenvalues form a complex conjugate pair, then
+          v(j) = VR(:,j)+i<em>VR(:,j+1) and v(j+1) = VR(:,j)-i</em>VR(:,j+1).
+          Each eigenvector will be scaled so the largest component have
+          abs(real part) + abs(imag. part) = 1.
+          Not referenced if JOBVR = &lsquo;N&rsquo;.
+ \endverbatim</p>
+<p>\param[in] LDVR
+ \verbatim
+          LDVR is INTEGER
+          The leading dimension of the matrix VR. LDVR &gt;= 1, and
+          if JOBVR = &lsquo;V&rsquo;, LDVR &gt;= N.
+ \endverbatim</p>
+<p>\param[out] ILO
+ \verbatim
+          ILO is INTEGER
+ \endverbatim</p>
+<p>\param[out] IHI
+ \verbatim
+          IHI is INTEGER
+          ILO and IHI are integer values such that on exit
+          A(i,j) = 0 and B(i,j) = 0 if i &gt; j and
+          j = 1,&hellip;,ILO-1 or i = IHI+1,&hellip;,N.
+          If BALANC = &lsquo;N&rsquo; or &lsquo;S&rsquo;, ILO = 1 and IHI = N.
+ \endverbatim</p>
+<p>\param[out] LSCALE
+ \verbatim
+          LSCALE is DOUBLE PRECISION array, dimension (N)
+          Details of the permutations and scaling factors applied
+          to the left side of A and B.  If PL(j) is the index of the
+          row interchanged with row j, and DL(j) is the scaling
+          factor applied to row j, then
+            LSCALE(j) = PL(j)  for j = 1,&hellip;,ILO-1
+                      = DL(j)  for j = ILO,&hellip;,IHI
+                      = PL(j)  for j = IHI+1,&hellip;,N.
+          The order in which the interchanges are made is N to IHI+1,
+          then 1 to ILO-1.
+ \endverbatim</p>
+<p>\param[out] RSCALE
+ \verbatim
+          RSCALE is DOUBLE PRECISION array, dimension (N)
+          Details of the permutations and scaling factors applied
+          to the right side of A and B.  If PR(j) is the index of the
+          column interchanged with column j, and DR(j) is the scaling
+          factor applied to column j, then
+            RSCALE(j) = PR(j)  for j = 1,&hellip;,ILO-1
+                      = DR(j)  for j = ILO,&hellip;,IHI
+                      = PR(j)  for j = IHI+1,&hellip;,N
+          The order in which the interchanges are made is N to IHI+1,
+          then 1 to ILO-1.
+ \endverbatim</p>
+<p>\param[out] ABNRM
+ \verbatim
+          ABNRM is DOUBLE PRECISION
+          The one-norm of the balanced matrix A.
+ \endverbatim</p>
+<p>\param[out] BBNRM
+ \verbatim
+          BBNRM is DOUBLE PRECISION
+          The one-norm of the balanced matrix B.
+ \endverbatim</p>
+<p>\param[out] RCONDE
+ \verbatim
+          RCONDE is DOUBLE PRECISION array, dimension (N)
+          If SENSE = &lsquo;E&rsquo; or &lsquo;B&rsquo;, the reciprocal condition numbers of
+          the eigenvalues, stored in consecutive elements of the array.
+          For a complex conjugate pair of eigenvalues two consecutive
+          elements of RCONDE are set to the same value. Thus RCONDE(j),
+          RCONDV(j), and the j-th columns of VL and VR all correspond
+          to the j-th eigenpair.
+          If SENSE = &lsquo;N or &lsquo;V&rsquo;, RCONDE is not referenced.
+ \endverbatim</p>
+<p>\param[out] RCONDV
+ \verbatim
+          RCONDV is DOUBLE PRECISION array, dimension (N)
+          If SENSE = &lsquo;V&rsquo; or &lsquo;B&rsquo;, the estimated reciprocal condition
+          numbers of the eigenvectors, stored in consecutive elements
+          of the array. For a complex eigenvector two consecutive
+          elements of RCONDV are set to the same value. If the
+          eigenvalues cannot be reordered to compute RCONDV(j),
+          RCONDV(j) is set to 0; this can only occur when the true
+          value would be very small anyway.
+          If SENSE = &lsquo;N&rsquo; or &lsquo;E&rsquo;, RCONDV is not referenced.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+ \endverbatim</p>
+<p>\param[in] LWORK
+ \verbatim
+          LWORK is INTEGER
+          The dimension of the array WORK. LWORK &gt;= max(1,2<em>N).
+          If BALANC = &lsquo;S&rsquo; or &lsquo;B&rsquo;, or JOBVL = &lsquo;V&rsquo;, or JOBVR = &lsquo;V&rsquo;,
+          LWORK &gt;= max(1,6</em>N).
+          If SENSE = &lsquo;E&rsquo; or &lsquo;B&rsquo;, LWORK &gt;= max(1,10<em>N).
+          If SENSE = &lsquo;V&rsquo; or &lsquo;B&rsquo;, LWORK &gt;= 2</em>N<em>N+8</em>N+16.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">LWORK</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>, <span class="k">then</span> <span class="nv">a</span> <span class="nv">workspace</span> <span class="nv">query</span> <span class="nv">is</span> <span class="nv">assumed</span><span class="c1">; the routine</span>
+      <span class="nv">only</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">optimal</span> <span class="nv">size</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">array</span>, <span class="nv">returns</span>
+      <span class="nv">this</span> <span class="nv">value</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">entry</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">array</span>, <span class="nv">and</span> <span class="nv">no</span> <span class="nv">error</span>
+      <span class="nv">message</span> <span class="nv">related</span> <span class="nv">to</span> <span class="nv">LWORK</span> <span class="nv">is</span> <span class="nv">issued</span> <span class="nv">by</span> <span class="nv">XERBLA</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] IWORK
+ \verbatim
+          IWORK is INTEGER array, dimension (N+6)
+          If SENSE = &lsquo;E&rsquo;, IWORK is not referenced.
+ \endverbatim</p>
+<p>\param[out] BWORK
+ \verbatim
+          BWORK is LOGICAL array, dimension (N)
+          If SENSE = &lsquo;N&rsquo;, BWORK is not referenced.
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          = 1,&hellip;,N:
+                The QZ iteration failed.  No eigenvectors have been
+                calculated, but ALPHAR(j), ALPHAI(j), and BETA(j)
+                should be correct for j=INFO+1,&hellip;,N.
+          &gt; N:  =N+1: other than QZ iteration failed in DHGEQZ.
+                =N+2: error return from DTGEVC.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date April 2012
+ \ingroup doubleGEeigen
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>Balancing a matrix pair (A,B) includes, first, permuting rows and
+  columns to isolate eigenvalues, second, applying diagonal similarity
+  transformation to the rows and columns to make the rows and columns
+  as close in norm as possible. The computed reciprocal condition
+  numbers correspond to the balanced matrix. Permuting rows and columns
+  will not change the condition numbers (in exact arithmetic) but
+  diagonal scaling will.  For further explanation of balancing, see
+  section 4.11.1.2 of LAPACK Users&rsquo; Guide.</p>
+<p>An approximate error bound on the chordal distance between the i-th
+  computed generalized eigenvalue w and the corresponding exact
+  eigenvalue lambda is</p>
+<div class="codehilite"><pre><span></span><code>   chord(w, lambda) &lt;= EPS * norm(ABNRM, BBNRM) / RCONDE(I)
+</code></pre></div>
+
+<p>An approximate error bound for the angle between the i-th computed
+  eigenvector VL(i) or VR(i) is given by</p>
+<div class="codehilite"><pre><span></span><code>   EPS * norm(ABNRM, BBNRM) / DIF(i).
+</code></pre></div>
+
+<p>For further explanation of the reciprocal condition numbers RCONDE
+  and RCONDV, see section 4.11 of LAPACK User&rsquo;s Guide.
+ \endverbatim</p>
+<p>&ndash;DGGEVX395</p>
+<p>&ndash; LAPACK driver routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     April 2012</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-balanc~6"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Balanc</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobvl~18"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobvl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobvr~18"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobvr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sense~11"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Sense</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1473"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~907"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~871"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~431"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~414"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alphar~17"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alphar</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alphai~17"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alphai</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~99"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Beta</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vl~94"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Vl</strong>(Ldvl,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldvl~36"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldvl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vr~38"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Vr</strong>(Ldvr,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldvr~36"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldvr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilo~50"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ilo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ihi~50"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ihi</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lscale~8"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lscale</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rscale~8"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rscale</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-abnrm~6"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Abnrm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bbnrm~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bbnrm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rconde~11"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rconde</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rcondv~11"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rcondv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~870"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~411"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~205"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bwork~18"></span>
+              logical
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1150"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~992"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~937"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-anrm~109"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>anrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-anrmto~20"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>anrmto</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bignum~203"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bignum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrm~38"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrmto~20"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrmto</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-chtemp~12"></span>
+              character(len=1),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>chtemp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eps~227"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eps</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1081"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icols~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>icols</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~85"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ijobvl~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ijobvl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ijobvr~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ijobvr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilascl~20"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilascl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilbscl~20"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilbscl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilv~12"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilvl~12"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilvl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilvr~12"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ilvr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-in~34"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>in</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irows~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irows</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itau~47"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>itau</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwrk~31"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwrk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwrk1~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iwrk1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~835"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jc~52"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jr~21"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldumma~12"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldumma</strong>(1)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~375"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lquery</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~49"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxwrk~36"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>maxwrk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-minwrk~39"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>minwrk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mm~12"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-noscl~3"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>noscl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pair~10"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pair</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smlnum~238"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smlnum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~202"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantsb~8"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantsb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantse~8"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantse</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantsn~8"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantsn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantsv~8"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantsv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DGGEVX</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="n">Jobvl</span><span class="p">,</span><span class="n">Jobvr</span><span class="p">,</span><span class="n">Sense</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Alphar</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Alphai</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Lscale</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Rscale</span><span class="p">,</span><span class="n">Abnrm</span><span class="p">,</span><span class="n">Bbnrm</span><span class="p">,</span><span class="n">Rconde</span><span class="p">,</span><span class="n">Rcondv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Iwork</span><span class="p">,</span><span class="n">Bwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DGGEVX395</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK driver routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     April 2012</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Balanc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobvl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobvr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Sense</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ihi</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ilo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldvl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldvr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Abnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Bbnrm</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">Bwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Iwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Alphar</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Beta</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lscale</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Rconde</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Rcondv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Rscale</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Vl</span><span class="p">(</span><span class="n">Ldvl</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Vr</span><span class="p">(</span><span class="n">Ldvr</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">ilascl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ilbscl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ilvl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ilvr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">noscl</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">pair</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantsb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantse</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantsn</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantsv</span><span class="w"></span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">chtemp</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">icols</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ijobvl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ijobvr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">irows</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">itau</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">iwrk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iwrk1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">maxwrk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">minwrk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mm</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">anrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">anrmto</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bignum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bnrmto</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">smlnum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Arrays ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">ldumma</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DGEQRF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DGGBAK</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DGGBAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DGGHRD</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DHGEQZ</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLABAD</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">DLACPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASCL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASET</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DORGQR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DORMQR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DTGEVC</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">DTGSNA</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ILAENV</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLANGE</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ILAENV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLANGE</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SQRT</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Decode the input arguments</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobvl</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">ijobvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobvl</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">ijobvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">ijobvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobvr</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">ijobvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobvr</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">ijobvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">ijobvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilvr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">ilv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ilvl</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">ilvr</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">noscl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantsn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Sense</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Sense</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantsv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Sense</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantsb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Sense</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Test the input arguments</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">lquery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Lwork</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ijobvl</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ijobvr</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">wantsn</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantse</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantsb</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantsv</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldvl</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">ilvl</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldvl</span><span class="o">&lt;</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">14</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldvr</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">ilvr</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldvr</span><span class="o">&lt;</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">16</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute workspace</span>
+<span class="c">!      (Note: Comments in the code beginning &quot;Workspace:&quot; describe the</span>
+<span class="c">!       minimal amount of workspace needed at that point in the code,</span>
+<span class="c">!       as well as the preferred amount for good performance.</span>
+<span class="c">!       NB refers to the optimal block size for the immediately</span>
+<span class="c">!       following subroutine, as returned by ILAENV. The workspace is</span>
+<span class="c">!       computed assuming ILO = 1 and IHI = N, the worst case.)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">minwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">maxwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">noscl</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">ilv</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">minwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">minwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">*</span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantse</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantsb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">minwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantsv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantsb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">minwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">minwrk</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">16</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">maxwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">minwrk</span><span class="w"></span>
+<span class="w">            </span><span class="n">maxwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">maxwrk</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">ILAENV</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;DGEQRF&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">maxwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">maxwrk</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">ILAENV</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;DORMQR&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">maxwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">maxwrk</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">ILAENV</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;DORGQR&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxwrk</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lwork</span><span class="o">&lt;</span><span class="n">minwrk</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">26</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DGGEVX&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     Get machine constants</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">smlnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">bignum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">smlnum</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLABAD</span><span class="p">(</span><span class="n">smlnum</span><span class="p">,</span><span class="n">bignum</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">smlnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">SQRT</span><span class="p">(</span><span class="n">smlnum</span><span class="p">)</span><span class="o">/</span><span class="n">eps</span><span class="w"></span>
+<span class="w">      </span><span class="n">bignum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">smlnum</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale A if max element outside range [SMLNUM,BIGNUM]</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">anrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ilascl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">anrm</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">anrm</span><span class="o">&lt;</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">anrmto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smlnum</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilascl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">anrm</span><span class="o">&gt;</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">anrmto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bignum</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilascl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilascl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">anrm</span><span class="p">,</span><span class="n">anrmto</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale B if max element outside range [SMLNUM,BIGNUM]</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">bnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ilbscl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">bnrm</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">bnrm</span><span class="o">&lt;</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">bnrmto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smlnum</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilbscl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">bnrm</span><span class="o">&gt;</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">bnrmto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bignum</span><span class="w"></span>
+<span class="w">         </span><span class="n">ilbscl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilbscl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">bnrm</span><span class="p">,</span><span class="n">bnrmto</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Permute and/or balance the matrix pair (A,B)</span>
+<span class="c">!     (Workspace: need 6*N if BALANC = &#39;S&#39; or &#39;B&#39;, 1 otherwise)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DGGBAL</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Lscale</span><span class="p">,</span><span class="n">Rscale</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute ABNRM and BBNRM</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Abnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilascl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Abnrm</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">anrmto</span><span class="p">,</span><span class="n">anrm</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Abnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Bbnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLANGE</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilbscl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bbnrm</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">bnrmto</span><span class="p">,</span><span class="n">bnrm</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Bbnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Reduce B to triangular form (QR decomposition of B)</span>
+<span class="c">!     (Workspace: need N, prefer N*NB )</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">irows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ihi</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ilo</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantsn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">icols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ilo</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">icols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irows</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">itau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">iwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itau</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">irows</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DGEQRF</span><span class="p">(</span><span class="n">irows</span><span class="p">,</span><span class="n">icols</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itau</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Lwork</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">iwrk</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Apply the orthogonal transformation to A</span>
+<span class="c">!     (Workspace: need N, prefer N*NB)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DORMQR</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="n">icols</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itau</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">A</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk</span><span class="p">),</span><span class="n">Lwork</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">iwrk</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize VL and/or VR</span>
+<span class="c">!     (Workspace: need N, prefer N*NB)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">irows</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">irows</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">irows</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">Ilo</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                              </span><span class="n">Ldb</span><span class="p">,</span><span class="n">Vl</span><span class="p">(</span><span class="n">Ilo</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Ldvl</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DORGQR</span><span class="p">(</span><span class="n">irows</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="n">Vl</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itau</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk</span><span class="p">),</span><span class="n">Lwork</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">iwrk</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Reduce to generalized Hessenberg form</span>
+<span class="c">!     (Workspace: none needed)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantsn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Eigenvectors requested -- work on whole matrix.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DGGHRD</span><span class="p">(</span><span class="n">Jobvl</span><span class="p">,</span><span class="n">Jobvr</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         CALL </span><span class="n">DGGHRD</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">irows</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">),</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Ldb</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Perform QZ algorithm (Compute eigenvalues, and optionally, the</span>
+<span class="c">!     Schur forms and Schur vectors)</span>
+<span class="c">!     (Workspace: need N)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantsn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">chtemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;S&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">chtemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;E&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DHGEQZ</span><span class="p">(</span><span class="n">chtemp</span><span class="p">,</span><span class="n">Jobvl</span><span class="p">,</span><span class="n">Jobvr</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Alphar</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Alphai</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ierr</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ierr</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">ierr</span><span class="o">&lt;=</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ierr</span><span class="w"></span>
+<span class="w">         </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ierr</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">ierr</span><span class="o">&lt;=</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ierr</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute Eigenvectors and estimate condition numbers if desired</span>
+<span class="c">!     (Workspace: DTGEVC: need 6*N</span>
+<span class="c">!                 DTGSNA: need 2*N*(N+2)+16 if SENSE = &#39;V&#39; or &#39;B&#39;,</span>
+<span class="c">!                         need N otherwise )</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantsn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilv</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">ilvl</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">chtemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;R&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">chtemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">chtemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;L&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DTGEVC</span><span class="p">(</span><span class="n">chtemp</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="n">ldumma</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">N</span><span class="p">,</span><span class="n">in</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ierr</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">               </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantsn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           compute eigenvectors (DTGEVC) and estimate condition</span>
+<span class="c">!           numbers (DTGSNA). Note that the definition of the condition</span>
+<span class="c">!           number is not invariant under transformation (u,v) to</span>
+<span class="c">!           (Q*u, Z*v), where (u,v) are eigenvectors of the generalized</span>
+<span class="c">!           Schur form (S,T), Q and Z are orthogonal matrices. In order</span>
+<span class="c">!           to avoid using extra 2*N*N workspace, we have to recalculate</span>
+<span class="c">!           eigenvectors and estimate one condition numbers at a time.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CYCLE</span>
+<span class="k">               ENDIF</span>
+<span class="k">               </span><span class="n">mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">/=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                     </span><span class="n">mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Bwork</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mm</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">Bwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mm</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">Bwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Bwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">iwrk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mm</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">iwrk1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iwrk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mm</span><span class="o">*</span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Compute a pair of left and right eigenvectors.</span>
+<span class="c">!              (compute workspace: need up to 4*N + 6*N)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantse</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">wantsb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  CALL </span><span class="n">DTGEVC</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="n">Bwork</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                        </span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="n">mm</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk1</span><span class="p">),</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ierr</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                     </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DTGSNA</span><span class="p">(</span><span class="n">Sense</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="n">Bwork</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="n">Rconde</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">Rcondv</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">mm</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">Work</span><span class="p">(</span><span class="n">iwrk1</span><span class="p">),</span><span class="n">Lwork</span><span class="o">-</span><span class="n">iwrk1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Undo balancing on VL and VR and normalization</span>
+<span class="c">!     (Workspace: none needed)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">DGGBAK</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Lscale</span><span class="p">,</span><span class="n">Rscale</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Vl</span><span class="p">,</span><span class="n">Ldvl</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">jc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ELSE</span>
+<span class="k">                  DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">))</span><span class="o">+</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">temp</span><span class="o">&gt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                  ELSE</span>
+<span class="k">                     DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vl</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                  ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">            ENDIF</span>
+<span class="k">         ENDDO</span>
+<span class="k">      ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilvr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">DGGBAK</span><span class="p">(</span><span class="n">Balanc</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Lscale</span><span class="p">,</span><span class="n">Rscale</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Vr</span><span class="p">,</span><span class="n">Ldvr</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">jc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ELSE</span>
+<span class="k">                  DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">))</span><span class="o">+</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">temp</span><span class="o">&gt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Alphai</span><span class="p">(</span><span class="n">jc</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                  ELSE</span>
+<span class="k">                     DO </span><span class="n">jr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vr</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                  ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">            ENDIF</span>
+<span class="k">         ENDDO</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Undo scaling if necessary</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilascl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">anrmto</span><span class="p">,</span><span class="n">anrm</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Alphar</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">anrmto</span><span class="p">,</span><span class="n">anrm</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Alphai</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ilbscl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">bnrmto</span><span class="p">,</span><span class="n">bnrm</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">maxwrk</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of DGGEVX</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DGGEVX</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

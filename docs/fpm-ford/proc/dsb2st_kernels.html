@@ -1,0 +1,1029 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DSB2ST_KERNELS &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DSB2ST_KERNELS
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">122 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dsb2st_kernels.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dsb2st_kernels.f90.html'>dsb2st_kernels.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DSB2ST_KERNELS</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-one~369">ONE</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-zero~358">ZERO</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-ajeter">ajeter</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-ctmp~2">ctmp</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-dpos~3">dpos</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-i~392">i</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-j1~13">j1</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-j2~10">j2</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-lm~3">lm</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-ln">ln</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-ofdpos~3">ofdpos</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-taupos">taupos</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-upper~134">upper</a>
+            <a class="list-group-item" href="../proc/dsb2st_kernels.html#variable-vpos">vpos</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dsb2st_kernels.html#src">DSB2ST_KERNELS</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DSB2ST_KERNELS(Uplo, Wantz, Ttype, St, Ed, Sweep, N, Nb, Ib, A, Lda, V, Tau, Ldvt, Work)  
+</h2>
+    
+
+    <p>\brief \b DSB2ST_KERNELS
+ \htmlonly
+ Download DSB2ST_KERNELS + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dsb2st_kernels.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dsb2st_kernels.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dsb2st_kernels.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DSB2ST_KERNELS is an internal routine used by the DSYTRD_SB2ST
+ subroutine.
+ \endverbatim
+ \param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+ \endverbatim</p>
+<p>\param[in] WANTZ
+ \verbatim
+          WANTZ is LOGICAL which indicate if Eigenvalue are requested or both
+          Eigenvalue/Eigenvectors.
+ \endverbatim</p>
+<p>\param[in] TTYPE
+ \verbatim
+          TTYPE is INTEGER
+ \endverbatim</p>
+<p>\param[in] ST
+ \verbatim
+          ST is INTEGER
+          internal parameter for indices.
+ \endverbatim</p>
+<p>\param[in] ED
+ \verbatim
+          ED is INTEGER
+          internal parameter for indices.
+ \endverbatim</p>
+<p>\param[in] SWEEP
+ \verbatim
+          SWEEP is INTEGER
+          internal parameter for indices.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER. The order of the matrix A.
+ \endverbatim</p>
+<p>\param[in] NB
+ \verbatim
+          NB is INTEGER. The size of the band.
+ \endverbatim</p>
+<p>\param[in] IB
+ \verbatim
+          IB is INTEGER.
+ \endverbatim</p>
+<p>\param[in, out] A
+ \verbatim
+          A is DOUBLE PRECISION array. A pointer to the matrix A.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER. The leading dimension of the matrix A.
+ \endverbatim</p>
+<p>\param[out] V
+ \verbatim
+          V is DOUBLE PRECISION array, dimension 2*n if eigenvalues only are
+          requested or to be queried for vectors.
+ \endverbatim</p>
+<p>\param[out] TAU
+ \verbatim
+          TAU is DOUBLE PRECISION array, dimension (2*n).
+          The scalar factors of the Householder reflectors are stored
+          in this array.
+ \endverbatim</p>
+<p>\param[in] LDVT
+ \verbatim
+          LDVT is INTEGER.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array. Workspace of size nb.
+ \endverbatim</p>
+<p>\par Further Details:</p>
+<p>\verbatim</p>
+<p>Implemented by Azzam Haidar.</p>
+<p>All details are available on technical report, SC11, SC13 papers.</p>
+<p>Azzam Haidar, Hatem Ltaief, and Jack Dongarra.
+  Parallel reduction to condensed forms for symmetric eigenvalue problems
+  using aggregated fine-grained and memory-aware kernels. In Proceedings
+  of 2011 International Conference for High Performance Computing,
+  Networking, Storage and Analysis (SC &lsquo;11), New York, NY, USA,
+  Article 8 , 11 pages.
+  http://doi.acm.org/10.1145/2063384.2063394</p>
+<p>A. Haidar, J. Kurzak, P. Luszczek, 2013.
+  An improved parallel singular value algorithm and its implementation
+  for multicore hardware, In Proceedings of 2013 International Conference
+  for High Performance Computing, Networking, Storage and Analysis (SC &lsquo;13).
+  Denver, Colorado, USA, 2013.
+  Article 90, 12 pages.
+  http://doi.acm.org/10.1145/2503210.2503292</p>
+<p>A. Haidar, R. Solca, S. Tomov, T. Schulthess and J. Dongarra.
+  A novel hybrid CPU-GPU generalized eigensolver for electronic structure
+  calculations based on fine-grained memory aware tasks.
+  International Journal of High Performance Computing Applications.
+  Volume 28 Issue 2, Pages 196-209, May 2014.
+  http://hpc.sagepub.com/content/28/2/196</p>
+<p>\endverbatim</p>
+<p>&ndash;DSB2ST_KERNELS172</p>
+<p>&ndash; LAPACK computational routine (version 3.7.1) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2017</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~240"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantz~10"></span>
+              logical
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wantz</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttype~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ttype</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-st"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>St</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ed"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ed</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sweep"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Sweep</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~550"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb~29"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ib</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~323"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~311"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~33"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tau~79"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tau</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldvt~8"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldvt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~322"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~369"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~358"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ajeter"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ajeter</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ctmp~2"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ctmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpos~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dpos</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~392"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j1~13"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j2~10"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lm~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ln"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ln</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ofdpos~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ofdpos</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-taupos"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>taupos</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~134"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vpos"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>vpos</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DSB2ST_KERNELS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">Wantz</span><span class="p">,</span><span class="n">Ttype</span><span class="p">,</span><span class="n">St</span><span class="p">,</span><span class="n">Ed</span><span class="p">,</span><span class="n">Sweep</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nb</span><span class="p">,</span><span class="n">Ib</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                          </span><span class="n">Lda</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Tau</span><span class="p">,</span><span class="n">Ldvt</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DSB2ST_KERNELS172</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.1) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2017</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">Wantz</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ttype</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Sweep</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ib</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldvt</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Tau</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">upper</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ln</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">vpos</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">taupos</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dpos</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ofdpos</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">ajeter</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ctmp</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DLARFG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLARFX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLARFY</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MOD</span><span class="w"></span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ajeter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ib</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ldvt</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">dpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">Nb</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ofdpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">Nb</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">dpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">ofdpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!</span>
+<span class="c">!     Upper case</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">            </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">            </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="o">+</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">ctmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="p">,</span><span class="n">St</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARFG</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span><span class="n">ctmp</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="p">,</span><span class="n">St</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctmp</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARFY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="mi">1</span><span class="p">,(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARFY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="mi">1</span><span class="p">,(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">j1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">j2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Ed</span><span class="o">+</span><span class="n">Nb</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lm</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">DLARFX</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span><span class="n">ln</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="p">,</span><span class="n">j1</span><span class="p">),</span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">j1</span><span class="o">+</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">j1</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">               </span><span class="n">ctmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="p">,</span><span class="n">j1</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLARFG</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span><span class="n">ctmp</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="p">,</span><span class="n">j1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ctmp</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLARFX</span><span class="p">(</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span><span class="n">ln</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">),</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">-</span><span class="n">Nb</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j1</span><span class="p">),</span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Lower case</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">            </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">            </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">St</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">DLARFG</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">ofdpos</span><span class="p">,</span><span class="n">St</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARFY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="mi">1</span><span class="p">,(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLARFY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="mi">1</span><span class="p">,(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">j1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">j2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Ed</span><span class="o">+</span><span class="n">Nb</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ln</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ed</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">St</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">lm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lm</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">DLARFX</span><span class="p">(</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">ln</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">+</span><span class="n">Nb</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">vpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">taupos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MOD</span><span class="p">(</span><span class="n">Sweep</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">               </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">+</span><span class="n">Nb</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">+</span><span class="n">Nb</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">St</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDDO</span>
+<span class="k">               CALL </span><span class="n">DLARFG</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">+</span><span class="n">Nb</span><span class="p">,</span><span class="n">St</span><span class="p">),</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLARFX</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span><span class="n">lm</span><span class="p">,</span><span class="n">ln</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">vpos</span><span class="p">),(</span><span class="n">Tau</span><span class="p">(</span><span class="n">taupos</span><span class="p">)),</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">dpos</span><span class="o">+</span><span class="n">Nb</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">St</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     END OF DSB2ST_KERNELS</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DSB2ST_KERNELS</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

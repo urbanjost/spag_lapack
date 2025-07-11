@@ -1,0 +1,934 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CUNHR_COL &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CUNHR_COL
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">47 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/cunhr_col.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/cunhr_col.f90.html'>cunhr_col.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CUNHR_COL</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-cone~22">CONE</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-czero~16">CZERO</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-i~156">i</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-iinfo~40">iinfo</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-j~113">j</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-jb~7">jb</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-jbtemp1">jbtemp1</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-jbtemp2">jbtemp2</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-jnb">jnb</a>
+            <a class="list-group-item" href="../proc/cunhr_col.html#variable-nplusone">nplusone</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/cunhr_col.html#src">CUNHR_COL</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CUNHR_COL(M, N, Nb, A, Lda, T, Ldt, D, Info)  
+</h2>
+    
+
+    <p>\brief \b CUNHR_COL
+ \htmlonly
+ Download CUNHR_COL + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cunhr_col.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cunhr_col.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cunhr_col.f">
+ [TXT]</a>
+ \endhtmlonly</p>
+<p>\par Purpose:</p>
+<p>\verbatim</p>
+<p>CUNHR_COL takes an M-by-N complex matrix Q_in with orthonormal columns
+  as input, stored in A, and performs Householder Reconstruction (HR),
+  i.e. reconstructs Householder vectors V(i) implicitly representing
+  another M-by-N matrix Q_out, with the property that Q_in = Q_out*S,
+  where S is an N-by-N diagonal matrix with diagonal entries
+  equal to +1 or -1. The Householder vectors (columns V(i) of V) are
+  stored in A on output, and the diagonal entries of S are stored in D.
+  Block reflectors are also returned in T
+  (same output format as CGEQRT).
+ \endverbatim
+ \param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows of the matrix A. M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrix A. M &gt;= N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] NB
+ \verbatim
+          NB is INTEGER
+          The column block size to be used in the reconstruction
+          of Householder column vector blocks in the array A and
+          corresponding block reflectors in the array T. NB &gt;= 1.
+          (Note that if NB &gt; N, then N is used instead of NB
+          as the column block size.)
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is COMPLEX array, dimension (LDA,N)</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="nv">entry</span>:
+
+         <span class="nv">The</span> <span class="nv">array</span> <span class="nv">A</span> <span class="nv">contains</span> <span class="nv">an</span> <span class="nv">M</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="nv">N</span> <span class="nv">orthonormal</span> <span class="nv">matrix</span> <span class="nv">Q_in</span>,
+         <span class="nv">i</span>.<span class="nv">e</span> <span class="nv">the</span> <span class="nv">columns</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">are</span> <span class="nv">orthogonal</span> <span class="nv">unit</span> <span class="nv">vectors</span>.
+
+      <span class="nv">On</span> <span class="k">exit</span>:
+
+         <span class="nv">The</span> <span class="nv">elements</span> <span class="nv">below</span> <span class="nv">the</span> <span class="nv">diagonal</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">represent</span> <span class="nv">the</span> <span class="nv">unit</span>
+         <span class="nv">lower</span><span class="o">-</span><span class="nv">trapezoidal</span> <span class="nv">matrix</span> <span class="nv">V</span> <span class="nv">of</span> <span class="nv">Householder</span> <span class="nv">column</span> <span class="nv">vectors</span>
+         <span class="nv">V</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>. <span class="nv">The</span> <span class="nv">unit</span> <span class="nv">diagonal</span> <span class="nv">entries</span> <span class="nv">of</span> <span class="nv">V</span> <span class="nv">are</span> <span class="nv">not</span> <span class="nv">stored</span>
+         <span class="ss">(</span><span class="nv">same</span> <span class="nv">format</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">output</span> <span class="nv">below</span> <span class="nv">the</span> <span class="nv">diagonal</span> <span class="nv">in</span> <span class="nv">A</span> <span class="nv">from</span>
+         <span class="nv">CGEQRT</span><span class="ss">)</span>. <span class="nv">The</span> <span class="nv">matrix</span> <span class="nv">T</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">V</span> <span class="nv">stored</span> <span class="nv">on</span> <span class="nv">output</span>
+         <span class="nv">in</span> <span class="nv">A</span> <span class="nv">implicitly</span> <span class="nv">define</span> <span class="nv">Q_out</span>.
+
+         <span class="nv">The</span> <span class="nv">elements</span> <span class="nv">above</span> <span class="nv">the</span> <span class="nv">diagonal</span> <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">factor</span> <span class="nv">U</span>
+         <span class="nv">of</span> <span class="nv">the</span> <span class="s2">&quot;</span><span class="s">modified</span><span class="s2">&quot;</span> <span class="nv">LU</span><span class="o">-</span><span class="nv">decomposition</span>:
+            <span class="nv">Q_in</span> <span class="o">-</span> <span class="ss">(</span> <span class="nv">S</span> <span class="ss">)</span> <span class="o">=</span> <span class="nv">V</span> <span class="o">*</span> <span class="nv">U</span>
+                   <span class="ss">(</span> <span class="mi">0</span> <span class="ss">)</span>
+         <span class="nv">where</span> <span class="mi">0</span> <span class="nv">is</span> <span class="nv">a</span> <span class="ss">(</span><span class="nv">M</span><span class="o">-</span><span class="nv">N</span><span class="ss">)</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="ss">(</span><span class="nv">M</span><span class="o">-</span><span class="nv">N</span><span class="ss">)</span> <span class="nv">zero</span> <span class="nv">matrix</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] T
+ \verbatim
+          T is COMPLEX array,
+          dimension (LDT, N)</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Let</span> <span class="nv">NOCB</span> <span class="o">=</span> <span class="nv">Number_of_output_col_blocks</span>
+               <span class="o">=</span> <span class="nv">CEIL</span><span class="ss">(</span><span class="nv">N</span><span class="o">/</span><span class="nv">NB</span><span class="ss">)</span>
+
+      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">T</span><span class="ss">(</span><span class="mi">1</span>:<span class="nv">NB</span>, <span class="mi">1</span>:<span class="nv">N</span><span class="ss">)</span> <span class="nv">contains</span> <span class="nv">NOCB</span> <span class="nv">upper</span><span class="o">-</span><span class="nv">triangular</span>
+      <span class="nv">block</span> <span class="nv">reflectors</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">define</span> <span class="nv">Q_out</span> <span class="nv">stored</span> <span class="nv">in</span> <span class="nv">compact</span>
+      <span class="nv">form</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">sequence</span> <span class="nv">of</span> <span class="nv">upper</span><span class="o">-</span><span class="nv">triangular</span> <span class="nv">NB</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="nv">NB</span> <span class="nv">column</span>
+      <span class="nv">blocks</span> <span class="ss">(</span><span class="nv">same</span> <span class="nv">format</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">output</span> <span class="nv">T</span> <span class="nv">in</span> <span class="nv">CGEQRT</span><span class="ss">)</span>.
+      <span class="nv">The</span> <span class="nv">matrix</span> <span class="nv">T</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">V</span> <span class="nv">stored</span> <span class="nv">on</span> <span class="nv">output</span> <span class="nv">in</span> <span class="nv">A</span>
+      <span class="nv">implicitly</span> <span class="nv">define</span> <span class="nv">Q_out</span>. <span class="nv">NOTE</span>: <span class="nv">The</span> <span class="nv">lower</span> <span class="nv">triangles</span>
+      <span class="nv">below</span> <span class="nv">the</span> <span class="nv">upper</span><span class="o">-</span><span class="nv">triangular</span> <span class="nv">blocks</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">filled</span> <span class="nv">with</span>
+      <span class="nv">zeros</span>. <span class="nv">See</span> <span class="nv">Further</span> <span class="nv">Details</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDT
+ \verbatim
+          LDT is INTEGER
+          The leading dimension of the array T.
+          LDT &gt;= max(1,min(NB,N)).
+ \endverbatim</p>
+<p>\param[out] D
+ \verbatim
+          D is COMPLEX array, dimension min(M,N).
+          The elements can be only plus or minus one.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">constructed</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">SIGN</span><span class="p">(</span><span class="n">Q_in_i</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)),</span><span class="w"> </span><span class="n">where</span><span class="w"></span>
+<span class="w">      </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Q_in_i</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Q_in</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">performing</span><span class="w"></span>
+<span class="w">      </span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">steps</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="err">“</span><span class="n">modified</span><span class="err">”</span><span class="w"> </span><span class="n">Gaussian</span><span class="w"> </span><span class="n">elimination</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">See</span><span class="w"> </span><span class="n">Further</span><span class="w"> </span><span class="n">Details</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+ \endverbatim</p>
+<p>\par Further Details:</p>
+<p>\verbatim</p>
+<p>The computed M-by-M unitary factor Q_out is defined implicitly as
+ a product of unitary matrices Q_out(i). Each Q_out(i) is stored in
+ the compact WY-representation format in the corresponding blocks of
+ matrices V (stored in A) and T.</p>
+<p>The M-by-N unit lower-trapezoidal matrix V stored in the M-by-N
+ matrix A contains the column vectors V(i) in NB-size column
+ blocks VB(j). For example, VB(1) contains the columns
+ V(1), V(2), &hellip; V(NB). NOTE: The unit entries on
+ the diagonal of Y are not stored in A.</p>
+<p>The number of column blocks is</p>
+<div class="codehilite"><pre><span></span><code> NOCB = Number_of_output_col_blocks = CEIL(N/NB)
+</code></pre></div>
+
+<p>where each block is of order NB except for the last block, which
+ is of order LAST_NB = N - (NOCB-1)*NB.</p>
+<p>For example, if M=6,  N=5 and NB=2, the matrix V is</p>
+<div class="codehilite"><pre><span></span><code> V = (    VB(1),   VB(2), VB(3) ) =
+
+   = (   1                      )
+     ( v21    1                 )
+     ( v31  v32    1            )
+     ( v41  v42  v43   1        )
+     ( v51  v52  v53  v54    1  )
+     ( v61  v62  v63  v54   v65 )
+</code></pre></div>
+
+<p>For each of the column blocks VB(i), an upper-triangular block
+ reflector TB(i) is computed. These blocks are stored as
+ a sequence of upper-triangular column blocks in the NB-by-N
+ matrix T. The size of each TB(i) block is NB-by-NB, except
+ for the last block, whose size is LAST_NB-by-LAST_NB.</p>
+<p>For example, if M=6,  N=5 and NB=2, the matrix T is</p>
+<div class="codehilite"><pre><span></span><code> T  = (    TB(1),    TB(2), TB(3) ) =
+
+    = ( t11  t12  t13  t14   t15  )
+      (      t22       t24        )
+</code></pre></div>
+
+<p>The M-by-M factor Q_out is given as a product of NOCB
+ unitary M-by-M matrices Q_out(i).</p>
+<div class="codehilite"><pre><span></span><code> Q_out = Q_out(1) * Q_out(2) * ... * Q_out(NOCB),
+</code></pre></div>
+
+<p>where each matrix Q_out(i) is given by the WY-representation
+ using corresponding blocks from the matrices V and T:</p>
+<div class="codehilite"><pre><span></span><code> Q_out(i) = I - VB(i) * TB(i) * (VB(i))**T,
+</code></pre></div>
+
+<p>where I is the identity matrix. Here is the formula with matrix
+ dimensions:</p>
+<p>Q(i){M-by-M} = I{M-by-M} -
+    VB(i){M-by-INB} * TB(i){INB-by-INB} * (VB(i))**T {INB-by-M},</p>
+<p>where INB = NB, except for the last block NOCB
+ for which INB=LAST_NB.</p>
+<p>=====
+ NOTE:
+ =====</p>
+<p>If Q_in is the result of doing a QR factorization
+ B = Q_in * R_in, then:</p>
+<p>B = (Q_out*S) * R_in = Q_out * (S * R_in) = Q_out * R_out.</p>
+<p>So if one wants to interpret Q_out as the result
+ of the QR factorization of B, then the corresponding R_out
+ should be equal to R_out = S * R_in, i.e. some rows of R_in
+ should be multiplied by -1.</p>
+<p>For the details of the algorithm, see [1].</p>
+<p>[1] &ldquo;Reconstructing Householder vectors from tall-skinny QR&rdquo;,
+     G. Ballard, J. Demmel, L. Grigori, M. Jacquelin, H.D. Nguyen,
+     E. Solomonik, J. Parallel Distrib. Comput.,
+     vol. 85, pp. 3-31, 2015.
+ \endverbatim</p>
+<p>\author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date November 2019
+ \ingroup complexOTHERcomputational
+ \par Contributors:</p>
+<p>\verbatim</p>
+<p>November   2019, Igor Kozachenko,
+            Computer Science Division,
+            University of California, Berkeley</p>
+<p>\endverbatim
+&ndash;CUNHR_COL263</p>
+<p>&ndash; LAPACK computational routine (version 3.9.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     November 2019</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~72"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~226"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb~15"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~133"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~130"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~26"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>T</strong>(Ldt,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldt~25"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~28"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~189"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cone~22"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>CONE</strong></td>
+<td> =</td>
+                <td>(1.0E+0,0.0E+0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-czero~16"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>CZERO</strong></td>
+<td> =</td>
+                <td>(0.0E+0,0.0E+0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~156"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iinfo~40"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iinfo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~113"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jb~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jbtemp1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jbtemp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jbtemp2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jbtemp2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jnb"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jnb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nplusone"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nplusone</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">CUNHR_COL</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nb</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--CUNHR_COL263</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.9.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     November 2019</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">Ldt</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">CONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">CONE</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0E+0</span><span class="p">,</span><span class="mf">0.0E+0</span><span class="p">),</span><span class="n">CZERO</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0E+0</span><span class="p">,</span><span class="mf">0.0E+0</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iinfo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jbtemp1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jbtemp2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jnb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nplusone</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">CCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CLAUNHR_COL_GETRFNP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CTRSM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nb</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldt</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">MIN</span><span class="p">(</span><span class="n">Nb</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Handle error in the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CUNHR_COL&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     On input, the M-by-N matrix A contains the unitary</span>
+<span class="c">!     M-by-N matrix Q_in.</span>
+<span class="c">!</span>
+<span class="c">!     (1) Compute the unit lower-trapezoidal V (ones on the diagonal</span>
+<span class="c">!     are not stored) by performing the &quot;modified&quot; LU-decomposition.</span>
+<span class="c">!</span>
+<span class="c">!     Q_in - ( S ) = V * U = ( V1 ) * U,</span>
+<span class="c">!            ( 0 )           ( V2 )</span>
+<span class="c">!</span>
+<span class="c">!     where 0 is an (M-N)-by-N zero matrix.</span>
+<span class="c">!</span>
+<span class="c">!     (1-1) Factor V1 and U.</span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CLAUNHR_COL_GETRFNP</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">iinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (1-2) Solve for V2.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CTRSM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">CONE</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (2) Reconstruct the block reflector T stored in T(1:NB, 1:N)</span>
+<span class="c">!     as a sequence of upper-triangular blocks with NB-size column</span>
+<span class="c">!     blocking.</span>
+<span class="c">!</span>
+<span class="c">!     Loop over the column blocks of size NB of the array A(1:M,1:N)</span>
+<span class="c">!     and the array T(1:NB,1:N), JB is the column index of a column</span>
+<span class="c">!     block, JNB is the column block size at each step JB.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">nplusone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">jb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        (2-0) Determine the column block size JNB.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">jnb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">nplusone</span><span class="o">-</span><span class="n">jb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        (2-1) Copy the upper-triangular part of the current JNB-by-JNB</span>
+<span class="c">!        diagonal block U(JB) (of the N-by-N matrix U) stored</span>
+<span class="c">!        in A(JB:JB+JNB-1,JB:JB+JNB-1) into the upper-triangular part</span>
+<span class="c">!        of the current JNB-by-JNB block T(1:JNB,JB:JB+JNB-1)</span>
+<span class="c">!        column-by-column, total JNB*(JNB+1)/2 elements.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">jbtemp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jnb</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">CCOPY</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">jbtemp1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        (2-2) Perform on the upper-triangular part of the current</span>
+<span class="c">!        JNB-by-JNB diagonal block U(JB) (of the N-by-N matrix U) stored</span>
+<span class="c">!        in T(1:JNB,JB:JB+JNB-1) the following operation in place:</span>
+<span class="c">!        (-1)*U(JB)*S(JB), i.e the result will be stored in the upper-</span>
+<span class="c">!        triangular part of T(1:JNB,JB:JB+JNB-1). This multiplication</span>
+<span class="c">!        of the JNB-by-JNB diagonal block U(JB) by the JNB-by-JNB</span>
+<span class="c">!        diagonal block S(JB) of the N-by-N sign matrix S from the</span>
+<span class="c">!        right means changing the sign of each J-th column of the block</span>
+<span class="c">!        U(JB) according to the sign of the diagonal element of the block</span>
+<span class="c">!        S(JB), i.e. S(J,J) that is stored in the array element D(J).</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jnb</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">CONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CSCAL</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="n">jbtemp1</span><span class="p">,</span><span class="o">-</span><span class="n">CONE</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        (2-3) Perform the triangular solve for the current block</span>
+<span class="c">!        matrix X(JB):</span>
+<span class="c">!</span>
+<span class="c">!               X(JB) * (A(JB)**T) = B(JB), where:</span>
+<span class="c">!</span>
+<span class="c">!               A(JB)**T  is a JNB-by-JNB unit upper-triangular</span>
+<span class="c">!                         coefficient block, and A(JB)=V1(JB), which</span>
+<span class="c">!                         is a JNB-by-JNB unit lower-triangular block</span>
+<span class="c">!                         stored in A(JB:JB+JNB-1,JB:JB+JNB-1).</span>
+<span class="c">!                         The N-by-N matrix V1 is the upper part</span>
+<span class="c">!                         of the M-by-N lower-trapezoidal matrix V</span>
+<span class="c">!                         stored in A(1:M,1:N);</span>
+<span class="c">!</span>
+<span class="c">!               B(JB)     is a JNB-by-JNB  upper-triangular right-hand</span>
+<span class="c">!                         side block, B(JB) = (-1)*U(JB)*S(JB), and</span>
+<span class="c">!                         B(JB) is stored in T(1:JNB,JB:JB+JNB-1);</span>
+<span class="c">!</span>
+<span class="c">!               X(JB)     is a JNB-by-JNB upper-triangular solution</span>
+<span class="c">!                         block, X(JB) is the upper-triangular block</span>
+<span class="c">!                         reflector T(JB), and X(JB) is stored</span>
+<span class="c">!                         in T(1:JNB,JB:JB+JNB-1).</span>
+<span class="c">!</span>
+<span class="c">!             In other words, we perform the triangular solve for the</span>
+<span class="c">!             upper-triangular block T(JB):</span>
+<span class="c">!</span>
+<span class="c">!               T(JB) * (V1(JB)**T) = (-1)*U(JB)*S(JB).</span>
+<span class="c">!</span>
+<span class="c">!             Even though the blocks X(JB) and B(JB) are upper-</span>
+<span class="c">!             triangular, the routine CTRSM will access all JNB**2</span>
+<span class="c">!             elements of the square T(1:JNB,JB:JB+JNB-1). Therefore,</span>
+<span class="c">!             we need to set to zero the elements of the block</span>
+<span class="c">!             T(1:JNB,JB:JB+JNB-1) below the diagonal before the call</span>
+<span class="c">!             to CTRSM.</span>
+<span class="c">!</span>
+<span class="c">!        (2-3a) Set the elements to zero.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">jbtemp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jb</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jnb</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jbtemp2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb</span><span class="w"></span>
+<span class="w">               </span><span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        (2-3b) Perform the triangular solve.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CTRSM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">jnb</span><span class="p">,</span><span class="n">jnb</span><span class="p">,</span><span class="n">CONE</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">jb</span><span class="p">,</span><span class="n">jb</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">T</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">jb</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldt</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of CUNHR_COL</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">CUNHR_COL</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

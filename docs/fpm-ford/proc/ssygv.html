@@ -1,0 +1,856 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SSYGV &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>SSYGV
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">74 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ssygv.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ssygv.f90.html'>ssygv.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SSYGV</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/ssygv.html#variable-one~352">ONE</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-lquery~147">lquery</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-lwkmin~11">lwkmin</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-lwkopt~72">lwkopt</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-nb~74">nb</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-neig~3">neig</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-trans~12">trans</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-upper~128">upper</a>
+            <a class="list-group-item" href="../proc/ssygv.html#variable-wantz~37">wantz</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/ssygv.html#src">SSYGV</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine SSYGV(Itype, Jobz, Uplo, N, A, Lda, B, Ldb, W, Work, Lwork, Info)  
+</h2>
+    
+
+    <p>\brief \b SSYGV
+ \htmlonly
+ Download SSYGV + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssygv.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssygv.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssygv.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>SSYGV computes all the eigenvalues, and optionally, the eigenvectors
+ of a real generalized symmetric-definite eigenproblem, of the form
+ A<em>x=(lambda)</em>B<em>x,  A</em>Bx=(lambda)<em>x,  or B</em>A<em>x=(lambda)</em>x.
+ Here A and B are assumed to be symmetric and B is also
+ positive definite.
+ \endverbatim
+ \param[in] ITYPE
+ \verbatim
+          ITYPE is INTEGER
+          Specifies the problem type to be solved:
+          = 1:  A<em>x = (lambda)</em>B<em>x
+          = 2:  A</em>B<em>x = (lambda)</em>x
+          = 3:  B<em>A</em>x = (lambda)*x
+ \endverbatim</p>
+<p>\param[in] JOBZ
+ \verbatim
+          JOBZ is CHARACTER*1
+          = &lsquo;N&rsquo;:  Compute eigenvalues only;
+          = &lsquo;V&rsquo;:  Compute eigenvalues and eigenvectors.
+ \endverbatim</p>
+<p>\param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+          = &lsquo;U&rsquo;:  Upper triangles of A and B are stored;
+          = &lsquo;L&rsquo;:  Lower triangles of A and B are stored.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrices A and B.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is REAL array, dimension (LDA, N)
+          On entry, the symmetric matrix A.  If UPLO = &lsquo;U&rsquo;, the
+          leading N-by-N upper triangular part of A contains the
+          upper triangular part of the matrix A.  If UPLO = &lsquo;L&rsquo;,
+          the leading N-by-N lower triangular part of A contains
+          the lower triangular part of the matrix A.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="nt">On</span><span class="w"> </span><span class="nt">exit</span><span class="o">,</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nt">JOBZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;V&#39;</span><span class="o">,</span><span class="w"> </span><span class="nt">then</span><span class="w"> </span><span class="nt">if</span><span class="w"> </span><span class="nt">INFO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">0</span><span class="o">,</span><span class="w"> </span><span class="nt">A</span><span class="w"> </span><span class="nt">contains</span><span class="w"> </span><span class="nt">the</span><span class="w"></span>
+<span class="w">      </span><span class="nt">matrix</span><span class="w"> </span><span class="nt">Z</span><span class="w"> </span><span class="nt">of</span><span class="w"> </span><span class="nt">eigenvectors</span><span class="o">.</span><span class="w">  </span><span class="nt">The</span><span class="w"> </span><span class="nt">eigenvectors</span><span class="w"> </span><span class="nt">are</span><span class="w"> </span><span class="nt">normalized</span><span class="w"></span>
+<span class="w">      </span><span class="nt">as</span><span class="w"> </span><span class="nt">follows</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">if</span><span class="w"> </span><span class="nt">ITYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">1</span><span class="w"> </span><span class="nt">or</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">Z</span><span class="o">**</span><span class="nt">T</span><span class="o">*</span><span class="nt">B</span><span class="o">*</span><span class="nt">Z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">I</span><span class="o">;</span><span class="w"></span>
+<span class="w">      </span><span class="nt">if</span><span class="w"> </span><span class="nt">ITYPE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">3</span><span class="o">,</span><span class="w"> </span><span class="nt">Z</span><span class="o">**</span><span class="nt">T</span><span class="o">*</span><span class="nt">inv</span><span class="o">(</span><span class="nt">B</span><span class="o">)*</span><span class="nt">Z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">I</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="nt">If</span><span class="w"> </span><span class="nt">JOBZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="o">,</span><span class="w"> </span><span class="nt">then</span><span class="w"> </span><span class="nt">on</span><span class="w"> </span><span class="nt">exit</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">upper</span><span class="w"> </span><span class="nt">triangle</span><span class="w"> </span><span class="o">(</span><span class="nt">if</span><span class="w"> </span><span class="nt">UPLO</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="o">)</span><span class="w"></span>
+<span class="w">      </span><span class="nt">or</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">lower</span><span class="w"> </span><span class="nt">triangle</span><span class="w"> </span><span class="o">(</span><span class="nt">if</span><span class="w"> </span><span class="nt">UPLO</span><span class="o">=</span><span class="s1">&#39;L&#39;</span><span class="o">)</span><span class="w"> </span><span class="nt">of</span><span class="w"> </span><span class="nt">A</span><span class="o">,</span><span class="w"> </span><span class="nt">including</span><span class="w"> </span><span class="nt">the</span><span class="w"></span>
+<span class="w">      </span><span class="nt">diagonal</span><span class="o">,</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">destroyed</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is REAL array, dimension (LDB, N)
+          On entry, the symmetric positive definite matrix B.
+          If UPLO = &lsquo;U&rsquo;, the leading N-by-N upper triangular part of B
+          contains the upper triangular part of the matrix B.
+          If UPLO = &lsquo;L&rsquo;, the leading N-by-N lower triangular part of B
+          contains the lower triangular part of the matrix B.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="k">if</span> <span class="nv">INFO</span> <span class="o">&lt;=</span> <span class="nv">N</span>, <span class="nv">the</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">B</span> <span class="nv">containing</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">is</span>
+      <span class="nv">overwritten</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">triangular</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">Cholesky</span>
+      <span class="nv">factorization</span> <span class="nv">B</span> <span class="o">=</span> <span class="nv">U</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span><span class="nv">U</span> <span class="nv">or</span> <span class="nv">B</span> <span class="o">=</span> <span class="nv">L</span><span class="o">*</span><span class="nv">L</span><span class="o">**</span><span class="nv">T</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B.  LDB &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] W
+ \verbatim
+          W is REAL array, dimension (N)
+          If INFO = 0, the eigenvalues in ascending order.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is REAL array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+ \endverbatim</p>
+<p>\param[in] LWORK
+ \verbatim
+          LWORK is INTEGER
+          The length of the array WORK.  LWORK &gt;= max(1,3<em>N-1).
+          For optimal efficiency, LWORK &gt;= (NB+2)</em>N,
+          where NB is the blocksize for SSYTRD returned by ILAENV.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">LWORK</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>, <span class="k">then</span> <span class="nv">a</span> <span class="nv">workspace</span> <span class="nv">query</span> <span class="nv">is</span> <span class="nv">assumed</span><span class="c1">; the routine</span>
+      <span class="nv">only</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">optimal</span> <span class="nv">size</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">array</span>, <span class="nv">returns</span>
+      <span class="nv">this</span> <span class="nv">value</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">entry</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">array</span>, <span class="nv">and</span> <span class="nv">no</span> <span class="nv">error</span>
+      <span class="nv">message</span> <span class="nv">related</span> <span class="nv">to</span> <span class="nv">LWORK</span> <span class="nv">is</span> <span class="nv">issued</span> <span class="nv">by</span> <span class="nv">XERBLA</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+          &gt; 0:  SPOTRF or SSYEV returned an error code:
+             &lt;= N:  if INFO = i, SSYEV failed to converge;
+                    i off-diagonal elements of an intermediate
+                    tridiagonal form did not converge to zero;
+             &gt; N:   if INFO = N + i, for 1 &lt;= i &lt;= N, then the leading
+                    minor of order i of B is not positive definite.
+                    The factorization of B could not be completed and
+                    no eigenvalues or eigenvectors were computed.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup realSYeigen
+&ndash;SSYGV178</p>
+<p>&ndash; LAPACK driver routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itype~9"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Itype</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobz~39"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobz</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~232"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~526"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~308"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~296"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~152"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~148"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~55"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>W</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~312"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~159"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~423"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~352"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~147"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lquery</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwkmin~11"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lwkmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwkopt~72"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lwkopt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb~74"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neig~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>neig</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-trans~12"></span>
+              character(len=1),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>trans</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~128"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantz~37"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">SSYGV</span><span class="p">(</span><span class="n">Itype</span><span class="p">,</span><span class="n">Jobz</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--SSYGV178</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK driver routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Jobz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Itype</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">lquery</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantz</span><span class="w"></span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">trans</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">lwkmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lwkopt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">neig</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ILAENV</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">ILAENV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SPOTRF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSYEV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSYGST</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">STRMM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">STRSM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">wantz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobz</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">lquery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Lwork</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itype</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Itype</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">wantz</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobz</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">upper</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">8</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">lwkmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">nb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILAENV</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;SSYTRD&#39;</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">lwkopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lwkmin</span><span class="p">,(</span><span class="n">nb</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lwkopt</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lwork</span><span class="o">&lt;</span><span class="n">lwkmin</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">11</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;SSYGV &#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Form a Cholesky factorization of B.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">SPOTRF</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Info</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Transform problem to standard eigenvalue problem and solve.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">SSYGST</span><span class="p">(</span><span class="n">Itype</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">SSYEV</span><span class="p">(</span><span class="n">Jobz</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Backtransform eigenvectors to the original problem.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">neig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">neig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itype</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Itype</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For A*x=(lambda)*B*x and A*B*x=(lambda)*x;</span>
+<span class="c">!           backtransform eigenvectors: x = inv(L)**T*y or inv(U)*y</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;T&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">STRSM</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">trans</span><span class="p">,</span><span class="s1">&#39;Non-unit&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">neig</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itype</span><span class="o">==</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For B*A*x=(lambda)*x;</span>
+<span class="c">!           backtransform eigenvectors: x = L*y or U**T*y</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;T&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">trans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;Left&#39;</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">trans</span><span class="p">,</span><span class="s1">&#39;Non-unit&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">neig</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lwkopt</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of SSYGV</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">SSYGV</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

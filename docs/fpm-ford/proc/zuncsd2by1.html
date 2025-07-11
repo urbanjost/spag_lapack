@@ -1,0 +1,1984 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>ZUNCSD2BY1 &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>ZUNCSD2BY1
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">286 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/zuncsd2by1.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/zuncsd2by1.f90.html'>zuncsd2by1.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ZUNCSD2BY1</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-one~1185">ONE</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-zero~1121">ZERO</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-cdum~34">cdum</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-childinfo~23">childinfo</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-dum~35">dum</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-i~1289">i</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib11d~6">ib11d</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib11e~6">ib11e</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib12d~6">ib12d</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib12e~6">ib12e</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib21d~6">ib21d</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib21e~6">ib21e</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib22d~6">ib22d</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ib22e~6">ib22e</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-ibbcsd~6">ibbcsd</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-iorbdb~6">iorbdb</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-iorglq~6">iorglq</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-iorgqr~6">iorgqr</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-iphi~6">iphi</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-itaup1~6">itaup1</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-itaup2~6">itaup2</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-itauq1~6">itauq1</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-j~997">j</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lbbcsd~3">lbbcsd</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorbdb~3">lorbdb</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorglq~3">lorglq</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorglqmin~3">lorglqmin</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorglqopt~3">lorglqopt</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorgqr~3">lorgqr</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorgqrmin~3">lorgqrmin</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lorgqropt~3">lorgqropt</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lquery~449">lquery</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lrworkmin~6">lrworkmin</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lrworkopt~6">lrworkopt</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lworkmin~26">lworkmin</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-lworkopt~35">lworkopt</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-r~43">r</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-wantu1~10">wantu1</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-wantu2~10">wantu2</a>
+            <a class="list-group-item" href="../proc/zuncsd2by1.html#variable-wantv1t~10">wantv1t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/zuncsd2by1.html#src">ZUNCSD2BY1</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine ZUNCSD2BY1(Jobu1, Jobu2, Jobv1t, M, P, Q, X11, Ldx11, X21, Ldx21, Theta, U1, Ldu1, U2, Ldu2, V1t, Ldv1t, Work, Lwork, Rwork, Lrwork, Iwork, Info)  
+</h2>
+    
+
+    <p>\brief \b ZUNCSD2BY1
+ \htmlonly
+ Download ZUNCSD2BY1 + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zuncsd2by1.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zuncsd2by1.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zuncsd2by1.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>ZUNCSD2BY1 computes the CS decomposition of an M-by-Q matrix X with
+ orthonormal columns that has been partitioned into a 2-by-1 block
+ structure:</p>
+<div class="codehilite"><pre><span></span><code>                            [  I1 0  0 ]
+                            [  0  C  0 ]
+      [ X11 ]   [ U1 |    ] [  0  0  0 ]
+  X = [-----] = [---------] [----------] V1**T .
+      [ X21 ]   [    | U2 ] [  0  0  0 ]
+                            [  0  S  0 ]
+                            [  0  0  I2]
+</code></pre></div>
+
+<p>X11 is P-by-Q. The unitary matrices U1, U2, and V1 are P-by-P,
+ (M-P)-by-(M-P), and Q-by-Q, respectively. C and S are R-by-R
+ nonnegative diagonal matrices satisfying C^2 + S^2 = I, in which
+ R = MIN(P,M-P,Q,M-Q). I1 is a K1-by-K1 identity matrix and I2 is a
+ K2-by-K2 identity matrix, where K1 = MAX(Q+P-M,0), K2 = MAX(Q-P,0).
+ \endverbatim
+ \param[in] JOBU1
+ \verbatim
+          JOBU1 is CHARACTER
+          = &lsquo;Y&rsquo;:      U1 is computed;
+          otherwise:  U1 is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBU2
+ \verbatim
+          JOBU2 is CHARACTER
+          = &lsquo;Y&rsquo;:      U2 is computed;
+          otherwise:  U2 is not computed.
+ \endverbatim</p>
+<p>\param[in] JOBV1T
+ \verbatim
+          JOBV1T is CHARACTER
+          = &lsquo;Y&rsquo;:      V1T is computed;
+          otherwise:  V1T is not computed.
+ \endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows in X.
+ \endverbatim</p>
+<p>\param[in] P
+ \verbatim
+          P is INTEGER
+          The number of rows in X11. 0 &lt;= P &lt;= M.
+ \endverbatim</p>
+<p>\param[in] Q
+ \verbatim
+          Q is INTEGER
+          The number of columns in X11 and X21. 0 &lt;= Q &lt;= M.
+ \endverbatim</p>
+<p>\param[in,out] X11
+ \verbatim
+          X11 is COMPLEX*16 array, dimension (LDX11,Q)
+          On entry, part of the unitary matrix whose CSD is desired.
+ \endverbatim</p>
+<p>\param[in] LDX11
+ \verbatim
+          LDX11 is INTEGER
+          The leading dimension of X11. LDX11 &gt;= MAX(1,P).
+ \endverbatim</p>
+<p>\param[in,out] X21
+ \verbatim
+          X21 is COMPLEX*16 array, dimension (LDX21,Q)
+          On entry, part of the unitary matrix whose CSD is desired.
+ \endverbatim</p>
+<p>\param[in] LDX21
+ \verbatim
+          LDX21 is INTEGER
+          The leading dimension of X21. LDX21 &gt;= MAX(1,M-P).
+ \endverbatim</p>
+<p>\param[out] THETA
+ \verbatim
+          THETA is DOUBLE PRECISION array, dimension (R), in which R =
+          MIN(P,M-P,Q,M-Q).
+          C = DIAG( COS(THETA(1)), &hellip; , COS(THETA(R)) ) and
+          S = DIAG( SIN(THETA(1)), &hellip; , SIN(THETA(R)) ).
+ \endverbatim</p>
+<p>\param[out] U1
+ \verbatim
+          U1 is COMPLEX*16 array, dimension (P)
+          If JOBU1 = &lsquo;Y&rsquo;, U1 contains the P-by-P unitary matrix U1.
+ \endverbatim</p>
+<p>\param[in] LDU1
+ \verbatim
+          LDU1 is INTEGER
+          The leading dimension of U1. If JOBU1 = &lsquo;Y&rsquo;, LDU1 &gt;=
+          MAX(1,P).
+ \endverbatim</p>
+<p>\param[out] U2
+ \verbatim
+          U2 is COMPLEX*16 array, dimension (M-P)
+          If JOBU2 = &lsquo;Y&rsquo;, U2 contains the (M-P)-by-(M-P) unitary
+          matrix U2.
+ \endverbatim</p>
+<p>\param[in] LDU2
+ \verbatim
+          LDU2 is INTEGER
+          The leading dimension of U2. If JOBU2 = &lsquo;Y&rsquo;, LDU2 &gt;=
+          MAX(1,M-P).
+ \endverbatim</p>
+<p>\param[out] V1T
+ \verbatim
+          V1T is COMPLEX<em>16 array, dimension (Q)
+          If JOBV1T = &lsquo;Y&rsquo;, V1T contains the Q-by-Q matrix unitary
+          matrix V1</em>*T.
+ \endverbatim</p>
+<p>\param[in] LDV1T
+ \verbatim
+          LDV1T is INTEGER
+          The leading dimension of V1T. If JOBV1T = &lsquo;Y&rsquo;, LDV1T &gt;=
+          MAX(1,Q).
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is COMPLEX*16 array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+ \endverbatim</p>
+<p>\param[in] LWORK
+ \verbatim
+          LWORK is INTEGER
+          The dimension of the array WORK.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">LWORK</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>, <span class="k">then</span> <span class="nv">a</span> <span class="nv">workspace</span> <span class="nv">query</span> <span class="nv">is</span> <span class="nv">assumed</span><span class="c1">; the routine</span>
+      <span class="nv">only</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">optimal</span> <span class="nv">size</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">and</span> <span class="nv">RWORK</span>
+      <span class="nv">arrays</span>, <span class="nv">returns</span> <span class="nv">this</span> <span class="nv">value</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">entry</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span>
+      <span class="nv">and</span> <span class="nv">RWORK</span> <span class="nv">array</span>, <span class="nv">respectively</span>, <span class="nv">and</span> <span class="nv">no</span> <span class="nv">error</span> <span class="nv">message</span> <span class="nv">related</span>
+      <span class="nv">to</span> <span class="nv">LWORK</span> <span class="nv">or</span> <span class="nv">LRWORK</span> <span class="nv">is</span> <span class="nv">issued</span> <span class="nv">by</span> <span class="nv">XERBLA</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] RWORK
+ \verbatim
+          RWORK is DOUBLE PRECISION array, dimension (MAX(1,LRWORK))
+          On exit, if INFO = 0, RWORK(1) returns the optimal LRWORK.
+          If INFO &gt; 0 on exit, RWORK(2:R) contains the values PHI(1),
+          &hellip;, PHI(R-1) that, together with THETA(1), &hellip;, THETA(R),
+          define the matrix in intermediate bidiagonal-block form
+          remaining after nonconvergence. INFO specifies the number
+          of nonzero PHI&rsquo;s.
+ \endverbatim</p>
+<p>\param[in] LRWORK
+ \verbatim
+          LRWORK is INTEGER
+          The dimension of the array RWORK.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">LRWORK</span><span class="o">=-</span><span class="mi">1</span>, <span class="k">then</span> <span class="nv">a</span> <span class="nv">workspace</span> <span class="nv">query</span> <span class="nv">is</span> <span class="nv">assumed</span><span class="c1">; the routine</span>
+      <span class="nv">only</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">optimal</span> <span class="nv">size</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span> <span class="nv">and</span> <span class="nv">RWORK</span>
+      <span class="nv">arrays</span>, <span class="nv">returns</span> <span class="nv">this</span> <span class="nv">value</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">entry</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">WORK</span>
+      <span class="nv">and</span> <span class="nv">RWORK</span> <span class="nv">array</span>, <span class="nv">respectively</span>, <span class="nv">and</span> <span class="nv">no</span> <span class="nv">error</span> <span class="nv">message</span> <span class="nv">related</span>
+      <span class="nv">to</span> <span class="nv">LWORK</span> <span class="nv">or</span> <span class="nv">LRWORK</span> <span class="nv">is</span> <span class="nv">issued</span> <span class="nv">by</span> <span class="nv">XERBLA</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \param[out] IWORK
+ \verbatim
+          IWORK is INTEGER array, dimension (M-MIN(P,M-P,Q,M-Q))
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit.
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          &gt; 0:  ZBBCSD did not converge. See the description of WORK
+                above for details.
+ \endverbatim
+ \par References:</p>
+<p>[1] Brian D. Sutton. Computing the complete CS decomposition. Numer.
+      Algorithms, 50(1):33-65, 2009.
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date July 2012
+ \ingroup complex16OTHERcomputational
+&ndash;ZUNCSD2BY1260</p>
+<p>&ndash; LAPACK computational routine (version 3.7.1) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     July 2012</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobu1~10"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobu1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobu2~10"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobu2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jobv1t~10"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jobv1t</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~652"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~68"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>P</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~113"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x11~24"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X11</strong>(Ldx11,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldx11~24"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldx11</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x21~24"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X21</strong>(Ldx21,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldx21~24"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldx21</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-theta~28"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Theta</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u1~10"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U1</strong>(Ldu1,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu1~10"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldu1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u2~13"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U2</strong>(Ldu2,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu2~13"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldu2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v1t~10"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V1t</strong>(Ldv1t,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldv1t~10"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldv1t</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~1043"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~496"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rwork~236"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrwork~36"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lrwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~254"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1354"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~1185"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>(1.0D0,0.0D0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~1121"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>(0.0D0,0.0D0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cdum~34"></span>
+              complex(kind=16),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cdum</strong>(1,1)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-childinfo~23"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>childinfo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dum~35"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dum</strong>(1)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1289"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib11d~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib11d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib11e~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib11e</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib12d~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib12d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib12e~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib12e</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib21d~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib21d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib21e~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib21e</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib22d~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib22d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib22e~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ib22e</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ibbcsd~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ibbcsd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iorbdb~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iorbdb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iorglq~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iorglq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iorgqr~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iorgqr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iphi~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iphi</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itaup1~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>itaup1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itaup2~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>itaup2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itauq1~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>itauq1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~997"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lbbcsd~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lbbcsd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorbdb~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorbdb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorglq~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorglq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorglqmin~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorglqmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorglqopt~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorglqopt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorgqr~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorgqr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorgqrmin~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorgqrmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lorgqropt~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lorgqropt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~449"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lquery</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrworkmin~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lrworkmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrworkopt~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lrworkopt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lworkmin~26"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lworkmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lworkopt~35"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lworkopt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~43"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantu1~10"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantu1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantu2~10"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantu2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantv1t~10"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantv1t</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">ZUNCSD2BY1</span><span class="p">(</span><span class="n">Jobu1</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="n">Lwork</span><span class="p">,</span><span class="n">Rwork</span><span class="p">,</span><span class="n">Lrwork</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--ZUNCSD2BY1260</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.1) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     July 2012</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Jobu1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobu2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Jobv1t</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldu1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldu2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldv1t</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldx11</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldx21</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">P</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Lrwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lrworkmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lrworkopt</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Rwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Theta</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">U1</span><span class="p">(</span><span class="n">Ldu1</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">U2</span><span class="p">(</span><span class="n">Ldu2</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">V1t</span><span class="p">(</span><span class="n">Ldv1t</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">X11</span><span class="p">(</span><span class="n">Ldx11</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">X21</span><span class="p">(</span><span class="n">Ldx21</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Iwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">),</span><span class="n">ZERO</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">childinfo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib11d</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib11e</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib12d</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib12e</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib21d</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">ib21e</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib22d</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ib22e</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ibbcsd</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iorbdb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iorglq</span><span class="w"> </span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">iorgqr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iphi</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">itaup1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">itaup2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">itauq1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lbbcsd</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">lorbdb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lorglq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lorglqmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lorglqopt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lorgqr</span><span class="w"> </span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lorgqropt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lworkmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lworkopt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">lquery</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Arrays ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">dum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">cdum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">ZBBCSD</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLACPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLAPMR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLAPMT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZUNBDB1</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">ZUNBDB2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZUNBDB3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZUNBDB4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZUNGLQ</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZUNGQR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Function ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">INT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test input arguments</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantu1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu1</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobu2</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantv1t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">lquery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Lwork</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Lrwork</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldx11</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">8</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldx21</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldu1</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">13</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldu2</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">15</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldv1t</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">17</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute workspace</span>
+<span class="c">!</span>
+<span class="c">!       WORK layout:</span>
+<span class="c">!     |-----------------------------------------|</span>
+<span class="c">!     | LWORKOPT (1)                            |</span>
+<span class="c">!     |-----------------------------------------|</span>
+<span class="c">!     | TAUP1 (MAX(1,P))                        |</span>
+<span class="c">!     | TAUP2 (MAX(1,M-P))                      |</span>
+<span class="c">!     | TAUQ1 (MAX(1,Q))                        |</span>
+<span class="c">!     |-----------------------------------------|</span>
+<span class="c">!     | ZUNBDB WORK | ZUNGQR WORK | ZUNGLQ WORK |</span>
+<span class="c">!     |             |             |             |</span>
+<span class="c">!     |             |             |             |</span>
+<span class="c">!     |             |             |             |</span>
+<span class="c">!     |             |             |             |</span>
+<span class="c">!     |-----------------------------------------|</span>
+<span class="c">!       RWORK layout:</span>
+<span class="c">!     |------------------|</span>
+<span class="c">!     | LRWORKOPT (1)    |</span>
+<span class="c">!     |------------------|</span>
+<span class="c">!     | PHI (MAX(1,R-1)) |</span>
+<span class="c">!     |------------------|</span>
+<span class="c">!     | B11D (R)         |</span>
+<span class="c">!     | B11E (R-1)       |</span>
+<span class="c">!     | B12D (R)         |</span>
+<span class="c">!     | B12E (R-1)       |</span>
+<span class="c">!     | B21D (R)         |</span>
+<span class="c">!     | B21E (R-1)       |</span>
+<span class="c">!     | B22D (R)         |</span>
+<span class="c">!     | B22E (R-1)       |</span>
+<span class="c">!     | ZBBCSD RWORK     |</span>
+<span class="c">!     |------------------|</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">iphi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib11d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iphi</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib11e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib11d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib12d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib11e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib12e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib12d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib21d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib12e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib21e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib21d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib22d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib21e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ib22e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib22d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ibbcsd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib22e</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">itaup1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="n">itaup2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itaup1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">itauq1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itaup2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">iorbdb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itauq1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">iorgqr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itauq1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">iorglq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itauq1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">lorglqmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">lorglqopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">Q</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZUNBDB1</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lorbdb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqmin</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqopt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobu1</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ldu1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lbbcsd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZUNBDB2</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lorbdb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">U1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqmin</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqopt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lbbcsd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZUNBDB3</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lorbdb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">U2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqmin</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqopt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lbbcsd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            CALL </span><span class="n">ZUNBDB4</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">cdum</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lorbdb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqrmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqrmin</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorgqropt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorgqropt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqmin</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">lorglqopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lorglqopt</span><span class="p">,</span><span class="nb">INT</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">            CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">dum</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">lbbcsd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">INT</span><span class="p">(</span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">lrworkmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ibbcsd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lbbcsd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">lrworkopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lrworkmin</span><span class="w"></span>
+<span class="w">         </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lrworkopt</span><span class="w"></span>
+<span class="w">         </span><span class="n">lworkmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">iorbdb</span><span class="o">+</span><span class="n">lorbdb</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">iorgqr</span><span class="o">+</span><span class="n">lorgqrmin</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">iorglq</span><span class="o">+</span><span class="n">lorglqmin</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">lworkopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">iorbdb</span><span class="o">+</span><span class="n">lorbdb</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">iorgqr</span><span class="o">+</span><span class="n">lorgqropt</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w">             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">iorglq</span><span class="o">+</span><span class="n">lorglqopt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lworkopt</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lwork</span><span class="o">&lt;</span><span class="n">lworkmin</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">19</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lrwork</span><span class="o">&lt;</span><span class="n">lrworkmin</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">21</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;ZUNCSD2BY1&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         RETURN</span>
+<span class="k">      ENDIF</span>
+<span class="k">      </span><span class="n">lorgqr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">iorgqr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">lorglq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">iorglq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Handle four cases separately: R = Q, R = P, R = M-P, and R = M-Q,</span>
+<span class="c">!     in which R = MIN(P,M-P,Q,M-Q)</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">Q</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Case 1: R = Q</span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously bidiagonalize X11 and X21</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZUNBDB1</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="p">),</span><span class="n">lorbdb</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Accumulate Householder reflectors</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="n">lorgqr</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">V1t</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">               </span><span class="n">V1t</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="n">V1t</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X21</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">V1t</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">iorglq</span><span class="p">),</span><span class="n">lorglq</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously diagonalize X11 and X21.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobu1</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11d</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21d</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22e</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ibbcsd</span><span class="p">),</span><span class="n">Lrwork</span><span class="o">-</span><span class="n">ibbcsd</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Permute rows and columns to place zero submatrices in</span>
+<span class="c">!        preferred positions</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLAPMT</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Case 2: R = P</span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously bidiagonalize X11 and X21</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZUNBDB2</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="p">),</span><span class="n">lorbdb</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Accumulate Householder reflectors</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">U1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">U1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="n">U1</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X11</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">U1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">U1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorglq</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorglq</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously diagonalize X11 and X21.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11d</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21d</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22e</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ibbcsd</span><span class="p">),</span><span class="n">lbbcsd</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Permute rows and columns to place identity submatrices in</span>
+<span class="c">!        preferred positions</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLAPMT</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r</span><span class="o">==</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Case 3: R = M-P</span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously bidiagonalize X11 and X21</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZUNBDB3</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="p">),</span><span class="n">lorbdb</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Accumulate Householder reflectors</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="n">lorgqr</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">U2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">U2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="n">U2</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X21</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">U2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu2</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">U2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorglq</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorglq</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously diagonalize X11 and X21.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12e</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22d</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ibbcsd</span><span class="p">),</span><span class="n">lbbcsd</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Permute rows and columns to place identity submatrices in</span>
+<span class="c">!        preferred positions</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="n">r</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZLAPMT</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZLAPMR</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Case 4: R = M-Q</span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously bidiagonalize X11 and X21</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZUNBDB4</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X11</span><span class="p">,</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                </span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="o">+</span><span class="n">M</span><span class="p">),</span><span class="n">lorbdb</span><span class="o">-</span><span class="n">M</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Accumulate Householder reflectors</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZCOPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="o">+</span><span class="n">P</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZCOPY</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iorbdb</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">U1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X11</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx11</span><span class="p">,</span><span class="n">U1</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&gt;</span><span class="n">P</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">U2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X21</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">U2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">Ldu2</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGQR</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itaup2</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorgqr</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorgqr</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Q</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">X21</span><span class="p">,</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">P</span><span class="o">-</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">),</span><span class="n">Q</span><span class="o">-</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">),</span><span class="n">X11</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx11</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">V1t</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">P</span><span class="o">+</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">X21</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldx21</span><span class="p">,</span><span class="n">V1t</span><span class="p">(</span><span class="n">P</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">P</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ldv1t</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZUNGLQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">itauq1</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iorglq</span><span class="p">),</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">lorglq</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Simultaneously diagonalize X11 and X21.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZBBCSD</span><span class="p">(</span><span class="n">Jobu2</span><span class="p">,</span><span class="n">Jobu1</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">Jobv1t</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">P</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">Q</span><span class="p">,</span><span class="n">Theta</span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">iphi</span><span class="p">),</span><span class="n">U2</span><span class="p">,</span><span class="n">Ldu2</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">cdum</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib11e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib12e</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21d</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib21e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22d</span><span class="p">),</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Rwork</span><span class="p">(</span><span class="n">ib22e</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">ibbcsd</span><span class="p">),</span><span class="n">lbbcsd</span><span class="p">,</span><span class="n">childinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Permute rows and columns to place identity submatrices in</span>
+<span class="c">!        preferred positions</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="o">&gt;</span><span class="n">r</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantu1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZLAPMT</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">P</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">U1</span><span class="p">,</span><span class="n">Ldu1</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantv1t</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZLAPMR</span><span class="p">(.</span><span class="n">FALSE</span><span class="p">.,</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">V1t</span><span class="p">,</span><span class="n">Ldv1t</span><span class="p">,</span><span class="n">Iwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of ZUNCSD2BY1</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">ZUNCSD2BY1</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

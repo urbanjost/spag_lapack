@@ -1,0 +1,1574 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DLATRS &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DLATRS
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">290 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlatrs.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dlatrs.f90.html'>dlatrs.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DLATRS</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-half~33">HALF</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-one~409">ONE</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-zero~395">ZERO</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-bignum~88">bignum</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-grow~5">grow</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-i~431">i</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-imax~40">imax</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-j~326">j</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-jfirst~5">jfirst</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-jinc~6">jinc</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-jlast~5">jlast</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-notran~40">notran</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-nounit~25">nounit</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-rec~8">rec</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-smlnum~104">smlnum</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-sumj~3">sumj</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-tjj~5">tjj</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-tjjs~5">tjjs</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-tmax~5">tmax</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-tscal~5">tscal</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-upper~150">upper</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-uscal~5">uscal</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-xbnd~5">xbnd</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-xj~7">xj</a>
+            <a class="list-group-item" href="../proc/dlatrs.html#variable-xmax~9">xmax</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlatrs.html#src">DLATRS</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DLATRS(Uplo, Trans, Diag, Normin, N, A, Lda, X, Scale, Cnorm, Info)  
+</h2>
+    
+
+    <p>\brief \b DLATRS solves a triangular system of equations with the scale factor set to prevent overflow.
+ \htmlonly
+ Download DLATRS + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dlatrs.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dlatrs.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dlatrs.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DLATRS solves one of the triangular systems</p>
+<div class="codehilite"><pre><span></span><code>A *x = s*b  or  A**T *x = s*b
+</code></pre></div>
+
+<p>with scaling to prevent overflow.  Here A is an upper or lower
+ triangular matrix, A<em><em>T denotes the transpose of A, x and b are
+ n-element vectors, and s is a scaling factor, usually less than
+ or equal to 1, chosen so that the components of x will be less than
+ the overflow threshold.  If the unscaled problem will not cause
+ overflow, the Level 2 BLAS routine DTRSV is called.  If the matrix A
+ is singular (A(j,j) = 0 for some j), then s is set to 0 and a
+ non-trivial solution to A</em>x = 0 is returned.
+ \endverbatim
+ \param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER</em>1
+          Specifies whether the matrix A is upper or lower triangular.
+          = &lsquo;U&rsquo;:  Upper triangular
+          = &lsquo;L&rsquo;:  Lower triangular
+ \endverbatim</p>
+<p>\param[in] TRANS
+ \verbatim
+          TRANS is CHARACTER<em>1
+          Specifies the operation applied to A.
+          = &lsquo;N&rsquo;:  Solve A * x = s</em>b  (No transpose)
+          = &lsquo;T&rsquo;:  Solve A<strong>T<em> x = s</em>b  (Transpose)
+          = &lsquo;C&rsquo;:  Solve A</strong>T<em> x = s</em>b  (Conjugate transpose = Transpose)
+ \endverbatim</p>
+<p>\param[in] DIAG
+ \verbatim
+          DIAG is CHARACTER*1
+          Specifies whether or not the matrix A is unit triangular.
+          = &lsquo;N&rsquo;:  Non-unit triangular
+          = &lsquo;U&rsquo;:  Unit triangular
+ \endverbatim</p>
+<p>\param[in] NORMIN
+ \verbatim
+          NORMIN is CHARACTER*1
+          Specifies whether CNORM has been set or not.
+          = &lsquo;Y&rsquo;:  CNORM contains the column norms on entry
+          = &lsquo;N&rsquo;:  CNORM is not set on entry.  On exit, the norms will
+                  be computed and stored in CNORM.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA,N)
+          The triangular matrix A.  If UPLO = &lsquo;U&rsquo;, the leading n by n
+          upper triangular part of the array A contains the upper
+          triangular matrix, and the strictly lower triangular part of
+          A is not referenced.  If UPLO = &lsquo;L&rsquo;, the leading n by n lower
+          triangular part of the array A contains the lower triangular
+          matrix, and the strictly upper triangular part of A is not
+          referenced.  If DIAG = &lsquo;U&rsquo;, the diagonal elements of A are
+          also not referenced and are assumed to be 1.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max (1,N).
+ \endverbatim</p>
+<p>\param[in,out] X
+ \verbatim
+          X is DOUBLE PRECISION array, dimension (N)
+          On entry, the right hand side b of the triangular system.
+          On exit, X is overwritten by the solution vector x.
+ \endverbatim</p>
+<p>\param[out] SCALE
+ \verbatim
+          SCALE is DOUBLE PRECISION
+          The scaling factor s for the triangular system
+             A * x = s<em>b  or  A</em><em>T</em> x = s<em>b.
+          If SCALE = 0, the matrix A is singular or badly scaled, and
+          the vector x is an exact or approximate solution to A</em>x = 0.
+ \endverbatim</p>
+<p>\param[in,out] CNORM
+ \verbatim
+          CNORM is DOUBLE PRECISION array, dimension (N)</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">NORMIN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Y</span><span class="s1">&#39;</span>, <span class="nv">CNORM</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">input</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">CNORM</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span>
+      <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">norm</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">off</span><span class="o">-</span><span class="nv">diagonal</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">j</span><span class="o">-</span><span class="nv">th</span> <span class="nv">column</span>
+      <span class="nv">of</span> <span class="nv">A</span>.  <span class="k">If</span> <span class="nv">TRANS</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span>, <span class="nv">CNORM</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">or</span> <span class="nv">equal</span>
+      <span class="nv">to</span> <span class="nv">the</span> <span class="nv">infinity</span><span class="o">-</span><span class="nv">norm</span>, <span class="nv">and</span> <span class="k">if</span> <span class="nv">TRANS</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">T</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">C</span><span class="s1">&#39;</span>, <span class="nv">CNORM</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span>
+      <span class="nv">must</span> <span class="nv">be</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">or</span> <span class="nv">equal</span> <span class="nv">to</span> <span class="nv">the</span> <span class="mi">1</span><span class="o">-</span><span class="nv">norm</span>.
+
+      <span class="k">If</span> <span class="nv">NORMIN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span>, <span class="nv">CNORM</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">output</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">CNORM</span><span class="ss">(</span><span class="nv">j</span><span class="ss">)</span>
+      <span class="nv">returns</span> <span class="nv">the</span> <span class="mi">1</span><span class="o">-</span><span class="nv">norm</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">offdiagonal</span> <span class="nv">part</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">j</span><span class="o">-</span><span class="nv">th</span> <span class="nv">column</span>
+      <span class="nv">of</span> <span class="nv">A</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -k, the k-th argument had an illegal value
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup doubleOTHERauxiliary
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>A rough bound on x is computed; if that is less than overflow, DTRSV
+  is called, otherwise, specific code is used which checks for possible
+  overflow or divide-by-zero at every operation.</p>
+<p>A columnwise scheme is used for solving A*x = b.  The basic algorithm
+  if A is lower triangular is</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="nv">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="nv">n</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">b</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="nv">n</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="nv">n</span><span class="w"></span>
+<span class="w">        </span><span class="nf">x</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">A</span><span class="p">(</span><span class="nv">j</span><span class="p">,</span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nv">x</span><span class="p">[</span><span class="nv">j</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="nv">n</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">x</span><span class="p">[</span><span class="nv">j</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="nv">n</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">A</span><span class="p">[</span><span class="nv">j</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="nv">n</span><span class="p">,</span><span class="nv">j</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="nv">end</span><span class="w"></span>
+</code></pre></div>
+
+<p>Define bounds on the components of x after j iterations of the loop:
+     M(j) = bound on x[1:j]
+     G(j) = bound on x[j+1:n]
+  Initially, let M(0) = 0 and G(0) = max{x(i), i=1,&hellip;,n}.</p>
+<p>Then for iteration j+1 we have
+     M(j+1) &lt;= G(j) / | A(j+1,j+1) |
+     G(j+1) &lt;= G(j) + M(j+1) * | A[j+2:n,j+1] |
+            &lt;= G(j) ( 1 + CNORM(j+1) / | A(j+1,j+1) | )</p>
+<p>where CNORM(j+1) is greater than or equal to the infinity-norm of
+  column j+1 of A, not counting the diagonal.  Hence</p>
+<div class="codehilite"><pre><span></span><code> G(j) &lt;= G(0) product ( 1 + CNORM(i) / | A(i,i) | )
+              1&lt;=i&lt;=j
+</code></pre></div>
+
+<p>and</p>
+<div class="codehilite"><pre><span></span><code> |x(j)| &lt;= ( G(0) / |A(j,j)| ) product ( 1 + CNORM(i) / |A(i,i)| )
+                               1&lt;=i&lt; j
+</code></pre></div>
+
+<p>Since |x(j)| &lt;= M(j), we use the Level 2 BLAS routine DTRSV if the
+  reciprocal of the largest M(j), j=1,..,n, is larger than
+  max(underflow, 1/overflow).</p>
+<p>The bound on x(j) is also used to determine when a step in the
+  columnwise method can be performed without fear of overflow.  If
+  the computed bound is greater than a large constant, x is scaled to
+  prevent overflow, but if the bound overflows, x is set to 0, x(j) to
+  1, and scale to 0, and a non-trivial solution to A*x = 0 is found.</p>
+<p>Similarly, a row-wise scheme is used to solve A*<em>T</em>x = b.  The basic
+  algorithm for A upper triangular is</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="nv">n</span><span class="w"></span>
+<span class="w">        </span><span class="nf">x</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">A</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="nv">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="nv">j</span><span class="p">]</span><span class="o">**</span><span class="nv">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="nv">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">A</span><span class="p">(</span><span class="nv">j</span><span class="p">,</span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="nv">end</span><span class="w"></span>
+</code></pre></div>
+
+<p>We simultaneously compute two bounds
+       G(j) = bound on ( b(i) - A[1:i-1,i]**T * x[1:i-1] ), 1&lt;=i&lt;=j
+       M(j) = bound on x(i), 1&lt;=i&lt;=j</p>
+<p>The initial values are G(0) = 0, M(0) = max{b(i), i=1,..,n}, and we
+  add the constraint G(j) &gt;= G(j-1) and M(j) &gt;= M(j-1) for j &gt;= 1.
+  Then the bound on x(j) is</p>
+<div class="codehilite"><pre><span></span><code>   M(j) &lt;= M(j-1) * ( 1 + CNORM(j) ) / | A(j,j) |
+
+        &lt;= M(0) * product ( ( 1 + CNORM(i) ) / |A(i,i)| )
+                  1&lt;=i&lt;=j
+</code></pre></div>
+
+<p>and we can safely call DTRSV if 1/M(n) and 1/G(n) are both greater
+  than max(underflow, 1/overflow).
+ \endverbatim</p>
+<p>&ndash;DLATRS242</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~265"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-trans~77"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Trans</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-diag~32"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Diag</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-normin~5"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Normin</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~606"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~360"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~348"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~97"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-scale~16"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Scale</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cnorm~5"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Cnorm</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~482"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-half~33"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>HALF</strong></td>
+<td> =</td>
+                <td>0.5D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~409"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~395"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bignum~88"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bignum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grow~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>grow</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~431"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imax~40"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~326"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jfirst~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jfirst</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jinc~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jinc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlast~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlast</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-notran~40"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>notran</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nounit~25"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nounit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rec~8"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rec</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smlnum~104"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smlnum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sumj~3"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sumj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tjj~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tjj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tjjs~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tjjs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmax~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tscal~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tscal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~150"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uscal~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>uscal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xbnd~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xbnd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xj~7"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~9"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DLATRS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="n">Diag</span><span class="p">,</span><span class="n">Normin</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="nb">Scale</span><span class="p">,</span><span class="n">Cnorm</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DLATRS242</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Diag</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Normin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Trans</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="nb">Scale</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">HALF</span><span class="o">=</span><span class="mf">0.5D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">notran</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">bignum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">grow</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smlnum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sumj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tjj</span><span class="w"> </span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">tjjs</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tscal</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">uscal</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xbnd</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xj</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">IDAMAX</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DASUM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DDOT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">IDAMAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DASUM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DDOT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DAXPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DTRSV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">notran</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">nounit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Diag</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">notran</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w">            </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">nounit</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Diag</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Normin</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Normin</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DLATRS&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Determine machine dependent parameters to control overflow.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">smlnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Safe minimum&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">bignum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">smlnum</span><span class="w"></span>
+<span class="w">      </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Normin</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute the 1-norm of each column, not including the diagonal.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is upper triangular.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DASUM</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is lower triangular.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DASUM</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale the column norms by TSCAL if the maximum element in CNORM is</span>
+<span class="c">!     greater than BIGNUM.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Cnorm</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">tmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">imax</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tmax</span><span class="o">&lt;=</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">tscal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">tscal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">smlnum</span><span class="o">*</span><span class="n">tmax</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">tscal</span><span class="p">,</span><span class="n">Cnorm</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute a bound on the computed solution vector to see if the</span>
+<span class="c">!     Level 2 BLAS routine DTRSV can be used.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">xbnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">notran</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute the growth in A * x = b.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">jfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">jlast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">jinc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">jfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">jlast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">jinc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tscal</span><span class="o">/=</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is non-unit triangular.</span>
+<span class="c">!</span>
+<span class="c">!           Compute GROW = 1/G(j) and XBND = 1/M(j).</span>
+<span class="c">!           Initially, G(0) = max{x(i), i=1,...,n}.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="nb">MAX</span><span class="p">(</span><span class="n">xbnd</span><span class="p">,</span><span class="n">smlnum</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">xbnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grow</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Exit the loop if the growth factor is too small.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">grow</span><span class="o">&lt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              M(j) = G(j-1) / abs(A(j,j))</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">tjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">xbnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">xbnd</span><span class="p">,</span><span class="nb">MIN</span><span class="p">(</span><span class="n">ONE</span><span class="p">,</span><span class="n">tjj</span><span class="p">)</span><span class="o">*</span><span class="n">grow</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">+</span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 G(j) = G(j-1)*( 1 + CNORM(j) / abs(A(j,j)) )</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grow</span><span class="o">*</span><span class="p">(</span><span class="n">tjj</span><span class="o">/</span><span class="p">(</span><span class="n">tjj</span><span class="o">+</span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 G(j) could overflow, set GROW to 0.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDDO</span>
+<span class="k">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xbnd</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is unit triangular.</span>
+<span class="c">!</span>
+<span class="c">!           Compute GROW = 1/G(j), where G(0) = max{x(i), i=1,...,n}.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">ONE</span><span class="p">,</span><span class="n">ONE</span><span class="o">/</span><span class="nb">MAX</span><span class="p">(</span><span class="n">xbnd</span><span class="p">,</span><span class="n">smlnum</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Exit the loop if the growth factor is too small.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">grow</span><span class="o">&lt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              G(j) = G(j-1)*( 1 + CNORM(j) )</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grow</span><span class="o">*</span><span class="p">(</span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">ONE</span><span class="o">+</span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute the growth in A**T * x = b.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">jfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">jlast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">jinc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">jfirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="n">jlast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">jinc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tscal</span><span class="o">/=</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is non-unit triangular.</span>
+<span class="c">!</span>
+<span class="c">!           Compute GROW = 1/G(j) and XBND = 1/M(j).</span>
+<span class="c">!           Initially, M(0) = max{x(i), i=1,...,n}.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="nb">MAX</span><span class="p">(</span><span class="n">xbnd</span><span class="p">,</span><span class="n">smlnum</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">xbnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grow</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Exit the loop if the growth factor is too small.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">grow</span><span class="o">&lt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              G(j) = max( G(j-1), M(j-1)*( 1 + CNORM(j) ) )</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">grow</span><span class="p">,</span><span class="n">xbnd</span><span class="o">/</span><span class="n">xj</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              M(j) = M(j-1)*( 1 + CNORM(j) ) / abs(A(j,j))</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">tjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">tjj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">xbnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xbnd</span><span class="o">*</span><span class="p">(</span><span class="n">tjj</span><span class="o">/</span><span class="n">xj</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">grow</span><span class="p">,</span><span class="n">xbnd</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           A is unit triangular.</span>
+<span class="c">!</span>
+<span class="c">!           Compute GROW = 1/G(j), where G(0) = max{x(i), i=1,...,n}.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">ONE</span><span class="p">,</span><span class="n">ONE</span><span class="o">/</span><span class="nb">MAX</span><span class="p">(</span><span class="n">xbnd</span><span class="p">,</span><span class="n">smlnum</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Exit the loop if the growth factor is too small.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">grow</span><span class="o">&lt;=</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              G(j) = ( 1 + CNORM(j) )*G(j-1)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">grow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grow</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">grow</span><span class="o">*</span><span class="n">tscal</span><span class="p">)</span><span class="o">&gt;</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Use the Level 2 BLAS solve if the reciprocal of the bound on</span>
+<span class="c">!        elements of X is not too small.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DTRSV</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="n">Diag</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Use a Level 1 BLAS solve, scaling intermediate results.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xmax</span><span class="o">&gt;</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Scale X so that its components are less than or equal to</span>
+<span class="c">!           BIGNUM in absolute value.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bignum</span><span class="o">/</span><span class="n">xmax</span><span class="w"></span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="nb">Scale</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bignum</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">notran</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Solve A * x = b</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Compute x(j) = b(j) / A(j,j), scaling x if necessary.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">tscal</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tscal</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tscal</span><span class="o">==</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">110</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">tjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">tjjs</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&gt;</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    abs(A(j,j)) &gt; SMLNUM:</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                          Scale x by 1/b(j).</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                        </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                  ENDIF</span>
+<span class="k">                  </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">tjjs</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    0 &lt; abs(A(j,j)) &lt;= SMLNUM:</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                       Scale x by (1/abs(x(j)))*abs(A(j,j))*BIGNUM</span>
+<span class="c">!                       to avoid overflow when dividing by A(j,j).</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="p">)</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                          Scale by 1/CNORM(j) to avoid overflow when</span>
+<span class="c">!                          multiplying x(j) times column j.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&gt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rec</span><span class="o">/</span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                     </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">                  </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">tjjs</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    A(j,j) = 0:  Set x(1:n) = 0, x(j) = 1, and</span>
+<span class="c">!                    scale = 0, and compute a solution to A*x = 0.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">                  </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Scale x if necessary to avoid overflow when adding a</span>
+<span class="c">!              multiple of column j of A.</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">110</span><span class="w">           </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bignum</span><span class="o">-</span><span class="n">xmax</span><span class="p">)</span><span class="o">*</span><span class="n">rec</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Scale x by 1/(2*abs(x(j))).</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rec</span><span class="o">*</span><span class="n">HALF</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">*</span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bignum</span><span class="o">-</span><span class="n">xmax</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Scale x by 1/2.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">HALF</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">HALF</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Compute the update</span>
+<span class="c">!                       x(1:j-1) := x(1:j-1) - x(j) * A(1:j-1,j)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">tscal</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Compute the update</span>
+<span class="c">!                       x(j+1:n) := x(j+1:n) - x(j) * A(j+1:n,j)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="o">-</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">tscal</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Solve A**T * x = b</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jfirst</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlast</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jinc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Compute x(j) = b(j) - sum A(k,j)*x(k).</span>
+<span class="c">!                                    k&lt;&gt;j</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">uscal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tscal</span><span class="w"></span>
+<span class="w">               </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="nb">MAX</span><span class="p">(</span><span class="n">xmax</span><span class="p">,</span><span class="n">ONE</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Cnorm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">bignum</span><span class="o">-</span><span class="n">xj</span><span class="p">)</span><span class="o">*</span><span class="n">rec</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 If x(j) could overflow, scale x by 1/(2*XMAX).</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rec</span><span class="o">*</span><span class="n">HALF</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">tscal</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tscal</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">                  </span><span class="n">tjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">tjjs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&gt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                       Divide by A(j,j) when scaling x if A(j,j) &gt; 1.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">ONE</span><span class="p">,</span><span class="n">rec</span><span class="o">*</span><span class="n">tjj</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">uscal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uscal</span><span class="o">/</span><span class="n">tjjs</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rec</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                     </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">sumj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">uscal</span><span class="o">==</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 If the scaling needed for A in the dot product is 1,</span>
+<span class="c">!                 call DDOT to perform the dot product.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">sumj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DDOT</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">sumj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DDOT</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Otherwise, use in-line code for the dot product.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">sumj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumj</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">uscal</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">sumj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumj</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">uscal</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">uscal</span><span class="o">==</span><span class="n">tscal</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Compute x(j) := ( x(j) - sumj ) / A(j,j) if 1/A(j,j)</span>
+<span class="c">!                 was not used to scale the dotproduct.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sumj</span><span class="w"></span>
+<span class="w">                  </span><span class="n">xj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nounit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">tscal</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     </span><span class="n">tjjs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tscal</span><span class="w"></span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tscal</span><span class="o">==</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">120</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Compute x(j) = x(j) / A(j,j), scaling if necessary.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">tjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">tjjs</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&gt;</span><span class="n">smlnum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                       abs(A(j,j)) &gt; SMLNUM:</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&lt;</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                             Scale X by 1/abs(x(j)).</span>
+<span class="c">!</span>
+<span class="w">                           </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="w">                           </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                           </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                           </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDIF</span>
+<span class="k">                     ENDIF</span>
+<span class="k">                     </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">tjjs</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tjj</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                       0 &lt; abs(A(j,j)) &lt;= SMLNUM:</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">xj</span><span class="o">&gt;</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                          Scale x by (1/abs(x(j)))*abs(A(j,j))*BIGNUM.</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">rec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tjj</span><span class="o">*</span><span class="n">bignum</span><span class="p">)</span><span class="o">/</span><span class="n">xj</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                        </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xmax</span><span class="o">*</span><span class="n">rec</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                     </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">tjjs</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                       A(j,j) = 0:  Set x(1:n) = 0, x(j) = 1, and</span>
+<span class="c">!                       scale = 0, and compute a solution to A**T*x = 0.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                     </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">                     </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                     </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Compute x(j) := x(j) / A(j,j)  - sumj if the dot</span>
+<span class="c">!                 product has already been divided by 1/A(j,j).</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="n">tjjs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sumj</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k"> </span><span class="mi">120</span><span class="w">           </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">xmax</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">X</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">         </span><span class="nb">Scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Scale</span><span class="o">/</span><span class="n">tscal</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale the column norms by 1/TSCAL for return.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tscal</span><span class="o">/=</span><span class="n">ONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="o">/</span><span class="n">tscal</span><span class="p">,</span><span class="n">Cnorm</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DLATRS</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DLATRS</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

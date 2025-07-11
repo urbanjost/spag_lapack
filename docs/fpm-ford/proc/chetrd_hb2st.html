@@ -1,0 +1,1521 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CHETRD_HB2ST &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CHETRD_HB2ST
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">196 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/chetrd_hb2st.F"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/chetrd_hb2st.f.html'>chetrd_hb2st.F</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CHETRD_HB2ST</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-abdpos~4">ABDPOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-abofdpos~4">ABOFDPOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-abstmp~2">ABSTMP</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-afters1~4">AFTERS1</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-apos~4">APOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-awpos~4">AWPOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-blklastind~4">BLKLASTIND</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-colpt~4">COLPT</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-debug~4">DEBUG</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-dpos~4">DPOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-ed~4">ED</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-edind~4">EDIND</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-grsiz~4">GRSIZ</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-i~8">I</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-ib~5">IB</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-inda~4">INDA</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-indtau~4">INDTAU</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-indv~4">INDV</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-indw~4">INDW</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-k~207">K</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-lda~4">LDA</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-ldv~4">LDV</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-lhmin~4">LHMIN</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-lquery~4">LQUERY</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-lwmin~4">LWMIN</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-m~635">M</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-myid~4">MYID</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-nbtiles~4">NBTILES</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-nthreads~5">NTHREADS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-ofdpos~4">OFDPOS</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-one~1149">ONE</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-rzero~16">RZERO</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-shift~4">SHIFT</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-sicev">SICEV</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-sizea~4">SIZEA</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-sizetau~4">SIZETAU</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-st~4">ST</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-stepercol~4">STEPERCOL</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-stind~4">STIND</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-stt~4">STT</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-sweepid~4">SWEEPID</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-thed~4">THED</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-thgrid~4">THGRID</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-thgrnb~4">THGRNB</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-thgrsiz~4">THGRSIZ</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-tid~4">TID</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-tmp~2">TMP</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-ttype~4">TTYPE</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-upper~4">UPPER</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-wantq~4">WANTQ</a>
+            <a class="list-group-item" href="../proc/chetrd_hb2st.html#variable-zero~1089">ZERO</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CHETRD_HB2ST(STAGE1, VECT, UPLO, N, KD, AB, LDAB, D, E, HOUS, LHOUS, WORK, LWORK, INFO)  
+</h2>
+    
+
+    <p>\brief \b CHBTRD_HB2ST reduces a complex Hermitian band matrix A to real symmetric tridiagonal form T
+\htmlonly
+Download CHBTRD_HB2ST + dependencies
+<a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chbtrd_hb2st.f">
+[TGZ]</a>
+<a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chbtrd_hb2st.f">
+[ZIP]</a>
+<a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chbtrd_hb2st.f">
+[TXT]</a>
+\endhtmlonly
+\par Purpose:</p>
+<p>\verbatim</p>
+<p>CHETRD_HB2ST reduces a complex Hermitian band matrix A to real symmetric
+tridiagonal form T by a unitary similarity transformation:
+Q*<em>H * A * Q = T.
+\endverbatim
+\param[in] STAGE1
+\verbatim
+         STAGE1 is CHARACTER</em>1
+         = &lsquo;N&rsquo;:  &ldquo;No&rdquo;: to mention that the stage 1 of the reduction
+                 from dense to band using the chetrd_he2hb routine
+                 was not called before this routine to reproduce AB.
+                 In other term this routine is called as standalone.
+         = &lsquo;Y&rsquo;:  &ldquo;Yes&rdquo;: to mention that the stage 1 of the
+                 reduction from dense to band using the chetrd_he2hb
+                 routine has been called to produce AB (e.g., AB is
+                 the output of chetrd_he2hb.
+\endverbatim</p>
+<p>\param[in] VECT
+\verbatim
+         VECT is CHARACTER<em>1
+         = &lsquo;N&rsquo;:  No need for the Housholder representation,
+                 and thus LHOUS is of size max(1, 4</em>N);
+         = &lsquo;V&rsquo;:  the Householder representation is needed to
+                 either generate or to apply Q later on,
+                 then LHOUS is to be queried and computed.
+                 (NOT AVAILABLE IN THIS RELEASE).
+\endverbatim</p>
+<p>\param[in] UPLO
+\verbatim
+         UPLO is CHARACTER*1
+         = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+         = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+\endverbatim</p>
+<p>\param[in] N
+\verbatim
+         N is INTEGER
+         The order of the matrix A.  N &gt;= 0.
+\endverbatim</p>
+<p>\param[in] KD
+\verbatim
+         KD is INTEGER
+         The number of superdiagonals of the matrix A if UPLO = &lsquo;U&rsquo;,
+         or the number of subdiagonals if UPLO = &lsquo;L&rsquo;.  KD &gt;= 0.
+\endverbatim</p>
+<p>\param[in,out] AB
+\verbatim
+         AB is COMPLEX array, dimension (LDAB,N)
+         On entry, the upper or lower triangle of the Hermitian band
+         matrix A, stored in the first KD+1 rows of the array.  The
+         j-th column of A is stored in the j-th column of the array AB
+         as follows:
+         if UPLO = &lsquo;U&rsquo;, AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)&lt;=i&lt;=j;
+         if UPLO = &lsquo;L&rsquo;, AB(1+i-j,j)    = A(i,j) for j&lt;=i&lt;=min(n,j+kd).
+         On exit, the diagonal elements of AB are overwritten by the
+         diagonal elements of the tridiagonal matrix T; if KD &gt; 0, the
+         elements on the first superdiagonal (if UPLO = &lsquo;U&rsquo;) or the
+         first subdiagonal (if UPLO = &lsquo;L&rsquo;) are overwritten by the
+         off-diagonal elements of T; the rest of AB is overwritten by
+         values generated during the reduction.
+\endverbatim</p>
+<p>\param[in] LDAB
+\verbatim
+         LDAB is INTEGER
+         The leading dimension of the array AB.  LDAB &gt;= KD+1.
+\endverbatim</p>
+<p>\param[out] D
+\verbatim
+         D is REAL array, dimension (N)
+         The diagonal elements of the tridiagonal matrix T.
+\endverbatim</p>
+<p>\param[out] E
+\verbatim
+         E is REAL array, dimension (N-1)
+         The off-diagonal elements of the tridiagonal matrix T:
+         E(i) = T(i,i+1) if UPLO = &lsquo;U&rsquo;; E(i) = T(i+1,i) if UPLO = &lsquo;L&rsquo;.
+\endverbatim</p>
+<p>\param[out] HOUS
+\verbatim
+         HOUS is COMPLEX array, dimension LHOUS, that
+         store the Householder representation.
+\endverbatim</p>
+<p>\param[in] LHOUS
+\verbatim
+         LHOUS is INTEGER
+         The dimension of the array HOUS. LHOUS = MAX(1, dimension)
+         If LWORK = -1, or LHOUS=-1,
+         then a query is assumed; the routine
+         only calculates the optimal size of the HOUS array, returns
+         this value as the first entry of the HOUS array, and no error
+         message related to LHOUS is issued by XERBLA.
+         LHOUS = MAX(1, dimension) where
+         dimension = 4*N if VECT=&rsquo;N&rsquo;
+         not available now if VECT=&rsquo;H&rsquo;
+\endverbatim</p>
+<p>\param[out] WORK
+\verbatim
+         WORK is COMPLEX array, dimension LWORK.
+\endverbatim</p>
+<p>\param[in] LWORK
+\verbatim
+         LWORK is INTEGER
+         The dimension of the array WORK. LWORK = MAX(1, dimension)
+         If LWORK = -1, or LHOUS=-1,
+         then a workspace query is assumed; the routine
+         only calculates the optimal size of the WORK array, returns
+         this value as the first entry of the WORK array, and no error
+         message related to LWORK is issued by XERBLA.
+         LWORK = MAX(1, dimension) where
+         dimension   = (2KD+1)<em>N + KD</em>NTHREADS
+         where KD is the blocking size of the reduction,
+         FACTOPTNB is the blocking used by the QR or LQ
+         algorithm, usually FACTOPTNB=128 is a good choice
+         NTHREADS is the number of threads used when
+         openMP compilation is enabled, otherwise =1.
+\endverbatim</p>
+<p>\param[out] INFO
+\verbatim
+         INFO is INTEGER
+         = 0:  successful exit
+         &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+\endverbatim
+\author Univ. of Tennessee
+\author Univ. of California Berkeley
+\author Univ. of Colorado Denver
+\author NAG Ltd.
+\date November 2017
+\ingroup complexOTHERcomputational
+\par Further Details:</p>
+<p>\verbatim</p>
+<p>Implemented by Azzam Haidar.</p>
+<p>All details are available on technical report, SC11, SC13 papers.</p>
+<p>Azzam Haidar, Hatem Ltaief, and Jack Dongarra.
+ Parallel reduction to condensed forms for symmetric eigenvalue problems
+ using aggregated fine-grained and memory-aware kernels. In Proceedings
+ of 2011 International Conference for High Performance Computing,
+ Networking, Storage and Analysis (SC &lsquo;11), New York, NY, USA,
+ Article 8 , 11 pages.
+ http://doi.acm.org/10.1145/2063384.2063394</p>
+<p>A. Haidar, J. Kurzak, P. Luszczek, 2013.
+ An improved parallel singular value algorithm and its implementation
+ for multicore hardware, In Proceedings of 2013 International Conference
+ for High Performance Computing, Networking, Storage and Analysis (SC &lsquo;13).
+ Denver, Colorado, USA, 2013.
+ Article 90, 12 pages.
+ http://doi.acm.org/10.1145/2503210.2503292</p>
+<p>A. Haidar, R. Solca, S. Tomov, T. Schulthess and J. Dongarra.
+ A novel hybrid CPU-GPU generalized eigensolver for electronic structure
+ calculations based on fine-grained memory aware tasks.
+ International Journal of High Performance Computing Applications.
+ Volume 28 Issue 2, Pages 196-209, May 2014.
+ http://hpc.sagepub.com/content/28/2/196</p>
+<p>\endverbatim</p>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stage1~4"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>STAGE1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vect~5"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>VECT</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~4"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>UPLO</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1705"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kd~5"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>KD</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ab~4"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>AB</strong>(LDAB,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldab~4"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LDAB</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~235"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-e~175"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>E</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hous~4"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>HOUS</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhous~5"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LHOUS</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~4"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>WORK</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~5"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LWORK</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~4"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>INFO</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-abdpos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ABDPOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-abofdpos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ABOFDPOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-abstmp~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ABSTMP</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-afters1~4"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>AFTERS1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-apos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>APOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-awpos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>AWPOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-blklastind~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>BLKLASTIND</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-colpt~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>COLPT</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-debug~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>DEBUG</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>DPOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ed~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ED</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-edind~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>EDIND</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grsiz~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>GRSIZ</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>I</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ib~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IB</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-inda~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>INDA</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indtau~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>INDTAU</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indv~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>INDV</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indw~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>INDW</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~207"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>K</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LDA</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldv~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LDV</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhmin~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LHMIN</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~4"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LQUERY</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwmin~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>LWMIN</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~635"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-myid~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>MYID</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nbtiles~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>NBTILES</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nthreads~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>NTHREADS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ofdpos~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>OFDPOS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~1149"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td> ( 1.0E+0, 0.0E+0 )</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rzero~16"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>RZERO</strong></td>
+<td> =</td>
+                <td> 0.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-shift~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SHIFT</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sicev"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SICEV</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sizea~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SIZEA</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sizetau~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SIZETAU</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-st~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ST</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stepercol~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>STEPERCOL</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stind~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>STIND</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stt~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>STT</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sweepid~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>SWEEPID</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-thed~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>THED</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-thgrid~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>THGRID</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-thgrnb~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>THGRNB</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-thgrsiz~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>THGRSIZ</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tid~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>TID</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmp~2"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>TMP</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttype~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>TTYPE</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~4"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>UPPER</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantq~4"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>WANTQ</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~1089"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td> ( 0.0E+0, 0.0E+0 )</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

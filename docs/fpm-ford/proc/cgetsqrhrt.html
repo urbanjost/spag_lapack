@@ -1,0 +1,955 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CGETSQRHRT &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CGETSQRHRT
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">67 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/cgetsqrhrt.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/cgetsqrhrt.f90.html'>cgetsqrhrt.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CGETSQRHRT</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-cone~78">CONE</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-i~554">i</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-iinfo~134">iinfo</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-j~416">j</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-ldwt~2">ldwt</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-lquery~197">lquery</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-lw1~3">lw1</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-lw2~3">lw2</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-lworkopt~17">lworkopt</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-lwt~2">lwt</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-nb1local~2">nb1local</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-nb2local~2">nb2local</a>
+            <a class="list-group-item" href="../proc/cgetsqrhrt.html#variable-num_all_row_blocks~3">num_all_row_blocks</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/cgetsqrhrt.html#src">CGETSQRHRT</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CGETSQRHRT(M, N, Mb1, Nb1, Nb2, A, Lda, T, Ldt, Work, Lwork, Info)  
+</h2>
+    
+
+    <p>\brief \b CGETSQRHRT
+ \htmlonly
+ Download CGETSQRHRT + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/cgetsqrhrt.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/cgetsqrhrt.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/cgetsqrhrt.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>CGETSQRHRT computes a NB2-sized column blocked QR-factorization
+ of a complex M-by-N matrix A with M &gt;= N,</p>
+<div class="codehilite"><pre><span></span><code>A = Q * R.
+</code></pre></div>
+
+<p>The routine uses internally a NB1-sized column blocked and MB1-sized
+ row blocked TSQR-factorization and perfors the reconstruction
+ of the Householder vectors from the TSQR output. The routine also
+ converts the R_tsqr factor from the TSQR-factorization output into
+ the R factor that corresponds to the Householder QR-factorization,</p>
+<div class="codehilite"><pre><span></span><code>A = Q_tsqr * R_tsqr = Q * R.
+</code></pre></div>
+
+<p>The output Q and R factors are stored in the same format as in CGEQRT
+ (Q is in blocked compact WY-representation). See the documentation
+ of CGEQRT for more details on the format.
+ \endverbatim
+ \param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows of the matrix A.  M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrix A. M &gt;= N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] MB1
+ \verbatim
+          MB1 is INTEGER
+          The row block size to be used in the blocked TSQR.
+          MB1 &gt; N.
+ \endverbatim</p>
+<p>\param[in] NB1
+ \verbatim
+          NB1 is INTEGER
+          The column block size to be used in the blocked TSQR.
+          N &gt;= NB1 &gt;= 1.
+ \endverbatim</p>
+<p>\param[in] NB2
+ \verbatim
+          NB2 is INTEGER
+          The block size to be used in the blocked QR that is
+          output. NB2 &gt;= 1.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is COMPLEX*16 array, dimension (LDA,N)</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="nt">On</span><span class="w"> </span><span class="nt">entry</span><span class="o">:</span><span class="w"> </span><span class="nt">an</span><span class="w"> </span><span class="nt">M-by-N</span><span class="w"> </span><span class="nt">matrix</span><span class="w"> </span><span class="nt">A</span><span class="o">.</span><span class="w"></span>
+
+<span class="w">      </span><span class="nt">On</span><span class="w"> </span><span class="nt">exit</span><span class="o">:</span><span class="w"></span>
+<span class="w">       </span><span class="nt">a</span><span class="o">)</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">elements</span><span class="w"> </span><span class="nt">on</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="nt">above</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">diagonal</span><span class="w"></span>
+<span class="w">          </span><span class="nt">of</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">array</span><span class="w"> </span><span class="nt">contain</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">N-by-N</span><span class="w"> </span><span class="nt">upper-triangular</span><span class="w"></span>
+<span class="w">          </span><span class="nt">matrix</span><span class="w"> </span><span class="nt">R</span><span class="w"> </span><span class="nt">corresponding</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">Householder</span><span class="w"> </span><span class="nt">QR</span><span class="o">;</span><span class="w"></span>
+<span class="w">       </span><span class="nt">b</span><span class="o">)</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">elements</span><span class="w"> </span><span class="nt">below</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">diagonal</span><span class="w"> </span><span class="nt">represent</span><span class="w"> </span><span class="nt">Q</span><span class="w"> </span><span class="nt">by</span><span class="w"></span>
+<span class="w">          </span><span class="nt">the</span><span class="w"> </span><span class="nt">columns</span><span class="w"> </span><span class="nt">of</span><span class="w"> </span><span class="nt">blocked</span><span class="w"> </span><span class="nt">V</span><span class="w"> </span><span class="o">(</span><span class="nt">compact</span><span class="w"> </span><span class="nt">WY-representation</span><span class="o">).</span><span class="w"></span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] T
+ \verbatim
+          T is COMPLEX array, dimension (LDT,N))
+          The upper triangular block reflectors stored in compact form
+          as a sequence of upper triangular blocks.
+ \endverbatim</p>
+<p>\param[in] LDT
+ \verbatim
+          LDT is INTEGER
+          The leading dimension of the array T.  LDT &gt;= NB2.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          (workspace) COMPLEX array, dimension (MAX(1,LWORK))
+          On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+ \endverbatim</p>
+<p>\param[in] LWORK
+ \verbatim
+          The dimension of the array WORK.
+          LWORK &gt;= MAX( LWT + LW1, MAX( LWT+N<em>N+LW2, LWT+N</em>N+N ) ),
+          where
+             NUM_ALL_ROW_BLOCKS = CEIL((M-N)/(MB1-N)),
+             NB1LOCAL = MIN(NB1,N).
+             LWT = NUM_ALL_ROW_BLOCKS * N * NB1LOCAL,
+             LW1 = NB1LOCAL * N,
+             LW2 = NB1LOCAL * MAX( NB1LOCAL, ( N - NB1LOCAL ) ),
+          If LWORK = -1, then a workspace query is assumed.
+          The routine only calculates the optimal size of the WORK
+          array, returns this value as the first entry of the WORK
+          array, and no error message related to LWORK is issued
+          by XERBLA.
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date November 2020
+ \ingroup comlpexOTHERcomputational
+ \par Contributors:</p>
+<p>\verbatim</p>
+<p>November 2020, Igor Kozachenko,
+                Computer Science Division,
+                University of California, Berkeley</p>
+<p>\endverbatim</p>
+<p>&ndash;CGETSQRHRT182</p>
+<p>&ndash; LAPACK computational routine (version 3.10.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     November 2020</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~278"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~773"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mb1~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Mb1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb1~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nb1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb2~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nb2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~468"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~451"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~67"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>T</strong>(Ldt,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldt~62"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~448"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~213"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~608"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cone~78"></span>
+              complex,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>CONE</strong></td>
+<td> =</td>
+                <td>(1.0E+0,0.0E+0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~554"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iinfo~134"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iinfo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~416"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldwt~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldwt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~197"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lquery</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lw1~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lw1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lw2~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lw2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lworkopt~17"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lworkopt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwt~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lwt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb1local~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nb1local</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb2local~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nb2local</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-num_all_row_blocks~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num_all_row_blocks</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">CGETSQRHRT</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Mb1</span><span class="p">,</span><span class="n">Nb1</span><span class="p">,</span><span class="n">Nb2</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--CGETSQRHRT182</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.10.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     November 2020</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Mb1</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">Ldt</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">CONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">CONE</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0E+0</span><span class="p">,</span><span class="mf">0.0E+0</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">lquery</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iinfo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lw1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lw2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lwt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldwt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lworkopt</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">nb1local</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nb2local</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">num_all_row_blocks</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">CCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CLATSQR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CUNGTSQR_ROW</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CUNHR_COL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">CEILING</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">REAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">CMPLX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input arguments</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">lquery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lwork</span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Mb1</span><span class="o">&lt;=</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nb1</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nb2</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldt</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">MIN</span><span class="p">(</span><span class="n">Nb2</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Test the input LWORK for the dimension of the array WORK.</span>
+<span class="c">!        This workspace is used to store array:</span>
+<span class="c">!        a) Matrix T and WORK for CLATSQR;</span>
+<span class="c">!        b) N-by-N upper-triangular factor R_tsqr;</span>
+<span class="c">!        c) Matrix T and array WORK for CUNGTSQR_ROW;</span>
+<span class="c">!        d) Diagonal D for CUNHR_COL.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lwork</span><span class="o">&lt;</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">11</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Set block size for column blocks</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">nb1local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Nb1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">num_all_row_blocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">CEILING</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="kt">REAL</span><span class="p">(</span><span class="n">Mb1</span><span class="o">-</span><span class="n">N</span><span class="p">)))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Length and leading dimension of WORK array to place</span>
+<span class="c">!           T array in TSQR.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">lwt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_all_row_blocks</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="n">nb1local</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">         </span><span class="n">ldwt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nb1local</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Length of TSQR work array</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">lw1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nb1local</span><span class="o">*</span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Length of CUNGTSQR_ROW work array.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">lw2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nb1local</span><span class="o">*</span><span class="nb">MAX</span><span class="p">(</span><span class="n">nb1local</span><span class="p">,(</span><span class="n">N</span><span class="o">-</span><span class="n">nb1local</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">lworkopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">lw1</span><span class="p">,</span><span class="nb">MAX</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="n">lw2</span><span class="p">,</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="n">N</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Lwork</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lworkopt</span><span class="p">))</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">11</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Handle error in the input parameters and return workspace query.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CGETSQRHRT&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CMPLX</span><span class="p">(</span><span class="n">lworkopt</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CMPLX</span><span class="p">(</span><span class="n">lworkopt</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">nb2local</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Nb2</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     (1) Perform TSQR-factorization of the M-by-N matrix A.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CLATSQR</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Mb1</span><span class="p">,</span><span class="n">nb1local</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">ldwt</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">lw1</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">             </span><span class="n">iinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (2) Copy the factor R_tsqr stored in the upper-triangular part</span>
+<span class="c">!         of A into the square matrix in the work array</span>
+<span class="c">!         WORK(LWT+1:LWT+N*N) column-by-column.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">CCOPY</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (3) Generate a M-by-N matrix Q with orthonormal columns from</span>
+<span class="c">!     the result stored below the diagonal in the array A in place.</span>
+<span class="c">!</span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CUNGTSQR_ROW</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Mb1</span><span class="p">,</span><span class="n">nb1local</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">ldwt</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="p">,</span><span class="n">lw2</span><span class="p">,</span><span class="n">iinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (4) Perform the reconstruction of Householder vectors from</span>
+<span class="c">!     the matrix Q (stored in A) in place.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">CUNHR_COL</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">nb2local</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">iinfo</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     (5) Copy the factor R_tsqr stored in the square matrix in the</span>
+<span class="c">!     work array WORK(LWT+1:LWT+N*N) into the upper-triangular</span>
+<span class="c">!     part of A.</span>
+<span class="c">!</span>
+<span class="c">!     (6) Compute from R_tsqr the factor R_hr corresponding to</span>
+<span class="c">!     the reconstructed Householder vectors, i.e. R_hr = S * R_tsqr.</span>
+<span class="c">!     This multiplication by the sign matrix S on the left means</span>
+<span class="c">!     changing the sign of I-th row of the matrix R_tsqr according</span>
+<span class="c">!     to sign of the I-th diagonal element DIAG(I) of the matrix S.</span>
+<span class="c">!     DIAG is stored in WORK( LWT+N*N+1 ) from the CUNHR_COL output.</span>
+<span class="c">!</span>
+<span class="c">!     (5) and (6) can be combined in a single loop, so the rows in A</span>
+<span class="c">!     are accessed only once.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">==-</span><span class="n">CONE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">CONE</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ELSE</span>
+<span class="k">            CALL </span><span class="n">CCOPY</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">lwt</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CMPLX</span><span class="p">(</span><span class="n">lworkopt</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of CGETSQRHRT</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">CGETSQRHRT</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="./favicon.png">
+
+    <title> spag_lapack </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="./css/fontawesome.min.css" rel="stylesheet">
+    <link href="./css/brands.min.css" rel="stylesheet">
+    <link href="./css/regular.min.css" rel="stylesheet">
+    <link href="./css/solid.min.css" rel="stylesheet">
+    <link href="./css/v4-font-face.min.css" rel="stylesheet">
+    <link href="./css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="./css/local.css" rel="stylesheet">
+    <link href="./css/pygments.css" rel="stylesheet">
+    <script src="./js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="./search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <!-- Main component for a primary marketing message or call to action -->
+    <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+      <p>spag_lapack module</p>
+        <p> Find us on&hellip;</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="https://github.com/urbanjost/spag_lapack" role="button">GitHub</a>
+        
+        
+        
+        
+      </p>
+    </div>
+
+      <div class="row" id='text'>
+        <div class=col-md-8>
+          <h1>spag_lapack</h1>
+          <!--
+author_pic:
+twitter:
+website:
+-->
+<h1 id="experiment">EXPERIMENT</h1>
+<p>clone of LAPACK being run through plusFORT spag utility</p>
+<p>Not in production or tested</p>
+<p>See the many other optimized versions of LAPACK or the reference
+  sites for a production version of LAPACK.</p>
+<p>This has other uses.</p>
+<ul>
+<li>
+<p>package is so big it hits limits in EXECUTE_COMMAND_LINE(3f) on some platforms when using fpm(1).
+    using a response file or breaking the ar(1) command are possible solutions.</p>
+</li>
+<li>
+<p>had trouble getting the test programs to load, left the main programs in test/ but made a package
+    out of the routines and modules and placed them in test_aux and used them as a local dependency 
+    without a separate .git history.</p>
+<p>Cannot have routines outside of a module in test/ directory be found?</p>
+</li>
+<li>
+<p>even with auto discovery on had to put one test program into the fpm.toml file or it would not
+    allow a test.dependency line; might be a syntax that works without doing that but oould not come
+    up with one yet. Need to check the code.</p>
+</li>
+<li>
+<p>to run the codes with just a simple &ldquo;fpm test&rdquo; need to change the file opens. Would be nice if
+    there were a way to indicate the test commands.</p>
+</li>
+<li>
+<p>there were originally a lot of duplicates which caused load problems, but changed test procedures
+    into modules, leaving the files as individual files but using INCLUDE to make them easier to 
+    manage; build does not currently detect changes in include files unless remove build directory
+    or make a trivial change to the files that do the INCLUDE to rebuild after changing the included
+    files.</p>
+</li>
+<li>
+<p>the test programs had a lot of real and complex values passed where there should have been complex
+    and double complex, double values passed where real should have been passed and so on. I think I
+    got all of them in the test/ and test_aux/ code.</p>
+</li>
+<li>
+<p>because the actual library routines do non-standard things like passing arrays without regard to
+    shape might take changes in the interface beyond just a &lsquo;USE M_LAPACK&rsquo; and &lsquo;USE_BLAS&rsquo;, might be
+    more practical to make a wrapper module and make names generic via that and so on.</p>
+</li>
+<li>
+<p>test/LAPACK/EIG/schkec.f90(192): error #8284: If the actual argument
+  is scalar, the dummy argument shall be scalar unless the actual argument
+  is of type character or is an element of an array that is not assumed
+  shape, pointer, or polymorphic.   [NINFO]</p>
+<p>CALL SGET40(rtgexc,ltgexc,ntgexc,ktgexc,Nin)
+  -----------^</p>
+</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>need to verify all tests and make a script to run them properly to get a unit test running that
+    does not require additional intrastructure</li>
+<li>for now, no XBLAS, no C/C++ interfaces</li>
+<li>need to make tests for OpenMP version</li>
+<li>set up to generate Doxygen documentation and generate man-pages and HTML documents</li>
+<li>perhaps an fman(1) for the LAPACK routines; seperate test routines from standard library routines</li>
+<li>make optional build for built-in timing</li>
+</ul>
+<h1 id="lapack">LAPACK</h1>
+<p>From the original documentation &hellip;</p>
+<p><a href="https://travis-ci.org/Reference-LAPACK/lapack"><img alt="Build Status" src="https://travis-ci.org/Reference-LAPACK/lapack.svg?branch=master"></a>
+<a href="https://ci.appveyor.com/project/langou/lapack/"><img alt="Appveyor" src="https://ci.appveyor.com/api/projects/status/bh38iin398msrbtr?svg=true"></a>
+<a href="https://codecov.io/gh/Reference-LAPACK/lapack"><img alt="codecov" src="https://codecov.io/gh/Reference-LAPACK/lapack/branch/master/graph/badge.svg"></a>
+<a href="https://repology.org/metapackage/lapack/versions"><img alt="Packaging status" src="https://repology.org/badge/tiny-repos/lapack.svg"></a></p>
+<ul>
+<li>VERSION 1.0   :  February 29, 1992</li>
+<li>VERSION 1.0a  :  June 30, 1992</li>
+<li>VERSION 1.0b  :  October 31, 1992</li>
+<li>VERSION 1.1   :  March 31, 1993</li>
+<li>VERSION 2.0   :  September 30, 1994</li>
+<li>VERSION 3.0   :  June 30, 1999</li>
+<li>VERSION 3.0 + update :  October 31, 1999</li>
+<li>VERSION 3.0 + update :  May 31, 2000</li>
+<li>VERSION 3.1   : November 2006</li>
+<li>VERSION 3.1.1 : February 2007</li>
+<li>VERSION 3.2   : November 2008</li>
+<li>VERSION 3.2.1 : April 2009</li>
+<li>VERSION 3.2.2 : June 2010</li>
+<li>VERSION 3.3.0 : November 2010</li>
+<li>VERSION 3.3.1 : April 2011</li>
+<li>VERSION 3.4.0 : November 2011</li>
+<li>VERSION 3.4.1 : April 2012</li>
+<li>VERSION 3.4.2 : September 2012</li>
+<li>VERSION 3.5.0 : November 2013</li>
+<li>VERSION 3.6.0 : November 2015</li>
+<li>VERSION 3.6.1 : June 2016</li>
+<li>VERSION 3.7.0 : December 2016</li>
+<li>VERSION 3.7.1 : June 2017</li>
+<li>VERSION 3.8.0 : November 2017</li>
+<li>VERSION 3.9.0 : November 2019</li>
+</ul>
+<p>LAPACK is a library of Fortran subroutines for solving the most commonly
+occurring problems in numerical linear algebra.</p>
+<p>LAPACK is a freely-available software package. It can be included in commercial
+software packages (and has been). We only ask that that proper credit be given
+to the authors, for example by citing the LAPACK Users&rsquo; Guide. The license used
+for the software is the <a href="https://github.com/Reference-LAPACK/lapack/blob/master/LICENSE">modified BSD license</a>.</p>
+<p>Like all software, it is copyrighted. It is not trademarked, but we do ask the
+following: if you modify the source for these routines we ask that you change
+the name of the routine and comment the changes made to the original.</p>
+<p>We will gladly answer any questions regarding the software. If a modification
+is done, however, it is the responsibility of the person who modified the
+routine to provide support.</p>
+<p>LAPACK is <a href="https://github.com/Reference-LAPACK/lapack">available from GitHub</a>.
+LAPACK releases are also <a href="http://www.netlib.org/lapack/">available on netlib</a>.</p>
+<p>The distribution contains (1) the Fortran source for LAPACK, and (2) its
+testing programs.  It also contains (3) the Fortran reference implementation of
+the Basic Linear Algebra Subprograms (the Level 1, 2, and 3 BLAS) needed by
+LAPACK.  However this code is intended for use only if there is no other
+implementation of the BLAS already available on your machine; the efficiency of
+LAPACK depends very much on the efficiency of the BLAS.  It also contains (4)
+CBLAS, a C interface to the BLAS, and (5) LAPACKE, a C interface to LAPACK.</p>
+<h2 id="installation">Installation</h2>
+<ul>
+<li>LAPACK can be installed with <code>make</code>. The configuration must be set in the
+   <code>make.inc</code> file. A <code>make.inc.example</code> for a Linux machine running GNU compilers
+   is given in the main directory. Some specific <code>make.inc</code> are also available in
+   the <code>INSTALL</code> directory.</li>
+<li>LAPACK includes also the <a href="https://cmake.org/">CMake</a> build.  You will need
+   to have CMake installed on your machine.  CMake will allow an easy
+   installation on a Windows Machine.  An example CMake build to install the
+   LAPACK library under <code>$HOME/.local/lapack/</code> is:
+   <code>sh
+   mkdir build
+   cd build
+   cmake -DCMAKE_INSTALL_LIBDIR=$HOME/.local/lapack ..
+   cmake --build . -j --target install</code></li>
+</ul>
+<h2 id="user-support">User Support</h2>
+<p>LAPACK has been thoroughly tested, on many different types of computers. The
+LAPACK project supports the package in the sense that reports of errors or poor
+performance will gain immediate attention from the developers. Such reports,
+descriptions of interesting applications, and other comments should be sent by
+email to <a href="mailto:lapack@icl.utk.edu">the LAPACK team</a>.</p>
+<p>A list of known problems, bugs, and compiler errors for LAPACK is
+<a href="http://www.netlib.org/lapack/release_notes.html">maintained on netlib</a>.
+Please see as well the <a href="https://github.com/Reference-LAPACK/lapack/issues">GitHub issue tracker</a>.</p>
+<p>For further information on LAPACK please read our <a href="http://www.netlib.org/lapack/faq.html">FAQ</a>
+and <a href="http://www.netlib.org/lapack/lug/lapack_lug.html">Users&rsquo; Guide</a>.
+A <a href="http://icl.cs.utk.edu/lapack-forum/">user forum</a> and specific information for
+<a href="http://icl.cs.utk.edu/lapack-for-windows/lapack/">running LAPACK under Windows</a>.
+is also available to help you with the LAPACK library.</p>
+<h2 id="testing">Testing</h2>
+<p>LAPACK includes a thorough test suite. We recommend that, after compilation,
+you run the test suite.</p>
+<p>For complete information on the LAPACK Testing please consult LAPACK Working
+Note 41 &ldquo;Installation Guide for LAPACK&rdquo;.</p>
+<h2 id="lapacke">LAPACKE</h2>
+<p>LAPACK now includes the <a href="http://www.netlib.org/lapack/lapacke.html">LAPACKE</a>
+package.  LAPACKE is a Standard C language API for LAPACK that was born from a
+collaboration of the LAPACK and INTEL Math Kernel Library teams.</p>
+<hr>
+        </div>
+          <div class="col-md-4">
+            <div class="card card-body bg-light">
+              <h2 class="card-title">Developer Info</h2>
+              <h4 class="card-text">John S. Urban</h4>
+              <p class="card-text"></p>
+                <div class="text-center"><div class="btn-group" role="group">
+                    
+                    <a class="btn btn-lg btn-primary" href="https://github.com/urbanjost/spag_lapack"><i class="fa fa-github fa-lg"></i></a>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div></div>
+            </div>
+          </div>
+      </div>
+        <div class="row">
+          <hr>
+          <div class="col-xs-6 col-sm-6">
+            <div>
+              <h3>Source Files</h3>
+              <ul><li><a href='sourcefile/caxpy.f90.html'>caxpy.f90</a></li><li><a href='sourcefile/cbbcsd.f90.html'>cbbcsd.f90</a></li><li><a href='sourcefile/ccopy.f90.html'>ccopy.f90</a></li><li><a href='sourcefile/cdotc.f90.html'>cdotc.f90</a></li><li><a href='sourcefile/cdotu.f90.html'>cdotu.f90</a></li><li><a href='sourcefile/cgbbrd.f90.html'>cgbbrd.f90</a></li><li><a href='sourcefile/cgbcon.f90.html'>cgbcon.f90</a></li><li><a href='sourcefile/cgbequ.f90.html'>cgbequ.f90</a></li><li><a href='sourcefile/cgbequb.f90.html'>cgbequb.f90</a></li><li><a href='sourcefile/cgbmv.f90.html'>cgbmv.f90</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6">
+            <div>
+              <h3>Procedures</h3>
+              <ul><li><a href='proc/caxpy.html'>CAXPY</a></li><li><a href='proc/cbbcsd.html'>CBBCSD</a></li><li><a href='proc/ccopy.html'>CCOPY</a></li><li><a href='proc/cdotc.html'>CDOTC</a></li><li><a href='proc/cdotu.html'>CDOTU</a></li><li><a href='proc/cgbbrd.html'>CGBBRD</a></li><li><a href='proc/cgbcon.html'>CGBCON</a></li><li><a href='proc/cgbequ.html'>CGBEQU</a></li><li><a href='proc/cgbequb.html'>CGBEQUB</a></li><li><a href='proc/cgbmv.html'>CGBMV</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

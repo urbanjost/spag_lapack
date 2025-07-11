@@ -1,0 +1,990 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DLASYF_AA &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DLASYF_AA
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">125 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlasyf_aa.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dlasyf_aa.f90.html'>dlasyf_aa.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DLASYF_AA</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-one~829">ONE</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-zero~794">ZERO</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-alpha~63">alpha</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-i1~61">i1</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-i2~56">i2</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-j~687">j</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-k~305">k</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-k1~13">k1</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-mj~7">mj</a>
+            <a class="list-group-item" href="../proc/dlasyf_aa.html#variable-piv~8">piv</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlasyf_aa.html#src">DLASYF_AA</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DLASYF_AA(Uplo, J1, M, Nb, A, Lda, Ipiv, H, Ldh, Work)  
+</h2>
+    
+
+    <p>\brief \b DLASYF_AA
+ \htmlonly
+ Download DLASYF_AA + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dlasyf_aa.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dlasyf_aa.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dlasyf_aa.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DLATRF_AA factorizes a panel of a real symmetric matrix A using
+ the Aasen&rsquo;s algorithm. The panel consists of a set of NB rows of A
+ when UPLO is U, or a set of NB columns when UPLO is L.</p>
+<p>In order to factorize the panel, the Aasen&rsquo;s algorithm requires the
+ last row, or column, of the previous panel. The first row, or column,
+ of A is set to be the first row, or column, of an identity matrix,
+ which is used to factorize the first panel.</p>
+<p>The resulting J-th row of U, or J-th column of L, is stored in the
+ (J-1)-th row, or column, of A (without the unit diagonals), while
+ the diagonal and subdiagonal of A are overwritten by those of T.</p>
+<p>\endverbatim
+ \param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+          = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+          = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+ \endverbatim</p>
+<p>\param[in] J1
+ \verbatim
+          J1 is INTEGER
+          The location of the first row, or column, of the panel
+          within the submatrix of A, passed to this routine, e.g.,
+          when called by DSYTRF_AA, for the first panel, J1 is 1,
+          while for the remaining panels, J1 is 2.
+ \endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+          The dimension of the submatrix. M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] NB
+ \verbatim
+          NB is INTEGER
+          The dimension of the panel to be facotorized.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA,M) for
+          the first panel, while dimension (LDA,M+1) for the
+          remaining panels.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="nv">entry</span>, <span class="nv">A</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">last</span> <span class="nv">row</span>, <span class="nv">or</span> <span class="nv">column</span>, <span class="nv">of</span>
+      <span class="nv">the</span> <span class="nv">previous</span> <span class="nv">panel</span>, <span class="nv">and</span> <span class="nv">the</span> <span class="nv">trailing</span> <span class="nv">submatrix</span> <span class="nv">of</span> <span class="nv">A</span>
+      <span class="nv">to</span> <span class="nv">be</span> <span class="nv">factorized</span>, <span class="nv">except</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">panel</span>, <span class="nv">only</span>
+      <span class="nv">the</span> <span class="nv">panel</span> <span class="nv">is</span> <span class="nv">passed</span>.
+
+      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">leading</span> <span class="nv">panel</span> <span class="nv">is</span> <span class="nv">factorized</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] IPIV
+ \verbatim
+          IPIV is INTEGER array, dimension (M)
+          Details of the row and column interchanges,
+          the row and column k were interchanged with the row and
+          column IPIV(k).
+ \endverbatim</p>
+<p>\param[in,out] H
+ \verbatim
+          H is DOUBLE PRECISION workspace, dimension (LDH,NB).</p>
+<p>\endverbatim</p>
+<p>\param[in] LDH
+ \verbatim
+          LDH is INTEGER
+          The leading dimension of the workspace H. LDH &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION workspace, dimension (M).
+ \endverbatim</p>
+<p>\author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date November 2017
+ \ingroup doubleSYcomputational</p>
+<p>&ndash;DLASYF_AA153</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~549"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j1~4"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>J1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~461"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb~58"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~769"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~742"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipiv~268"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipiv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-h~27"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>H</strong>(Ldh,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldh~26"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~739"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~829"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~794"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~63"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~61"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~56"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~687"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~305"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k1~13"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mj~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-piv~8"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>piv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DLASYF_AA</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">J1</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Nb</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.8.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     November 2017</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DLASYF_AA153</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">J1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldh</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ipiv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">(</span><span class="n">Ldh</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mj</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">piv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">IDAMAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ILAENV</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ILAENV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">IDAMAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DGEMV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DAXPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DSWAP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASET</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     K1 is the first column of the panel to be factorized</span>
+<span class="c">!     i.e.,  K1 is 2 for the first block column, and 1 for the rest of the blocks</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">J1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        .....................................................</span>
+<span class="c">!        Factorize A as U**T*D*U using the upper triangle of A</span>
+<span class="c">!        .....................................................</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO WHILE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;=</span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        K is the column to be factorized</span>
+<span class="c">!         when being called from DSYTRF_AA,</span>
+<span class="c">!         &gt; for the first block column, J1 is 1, hence J1+J-1 is J,</span>
+<span class="c">!         &gt; for the rest of the columns, J1 is 2, and J1+J-1 is J+1,</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">J1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">==</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!            Only need to compute T(J, J)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">mj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">mj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        H(J:M, J) := A(J, J:M) - H(J:M, 1:(J-1)) * L(J1:(J-1), J),</span>
+<span class="c">!         where H(J:M, J) has been initialized to be A(J, J:M)</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!        K is the column to be factorized</span>
+<span class="c">!         &gt; for the first block column, K is J, skipping the first two</span>
+<span class="c">!           columns</span>
+<span class="c">!         &gt; for the rest of the columns, K is J+1, skipping only the</span>
+<span class="c">!           first column</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DGEMV</span><span class="p">(</span><span class="s1">&#39;No transpose&#39;</span><span class="p">,</span><span class="n">mj</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="n">k1</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k1</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                            </span><span class="n">Ldh</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Copy H(i:M, i) into WORK</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">mj</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&gt;</span><span class="n">k1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute WORK := WORK - L(J-1, J:M) * T(J-1,J),</span>
+<span class="c">!            where A(J-1, J) stores T(J-1, J) and A(J-2, J:M) stores U(J-1, J:M)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">mj</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Set A(J, J) = T(J, J)</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute WORK(2:M) = T(J, J) L(J, (J+1):M)</span>
+<span class="c">!            where A(J, J) stores T(J, J) and A(J-1, (J+1):M) stores U(J, (J+1):M)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Find max(|WORK(2:M)|)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">piv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Apply symmetric pivot</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">i2</span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">piv</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap WORK(I1) and WORK(I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">piv</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I1, I1+1:M) with A(I1+1:M, I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i1</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="p">,</span><span class="n">i2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I1, I2+1:M) with A(I2, I2+1:M)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i2</span><span class="o">&lt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">i2</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i2</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i2</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I1, I1) with A(I2,I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">piv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i1</span><span class="o">+</span><span class="n">J1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">piv</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap H(I1, 1:J1) with H(I2, 1:J1)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i2</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 Swap L(1:I1-1, I1) with L(1:I1-1, I2),</span>
+<span class="c">!                  skipping the first column</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">k1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i1</span><span class="o">-</span><span class="n">k1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i2</span><span class="p">),&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Set A(J, J+1) = T(J, J+1)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!              Copy A(J+1:M, J+1) into H(J:M, J),</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">Nb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute L(J+2, J+1) = WORK( 3:M ) / T(J, J+1),</span>
+<span class="c">!            where A(J, J+1) = T(J, J+1) and A(J+2:M, J) = L(J+2:M, J+1)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">            ENDIF</span>
+<span class="k">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        .....................................................</span>
+<span class="c">!        Factorize A as L*D*L**T using the lower triangle of A</span>
+<span class="c">!        .....................................................</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO WHILE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;=</span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        K is the column to be factorized</span>
+<span class="c">!         when being called from DSYTRF_AA,</span>
+<span class="c">!         &gt; for the first block column, J1 is 1, hence J1+J-1 is J,</span>
+<span class="c">!         &gt; for the rest of the columns, J1 is 2, and J1+J-1 is J+1,</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">J1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">==</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!            Only need to compute T(J, J)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">mj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">mj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        H(J:M, J) := A(J:M, J) - H(J:M, 1:(J-1)) * L(J, J1:(J-1))^T,</span>
+<span class="c">!         where H(J:M, J) has been initialized to be A(J:M, J)</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!        K is the column to be factorized</span>
+<span class="c">!         &gt; for the first block column, K is J, skipping the first two</span>
+<span class="c">!           columns</span>
+<span class="c">!         &gt; for the rest of the columns, K is J+1, skipping only the</span>
+<span class="c">!           first column</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DGEMV</span><span class="p">(</span><span class="s1">&#39;No transpose&#39;</span><span class="p">,</span><span class="n">mj</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="n">k1</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k1</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                            </span><span class="n">Ldh</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Copy H(J:M, J) into WORK</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">mj</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&gt;</span><span class="n">k1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute WORK := WORK - L(J:M, J-1) * T(J-1,J),</span>
+<span class="c">!            where A(J-1, J) = T(J-1, J) and A(J, J-2) = L(J, J-1)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">mj</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Set A(J, J) = T(J, J)</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute WORK(2:M) = T(J, J) L((J+1):M, J)</span>
+<span class="c">!            where A(J, J) = T(J, J) and A((J+1):M, J-1) = L((J+1):M, J)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DAXPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Find max(|WORK(2:M)|)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IDAMAX</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="n">piv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Apply symmetric pivot</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">i2</span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">piv</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap WORK(I1) and WORK(I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Work</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">piv</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I1+1:M, I1) with A(I2, I1+1:M)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I2+1:M, I1) with A(I2+1:M, I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i2</span><span class="o">&lt;</span><span class="n">M</span><span class="w"> </span><span class="p">)</span><span class="w">                                           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">i2</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap A(I1, I1) with A(I2, I2)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">piv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="n">J1</span><span class="o">+</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">piv</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Swap H(I1, I1:J1) with H(I2, I2:J1)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i1</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">i1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i2</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 Swap L(1:I1-1, I1) with L(1:I1-1, I2),</span>
+<span class="c">!                  skipping the first column</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">k1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">                                      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="k">CALL </span><span class="n">DSWAP</span><span class="p">(</span><span class="n">i1</span><span class="o">-</span><span class="n">k1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">i2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Set A(J+1, J) = T(J+1, J)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!              Copy A(J+1:M, J+1) into H(J+1:M, J),</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="n">Nb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Compute L(J+2, J+1) = WORK( 3:M ) / T(J, J+1),</span>
+<span class="c">!            where A(J, J+1) = T(J, J+1) and A(J+2:M, J) = L(J+2:M, J+1)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DCOPY</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">DSCAL</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span>
+<span class="k">                     CALL </span><span class="n">DLASET</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span>
+<span class="k">            ENDIF</span>
+<span class="k">            </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     End of DLASYF_AA</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DLASYF_AA</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

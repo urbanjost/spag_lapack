@@ -1,0 +1,1199 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DLASQ3 &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DLASQ3
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">124 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlasq3.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dlasq3.f90.html'>dlasq3.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DLASQ3</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-cbias~2">CBIAS</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-half~5">HALF</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-hundrd~2">HUNDRD</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-one~96">ONE</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-qurtr">QURTR</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-two~14">TWO</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-zero~90">ZERO</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-eps~27">eps</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-ipn4~2">ipn4</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-j4~3">j4</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-n0in">n0in</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-nn~2">nn</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-s~15">s</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-t~6">t</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-temp~18">temp</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-tol~5">tol</a>
+            <a class="list-group-item" href="../proc/dlasq3.html#variable-tol2~2">tol2</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlasq3.html#src">DLASQ3</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DLASQ3(I0, N0, Z, Pp, Dmin, Sigma, Desig, Qmax, Nfail, Iter, Ndiv, Ieee, Ttype, Dmin1, Dmin2, Dn, Dn1, Dn2, G, Tau)  
+</h2>
+    
+
+    <p>\brief \b DLASQ3 checks for deflation, computes a shift and calls dqds. Used by sbdsqr.
+ \htmlonly
+ Download DLASQ3 + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dlasq3.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dlasq3.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dlasq3.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DLASQ3 checks for deflation, computes a shift (TAU) and calls dqds.
+ In case of failure it changes shifts, and tries again until output
+ is positive.
+ \endverbatim
+ \param[in] I0
+ \verbatim
+          I0 is INTEGER
+         First index.
+ \endverbatim</p>
+<p>\param[in,out] N0
+ \verbatim
+          N0 is INTEGER
+         Last index.
+ \endverbatim</p>
+<p>\param[in,out] Z
+ \verbatim
+          Z is DOUBLE PRECISION array, dimension ( 4*N0 )
+         Z holds the qd array.
+ \endverbatim</p>
+<p>\param[in,out] PP
+ \verbatim
+          PP is INTEGER
+         PP=0 for ping, PP=1 for pong.
+         PP=2 indicates that flipping was applied to the Z array
+         and that the initial tests for deflation should not be
+         performed.
+ \endverbatim</p>
+<p>\param[out] DMIN
+ \verbatim
+          DMIN is DOUBLE PRECISION
+         Minimum value of d.
+ \endverbatim</p>
+<p>\param[out] SIGMA
+ \verbatim
+          SIGMA is DOUBLE PRECISION
+         Sum of shifts used in current segment.
+ \endverbatim</p>
+<p>\param[in,out] DESIG
+ \verbatim
+          DESIG is DOUBLE PRECISION
+         Lower order part of SIGMA
+ \endverbatim</p>
+<p>\param[in] QMAX
+ \verbatim
+          QMAX is DOUBLE PRECISION
+         Maximum value of q.
+ \endverbatim</p>
+<p>\param[in,out] NFAIL
+ \verbatim
+          NFAIL is INTEGER
+         Increment NFAIL by 1 each time the shift was too big.
+ \endverbatim</p>
+<p>\param[in,out] ITER
+ \verbatim
+          ITER is INTEGER
+         Increment ITER by 1 for each iteration.
+ \endverbatim</p>
+<p>\param[in,out] NDIV
+ \verbatim
+          NDIV is INTEGER
+         Increment NDIV by 1 for each division.
+ \endverbatim</p>
+<p>\param[in] IEEE
+ \verbatim
+          IEEE is LOGICAL
+         Flag for IEEE or non IEEE arithmetic (passed to DLASQ5).
+ \endverbatim</p>
+<p>\param[in,out] TTYPE
+ \verbatim
+          TTYPE is INTEGER
+         Shift type.
+ \endverbatim</p>
+<p>\param[in,out] DMIN1
+ \verbatim
+          DMIN1 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DMIN2
+ \verbatim
+          DMIN2 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DN
+ \verbatim
+          DN is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DN1
+ \verbatim
+          DN1 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] DN2
+ \verbatim
+          DN2 is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] G
+ \verbatim
+          G is DOUBLE PRECISION
+ \endverbatim</p>
+<p>\param[in,out] TAU
+ \verbatim
+          TAU is DOUBLE PRECISION</p>
+<div class="codehilite"><pre><span></span><code>     These are passed as arguments in order to save their values
+     between calls to DLASQ3.
+</code></pre></div>
+
+<p>\endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date June 2016
+ \ingroup auxOTHERcomputational
+&ndash;DLASQ3185</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i0~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>I0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n0~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z~18"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Z</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pp~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Pp</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dmin~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dmin</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sigma~2"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Sigma</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-desig"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Desig</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qmax"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Qmax</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nfail"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nfail</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iter~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iter</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ndiv"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ndiv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ieee"></span>
+              logical
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ieee</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ttype"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ttype</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dmin1~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dmin1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dmin2~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dmin2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dn~3"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dn</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dn1"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dn1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dn2"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dn2</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-g~2"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>G</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tau~26"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tau</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cbias~2"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>CBIAS</strong></td>
+<td> =</td>
+                <td>1.50D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-half~5"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>HALF</strong></td>
+<td> =</td>
+                <td>0.5D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hundrd~2"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>HUNDRD</strong></td>
+<td> =</td>
+                <td>100.0D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~96"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qurtr"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>QURTR</strong></td>
+<td> =</td>
+                <td>0.250D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-two~14"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>TWO</strong></td>
+<td> =</td>
+                <td>2.0D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~90"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eps~27"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eps</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipn4~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipn4</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j4~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j4</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n0in"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n0in</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nn~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~15"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~6"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temp~18"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tol~5"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tol</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tol2~2"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tol2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DLASQ3</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">N0</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Pp</span><span class="p">,</span><span class="nb">Dmin</span><span class="p">,</span><span class="n">Sigma</span><span class="p">,</span><span class="n">Desig</span><span class="p">,</span><span class="n">Qmax</span><span class="p">,</span><span class="n">Nfail</span><span class="p">,</span><span class="n">Iter</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ndiv</span><span class="p">,</span><span class="n">Ieee</span><span class="p">,</span><span class="n">Ttype</span><span class="p">,</span><span class="n">Dmin1</span><span class="p">,</span><span class="n">Dmin2</span><span class="p">,</span><span class="n">Dn</span><span class="p">,</span><span class="n">Dn1</span><span class="p">,</span><span class="n">Dn2</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">Tau</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DLASQ3185</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">Ieee</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">I0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Iter</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ndiv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nfail</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Pp</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Desig</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">Dmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dmin1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dmin2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dn</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dn1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dn2</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">G</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Qmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Sigma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Tau</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Z</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">CBIAS</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">CBIAS</span><span class="o">=</span><span class="mf">1.50D0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">QURTR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">HALF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">TWO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">HUNDRD</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D0</span><span class="p">,</span><span class="n">QURTR</span><span class="o">=</span><span class="mf">0.250D0</span><span class="p">,</span><span class="n">HALF</span><span class="o">=</span><span class="mf">0.5D0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D0</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">TWO</span><span class="o">=</span><span class="mf">2.0D0</span><span class="p">,</span><span class="n">HUNDRD</span><span class="o">=</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ipn4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n0in</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ttype</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">eps</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tol2</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DLASQ4</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASQ5</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASQ6</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Function ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">DISNAN</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DISNAN</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SQRT</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">n0in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N0</span><span class="w"></span>
+<span class="w">      </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eps</span><span class="o">*</span><span class="n">HUNDRD</span><span class="w"></span>
+<span class="w">      </span><span class="n">tol2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tol</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Check for deflation.</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N0</span><span class="o">&lt;</span><span class="n">I0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N0</span><span class="o">/=</span><span class="n">I0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">nn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Pp</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N0</span><span class="o">==</span><span class="p">(</span><span class="n">I0</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">200</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Check whether E(N0-1) is negligible, 1 eigenvalue.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">&gt;</span><span class="n">tol2</span><span class="o">*</span><span class="p">(</span><span class="n">Sigma</span><span class="o">+</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Pp</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="w">           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="o">&gt;</span><span class="n">tol2</span><span class="o">*</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Check  whether E(N0-2) is negligible, 2 eigenvalues.</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">tol2</span><span class="o">*</span><span class="n">Sigma</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Pp</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">tol2</span><span class="o">*</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">200</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Pp</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Reverse the qd-array, if warranted.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">Dmin</span><span class="o">&lt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">N0</span><span class="o">&lt;</span><span class="n">n0in</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">CBIAS</span><span class="o">*</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">&lt;</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">ipn4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">I0</span><span class="o">+</span><span class="n">N0</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">I0</span><span class="o">+</span><span class="n">N0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">                     </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">j4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="n">ipn4</span><span class="o">-</span><span class="n">j4</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N0</span><span class="o">-</span><span class="n">I0</span><span class="o">&lt;=</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="n">Pp</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">-</span><span class="n">Pp</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">                  </span><span class="n">Dmin2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Dmin2</span><span class="p">,</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="o">+</span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="n">Pp</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="n">Pp</span><span class="p">),</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">-</span><span class="n">Pp</span><span class="p">),</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">-</span><span class="n">Pp</span><span class="o">+</span><span class="mi">4</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Qmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">Qmax</span><span class="p">,</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">3</span><span class="p">),</span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">I0</span><span class="o">+</span><span class="n">Pp</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="nb">Dmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Choose a shift.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLASQ4</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">N0</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Pp</span><span class="p">,</span><span class="n">n0in</span><span class="p">,</span><span class="nb">Dmin</span><span class="p">,</span><span class="n">Dmin1</span><span class="p">,</span><span class="n">Dmin2</span><span class="p">,</span><span class="n">Dn</span><span class="p">,</span><span class="n">Dn1</span><span class="p">,</span><span class="n">Dn2</span><span class="p">,</span><span class="n">Tau</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Ttype</span><span class="p">,</span><span class="n">G</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Call dqds until DMIN &gt; 0.</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">CALL </span><span class="n">DLASQ5</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">N0</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Pp</span><span class="p">,</span><span class="n">Tau</span><span class="p">,</span><span class="n">Sigma</span><span class="p">,</span><span class="nb">Dmin</span><span class="p">,</span><span class="n">Dmin1</span><span class="p">,</span><span class="n">Dmin2</span><span class="p">,</span><span class="n">Dn</span><span class="p">,</span><span class="n">Dn1</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="n">Dn2</span><span class="p">,</span><span class="n">Ieee</span><span class="p">,</span><span class="n">eps</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">Ndiv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ndiv</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">N0</span><span class="o">-</span><span class="n">I0</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Check status.</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!        Success.</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">Dmin</span><span class="o">&gt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Dmin1</span><span class="o">&gt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">400</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">Dmin</span><span class="o">&lt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Dmin1</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">N0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Pp</span><span class="p">)</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="o">&lt;</span><span class="n">tol</span><span class="o">*</span><span class="p">(</span><span class="n">Sigma</span><span class="o">+</span><span class="n">Dn1</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dn</span><span class="p">)</span><span class="o">&lt;</span><span class="n">tol</span><span class="o">*</span><span class="n">Sigma</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Convergence hidden by negative DN.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">N0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Pp</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="nb">Dmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">400</span><span class="w"></span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">Dmin</span><span class="o">&lt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        TAU too big. Select new TAU and try again.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">Nfail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nfail</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ttype</span><span class="o">&lt;-</span><span class="mi">22</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Failed twice. Play it safe.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">Tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Dmin1</span><span class="o">&gt;</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Late failure. Gives excellent shift.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">Tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Tau</span><span class="o">+</span><span class="nb">Dmin</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">ONE</span><span class="o">-</span><span class="n">TWO</span><span class="o">*</span><span class="n">eps</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ttype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ttype</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Early failure. Divide by 4.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">Tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QURTR</span><span class="o">*</span><span class="n">Tau</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ttype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ttype</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">12</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">DISNAN</span><span class="p">(</span><span class="nb">Dmin</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        NaN.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Tau</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Possible underflow. Play it safe.</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDDO</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">+</span><span class="n">Pp</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Sigma</span><span class="w"></span>
+<span class="w">      </span><span class="n">N0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">200</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HALF</span><span class="o">*</span><span class="p">((</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="o">-</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span><span class="o">+</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">&gt;</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">tol2</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">t</span><span class="o">/=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">s</span><span class="o">&lt;=</span><span class="n">t</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="n">ONE</span><span class="o">+</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">ONE</span><span class="o">+</span><span class="n">s</span><span class="o">/</span><span class="n">t</span><span class="p">))))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span>
+<span class="k">            </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">s</span><span class="p">)))</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="o">/</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Sigma</span><span class="w"></span>
+<span class="w">      </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">N0</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">nn</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Sigma</span><span class="w"></span>
+<span class="w">      </span><span class="n">N0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Risk of underflow.</span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">300</span><span class="w">  </span><span class="k">CALL </span><span class="n">DLASQ6</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">N0</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Pp</span><span class="p">,</span><span class="nb">Dmin</span><span class="p">,</span><span class="n">Dmin1</span><span class="p">,</span><span class="n">Dmin2</span><span class="p">,</span><span class="n">Dn</span><span class="p">,</span><span class="n">Dn1</span><span class="p">,</span><span class="n">Dn2</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Ndiv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ndiv</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">N0</span><span class="o">-</span><span class="n">I0</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">Tau</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w"> </span><span class="mi">400</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Tau</span><span class="o">&lt;</span><span class="n">Sigma</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Desig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Desig</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tau</span><span class="w"></span>
+<span class="w">         </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sigma</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Desig</span><span class="w"></span>
+<span class="w">         </span><span class="n">Desig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Desig</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">Sigma</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sigma</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Tau</span><span class="w"></span>
+<span class="w">         </span><span class="n">Desig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sigma</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">Tau</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Desig</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">Sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DLASQ3</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DLASQ3</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1711 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SLARRF &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>SLARRF
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">179 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/slarrf.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/slarrf.f90.html'>slarrf.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SLARRF</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/slarrf.html#variable-ktrymax">KTRYMAX</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-maxgrowth1">MAXGROWTH1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-maxgrowth2">MAXGROWTH2</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-one~71">ONE</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-quart">QUART</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-sleft">SLEFT</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-sright">SRIGHT</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-two~13">TWO</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-avgap">avgap</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-bestshift">bestshift</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-clwdth">clwdth</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-dorrr1">dorrr1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-eps~24">eps</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-fact">fact</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-fail">fail</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-fail2">fail2</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-forcer">forcer</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-growthbound">growthbound</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-i~75">i</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-indx~2">indx</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-ktry">ktry</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-ldelta">ldelta</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-ldmax">ldmax</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-lsigma">lsigma</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-max1">max1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-max2">max2</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-mingap">mingap</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-nofail">nofail</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-oldp">oldp</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-prod">prod</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-rdelta">rdelta</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-rdmax">rdmax</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-rrr1">rrr1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-rrr2">rrr2</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-rsigma">rsigma</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-s~12">s</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-sawnan1">sawnan1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-sawnan2">sawnan2</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-shift">shift</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-smlgrowth">smlgrowth</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-tmp~2">tmp</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-tryrrr1">tryrrr1</a>
+            <a class="list-group-item" href="../proc/slarrf.html#variable-znm2">znm2</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/slarrf.html#src">SLARRF</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine SLARRF(N, D, L, Ld, Clstrt, Clend, W, Wgap, Werr, Spdiam, Clgapl, Clgapr, Pivmin, Sigma, Dplus, Lplus, Work, Info)  
+</h2>
+    
+
+    <p>\brief \b SLARRF finds a new relatively robust representation such that at least one of the eigenvalues is relatively isolated.
+ \htmlonly
+ Download SLARRF + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/slarrf.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/slarrf.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/slarrf.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>Given the initial representation L D L^T and its cluster of close
+ eigenvalues (in a relative measure), W( CLSTRT ), W( CLSTRT+1 ), &hellip;
+ W( CLEND ), SLARRF finds a new relatively robust representation
+ L D L^T - SIGMA I = L(+) D(+) L(+)^T such that at least one of the
+ eigenvalues of L(+) D(+) L(+)^T is relatively isolated.
+ \endverbatim
+ \param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrix (subblock, if the matrix split).
+ \endverbatim</p>
+<p>\param[in] D
+ \verbatim
+          D is REAL array, dimension (N)
+          The N diagonal elements of the diagonal matrix D.
+ \endverbatim</p>
+<p>\param[in] L
+ \verbatim
+          L is REAL array, dimension (N-1)
+          The (N-1) subdiagonal elements of the unit bidiagonal
+          matrix L.
+ \endverbatim</p>
+<p>\param[in] LD
+ \verbatim
+          LD is REAL array, dimension (N-1)
+          The (N-1) elements L(i)*D(i).
+ \endverbatim</p>
+<p>\param[in] CLSTRT
+ \verbatim
+          CLSTRT is INTEGER
+          The index of the first eigenvalue in the cluster.
+ \endverbatim</p>
+<p>\param[in] CLEND
+ \verbatim
+          CLEND is INTEGER
+          The index of the last eigenvalue in the cluster.
+ \endverbatim</p>
+<p>\param[in] W
+ \verbatim
+          W is REAL array, dimension
+          dimension is &gt;=  (CLEND-CLSTRT+1)
+          The eigenvalue APPROXIMATIONS of L D L^T in ascending order.
+          W( CLSTRT ) through W( CLEND ) form the cluster of relatively
+          close eigenalues.
+ \endverbatim</p>
+<p>\param[in,out] WGAP
+ \verbatim
+          WGAP is REAL array, dimension
+          dimension is &gt;=  (CLEND-CLSTRT+1)
+          The separation from the right neighbor eigenvalue in W.
+ \endverbatim</p>
+<p>\param[in] WERR
+ \verbatim
+          WERR is REAL array, dimension
+          dimension is &gt;=  (CLEND-CLSTRT+1)
+          WERR contain the semiwidth of the uncertainty
+          interval of the corresponding eigenvalue APPROXIMATION in W
+ \endverbatim</p>
+<p>\param[in] SPDIAM
+ \verbatim
+          SPDIAM is REAL
+          estimate of the spectral diameter obtained from the
+          Gerschgorin intervals
+ \endverbatim</p>
+<p>\param[in] CLGAPL
+ \verbatim
+          CLGAPL is REAL
+ \endverbatim</p>
+<p>\param[in] CLGAPR
+ \verbatim
+          CLGAPR is REAL
+          absolute gap on each end of the cluster.
+          Set by the calling routine to protect against shifts too close
+          to eigenvalues outside the cluster.
+ \endverbatim</p>
+<p>\param[in] PIVMIN
+ \verbatim
+          PIVMIN is REAL
+          The minimum pivot allowed in the Sturm sequence.
+ \endverbatim</p>
+<p>\param[out] SIGMA
+ \verbatim
+          SIGMA is REAL
+          The shift used to form L(+) D(+) L(+)^T.
+ \endverbatim</p>
+<p>\param[out] DPLUS
+ \verbatim
+          DPLUS is REAL array, dimension (N)
+          The N diagonal elements of the diagonal matrix D(+).
+ \endverbatim</p>
+<p>\param[out] LPLUS
+ \verbatim
+          LPLUS is REAL array, dimension (N-1)
+          The first (N-1) elements of LPLUS contain the subdiagonal
+          elements of the unit bidiagonal matrix L(+).
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is REAL array, dimension (2*N)
+          Workspace.
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          Signals processing OK (=0) or failure (=1)
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date June 2016
+ \ingroup OTHERauxiliary
+ \par Contributors:</p>
+<p>Beresford Parlett, University of California, Berkeley, USA \n
+ Jim Demmel, University of California, Berkeley, USA \n
+ Inderjit Dhillon, University of Texas, Austin, USA \n
+ Osni Marques, LBNL/NERSC, USA \n
+ Christof Voemel, University of California, Berkeley, USA
+&ndash;SLARRF195</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.1) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~112"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~15"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~5"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ld"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ld</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-clstrt"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Clstrt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-clend"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Clend</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~8"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>W</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wgap"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wgap</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-werr"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Werr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-spdiam"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Spdiam</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-clgapl"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Clgapl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-clgapr"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Clgapr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pivmin"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Pivmin</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sigma"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Sigma</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dplus"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dplus</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lplus"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lplus</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~70"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~96"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktrymax"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>KTRYMAX</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxgrowth1"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MAXGROWTH1</strong></td>
+<td> =</td>
+                <td>8.E0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxgrowth2"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MAXGROWTH2</strong></td>
+<td> =</td>
+                <td>8.E0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~71"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0E0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-quart"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>QUART</strong></td>
+<td> =</td>
+                <td>0.25E0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sleft"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>SLEFT</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sright"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>SRIGHT</strong></td>
+<td> =</td>
+                <td>2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-two~13"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>TWO</strong></td>
+<td> =</td>
+                <td>2.0E0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-avgap"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>avgap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bestshift"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bestshift</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-clwdth"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>clwdth</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dorrr1"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dorrr1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eps~24"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eps</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fact"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fact</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fail"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fail</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fail2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fail2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-forcer"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>forcer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-growthbound"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>growthbound</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~75"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-indx~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>indx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ktry"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ktry</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldelta"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldelta</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldmax"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lsigma"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lsigma</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-max1"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-max2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mingap"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mingap</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nofail"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nofail</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-oldp"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>oldp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prod"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prod</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rdelta"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rdelta</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rdmax"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rdmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rrr1"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rrr1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rrr2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rrr2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rsigma"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rsigma</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~12"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sawnan1"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sawnan1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sawnan2"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sawnan2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-shift"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>shift</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smlgrowth"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smlgrowth</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmp~2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tryrrr1"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tryrrr1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-znm2"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>znm2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">SLARRF</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">Ld</span><span class="p">,</span><span class="n">Clstrt</span><span class="p">,</span><span class="n">Clend</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Wgap</span><span class="p">,</span><span class="n">Werr</span><span class="p">,</span><span class="n">Spdiam</span><span class="p">,</span><span class="n">Clgapl</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Clgapr</span><span class="p">,</span><span class="n">Pivmin</span><span class="p">,</span><span class="n">Sigma</span><span class="p">,</span><span class="n">Dplus</span><span class="p">,</span><span class="n">Lplus</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--SLARRF195</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.1) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Clstrt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Clend</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Clgapl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Clgapr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Pivmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Sigma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Spdiam</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">D</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Dplus</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ld</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lplus</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Wgap</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">Werr</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">MAXGROWTH1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">MAXGROWTH2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">QUART</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">TWO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E0</span><span class="p">,</span><span class="n">TWO</span><span class="o">=</span><span class="mf">2.0E0</span><span class="p">,</span><span class="n">QUART</span><span class="o">=</span><span class="mf">0.25E0</span><span class="p">,</span><span class="n">MAXGROWTH1</span><span class="o">=</span><span class="mf">8.E0</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">           </span><span class="n">MAXGROWTH2</span><span class="o">=</span><span class="mf">8.E0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">dorrr1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">forcer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nofail</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sawnan1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sawnan2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tryrrr1</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">indx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ktry</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">KTRYMAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLEFT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SRIGHT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">shift</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">KTRYMAX</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SLEFT</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SRIGHT</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">avgap</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bestshift</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">clwdth</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">eps</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fail</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">fail2</span><span class="w"> </span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">growthbound</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldelta</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lsigma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">max1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">max2</span><span class="w"> </span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">mingap</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">oldp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rdelta</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rdmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rrr1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rrr2</span><span class="w"> </span><span class="p">,</span><span class="w">        </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">rsigma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smlgrowth</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">znm2</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">SISNAN</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SISNAN</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAMCH</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SCOPY</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">KTRYMAX</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">eps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">shift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">forcer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>
+<span class="c">!     Note that we cannot guarantee that for any of the shifts tried,</span>
+<span class="c">!     the factorization has a small or even moderate element growth.</span>
+<span class="c">!     There could be Ritz values at both ends of the cluster and despite</span>
+<span class="c">!     backing off, there are examples where all factorizations tried</span>
+<span class="c">!     (in IEEE mode, allowing zero pivots &amp; infinities) have INFINITE</span>
+<span class="c">!     element growth.</span>
+<span class="c">!     For this reason, we should use PIVMIN in this subroutine so that at</span>
+<span class="c">!     least the L D L^T factorization exists. It can be checked afterwards</span>
+<span class="c">!     whether the element growth caused bad residuals/orthogonality.</span>
+<span class="w"> </span>
+<span class="c">!     Decide whether the code should accept the best among all</span>
+<span class="c">!     representations despite large element growth or signal INFO=1</span>
+<span class="c">!     Setting NOFAIL to .FALSE. for quick fix for bug 113</span>
+<span class="w">      </span><span class="n">nofail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w"> </span>
+<span class="c">!     Compute the average gap length of the cluster</span>
+<span class="w">      </span><span class="n">clwdth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">Clend</span><span class="p">)</span><span class="o">-</span><span class="n">W</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Werr</span><span class="p">(</span><span class="n">Clend</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Werr</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">avgap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clwdth</span><span class="o">/</span><span class="kt">REAL</span><span class="p">(</span><span class="n">Clend</span><span class="o">-</span><span class="n">Clstrt</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">mingap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">Clgapl</span><span class="p">,</span><span class="n">Clgapr</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     Initial values for shifts to both ends of cluster</span>
+<span class="w">      </span><span class="n">lsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">),</span><span class="n">W</span><span class="p">(</span><span class="n">Clend</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Werr</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">),</span><span class="n">W</span><span class="p">(</span><span class="n">Clend</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Werr</span><span class="p">(</span><span class="n">Clend</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!     Use a small fudge to make sure that we really shift to the outside</span>
+<span class="w">      </span><span class="n">lsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lsigma</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">lsigma</span><span class="p">)</span><span class="o">*</span><span class="n">TWO</span><span class="o">*</span><span class="n">eps</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rsigma</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">rsigma</span><span class="p">)</span><span class="o">*</span><span class="n">TWO</span><span class="o">*</span><span class="n">eps</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!     Compute upper bounds for how much to back off the initial shifts</span>
+<span class="w">      </span><span class="n">ldmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QUART</span><span class="o">*</span><span class="n">mingap</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TWO</span><span class="o">*</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="w">      </span><span class="n">rdmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QUART</span><span class="o">*</span><span class="n">mingap</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TWO</span><span class="o">*</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">      </span><span class="n">ldelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">avgap</span><span class="p">,</span><span class="n">Wgap</span><span class="p">(</span><span class="n">Clstrt</span><span class="p">))</span><span class="o">/</span><span class="n">fact</span><span class="w"></span>
+<span class="w">      </span><span class="n">rdelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">avgap</span><span class="p">,</span><span class="n">Wgap</span><span class="p">(</span><span class="n">Clend</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">fact</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize the record of the best representation found</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">smlgrowth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">s</span><span class="w"></span>
+<span class="w">      </span><span class="n">fail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">mingap</span><span class="o">/</span><span class="p">(</span><span class="n">Spdiam</span><span class="o">*</span><span class="n">eps</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">fail2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">mingap</span><span class="o">/</span><span class="p">(</span><span class="n">Spdiam</span><span class="o">*</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">eps</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">bestshift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lsigma</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     while (KTRY &lt;= KTRYMAX)</span>
+<span class="w">      </span><span class="n">ktry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">growthbound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MAXGROWTH1</span><span class="o">*</span><span class="n">Spdiam</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="n">sawnan1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">sawnan2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!     Ensure that we do not back off too much of the initial shifts</span>
+<span class="w">      </span><span class="n">ldelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">ldmax</span><span class="p">,</span><span class="n">ldelta</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">rdelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">rdmax</span><span class="p">,</span><span class="n">rdelta</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!     Compute the element growth when shifting to both ends of the cluster</span>
+<span class="c">!     accept the shift if there is no element growth at one of the two ends</span>
+<span class="w"> </span>
+<span class="c">!     Left end</span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">lsigma</span><span class="w"></span>
+<span class="w">      </span><span class="n">Dplus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">&lt;</span><span class="n">Pivmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Dplus</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="c">!        Need to set SAWNAN1 because refined RRR test should not be used</span>
+<span class="c">!        in this case</span>
+<span class="w">         </span><span class="n">sawnan1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">max1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">Lplus</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ld</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">*</span><span class="n">Lplus</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lsigma</span><span class="w"></span>
+<span class="w">         </span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">&lt;</span><span class="n">Pivmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="c">!           Need to set SAWNAN1 because refined RRR test should not be used</span>
+<span class="c">!           in this case</span>
+<span class="w">            </span><span class="n">sawnan1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">max1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">max1</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span>
+<span class="k">      </span><span class="n">sawnan1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sawnan1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">SISNAN</span><span class="p">(</span><span class="n">max1</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">forcer</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">max1</span><span class="o">&lt;=</span><span class="n">growthbound</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lsigma</span><span class="w"></span>
+<span class="w">         </span><span class="n">shift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLEFT</span><span class="w"></span>
+<span class="w">         </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!     Right end</span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">rsigma</span><span class="w"></span>
+<span class="w">      </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">&lt;</span><span class="n">Pivmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="c">!        Need to set SAWNAN2 because refined RRR test should not be used</span>
+<span class="c">!        in this case</span>
+<span class="w">         </span><span class="n">sawnan2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">max2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ld</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rsigma</span><span class="w"></span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">&lt;</span><span class="n">Pivmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pivmin</span><span class="w"></span>
+<span class="c">!           Need to set SAWNAN2 because refined RRR test should not be used</span>
+<span class="c">!           in this case</span>
+<span class="w">            </span><span class="n">sawnan2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">max2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">max2</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span>
+<span class="k">      </span><span class="n">sawnan2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sawnan2</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">SISNAN</span><span class="p">(</span><span class="n">max2</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">forcer</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">max2</span><span class="o">&lt;=</span><span class="n">growthbound</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rsigma</span><span class="w"></span>
+<span class="w">         </span><span class="n">shift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SRIGHT</span><span class="w"></span>
+<span class="w">         </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!     If we are at this point, both shifts led to too much element growth</span>
+<span class="w"> </span>
+<span class="c">!     Record the better of the two shifts (provided it didn&#39;t lead to NaN)</span>
+<span class="c">!        both MAX1 and MAX2 are NaN</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sawnan1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">sawnan2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">200</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">indx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">max1</span><span class="o">&lt;=</span><span class="n">smlgrowth</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">smlgrowth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max1</span><span class="w"></span>
+<span class="w">            </span><span class="n">bestshift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lsigma</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sawnan1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">max2</span><span class="o">&lt;=</span><span class="n">max1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">indx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">max2</span><span class="o">&lt;=</span><span class="n">smlgrowth</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">smlgrowth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max2</span><span class="w"></span>
+<span class="w">            </span><span class="n">bestshift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rsigma</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!     If we are here, both the left and the right shift led to</span>
+<span class="c">!     element growth. If the element growth is moderate, then</span>
+<span class="c">!     we may still accept the representation, if it passes a</span>
+<span class="c">!     refined test for RRR. This test supposes that no NaN occurred.</span>
+<span class="c">!     Moreover, we use the refined RRR test only for isolated clusters.</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">clwdth</span><span class="o">&lt;</span><span class="n">mingap</span><span class="o">/</span><span class="kt">REAL</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="nb">MIN</span><span class="p">(</span><span class="n">max1</span><span class="p">,</span><span class="n">max2</span><span class="p">)</span><span class="o">&lt;</span><span class="n">fail2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan1</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">sawnan2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">dorrr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">dorrr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      </span><span class="n">tryrrr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tryrrr1</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">dorrr1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">indx</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">znm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="n">oldp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">prod</span><span class="o">&lt;=</span><span class="n">eps</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="p">)))&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="o">*</span><span class="n">oldp</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">oldp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="w"></span>
+<span class="w">               </span><span class="n">znm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">znm2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prod</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="w">               </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Dplus</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">prod</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">rrr1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">/</span><span class="p">(</span><span class="n">Spdiam</span><span class="o">*</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">znm2</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rrr1</span><span class="o">&lt;=</span><span class="n">MAXGROWTH2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lsigma</span><span class="w"></span>
+<span class="w">               </span><span class="n">shift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLEFT</span><span class="w"></span>
+<span class="w">               </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">indx</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">znm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="n">oldp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">prod</span><span class="o">&lt;=</span><span class="n">eps</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                  </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Lplus</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Lplus</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="o">*</span><span class="n">oldp</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span>
+<span class="k">                  </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="o">*</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Lplus</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">               </span><span class="n">oldp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="w"></span>
+<span class="w">               </span><span class="n">znm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">znm2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">prod</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="w">               </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">prod</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            </span><span class="n">rrr2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">/</span><span class="p">(</span><span class="n">Spdiam</span><span class="o">*</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">znm2</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rrr2</span><span class="o">&lt;=</span><span class="n">MAXGROWTH2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Sigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rsigma</span><span class="w"></span>
+<span class="w">               </span><span class="n">shift</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SRIGHT</span><span class="w"></span>
+<span class="w">               </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span>
+<span class="k"> </span>
+<span class="k"> </span>
+<span class="k"> </span><span class="mi">200</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ktry</span><span class="o">&lt;</span><span class="n">KTRYMAX</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!        If we are here, both shifts failed also the RRR test.</span>
+<span class="c">!        Back off to the outside</span>
+<span class="w">         </span><span class="n">lsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">lsigma</span><span class="o">-</span><span class="n">ldelta</span><span class="p">,</span><span class="n">lsigma</span><span class="o">-</span><span class="n">ldmax</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">rsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">rsigma</span><span class="o">+</span><span class="n">rdelta</span><span class="p">,</span><span class="n">rsigma</span><span class="o">+</span><span class="n">rdmax</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ldelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TWO</span><span class="o">*</span><span class="n">ldelta</span><span class="w"></span>
+<span class="w">         </span><span class="n">rdelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TWO</span><span class="o">*</span><span class="n">rdelta</span><span class="w"></span>
+<span class="w">         </span><span class="n">ktry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ktry</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="c">!        None of the representations investigated satisfied our</span>
+<span class="c">!        criteria. Take the best one we found.</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">smlgrowth</span><span class="o">&lt;</span><span class="n">fail</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">nofail</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">lsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bestshift</span><span class="w"></span>
+<span class="w">         </span><span class="n">rsigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bestshift</span><span class="w"></span>
+<span class="w">         </span><span class="n">forcer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="k">GOTO</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span>
+<span class="k"> </span>
+<span class="k"> </span><span class="mi">300</span><span class="w">  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">shift</span><span class="o">==</span><span class="n">SLEFT</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">shift</span><span class="o">==</span><span class="n">SRIGHT</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!        store new L and D back into DPLUS, LPLUS</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SCOPY</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Dplus</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SCOPY</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Lplus</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!</span>
+<span class="c">!     End of SLARRF</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">SLARRF</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1818 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>CHETF2_ROOK &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>CHETF2_ROOK
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">289 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/chetf2_rook.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/chetf2_rook.f90.html'>chetf2_rook.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">CHETF2_ROOK</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-cabs1~144">CABS1</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-eight~30">EIGHT</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-one~1087">ONE</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-sevten~25">SEVTEN</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-zero~1032">ZERO</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-absakk~25">absakk</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-alpha~90">alpha</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-colmax~25">colmax</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-d~57">d</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-d11~25">d11</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-d12~24">d12</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-d21~25">d21</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-d22~25">d22</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-done~24">done</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-i~1187">i</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-ii~77">ii</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-imax~96">imax</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-itemp~30">itemp</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-j~922">j</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-jmax~30">jmax</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-k~415">k</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-kk~106">kk</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-kp~77">kp</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-kstep~40">kstep</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-p~61">p</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-r1~24">r1</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-rowmax~25">rowmax</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-sfmin~50">sfmin</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-stemp~17">stemp</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-t~107">t</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-tt~11">tt</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-upper~418">upper</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-wk~23">wk</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-wkm1~21">wkm1</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-wkp1~21">wkp1</a>
+            <a class="list-group-item" href="../proc/chetf2_rook.html#variable-z~34">z</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/chetf2_rook.html#src">CHETF2_ROOK</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine CHETF2_ROOK(Uplo, N, A, Lda, Ipiv, Info)  
+</h2>
+    
+
+    <p>\brief \b CHETF2_ROOK computes the factorization of a complex Hermitian indefinite matrix using the bounded Bunch-Kaufman (&ldquo;rook&rdquo;) diagonal pivoting method (unblocked algorithm).
+ \htmlonly
+ Download CHETF2_ROOK + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/chetf2_rook.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/chetf2_rook.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/chetf2_rook.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>CHETF2_ROOK computes the factorization of a complex Hermitian matrix A
+ using the bounded Bunch-Kaufman (&ldquo;rook&rdquo;) diagonal pivoting method:</p>
+<div class="codehilite"><pre><span></span><code>A = U*D*U**H  or  A = L*D*L**H
+</code></pre></div>
+
+<p>where U (or L) is a product of permutation and unit upper (lower)
+ triangular matrices, U**H is the conjugate transpose of U, and D is
+ Hermitian and block diagonal with 1-by-1 and 2-by-2 diagonal blocks.</p>
+<p>This is the unblocked version of the algorithm, calling Level 2 BLAS.
+ \endverbatim
+ \param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+          Specifies whether the upper or lower triangular part of the
+          Hermitian matrix A is stored:
+          = &lsquo;U&rsquo;:  Upper triangular
+          = &lsquo;L&rsquo;:  Lower triangular
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is COMPLEX array, dimension (LDA,N)
+          On entry, the Hermitian matrix A.  If UPLO = &lsquo;U&rsquo;, the leading
+          n-by-n upper triangular part of A contains the upper
+          triangular part of the matrix A, and the strictly lower
+          triangular part of A is not referenced.  If UPLO = &lsquo;L&rsquo;, the
+          leading n-by-n lower triangular part of A contains the lower
+          triangular part of the matrix A, and the strictly upper
+          triangular part of A is not referenced.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">block</span> <span class="nv">diagonal</span> <span class="nv">matrix</span> <span class="nv">D</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">multipliers</span> <span class="nv">used</span>
+      <span class="nv">to</span> <span class="nv">obtain</span> <span class="nv">the</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">below</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] IPIV
+ \verbatim
+          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="k">If</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">U</span><span class="s1">&#39;</span>:
+         <span class="k">If</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="o">&gt;</span> <span class="mi">0</span>, <span class="k">then</span> <span class="nv">rows</span> <span class="nv">and</span> <span class="nv">columns</span> <span class="nv">k</span> <span class="nv">and</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="nv">were</span>
+         <span class="nv">interchanged</span> <span class="nv">and</span> <span class="nv">D</span><span class="ss">(</span><span class="nv">k</span>,<span class="nv">k</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">1</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="mi">1</span> <span class="nv">diagonal</span> <span class="nv">block</span>.
+
+         <span class="k">If</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span> <span class="o">&lt;</span> <span class="mi">0</span>, <span class="k">then</span> <span class="nv">rows</span> <span class="nv">and</span>
+         <span class="nv">columns</span> <span class="nv">k</span> <span class="nv">and</span> <span class="o">-</span><span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="nv">were</span> <span class="nv">interchanged</span> <span class="nv">and</span> <span class="nv">rows</span> <span class="nv">and</span>
+         <span class="nv">columns</span> <span class="nv">k</span><span class="o">-</span><span class="mi">1</span> <span class="nv">and</span> <span class="o">-</span><span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">were</span> <span class="nv">inerchaged</span>,
+         <span class="nv">D</span><span class="ss">(</span><span class="nv">k</span><span class="o">-</span><span class="mi">1</span>:<span class="nv">k</span>,<span class="nv">k</span><span class="o">-</span><span class="mi">1</span>:<span class="nv">k</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">2</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="mi">2</span> <span class="nv">diagonal</span> <span class="nv">block</span>.
+
+      <span class="k">If</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span>:
+         <span class="k">If</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="o">&gt;</span> <span class="mi">0</span>, <span class="k">then</span> <span class="nv">rows</span> <span class="nv">and</span> <span class="nv">columns</span> <span class="nv">k</span> <span class="nv">and</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span>
+         <span class="nv">were</span> <span class="nv">interchanged</span> <span class="nv">and</span> <span class="nv">D</span><span class="ss">(</span><span class="nv">k</span>,<span class="nv">k</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">1</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="mi">1</span> <span class="nv">diagonal</span> <span class="nv">block</span>.
+
+         <span class="k">If</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span> <span class="o">&lt;</span> <span class="mi">0</span>, <span class="k">then</span> <span class="nv">rows</span> <span class="nv">and</span>
+         <span class="nv">columns</span> <span class="nv">k</span> <span class="nv">and</span> <span class="o">-</span><span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="ss">)</span> <span class="nv">were</span> <span class="nv">interchanged</span> <span class="nv">and</span> <span class="nv">rows</span> <span class="nv">and</span>
+         <span class="nv">columns</span> <span class="nv">k</span><span class="o">+</span><span class="mi">1</span> <span class="nv">and</span> <span class="o">-</span><span class="nv">IPIV</span><span class="ss">(</span><span class="nv">k</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">were</span> <span class="nv">inerchaged</span>,
+         <span class="nv">D</span><span class="ss">(</span><span class="nv">k</span>:<span class="nv">k</span><span class="o">+</span><span class="mi">1</span>,<span class="nv">k</span>:<span class="nv">k</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">a</span> <span class="mi">2</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="mi">2</span> <span class="nv">diagonal</span> <span class="nv">block</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0: successful exit
+          &lt; 0: if INFO = -k, the k-th argument had an illegal value
+          &gt; 0: if INFO = k, D(k,k) is exactly zero.  The factorization
+               has been completed, but the block diagonal matrix D is
+               exactly singular, and division by zero will occur if it
+               is used to solve a system of equations.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date November 2013
+ \ingroup complexHEcomputational
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>If UPLO = &lsquo;U&rsquo;, then A = U<em>D</em>U<em><em>H, where
+     U = P(n)</em>U(n)</em> &hellip; <em>P(k)U(k)</em> &hellip;,
+  i.e., U is a product of terms P(k)*U(k), where k decreases from n to
+  1 in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1
+  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as
+  defined by IPIV(k), and U(k) is a unit upper triangular matrix, such
+  that if the diagonal block D(k) is of order s (s = 1 or 2), then</p>
+<div class="codehilite"><pre><span></span><code>         (   I    v    0   )   k-s
+ U(k) =  (   0    I    0   )   s
+         (   0    0    I   )   n-k
+            k-s   s   n-k
+</code></pre></div>
+
+<p>If s = 1, D(k) overwrites A(k,k), and v overwrites A(1:k-1,k).
+  If s = 2, the upper triangle of D(k) overwrites A(k-1,k-1), A(k-1,k),
+  and A(k,k), and v overwrites A(1:k-2,k-1:k).</p>
+<p>If UPLO = &lsquo;L&rsquo;, then A = L<em>D</em>L<em><em>H, where
+     L = P(1)</em>L(1)</em> &hellip; <em>P(k)</em>L(k)<em> &hellip;,
+  i.e., L is a product of terms P(k)</em>L(k), where k increases from 1 to
+  n in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1
+  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as
+  defined by IPIV(k), and L(k) is a unit lower triangular matrix, such
+  that if the diagonal block D(k) is of order s (s = 1 or 2), then</p>
+<div class="codehilite"><pre><span></span><code>         (   I    0     0   )  k-1
+ L(k) =  (   0    I     0   )  s
+         (   0    v     I   )  n-k-s+1
+            k-1   s  n-k-s+1
+</code></pre></div>
+
+<p>If s = 1, D(k) overwrites A(k,k), and v overwrites A(k+1:n,k).
+  If s = 2, the lower triangle of D(k) overwrites A(k,k), A(k+1,k),
+  and A(k+1,k+1), and v overwrites A(k+2:n,k:k+1).
+ \endverbatim
+ \par Contributors:</p>
+<p>\verbatim</p>
+<p>November 2013,  Igor Kozachenko,
+                  Computer Science Division,
+                  University of California, Berkeley</p>
+<p>September 2007, Sven Hammarling, Nicholas J. Higham, Craig Lucas,
+                  School of Mathematics,
+                  University of Manchester</p>
+<p>01-01-96 - Based on modifications by
+    J. Lewis, Boeing Computer Services Company
+    A. Petitet, Computer Science Dept., Univ. of Tenn., Knoxville, USA
+ \endverbatim
+&ndash;CHETF2_ROOK198</p>
+<p>&ndash; LAPACK computational routine (version 3.5.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     November 2013</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~726"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1618"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~1008"></span>
+              complex
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~971"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipiv~353"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipiv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~1255"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cabs1~144"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>CABS1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eight~30"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EIGHT</strong></td>
+<td> =</td>
+                <td>8.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~1087"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sevten~25"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>SEVTEN</strong></td>
+<td> =</td>
+                <td>17.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~1032"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absakk~25"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absakk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~90"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-colmax~25"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>colmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~57"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d11~25"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d11</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d12~24"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d12</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d21~25"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d21</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d22~25"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d22</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-done~24"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>done</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~1187"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ii~77"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ii</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imax~96"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itemp~30"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>itemp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~922"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmax~30"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~415"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kk~106"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kp~77"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kstep~40"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kstep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~61"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1~24"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rowmax~25"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rowmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sfmin~50"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sfmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stemp~17"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>stemp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~107"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tt~11"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~418"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~23"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wkm1~21"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wkm1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wkp1~21"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wkp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z~34"></span>
+              complex,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>z</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">CHETF2_ROOK</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--CHETF2_ROOK198</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.5.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     November 2013</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ipiv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  ======================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">EIGHT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SEVTEN</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">EIGHT</span><span class="o">=</span><span class="mf">8.0E+0</span><span class="p">,</span><span class="n">SEVTEN</span><span class="o">=</span><span class="mi">1</span><span class="mf">7.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">done</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">itemp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kstep</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">absakk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">colmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d11</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d22</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">stemp</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">rowmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sfmin</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX </span><span class="n">d12</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d21</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wkm1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wkp1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ICAMAX</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">SLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAPY2</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ICAMAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SLAPY2</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">XERBLA</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CSSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CHER</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CSWAP</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">AIMAG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">CMPLX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">CONJG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">REAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SQRT</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Statement Functions ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">CABS1</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Statement Function definitions ..</span>
+<span class="w">      </span><span class="n">CABS1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="nb">AIMAG</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;CHETF2_ROOK&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize ALPHA for use in choosing pivot block size.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">+</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">SEVTEN</span><span class="p">))</span><span class="o">/</span><span class="n">EIGHT</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute machine safe minimum</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">sfmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAMCH</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Factorize A as U*D*U**H using the upper triangle of A</span>
+<span class="c">!</span>
+<span class="c">!        K is the main loop index, decreasing from N to 1 in steps of</span>
+<span class="c">!        1 or 2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        If K &lt; 1, exit from loop</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO WHILE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Determine rows and columns to be interchanged and whether</span>
+<span class="c">!        a 1-by-1 or 2-by-2 pivot block will be used</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">absakk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        IMAX is the row-index of the largest off-diagonal element in</span>
+<span class="c">!        column K, and COLMAX is its absolute value.</span>
+<span class="c">!        Determine both COLMAX and IMAX.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="n">absakk</span><span class="p">,</span><span class="n">colmax</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Column K is zero or underflow: set INFO and continue</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           ============================================================</span>
+<span class="c">!</span>
+<span class="c">!           BEGIN pivot search</span>
+<span class="c">!</span>
+<span class="c">!           Case(1)</span>
+<span class="c">!           Equivalent to testing for ABSAKK.GE.ALPHA*COLMAX</span>
+<span class="c">!           (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Loop until pivot found</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 BEGIN pivot search loop body</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 JMAX is the column-index of the largest off-diagonal</span>
+<span class="c">!                 element in row IMAX, and ROWMAX is its absolute value.</span>
+<span class="c">!                 Determine both ROWMAX and JMAX.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">imax</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">jmax</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ELSE</span>
+<span class="k">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">itemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">stemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">itemp</span><span class="p">,</span><span class="n">imax</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">stemp</span><span class="o">&gt;</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                           </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stemp</span><span class="w"></span>
+<span class="w">                           </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itemp</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDIF</span>
+<span class="k">                     ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(2)</span>
+<span class="c">!                 Equivalent to testing for</span>
+<span class="c">!                 ABS( REAL( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX</span>
+<span class="c">!                 (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">imax</span><span class="p">)))</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    interchange rows and columns K and IMAX,</span>
+<span class="c">!                    use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(3)</span>
+<span class="c">!                 Equivalent to testing for ROWMAX.EQ.COLMAX,</span>
+<span class="c">!                 (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="n">jmax</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">rowmax</span><span class="o">&lt;=</span><span class="n">colmax</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    interchange rows and columns K-1 and IMAX,</span>
+<span class="c">!                    use 2-by-2 pivot block</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                        </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(4)</span>
+<span class="w">                     </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Pivot not found: set params and repeat</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rowmax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 END pivot search loop body</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span>
+<span class="k">                  ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           END pivot search</span>
+<span class="c">!</span>
+<span class="c">!           ============================================================</span>
+<span class="c">!</span>
+<span class="c">!           KK is the column of A where pivoting step stopped</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kstep</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For only a 2x2 pivot, interchange rows and columns K and P</span>
+<span class="c">!           in the leading submatrix A(1:k,1:k)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">/=</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!              (1) Swap columnar parts</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">p</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CSWAP</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!              (2) Swap and conjugate middle parts</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!              (3) Swap and conjugate corner elements at row-col interserction</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="c">!              (4) Swap diagonal elements at row-col intersection</span>
+<span class="w">                  </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For both 1x1 and 2x2 pivots, interchange rows and</span>
+<span class="c">!           columns KK and KP in the leading submatrix A(1:k,1:k)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">/=</span><span class="n">kk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!              (1) Swap columnar parts</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CSWAP</span><span class="p">(</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kk</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!              (2) Swap and conjugate middle parts</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!              (3) Swap and conjugate corner elements at row-col interserction</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="c">!              (4) Swap diagonal elements at row-col intersection</span>
+<span class="w">                  </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kk</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kk</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kp</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kp</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!                 (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="c">!                 (5) Swap row elements</span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ELSE</span><span class="w"></span>
+<span class="c">!              (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Update the leading submatrix</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              1-by-1 pivot block D(k): column k now holds</span>
+<span class="c">!</span>
+<span class="c">!              W(k) = U(k)*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where U(k) is the k-th column of U</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Perform a rank-1 update of A(1:k-1,1:k-1) and</span>
+<span class="c">!                 store U(k) in column k</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="o">&gt;=</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-1 update of A(1:k-1,1:k-1) as</span>
+<span class="c">!                    A := A - U(k)*D(k)*U(k)**T</span>
+<span class="c">!                       = A - W(k)*1/D(k)*W(k)**T</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CHER</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store U(k) in column k</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CSSCAL</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store L(k) in column K</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">DO </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                           </span><span class="n">A</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d11</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-1 update of A(k+1:n,k+1:n) as</span>
+<span class="c">!                    A := A - U(k)*D(k)*U(k)**T</span>
+<span class="c">!                       = A - W(k)*(1/D(k))*W(k)**T</span>
+<span class="c">!                       = A - (W(k)/D(k))*(D(k))*(W(k)/D(K))**T</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CHER</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                  ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!              2-by-2 pivot block D(k): columns k and k-1 now hold</span>
+<span class="c">!</span>
+<span class="c">!              ( W(k-1) W(k) ) = ( U(k-1) U(k) )*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where U(k) and U(k-1) are the k-th and (k-1)-th columns</span>
+<span class="c">!              of U</span>
+<span class="c">!</span>
+<span class="c">!              Perform a rank-2 update of A(1:k-2,1:k-2) as</span>
+<span class="c">!</span>
+<span class="c">!              A := A - ( U(k-1) U(k) )*D(k)*( U(k-1) U(k) )**T</span>
+<span class="c">!                 = A - ( ( A(k-1)A(k) )*inv(D(k)) ) * ( A(k-1)A(k) )**T</span>
+<span class="c">!</span>
+<span class="c">!              and store L(k) and L(k+1) in columns k and k+1</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!                 D = |A12|</span>
+<span class="w">                  </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAPY2</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)),</span><span class="nb">AIMAG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d22</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">ONE</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Compute  D21 * ( W(k)W(k+1) ) * inv(D(k)) for row J</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">wkm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tt</span><span class="o">*</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">d12</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tt</span><span class="o">*</span><span class="p">(</span><span class="n">d22</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">d12</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-2 update of A(1:k-2,1:k-2)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">                        </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">wk</span><span class="p">)</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">wkm1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store U(k) and U(k-1) in cols k and k-1 for row J</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wk</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wkm1</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="c">!                    (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CMPLX</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)),</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Store details of the interchanges in IPIV</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"></span>
+<span class="w">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Decrease K and return to the start of the main loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kstep</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Factorize A as L*D*L**H using the lower triangle of A</span>
+<span class="c">!</span>
+<span class="c">!        K is the main loop index, increasing from 1 to N in steps of</span>
+<span class="c">!        1 or 2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        If K &gt; N, exit from loop</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO WHILE</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;=</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Determine rows and columns to be interchanged and whether</span>
+<span class="c">!        a 1-by-1 or 2-by-2 pivot block will be used</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">absakk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        IMAX is the row-index of the largest off-diagonal element in</span>
+<span class="c">!        column K, and COLMAX is its absolute value.</span>
+<span class="c">!        Determine both COLMAX and IMAX.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">absakk</span><span class="p">,</span><span class="n">colmax</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Column K is zero or underflow: set INFO and continue</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           ============================================================</span>
+<span class="c">!</span>
+<span class="c">!           BEGIN pivot search</span>
+<span class="c">!</span>
+<span class="c">!           Case(1)</span>
+<span class="c">!           Equivalent to testing for ABSAKK.GE.ALPHA*COLMAX</span>
+<span class="c">!           (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Loop until pivot found</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 BEGIN pivot search loop body</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 JMAX is the column-index of the largest off-diagonal</span>
+<span class="c">!                 element in row IMAX, and ROWMAX is its absolute value.</span>
+<span class="c">!                 Determine both ROWMAX and JMAX.</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">imax</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">jmax</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ELSE</span>
+<span class="k">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">itemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ICAMAX</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">imax</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">imax</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">stemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CABS1</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">itemp</span><span class="p">,</span><span class="n">imax</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">stemp</span><span class="o">&gt;</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                           </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stemp</span><span class="w"></span>
+<span class="w">                           </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">itemp</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDIF</span>
+<span class="k">                     ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(2)</span>
+<span class="c">!                 Equivalent to testing for</span>
+<span class="c">!                 ABS( REAL( W( IMAX,KW-1 ) ) ).GE.ALPHA*ROWMAX</span>
+<span class="c">!                 (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">imax</span><span class="p">)))</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    interchange rows and columns K and IMAX,</span>
+<span class="c">!                    use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(3)</span>
+<span class="c">!                 Equivalent to testing for ROWMAX.EQ.COLMAX,</span>
+<span class="c">!                 (used to handle NaN and Inf)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="n">jmax</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">rowmax</span><span class="o">&lt;=</span><span class="n">colmax</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    interchange rows and columns K+1 and IMAX,</span>
+<span class="c">!                    use 2-by-2 pivot block</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                        </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Case(4)</span>
+<span class="w">                     </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Pivot not found: set params and repeat</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rowmax</span><span class="w"></span>
+<span class="w">                        </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!                 END pivot search loop body</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span>
+<span class="k">                  ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           END pivot search</span>
+<span class="c">!</span>
+<span class="c">!           ============================================================</span>
+<span class="c">!</span>
+<span class="c">!           KK is the column of A where pivoting step stopped</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kstep</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For only a 2x2 pivot, interchange rows and columns K and P</span>
+<span class="c">!           in the trailing submatrix A(k:n,k:n)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="o">/=</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!              (1) Swap columnar parts</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">p</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CSWAP</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">p</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!              (2) Swap and conjugate middle parts</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!              (3) Swap and conjugate corner elements at row-col interserction</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="c">!              (4) Swap diagonal elements at row-col intersection</span>
+<span class="w">                  </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           For both 1x1 and 2x2 pivots, interchange rows and</span>
+<span class="c">!           columns KK and KP in the trailing submatrix A(k:n,k:n)</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">/=</span><span class="n">kk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!              (1) Swap columnar parts</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">CSWAP</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">kp</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">kk</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!              (2) Swap and conjugate middle parts</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!              (3) Swap and conjugate corner elements at row-col interserction</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CONJG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="c">!              (4) Swap diagonal elements at row-col intersection</span>
+<span class="w">                  </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kk</span><span class="p">,</span><span class="n">kk</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kk</span><span class="p">,</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kp</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">kp</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!                 (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="c">!                 (5) Swap row elements</span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ELSE</span><span class="w"></span>
+<span class="c">!              (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                  </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Update the trailing submatrix</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              1-by-1 pivot block D(k): column k of A now holds</span>
+<span class="c">!</span>
+<span class="c">!              W(k) = L(k)*D(k),</span>
+<span class="c">!</span>
+<span class="c">!              where L(k) is the k-th column of L</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Perform a rank-1 update of A(k+1:n,k+1:n) and</span>
+<span class="c">!                 store L(k) in column k</span>
+<span class="c">!</span>
+<span class="c">!                 Handle division by a small number</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="o">&gt;=</span><span class="n">sfmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-1 update of A(k+1:n,k+1:n) as</span>
+<span class="c">!                    A := A - L(k)*D(k)*L(k)**T</span>
+<span class="c">!                       = A - W(k)*(1/D(k))*W(k)**T</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CHER</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="o">-</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                            </span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store L(k) in column k</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CSSCAL</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store L(k) in column k</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="k">DO </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                           </span><span class="n">A</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d11</span><span class="w"></span>
+<span class="w">                        </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-1 update of A(k+1:n,k+1:n) as</span>
+<span class="c">!                    A := A - L(k)*D(k)*L(k)**T</span>
+<span class="c">!                       = A - W(k)*(1/D(k))*W(k)**T</span>
+<span class="c">!                       = A - (W(k)/D(k))*(D(k))*(W(k)/D(K))**T</span>
+<span class="c">!</span>
+<span class="w">                        </span><span class="k">CALL </span><span class="n">CHER</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="o">-</span><span class="n">d11</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                            </span><span class="n">Lda</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                  ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!              2-by-2 pivot block D(k): columns k and k+1 now hold</span>
+<span class="c">!</span>
+<span class="c">!              ( W(k) W(k+1) ) = ( L(k) L(k+1) )*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where L(k) and L(k+1) are the k-th and (k+1)-th columns</span>
+<span class="c">!              of L</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!              Perform a rank-2 update of A(k+2:n,k+2:n) as</span>
+<span class="c">!</span>
+<span class="c">!              A := A - ( L(k) L(k+1) ) * D(k) * ( L(k) L(k+1) )**T</span>
+<span class="c">!                 = A - ( ( A(k)A(k+1) )*inv(D(k) ) * ( A(k)A(k+1) )**T</span>
+<span class="c">!</span>
+<span class="c">!              and store L(k) and L(k+1) in columns k and k+1</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!                 D = |A21|</span>
+<span class="w">                  </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SLAPY2</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)),</span><span class="nb">AIMAG</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d22</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d21</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                  </span><span class="n">tt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">ONE</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Compute  D21 * ( W(k)W(k+1) ) * inv(D(k)) for row J</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">wk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tt</span><span class="o">*</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">d21</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wkp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tt</span><span class="o">*</span><span class="p">(</span><span class="n">d22</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">d21</span><span class="p">)</span><span class="o">*</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Perform a rank-2 update of A(k+2:n,k+2:n)</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">wk</span><span class="p">)</span><span class="w">          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                           </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="nb">CONJG</span><span class="p">(</span><span class="n">wkp1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                    Store L(k) and L(k+1) in cols k and k+1 for row J</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wk</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wkp1</span><span class="o">/</span><span class="n">d</span><span class="w"></span>
+<span class="c">!                    (*) Make sure that diagonal element of pivot is real</span>
+<span class="w">                     </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">CMPLX</span><span class="p">(</span><span class="kt">REAL</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">)),</span><span class="n">ZERO</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Store details of the interchanges in IPIV</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"></span>
+<span class="w">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Increase K and return to the start of the main loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kstep</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of CHETF2_ROOK</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">CHETF2_ROOK</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

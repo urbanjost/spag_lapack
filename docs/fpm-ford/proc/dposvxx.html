@@ -1,0 +1,1462 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DPOSVXX &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DPOSVXX
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">94 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dposvxx.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dposvxx.f90.html'>dposvxx.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DPOSVXX</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-one~718">ONE</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-zero~694">ZERO</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-amax~33">amax</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-bignum~154">bignum</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-equil~20">equil</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-infequ~20">infequ</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-j~601">j</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-nofact~31">nofact</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-rcequ~20">rcequ</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-scond~12">scond</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-smax~20">smax</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-smin~40">smin</a>
+            <a class="list-group-item" href="../proc/dposvxx.html#variable-smlnum~182">smlnum</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dposvxx.html#src">DPOSVXX</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DPOSVXX(Fact, Uplo, N, Nrhs, A, Lda, Af, Ldaf, Equed, S, B, Ldb, X, Ldx, Rcond, Rpvgrw, Berr, N_err_bnds, Err_bnds_norm, Err_bnds_comp, Nparams, Params, Work, Iwork, Info)  
+</h2>
+    
+
+    <p>\brief <b> DPOSVXX computes the solution to system of linear equations A * X = B for PO matrices</b>
+ \htmlonly
+ Download DPOSVXX + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dposvxx.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dposvxx.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dposvxx.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">DPOSVXX</span> <span class="nv">uses</span> <span class="nv">the</span> <span class="nv">Cholesky</span> <span class="nv">factorization</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">U</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span><span class="nv">U</span> <span class="nv">or</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">L</span><span class="o">*</span><span class="nv">L</span><span class="o">**</span><span class="nv">T</span>
+<span class="nv">to</span> <span class="nv">compute</span> <span class="nv">the</span> <span class="nv">solution</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">double</span> <span class="nv">precision</span> <span class="nv">system</span> <span class="nv">of</span> <span class="nv">linear</span> <span class="nv">equations</span>
+<span class="nv">A</span> <span class="o">*</span> <span class="nv">X</span> <span class="o">=</span> <span class="nv">B</span>, <span class="nv">where</span> <span class="nv">A</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">N</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="nv">N</span> <span class="nv">symmetric</span> <span class="nv">positive</span> <span class="nv">definite</span> <span class="nv">matrix</span>
+<span class="nv">and</span> <span class="nv">X</span> <span class="nv">and</span> <span class="nv">B</span> <span class="nv">are</span> <span class="nv">N</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="nv">NRHS</span> <span class="nv">matrices</span>.
+
+<span class="k">If</span> <span class="nv">requested</span>, <span class="nv">both</span> <span class="nv">normwise</span> <span class="nv">and</span> <span class="nv">maximum</span> <span class="nv">componentwise</span> <span class="nv">error</span> <span class="nv">bounds</span>
+<span class="nv">are</span> <span class="nv">returned</span>. <span class="nv">DPOSVXX</span> <span class="nv">will</span> <span class="k">return</span> <span class="nv">a</span> <span class="nv">solution</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">tiny</span>
+<span class="nv">guaranteed</span> <span class="nv">error</span> <span class="ss">(</span><span class="nv">O</span><span class="ss">(</span><span class="nv">eps</span><span class="ss">)</span> <span class="nv">where</span> <span class="nv">eps</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">working</span> <span class="nv">machine</span>
+<span class="nv">precision</span><span class="ss">)</span> <span class="nv">unless</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">is</span> <span class="nv">very</span> <span class="nv">ill</span><span class="o">-</span><span class="nv">conditioned</span>, <span class="nv">in</span> <span class="nv">which</span>
+<span class="nv">case</span> <span class="nv">a</span> <span class="nv">warning</span> <span class="nv">is</span> <span class="nv">returned</span>. <span class="nv">Relevant</span> <span class="nv">condition</span> <span class="nv">numbers</span> <span class="nv">also</span> <span class="nv">are</span>
+<span class="nv">calculated</span> <span class="nv">and</span> <span class="nv">returned</span>.
+
+<span class="nv">DPOSVXX</span> <span class="nv">accepts</span> <span class="nv">user</span><span class="o">-</span><span class="nv">provided</span> <span class="nv">factorizations</span> <span class="nv">and</span> <span class="nv">equilibration</span>
+<span class="nv">factors</span><span class="c1">; see the definitions of the FACT and EQUED options.</span>
+<span class="nv">Solving</span> <span class="nv">with</span> <span class="nv">refinement</span> <span class="nv">and</span> <span class="nv">using</span> <span class="nv">a</span> <span class="nv">factorization</span> <span class="nv">from</span> <span class="nv">a</span> <span class="nv">previous</span>
+<span class="nv">DPOSVXX</span> <span class="k">call</span> <span class="nl">will</span> <span class="nv">also</span> <span class="nv">produce</span> <span class="nv">a</span> <span class="nv">solution</span> <span class="nv">with</span> <span class="nv">either</span> <span class="nv">O</span><span class="ss">(</span><span class="nv">eps</span><span class="ss">)</span>
+<span class="nv">errors</span> <span class="nv">or</span> <span class="nv">warnings</span>, <span class="nv">but</span> <span class="nv">we</span> <span class="nv">cannot</span> <span class="nv">make</span> <span class="nv">that</span> <span class="nv">claim</span> <span class="k">for</span> <span class="nv">general</span>
+<span class="nv">user</span><span class="o">-</span><span class="nv">provided</span> <span class="nv">factorizations</span> <span class="nv">and</span> <span class="nv">equilibration</span> <span class="nv">factors</span> <span class="k">if</span> <span class="nv">they</span>
+<span class="nv">differ</span> <span class="nv">from</span> <span class="nv">what</span> <span class="nv">DPOSVXX</span> <span class="nv">would</span> <span class="nv">itself</span> <span class="nv">produce</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \par Description:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">The</span> <span class="nv">following</span> <span class="nv">steps</span> <span class="nv">are</span> <span class="nv">performed</span>:
+
+<span class="mi">1</span>. <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">E</span><span class="s1">&#39;</span>, <span class="nv">double</span> <span class="nv">precision</span> <span class="nv">scaling</span> <span class="nv">factors</span> <span class="nv">are</span> <span class="nv">computed</span> <span class="nv">to</span> <span class="nv">equilibrate</span>
+<span class="nv">the</span> <span class="nv">system</span>:
+
+  <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span><span class="o">*</span><span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span>     <span class="o">*</span><span class="nv">inv</span><span class="ss">(</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">))</span><span class="o">*</span><span class="nv">X</span> <span class="o">=</span> <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span><span class="o">*</span><span class="nv">B</span>
+
+<span class="nv">Whether</span> <span class="nv">or</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">equilibrated</span> <span class="nv">depends</span> <span class="nv">on</span> <span class="nv">the</span>
+<span class="nv">scaling</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">A</span>, <span class="nv">but</span> <span class="k">if</span> <span class="nv">equilibration</span> <span class="nv">is</span> <span class="nv">used</span>, <span class="nv">A</span> <span class="nv">is</span>
+<span class="nv">overwritten</span> <span class="nv">by</span> <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span><span class="o">*</span><span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">B</span> <span class="nv">by</span> <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span><span class="o">*</span><span class="nv">B</span>.
+
+<span class="mi">2</span>. <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span> <span class="nv">or</span> <span class="s1">&#39;</span><span class="s">E</span><span class="s1">&#39;</span>, <span class="nv">the</span> <span class="nv">Cholesky</span> <span class="nv">decomposition</span> <span class="nv">is</span> <span class="nv">used</span> <span class="nv">to</span>
+<span class="nv">factor</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">A</span> <span class="ss">(</span><span class="nv">after</span> <span class="nv">equilibration</span> <span class="k">if</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">E</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">as</span>
+   <span class="nv">A</span> <span class="o">=</span> <span class="nv">U</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span> <span class="nv">U</span>,  <span class="k">if</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">U</span><span class="s1">&#39;</span>, <span class="nv">or</span>
+   <span class="nv">A</span> <span class="o">=</span> <span class="nv">L</span> <span class="o">*</span> <span class="nv">L</span><span class="o">**</span><span class="nv">T</span>,  <span class="k">if</span> <span class="nv">UPLO</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">L</span><span class="s1">&#39;</span>,
+<span class="nv">where</span> <span class="nv">U</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">upper</span> <span class="nv">triangular</span> <span class="nv">matrix</span> <span class="nv">and</span> <span class="nv">L</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">lower</span> <span class="nv">triangular</span>
+<span class="nv">matrix</span>.
+
+<span class="mi">3</span>. <span class="k">If</span> <span class="nv">the</span> <span class="nv">leading</span> <span class="nv">i</span><span class="o">-</span><span class="nv">by</span><span class="o">-</span><span class="nv">i</span> <span class="nv">principal</span> <span class="nv">minor</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">positive</span> <span class="nv">definite</span>,
+<span class="k">then</span> <span class="nv">the</span> <span class="nv">routine</span> <span class="nv">returns</span> <span class="nv">with</span> <span class="nv">INFO</span> <span class="o">=</span> <span class="nv">i</span>. <span class="nv">Otherwise</span>, <span class="nv">the</span> <span class="nv">factored</span>
+<span class="nv">form</span> <span class="nv">of</span> <span class="nv">A</span> <span class="nv">is</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">estimate</span> <span class="nv">the</span> <span class="nv">condition</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">matrix</span>
+<span class="nv">A</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">argument</span> <span class="nv">RCOND</span><span class="ss">)</span>.  <span class="k">If</span> <span class="nv">the</span> <span class="nv">reciprocal</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">condition</span> <span class="nv">number</span>
+<span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="nv">machine</span> <span class="nv">precision</span>, <span class="nv">the</span> <span class="nv">routine</span> <span class="nv">still</span> <span class="nv">goes</span> <span class="nv">on</span> <span class="nv">to</span> <span class="nv">solve</span>
+<span class="k">for</span> <span class="nv">X</span> <span class="nv">and</span> <span class="nv">compute</span> <span class="nv">error</span> <span class="nv">bounds</span> <span class="nv">as</span> <span class="nv">described</span> <span class="nv">below</span>.
+
+<span class="mi">4</span>. <span class="nv">The</span> <span class="nv">system</span> <span class="nv">of</span> <span class="nv">equations</span> <span class="nv">is</span> <span class="nv">solved</span> <span class="k">for</span> <span class="nv">X</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">factored</span> <span class="nv">form</span>
+<span class="nv">of</span> <span class="nv">A</span>.
+
+<span class="mi">5</span>. <span class="nv">By</span> <span class="nv">default</span> <span class="ss">(</span><span class="nv">unless</span> <span class="nb">PARAMS</span><span class="ss">(</span><span class="nv">LA_LINRX_ITREF_I</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">set</span> <span class="nv">to</span> <span class="nv">zero</span><span class="ss">)</span>,
+<span class="nv">the</span> <span class="nv">routine</span> <span class="nv">will</span> <span class="nv">use</span> <span class="nv">iterative</span> <span class="nv">refinement</span> <span class="nv">to</span> <span class="nv">try</span> <span class="nv">to</span> <span class="nv">get</span> <span class="nv">a</span> <span class="nv">small</span>
+<span class="nv">error</span> <span class="nv">and</span> <span class="nv">error</span> <span class="nv">bounds</span>.  <span class="nv">Refinement</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">residual</span> <span class="nv">to</span> <span class="nv">at</span>
+<span class="nv">least</span> <span class="nv">twice</span> <span class="nv">the</span> <span class="nv">working</span> <span class="nv">precision</span>.
+
+<span class="mi">6</span>. <span class="k">If</span> <span class="nv">equilibration</span> <span class="nv">was</span> <span class="nv">used</span>, <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">X</span> <span class="nv">is</span> <span class="nv">premultiplied</span> <span class="nv">by</span>
+<span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">so</span> <span class="nv">that</span> <span class="nv">it</span> <span class="nv">solves</span> <span class="nv">the</span> <span class="nv">original</span> <span class="nv">system</span> <span class="nv">before</span>
+<span class="nv">equilibration</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \verbatim
+     Some optional parameters are bundled in the PARAMS array.  These
+     settings determine how refinement is performed, but often the
+     defaults are acceptable.  If the defaults are acceptable, users
+     can pass NPARAMS = 0 which prevents the source code from accessing
+     the PARAMS argument.
+ \endverbatim</p>
+<p>\param[in] FACT
+ \verbatim
+          FACT is CHARACTER*1
+     Specifies whether or not the factored form of the matrix A is
+     supplied on entry, and if not, whether the matrix A should be
+     equilibrated before it is factored.
+       = &lsquo;F&rsquo;:  On entry, AF contains the factored form of A.
+               If EQUED is not &lsquo;N&rsquo;, the matrix A has been
+               equilibrated with scaling factors given by S.
+               A and AF are not modified.
+       = &lsquo;N&rsquo;:  The matrix A will be copied to AF and factored.
+       = &lsquo;E&rsquo;:  The matrix A will be equilibrated if necessary, then
+               copied to AF and factored.
+ \endverbatim</p>
+<p>\param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+       = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+       = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+     The number of linear equations, i.e., the order of the
+     matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] NRHS
+ \verbatim
+          NRHS is INTEGER
+     The number of right hand sides, i.e., the number of columns
+     of the matrices B and X.  NRHS &gt;= 0.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is DOUBLE PRECISION array, dimension (LDA,N)
+     On entry, the symmetric matrix A, except if FACT = &lsquo;F&rsquo; and EQUED =
+     &lsquo;Y&rsquo;, then A must contain the equilibrated matrix
+     diag(S)<em>A</em>diag(S).  If UPLO = &lsquo;U&rsquo;, the leading N-by-N upper
+     triangular part of A contains the upper triangular part of the
+     matrix A, and the strictly lower triangular part of A is not
+     referenced.  If UPLO = &lsquo;L&rsquo;, the leading N-by-N lower triangular
+     part of A contains the lower triangular part of the matrix A, and
+     the strictly upper triangular part of A is not referenced.  A is
+     not modified if FACT = &lsquo;F&rsquo; or &lsquo;N&rsquo;, or if FACT = &lsquo;E&rsquo; and EQUED =
+     &lsquo;N&rsquo; on exit.</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">On</span> <span class="k">exit</span>, <span class="k">if</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">E</span><span class="s1">&#39;</span> <span class="nv">and</span> <span class="nv">EQUED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">Y</span><span class="s1">&#39;</span>, <span class="nv">A</span> <span class="nv">is</span> <span class="nv">overwritten</span> <span class="nv">by</span>
+ <span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span><span class="o">*</span><span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">S</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+     The leading dimension of the array A.  LDA &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] AF
+ \verbatim
+          AF is DOUBLE PRECISION array, dimension (LDAF,N)
+     If FACT = &lsquo;F&rsquo;, then AF is an input argument and on entry
+     contains the triangular factor U or L from the Cholesky
+     factorization A = U<strong>T<em>U or A = L</em>L</strong>T, in the same storage
+     format as A.  If EQUED .ne. &lsquo;N&rsquo;, then AF is the factored
+     form of the equilibrated matrix diag(S)<em>A</em>diag(S).</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">N</span><span class="s1">&#39;</span>, <span class="k">then</span> <span class="nv">AF</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">output</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">on</span> <span class="k">exit</span>
+ <span class="nv">returns</span> <span class="nv">the</span> <span class="nv">triangular</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">Cholesky</span>
+ <span class="nv">factorization</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">U</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span><span class="nv">U</span> <span class="nv">or</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">L</span><span class="o">*</span><span class="nv">L</span><span class="o">**</span><span class="nv">T</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">original</span>
+ <span class="nv">matrix</span> <span class="nv">A</span>.
+
+ <span class="k">If</span> <span class="nv">FACT</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">E</span><span class="s1">&#39;</span>, <span class="k">then</span> <span class="nv">AF</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">output</span> <span class="nv">argument</span> <span class="nv">and</span> <span class="nv">on</span> <span class="k">exit</span>
+ <span class="nv">returns</span> <span class="nv">the</span> <span class="nv">triangular</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">Cholesky</span>
+ <span class="nv">factorization</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">U</span><span class="o">**</span><span class="nv">T</span><span class="o">*</span><span class="nv">U</span> <span class="nv">or</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">L</span><span class="o">*</span><span class="nv">L</span><span class="o">**</span><span class="nv">T</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">equilibrated</span>
+ <span class="nv">matrix</span> <span class="nv">A</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">the</span> <span class="nv">description</span> <span class="nv">of</span> <span class="nv">A</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">form</span> <span class="nv">of</span> <span class="nv">the</span>
+ <span class="nv">equilibrated</span> <span class="nv">matrix</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDAF
+ \verbatim
+          LDAF is INTEGER
+     The leading dimension of the array AF.  LDAF &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[in,out] EQUED
+ \verbatim
+          EQUED is CHARACTER*1
+     Specifies the form of equilibration that was done.
+       = &lsquo;N&rsquo;:  No equilibration (always true if FACT = &lsquo;N&rsquo;).
+       = &lsquo;Y&rsquo;:  Both row and column equilibration, i.e., A has been
+               replaced by diag(S) * A * diag(S).
+     EQUED is an input argument if FACT = &lsquo;F&rsquo;; otherwise, it is an
+     output argument.
+ \endverbatim</p>
+<p>\param[in,out] S
+ \verbatim
+          S is DOUBLE PRECISION array, dimension (N)
+     The row scale factors for A.  If EQUED = &lsquo;Y&rsquo;, A is multiplied on
+     the left and right by diag(S).  S is an input argument if FACT =
+     &lsquo;F&rsquo;; otherwise, S is an output argument.  If FACT = &lsquo;F&rsquo; and EQUED
+     = &lsquo;Y&rsquo;, each element of S must be positive.  If S is output, each
+     element of S is a power of the radix. If S is input, each element
+     of S should be a power of the radix to ensure a reliable solution
+     and error estimates. Scaling by powers of the radix does not cause
+     rounding errors unless the result underflows or overflows.
+     Rounding errors during scaling lead to refining with a matrix that
+     is not equivalent to the input matrix, producing error estimates
+     that may not be reliable.
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is DOUBLE PRECISION array, dimension (LDB,NRHS)
+     On entry, the N-by-NRHS right hand side matrix B.
+     On exit,
+     if EQUED = &lsquo;N&rsquo;, B is not modified;
+     if EQUED = &lsquo;Y&rsquo;, B is overwritten by diag(S)*B;
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+     The leading dimension of the array B.  LDB &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] X
+ \verbatim
+          X is DOUBLE PRECISION array, dimension (LDX,NRHS)
+     If INFO = 0, the N-by-NRHS solution matrix X to the original
+     system of equations.  Note that A and B are modified on exit if
+     EQUED .ne. &lsquo;N&rsquo;, and the solution to the equilibrated system is
+     inv(diag(S))*X.
+ \endverbatim</p>
+<p>\param[in] LDX
+ \verbatim
+          LDX is INTEGER
+     The leading dimension of the array X.  LDX &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] RCOND
+ \verbatim
+          RCOND is DOUBLE PRECISION
+     Reciprocal scaled condition number.  This is an estimate of the
+     reciprocal Skeel condition number of the matrix A after
+     equilibration (if done).  If this is less than the machine
+     precision (in particular, if it is zero), the matrix is singular
+     to working precision.  Note that the error may still be small even
+     if this number is very small and the matrix appears ill-
+     conditioned.
+ \endverbatim</p>
+<p>\param[out] RPVGRW
+ \verbatim
+          RPVGRW is DOUBLE PRECISION
+     Reciprocal pivot growth.  On exit, this contains the reciprocal
+     pivot growth factor norm(A)/norm(U). The &ldquo;max absolute element&rdquo;
+     norm is used.  If this is much less than 1, then the stability of
+     the LU factorization of the (equilibrated) matrix A could be poor.
+     This also means that the solution X, estimated condition numbers,
+     and error bounds could be unreliable. If factorization fails with
+     0&lt;INFO&lt;=N, then this contains the reciprocal pivot growth factor
+     for the leading INFO columns of A.
+ \endverbatim</p>
+<p>\param[out] BERR
+ \verbatim
+          BERR is DOUBLE PRECISION array, dimension (NRHS)
+     Componentwise relative backward error.  This is the
+     componentwise relative backward error of each solution vector X(j)
+     (i.e., the smallest relative change in any element of A or B that
+     makes X(j) an exact solution).
+ \endverbatim</p>
+<p>\param[in] N_ERR_BNDS
+ \verbatim
+          N_ERR_BNDS is INTEGER
+     Number of error bounds to return for each right hand side
+     and each type (normwise or componentwise).  See ERR_BNDS_NORM and
+     ERR_BNDS_COMP below.
+ \endverbatim</p>
+<p>\param[out] ERR_BNDS_NORM
+ \verbatim
+          ERR_BNDS_NORM is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+     For each right-hand side, this array contains information about
+     various error bounds and condition numbers corresponding to the
+     normwise relative error, which is defined as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">Normwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">ith</span> <span class="nv">solution</span> <span class="nv">vector</span>:
+         <span class="nv">max_j</span> <span class="ss">(</span><span class="nv">abs</span><span class="ss">(</span><span class="nv">XTRUE</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)</span> <span class="o">-</span> <span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)))</span>
+        <span class="o">------------------------------</span>
+              <span class="nv">max_j</span> <span class="nv">abs</span><span class="ss">(</span><span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+
+ <span class="nv">The</span> <span class="nv">array</span> <span class="nv">is</span> <span class="nv">indexed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">type</span> <span class="nv">of</span> <span class="nv">error</span> <span class="nv">information</span> <span class="nv">as</span> <span class="nv">described</span>
+ <span class="nv">below</span>. <span class="nv">There</span> <span class="nv">currently</span> <span class="nv">are</span> <span class="nv">up</span> <span class="nv">to</span> <span class="nv">three</span> <span class="nv">pieces</span> <span class="nv">of</span> <span class="nv">information</span>
+ <span class="nv">returned</span>.
+
+ <span class="nv">The</span> <span class="nv">first</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_NORM</span><span class="ss">(</span><span class="nv">i</span>,:<span class="ss">)</span> <span class="nv">corresponds</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">ith</span>
+ <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>.
+
+ <span class="nv">The</span> <span class="nv">second</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_NORM</span><span class="ss">(</span>:,<span class="nv">err</span><span class="ss">)</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">following</span>
+ <span class="nv">three</span> <span class="nv">fields</span>:
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">1</span> <span class="s2">&quot;</span><span class="s">Trust/don&#39;t trust</span><span class="s2">&quot;</span> <span class="nv">boolean</span>. <span class="nv">Trust</span> <span class="nv">the</span> <span class="nv">answer</span> <span class="k">if</span> <span class="nv">the</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">2</span> <span class="s2">&quot;</span><span class="s">Guaranteed</span><span class="s2">&quot;</span> <span class="nv">error</span> <span class="nv">bound</span>: <span class="nv">The</span> <span class="nv">estimated</span> <span class="nv">forward</span> <span class="nv">error</span>,
+          <span class="nv">almost</span> <span class="nv">certainly</span> <span class="nv">within</span> <span class="nv">a</span> <span class="nv">factor</span> <span class="nv">of</span> <span class="mi">10</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">true</span> <span class="nv">error</span>
+          <span class="nv">so</span> <span class="nv">long</span> <span class="nv">as</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">entry</span> <span class="nv">is</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>. <span class="nv">This</span> <span class="nv">error</span> <span class="nv">bound</span> <span class="nv">should</span> <span class="nv">only</span>
+          <span class="nv">be</span> <span class="nv">trusted</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">previous</span> <span class="nv">boolean</span> <span class="nv">is</span> <span class="nv">true</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">3</span>  <span class="nv">Reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>: <span class="nv">Estimated</span> <span class="nv">normwise</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>.  <span class="nv">Compared</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">error</span>
+          <span class="nv">estimate</span> <span class="nv">is</span> <span class="s2">&quot;</span><span class="s">guaranteed</span><span class="s2">&quot;</span>. <span class="nv">These</span> <span class="nv">reciprocal</span> <span class="nv">condition</span>
+          <span class="nv">numbers</span> <span class="nv">are</span> <span class="mi">1</span> <span class="o">/</span> <span class="ss">(</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span><span class="o">^</span>{<span class="o">-</span><span class="mi">1</span>},<span class="nv">inf</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span>,<span class="nv">inf</span><span class="ss">))</span> <span class="k">for</span> <span class="nv">some</span>
+          <span class="nv">appropriately</span> <span class="nv">scaled</span> <span class="nv">matrix</span> <span class="nv">Z</span>.
+          <span class="nv">Let</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">S</span><span class="o">*</span><span class="nv">A</span>, <span class="nv">where</span> <span class="nv">S</span> <span class="nv">scales</span> <span class="nv">each</span> <span class="nv">row</span> <span class="nv">by</span> <span class="nv">a</span> <span class="nv">power</span> <span class="nv">of</span> <span class="nv">the</span>
+          <span class="nv">radix</span> <span class="nv">so</span> <span class="nv">all</span> <span class="nv">absolute</span> <span class="nv">row</span> <span class="nv">sums</span> <span class="nv">of</span> <span class="nv">Z</span> <span class="nv">are</span> <span class="nv">approximately</span> <span class="mi">1</span>.
+
+ <span class="nv">See</span> <span class="nv">Lapack</span> <span class="nv">Working</span> <span class="nv">Note</span> <span class="mi">165</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span> <span class="nv">and</span> <span class="nv">extra</span>
+ <span class="nv">cautions</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] ERR_BNDS_COMP
+ \verbatim
+          ERR_BNDS_COMP is DOUBLE PRECISION array, dimension (NRHS, N_ERR_BNDS)
+     For each right-hand side, this array contains information about
+     various error bounds and condition numbers corresponding to the
+     componentwise relative error, which is defined as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">Componentwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">ith</span> <span class="nv">solution</span> <span class="nv">vector</span>:
+                <span class="nv">abs</span><span class="ss">(</span><span class="nv">XTRUE</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">)</span> <span class="o">-</span> <span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+         <span class="nv">max_j</span> <span class="o">----------------------</span>
+                     <span class="nv">abs</span><span class="ss">(</span><span class="nv">X</span><span class="ss">(</span><span class="nv">j</span>,<span class="nv">i</span><span class="ss">))</span>
+
+ <span class="nv">The</span> <span class="nv">array</span> <span class="nv">is</span> <span class="nv">indexed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span> <span class="nv">i</span> <span class="ss">(</span><span class="nv">on</span> <span class="nv">which</span> <span class="nv">the</span>
+ <span class="nv">componentwise</span> <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">depends</span><span class="ss">)</span>, <span class="nv">and</span> <span class="nv">the</span> <span class="nv">type</span> <span class="nv">of</span> <span class="nv">error</span>
+ <span class="nv">information</span> <span class="nv">as</span> <span class="nv">described</span> <span class="nv">below</span>. <span class="nv">There</span> <span class="nv">currently</span> <span class="nv">are</span> <span class="nv">up</span> <span class="nv">to</span> <span class="nv">three</span>
+ <span class="nv">pieces</span> <span class="nv">of</span> <span class="nv">information</span> <span class="nv">returned</span> <span class="k">for</span> <span class="nv">each</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>. <span class="k">If</span>
+ <span class="nv">componentwise</span> <span class="nv">accuracy</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">requested</span> <span class="ss">(</span><span class="nb">PARAMS</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">0</span>.<span class="mi">0</span><span class="ss">)</span>, <span class="k">then</span>
+ <span class="nv">ERR_BNDS_COMP</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">accessed</span>.  <span class="k">If</span> <span class="nv">N_ERR_BNDS</span> <span class="o">&lt;</span> <span class="mi">3</span>, <span class="k">then</span> <span class="nv">at</span> <span class="nv">most</span>
+ <span class="nv">the</span> <span class="nv">first</span> <span class="ss">(</span>:,<span class="nv">N_ERR_BNDS</span><span class="ss">)</span> <span class="nv">entries</span> <span class="nv">are</span> <span class="nv">returned</span>.
+
+ <span class="nv">The</span> <span class="nv">first</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_COMP</span><span class="ss">(</span><span class="nv">i</span>,:<span class="ss">)</span> <span class="nv">corresponds</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">ith</span>
+ <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span>.
+
+ <span class="nv">The</span> <span class="nv">second</span> <span class="nv">index</span> <span class="nv">in</span> <span class="nv">ERR_BNDS_COMP</span><span class="ss">(</span>:,<span class="nv">err</span><span class="ss">)</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">following</span>
+ <span class="nv">three</span> <span class="nv">fields</span>:
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">1</span> <span class="s2">&quot;</span><span class="s">Trust/don&#39;t trust</span><span class="s2">&quot;</span> <span class="nv">boolean</span>. <span class="nv">Trust</span> <span class="nv">the</span> <span class="nv">answer</span> <span class="k">if</span> <span class="nv">the</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span> <span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">2</span> <span class="s2">&quot;</span><span class="s">Guaranteed</span><span class="s2">&quot;</span> <span class="nv">error</span> <span class="nv">bound</span>: <span class="nv">The</span> <span class="nv">estimated</span> <span class="nv">forward</span> <span class="nv">error</span>,
+          <span class="nv">almost</span> <span class="nv">certainly</span> <span class="nv">within</span> <span class="nv">a</span> <span class="nv">factor</span> <span class="nv">of</span> <span class="mi">10</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">true</span> <span class="nv">error</span>
+          <span class="nv">so</span> <span class="nv">long</span> <span class="nv">as</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">entry</span> <span class="nv">is</span> <span class="nv">greater</span> <span class="nv">than</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span>. <span class="nv">This</span> <span class="nv">error</span> <span class="nv">bound</span> <span class="nv">should</span> <span class="nv">only</span>
+          <span class="nv">be</span> <span class="nv">trusted</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">previous</span> <span class="nv">boolean</span> <span class="nv">is</span> <span class="nv">true</span>.
+
+ <span class="nv">err</span> <span class="o">=</span> <span class="mi">3</span>  <span class="nv">Reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>: <span class="nv">Estimated</span> <span class="nv">componentwise</span>
+          <span class="nv">reciprocal</span> <span class="nv">condition</span> <span class="nv">number</span>.  <span class="nv">Compared</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">threshold</span>
+          <span class="nv">sqrt</span><span class="ss">(</span><span class="nv">n</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">dlamch</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">Epsilon</span><span class="s1">&#39;</span><span class="ss">)</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">error</span>
+          <span class="nv">estimate</span> <span class="nv">is</span> <span class="s2">&quot;</span><span class="s">guaranteed</span><span class="s2">&quot;</span>. <span class="nv">These</span> <span class="nv">reciprocal</span> <span class="nv">condition</span>
+          <span class="nv">numbers</span> <span class="nv">are</span> <span class="mi">1</span> <span class="o">/</span> <span class="ss">(</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span><span class="o">^</span>{<span class="o">-</span><span class="mi">1</span>},<span class="nv">inf</span><span class="ss">)</span> <span class="o">*</span> <span class="nv">norm</span><span class="ss">(</span><span class="nv">Z</span>,<span class="nv">inf</span><span class="ss">))</span> <span class="k">for</span> <span class="nv">some</span>
+          <span class="nv">appropriately</span> <span class="nv">scaled</span> <span class="nv">matrix</span> <span class="nv">Z</span>.
+          <span class="nv">Let</span> <span class="nv">Z</span> <span class="o">=</span> <span class="nv">S</span><span class="o">*</span><span class="ss">(</span><span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span>, <span class="nv">where</span> <span class="nv">x</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">solution</span> <span class="k">for</span> <span class="nv">the</span>
+          <span class="nv">current</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span> <span class="nv">side</span> <span class="nv">and</span> <span class="nv">S</span> <span class="nv">scales</span> <span class="nv">each</span> <span class="nv">row</span> <span class="nv">of</span>
+          <span class="nv">A</span><span class="o">*</span><span class="nv">diag</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span> <span class="nv">by</span> <span class="nv">a</span> <span class="nv">power</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">radix</span> <span class="nv">so</span> <span class="nv">all</span> <span class="nv">absolute</span> <span class="nv">row</span>
+          <span class="nv">sums</span> <span class="nv">of</span> <span class="nv">Z</span> <span class="nv">are</span> <span class="nv">approximately</span> <span class="mi">1</span>.
+
+ <span class="nv">See</span> <span class="nv">Lapack</span> <span class="nv">Working</span> <span class="nv">Note</span> <span class="mi">165</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span> <span class="nv">and</span> <span class="nv">extra</span>
+ <span class="nv">cautions</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] NPARAMS
+ \verbatim
+          NPARAMS is INTEGER
+     Specifies the number of parameters set in PARAMS.  If &lt;= 0, the
+     PARAMS array is never referenced and default values are used.
+ \endverbatim</p>
+<p>\param[in,out] PARAMS
+ \verbatim
+          PARAMS is DOUBLE PRECISION array, dimension NPARAMS
+     Specifies algorithm parameters.  If an entry is &lt; 0.0, then
+     that entry will be filled with default value used for that
+     parameter.  Only positions up to NPARAMS are accessed; defaults
+     are used for higher-numbered parameters.</p>
+<div class="codehilite"><pre><span></span><code>   <span class="nb">PARAMS</span><span class="ss">(</span><span class="nv">LA_LINRX_ITREF_I</span> <span class="o">=</span> <span class="mi">1</span><span class="ss">)</span> : <span class="nv">Whether</span> <span class="nv">to</span> <span class="nv">perform</span> <span class="nv">iterative</span>
+        <span class="nv">refinement</span> <span class="nv">or</span> <span class="nv">not</span>.
+     <span class="nv">Default</span>: <span class="mi">1</span>.<span class="mi">0</span><span class="nv">D</span><span class="o">+</span><span class="mi">0</span>
+        <span class="o">=</span> <span class="mi">0</span>.<span class="mi">0</span>:  <span class="nv">No</span> <span class="nv">refinement</span> <span class="nv">is</span> <span class="nv">performed</span>, <span class="nv">and</span> <span class="nv">no</span> <span class="nv">error</span> <span class="nv">bounds</span> <span class="nv">are</span>
+                <span class="nv">computed</span>.
+        <span class="o">=</span> <span class="mi">1</span>.<span class="mi">0</span>:  <span class="nv">Use</span> <span class="nv">the</span> <span class="nv">extra</span><span class="o">-</span><span class="nv">precise</span> <span class="nv">refinement</span> <span class="nv">algorithm</span>.
+          <span class="ss">(</span><span class="nv">other</span> <span class="nv">values</span> <span class="nv">are</span> <span class="nv">reserved</span> <span class="k">for</span> <span class="nv">future</span> <span class="nv">use</span><span class="ss">)</span>
+
+   <span class="nb">PARAMS</span><span class="ss">(</span><span class="nv">LA_LINRX_ITHRESH_I</span> <span class="o">=</span> <span class="mi">2</span><span class="ss">)</span> : <span class="nv">Maximum</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">residual</span>
+        <span class="nv">computations</span> <span class="nv">allowed</span> <span class="k">for</span> <span class="nv">refinement</span>.
+     <span class="nv">Default</span>: <span class="mi">10</span>
+     <span class="nv">Aggressive</span>: <span class="nv">Set</span> <span class="nv">to</span> <span class="mi">100</span> <span class="nv">to</span> <span class="nv">permit</span> <span class="nv">convergence</span> <span class="nv">using</span> <span class="nv">approximate</span>
+                 <span class="nv">factorizations</span> <span class="nv">or</span> <span class="nv">factorizations</span> <span class="nv">other</span> <span class="nv">than</span> <span class="nv">LU</span>. <span class="k">If</span>
+                 <span class="nv">the</span> <span class="nv">factorization</span> <span class="nv">uses</span> <span class="nv">a</span> <span class="nv">technique</span> <span class="nv">other</span> <span class="nv">than</span>
+                 <span class="nv">Gaussian</span> <span class="nv">elimination</span>, <span class="nv">the</span> <span class="nv">guarantees</span> <span class="nv">in</span>
+                 <span class="nv">err_bnds_norm</span> <span class="nv">and</span> <span class="nv">err_bnds_comp</span> <span class="nv">may</span> <span class="nv">no</span> <span class="nv">longer</span> <span class="nv">be</span>
+                 <span class="nv">trustworthy</span>.
+
+   <span class="nb">PARAMS</span><span class="ss">(</span><span class="nv">LA_LINRX_CWISE_I</span> <span class="o">=</span> <span class="mi">3</span><span class="ss">)</span> : <span class="nv">Flag</span> <span class="nv">determining</span> <span class="k">if</span> <span class="nv">the</span> <span class="nv">code</span>
+        <span class="nv">will</span> <span class="nv">attempt</span> <span class="nv">to</span> <span class="nv">find</span> <span class="nv">a</span> <span class="nv">solution</span> <span class="nv">with</span> <span class="nv">small</span> <span class="nv">componentwise</span>
+        <span class="nv">relative</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">double</span><span class="o">-</span><span class="nv">precision</span> <span class="nv">algorithm</span>.  <span class="nv">Positive</span>
+        <span class="nv">is</span> <span class="nv">true</span>, <span class="mi">0</span>.<span class="mi">0</span> <span class="nv">is</span> <span class="nv">false</span>.
+     <span class="nv">Default</span>: <span class="mi">1</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">attempt</span> <span class="nv">componentwise</span> <span class="nv">convergence</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array, dimension (4*N)
+ \endverbatim</p>
+<p>\param[out] IWORK
+ \verbatim
+          IWORK is INTEGER array, dimension (N)
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+       = 0:  Successful exit. The solution to every right-hand side is
+         guaranteed.
+       &lt; 0:  If INFO = -i, the i-th argument had an illegal value
+       &gt; 0 and &lt;= N:  U(INFO,INFO) is exactly zero.  The factorization
+         has been completed, but the factor U is exactly singular, so
+         the solution and error bounds could not be computed. RCOND = 0
+         is returned.
+       = N+J: The solution corresponding to the Jth right-hand side is
+         not guaranteed. The solutions corresponding to other right-
+         hand sides K with K &gt; J may not be guaranteed as well, but
+         only the first such right-hand side is reported. If a small
+         componentwise error is not requested (PARAMS(3) = 0.0) then
+         the Jth right-hand side is the first with a normwise error
+         bound that is not guaranteed (the smallest J such
+         that ERR_BNDS_NORM(J,1) = 0.0). By default (PARAMS(3) = 1.0)
+         the Jth right-hand side is the first with either a normwise or
+         componentwise error bound that is not guaranteed (the smallest
+         J such that either ERR_BNDS_NORM(J,1) = 0.0 or
+         ERR_BNDS_COMP(J,1) = 0.0). See the definition of
+         ERR_BNDS_NORM(:,1) and ERR_BNDS_COMP(:,1). To get information
+         about all of the right-hand sides check ERR_BNDS_NORM or
+         ERR_BNDS_COMP.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date April 2012
+ \ingroup doublePOsolve
+&ndash;DPOSVXX497</p>
+<p>&ndash; LAPACK driver routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     April 2012</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fact~31"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Fact</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~477"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1076"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nrhs~200"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nrhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~661"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~636"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-af~58"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Af</strong>(Ldaf,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldaf~58"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldaf</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-equed~42"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Equed</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~76"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>S</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~313"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~300"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~198"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(Ldx,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldx~97"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rcond~101"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rcond</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rpvgrw~11"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Rpvgrw</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-berr~73"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Berr</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n_err_bnds~22"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N_err_bnds</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err_bnds_norm~32"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Err_bnds_norm</strong>(Nrhs,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-err_bnds_comp~32"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Err_bnds_comp</strong>(Nrhs,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nparams~22"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nparams</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-params~22"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Params</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~639"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~150"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~832"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~718"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~694"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-amax~33"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>amax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bignum~154"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bignum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-equil~20"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>equil</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-infequ~20"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>infequ</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~601"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nofact~31"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nofact</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rcequ~20"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rcequ</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-scond~12"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>scond</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smax~20"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smin~40"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-smlnum~182"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>smlnum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DPOSVXX</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Equed</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">Ldx</span><span class="p">,</span><span class="n">Rcond</span><span class="p">,</span><span class="n">Rpvgrw</span><span class="p">,</span><span class="n">Berr</span><span class="p">,</span><span class="n">N_err_bnds</span><span class="p">,</span><span class="n">Err_bnds_norm</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                   </span><span class="n">Err_bnds_comp</span><span class="p">,</span><span class="n">Nparams</span><span class="p">,</span><span class="n">Params</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DPOSVXX497</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK driver routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     April 2012</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Equed</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Fact</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldaf</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nrhs</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nparams</span><span class="w"> </span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">N_err_bnds</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Rcond</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Rpvgrw</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Iwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Af</span><span class="p">(</span><span class="n">Ldaf</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">Ldx</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">S</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Params</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Berr</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">                     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">Err_bnds_norm</span><span class="p">(</span><span class="n">Nrhs</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Err_bnds_comp</span><span class="p">(</span><span class="n">Nrhs</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  ==================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">equil</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nofact</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rcequ</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">infequ</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="nb">amax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bignum</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">scond</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">smlnum</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLA_PORPVGRW</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">DLAMCH</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLA_PORPVGRW</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DPOEQUB</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DPOTRF</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DPOTRS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLACPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLAQSY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"> </span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="n">DLASCL2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DPORFSX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">nofact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">equil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">smlnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLAMCH</span><span class="p">(</span><span class="s1">&#39;Safe minimum&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">bignum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">smlnum</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nofact</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">equil</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Equed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"></span>
+<span class="w">         </span><span class="n">rcequ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">rcequ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Equed</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Default is failure.  If an input parameter is wrong or</span>
+<span class="c">!     factorization fails, make everything look horrible.  Only the</span>
+<span class="c">!     pivot growth is set here, the rest is initialized in DPORFSX.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Rpvgrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.  PARAMS is not tested until DPORFSX.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">nofact</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">equil</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nrhs</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lda</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldaf</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">8</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Fact</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.(</span><span class="n">rcequ</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Equed</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">         </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rcequ</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">smin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bignum</span><span class="w"></span>
+<span class="w">            </span><span class="n">smax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">smin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">smin</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="n">smax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">smax</span><span class="p">,</span><span class="n">S</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">smin</span><span class="o">&lt;=</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">scond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">smin</span><span class="p">,</span><span class="n">smlnum</span><span class="p">)</span><span class="o">/</span><span class="nb">MIN</span><span class="p">(</span><span class="n">smax</span><span class="p">,</span><span class="n">bignum</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">scond</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span>
+<span class="k">         IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldb</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"></span>
+<span class="w">            </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldx</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">14</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DPOSVXX&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">equil</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute row and column scalings to equilibrate the matrix A.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DPOEQUB</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">scond</span><span class="p">,</span><span class="nb">amax</span><span class="p">,</span><span class="n">infequ</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">infequ</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Equilibrate the matrix.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">DLAQSY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">scond</span><span class="p">,</span><span class="nb">amax</span><span class="p">,</span><span class="n">Equed</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">rcequ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Equed</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale the right-hand side.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rcequ</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASCL2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nofact</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">equil</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Compute the Cholesky factorization of A.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DLACPY</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">DPOTRF</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Return if INFO is non-zero.</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Pivot in column INFO is exactly 0</span>
+<span class="c">!           Compute the reciprocal pivot growth factor of the</span>
+<span class="c">!           leading rank-deficient INFO columns of A.</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">Rpvgrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLA_PORPVGRW</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">Info</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">RETURN</span>
+<span class="k">         ENDIF</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the reciprocal growth factor RPVGRW.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Rpvgrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DLA_PORPVGRW</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">Work</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Compute the solution matrix X.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLACPY</span><span class="p">(</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DPOTRS</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Use iterative refinement to improve the computed solution and</span>
+<span class="c">!     compute error bounds and backward error estimates for it.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DPORFSX</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">Equed</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">Af</span><span class="p">,</span><span class="n">Ldaf</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">,</span><span class="n">Rcond</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">             </span><span class="n">Berr</span><span class="p">,</span><span class="n">N_err_bnds</span><span class="p">,</span><span class="n">Err_bnds_norm</span><span class="p">,</span><span class="n">Err_bnds_comp</span><span class="p">,</span><span class="n">Nparams</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">             </span><span class="n">Params</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="c">!</span>
+<span class="c">!     Scale solutions.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rcequ</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">DLASCL2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Nrhs</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Ldx</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DPOSVXX</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DPOSVXX</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

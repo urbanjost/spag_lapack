@@ -1,0 +1,1461 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>STPRFB &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>STPRFB
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">285 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/stprfb.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/stprfb.f90.html'>stprfb.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">STPRFB</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/stprfb.html#variable-one~60">ONE</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-zero~58">ZERO</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-backward">backward</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-column">column</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-forward">forward</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-i~60">i</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-j~50">j</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-kp~5">kp</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-left~5">left</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-mp">mp</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-np">np</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-right~2">right</a>
+            <a class="list-group-item" href="../proc/stprfb.html#variable-row">row</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/stprfb.html#src">STPRFB</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine STPRFB(Side, Trans, Direct, Storev, M, N, K, L, V, Ldv, T, Ldt, A, Lda, B, Ldb, Work, Ldwork)  
+</h2>
+    
+
+    <p>\brief \b STPRFB applies a real or complex &ldquo;triangular-pentagonal&rdquo; blocked reflector to a real or complex matrix, which is composed of two blocks.
+ \htmlonly
+ Download STPRFB + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/stprfb.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/stprfb.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/stprfb.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>STPRFB applies a real &ldquo;triangular-pentagonal&rdquo; block reflector H or its
+ conjugate transpose H^H to a real matrix C, which is composed of two
+ blocks A and B, either from the left or right.</p>
+<p>\endverbatim
+ \param[in] SIDE
+ \verbatim
+          SIDE is CHARACTER*1
+          = &lsquo;L&rsquo;: apply H or H^H from the Left
+          = &lsquo;R&rsquo;: apply H or H^H from the Right
+ \endverbatim</p>
+<p>\param[in] TRANS
+ \verbatim
+          TRANS is CHARACTER*1
+          = &lsquo;N&rsquo;: apply H (No transpose)
+          = &lsquo;C&rsquo;: apply H^H (Conjugate transpose)
+ \endverbatim</p>
+<p>\param[in] DIRECT
+ \verbatim
+          DIRECT is CHARACTER*1
+          Indicates how H is formed from a product of elementary
+          reflectors
+          = &lsquo;F&rsquo;: H = H(1) H(2) . . . H(k) (Forward)
+          = &lsquo;B&rsquo;: H = H(k) . . . H(2) H(1) (Backward)
+ \endverbatim</p>
+<p>\param[in] STOREV
+ \verbatim
+          STOREV is CHARACTER*1
+          Indicates how the vectors which define the elementary
+          reflectors are stored:
+          = &lsquo;C&rsquo;: Columns
+          = &lsquo;R&rsquo;: Rows
+ \endverbatim</p>
+<p>\param[in] M
+ \verbatim
+          M is INTEGER
+          The number of rows of the matrix B.
+          M &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The number of columns of the matrix B.
+          N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] K
+ \verbatim
+          K is INTEGER
+          The order of the matrix T, i.e. the number of elementary
+          reflectors whose product defines the block reflector.
+          K &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] L
+ \verbatim
+          L is INTEGER
+          The order of the trapezoidal part of V.
+          K &gt;= L &gt;= 0.  See Further Details.
+ \endverbatim</p>
+<p>\param[in] V
+ \verbatim
+          V is REAL array, dimension
+                                (LDV,K) if STOREV = &lsquo;C&rsquo;
+                                (LDV,M) if STOREV = &lsquo;R&rsquo; and SIDE = &lsquo;L&rsquo;
+                                (LDV,N) if STOREV = &lsquo;R&rsquo; and SIDE = &lsquo;R&rsquo;
+          The pentagonal matrix V, which contains the elementary reflectors
+          H(1), H(2), &hellip;, H(K).  See Further Details.
+ \endverbatim</p>
+<p>\param[in] LDV
+ \verbatim
+          LDV is INTEGER
+          The leading dimension of the array V.
+          If STOREV = &lsquo;C&rsquo; and SIDE = &lsquo;L&rsquo;, LDV &gt;= max(1,M);
+          if STOREV = &lsquo;C&rsquo; and SIDE = &lsquo;R&rsquo;, LDV &gt;= max(1,N);
+          if STOREV = &lsquo;R&rsquo;, LDV &gt;= K.
+ \endverbatim</p>
+<p>\param[in] T
+ \verbatim
+          T is REAL array, dimension (LDT,K)
+          The triangular K-by-K matrix T in the representation of the
+          block reflector.
+ \endverbatim</p>
+<p>\param[in] LDT
+ \verbatim
+          LDT is INTEGER
+          The leading dimension of the array T.
+          LDT &gt;= K.
+ \endverbatim</p>
+<p>\param[in,out] A
+ \verbatim
+          A is REAL array, dimension
+          (LDA,N) if SIDE = &lsquo;L&rsquo; or (LDA,K) if SIDE = &lsquo;R&rsquo;
+          On entry, the K-by-N or M-by-K matrix A.
+          On exit, A is overwritten by the corresponding block of
+          H<em>C or H^H</em>C or C<em>H or C</em>H^H.  See Further Details.
+ \endverbatim</p>
+<p>\param[in] LDA
+ \verbatim
+          LDA is INTEGER
+          The leading dimension of the array A.
+          If SIDE = &lsquo;L&rsquo;, LDA &gt;= max(1,K);
+          If SIDE = &lsquo;R&rsquo;, LDA &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[in,out] B
+ \verbatim
+          B is REAL array, dimension (LDB,N)
+          On entry, the M-by-N matrix B.
+          On exit, B is overwritten by the corresponding block of
+          H<em>C or H^H</em>C or C<em>H or C</em>H^H.  See Further Details.
+ \endverbatim</p>
+<p>\param[in] LDB
+ \verbatim
+          LDB is INTEGER
+          The leading dimension of the array B.
+          LDB &gt;= max(1,M).
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is REAL array, dimension
+          (LDWORK,N) if SIDE = &lsquo;L&rsquo;,
+          (LDWORK,K) if SIDE = &lsquo;R&rsquo;.
+ \endverbatim</p>
+<p>\param[in] LDWORK
+ \verbatim
+          LDWORK is INTEGER
+          The leading dimension of the array WORK.
+          If SIDE = &lsquo;L&rsquo;, LDWORK &gt;= K;
+          if SIDE = &lsquo;R&rsquo;, LDWORK &gt;= M.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup realOTHERauxiliary
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>The matrix C is a composite matrix formed from blocks A and B.
+  The block B is of size M-by-N; if SIDE = &lsquo;R&rsquo;, A is of size M-by-K,
+  and if SIDE = &lsquo;L&rsquo;, A is of size K-by-N.</p>
+<p>If SIDE = &lsquo;R&rsquo; and DIRECT = &lsquo;F&rsquo;, C = [A B].</p>
+<p>If SIDE = &lsquo;L&rsquo; and DIRECT = &lsquo;F&rsquo;, C = [A]
+                                      [B].</p>
+<p>If SIDE = &lsquo;R&rsquo; and DIRECT = &lsquo;B&rsquo;, C = [B A].</p>
+<p>If SIDE = &lsquo;L&rsquo; and DIRECT = &lsquo;B&rsquo;, C = [B]
+                                      [A].</p>
+<p>The pentagonal matrix V is composed of a rectangular block V1 and a
+  trapezoidal block V2.  The size of the trapezoidal block is determined by
+  the parameter L, where 0&lt;=L&lt;=K.  If L=K, the V2 block of V is triangular;
+  if L=0, there is no trapezoidal block, thus V = V1 is rectangular.</p>
+<p>If DIRECT = &lsquo;F&rsquo; and STOREV = &lsquo;C&rsquo;:  V = [V1]
+                                         [V2]
+     - V2 is upper trapezoidal (first L rows of K-by-K upper triangular)</p>
+<p>If DIRECT = &lsquo;F&rsquo; and STOREV = &lsquo;R&rsquo;:  V = [V1 V2]</p>
+<div class="codehilite"><pre><span></span><code> - V2 is lower trapezoidal (first L columns of K-by-K lower triangular)
+</code></pre></div>
+
+<p>If DIRECT = &lsquo;B&rsquo; and STOREV = &lsquo;C&rsquo;:  V = [V2]
+                                         [V1]
+     - V2 is lower trapezoidal (last L rows of K-by-K lower triangular)</p>
+<p>If DIRECT = &lsquo;B&rsquo; and STOREV = &lsquo;R&rsquo;:  V = [V2 V1]</p>
+<div class="codehilite"><pre><span></span><code> - V2 is upper trapezoidal (last L columns of K-by-K upper triangular)
+</code></pre></div>
+
+<p>If STOREV = &lsquo;C&rsquo; and SIDE = &lsquo;L&rsquo;, V is M-by-K with V2 L-by-K.</p>
+<p>If STOREV = &lsquo;C&rsquo; and SIDE = &lsquo;R&rsquo;, V is N-by-K with V2 L-by-K.</p>
+<p>If STOREV = &lsquo;R&rsquo; and SIDE = &lsquo;L&rsquo;, V is K-by-M with V2 K-by-L.</p>
+<p>If STOREV = &lsquo;R&rsquo; and SIDE = &lsquo;R&rsquo;, V is K-by-N with V2 K-by-L.
+ \endverbatim</p>
+<p>&ndash;STPRFB255</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-side~9"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Side</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-trans~12"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Trans</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-direct~2"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Direct</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-storev~2"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Storev</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~31"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>M</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~97"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~11"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>K</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~8"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(Ldv,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldv~6"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~11"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>T</strong>(Ldt,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldt~10"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~61"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(Lda,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lda~60"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~34"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(Ldb,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldb~34"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldb</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~61"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(Ldwork,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldwork"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~60"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~58"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-backward"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>backward</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-column"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>column</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-forward"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>forward</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~60"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~50"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kp~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-left~5"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>left</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mp"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-np"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>np</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-right~2"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>right</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-row"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>row</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">STPRFB</span><span class="p">(</span><span class="n">Side</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="n">Direct</span><span class="p">,</span><span class="n">Storev</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Lda</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--STPRFB255</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Direct</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Side</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Storev</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Trans</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">K</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lda</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldv</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">A</span><span class="p">(</span><span class="n">Lda</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">Ldb</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">Ldt</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">Ldv</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">Ldwork</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  ==========================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">np</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">left</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SGEMM</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">STRMM</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Quick return if possible</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">M</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">K</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">L</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Storev</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Storev</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">column</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Side</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Side</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Direct</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">forward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">backward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Direct</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">forward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">backward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">TRUE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ELSE</span>
+<span class="k">         </span><span class="n">forward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">backward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">FALSE</span><span class="p">.</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ I ]    (K-by-K)</span>
+<span class="c">!                  [ V ]    (M-by-K)</span>
+<span class="c">!</span>
+<span class="c">!        Form  H C  or  H^H C  where  C = [ A ]  (K-by-N)</span>
+<span class="c">!                                         [ B ]  (M-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W T W^H          or  H^H = I - W T^H W^H</span>
+<span class="c">!</span>
+<span class="c">!        A = A -   T (A + V^H B)  or  A = A -   T^H (A + V^H B)</span>
+<span class="c">!        B = B - V T (A + V^H B)  or  B = B - V T^H (A + V^H B)</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ I ]    (K-by-K)</span>
+<span class="c">!                  [ V ]    (N-by-K)</span>
+<span class="c">!</span>
+<span class="c">!        Form  C H or  C H^H  where  C = [ A B ] (A is M-by-K, B is M-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W T W^H          or  H^H = I - W T^H W^H</span>
+<span class="c">!</span>
+<span class="c">!        A = A - (A + B V) T      or  A = A - (A + B V) T^H</span>
+<span class="c">!        B = B - (A + B V) T V^H  or  B = B - (A + B V) T^H V^H</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ V ]    (M-by-K)</span>
+<span class="c">!                  [ I ]    (K-by-K)</span>
+<span class="c">!</span>
+<span class="c">!        Form  H C  or  H^H C  where  C = [ B ]  (M-by-N)</span>
+<span class="c">!                                         [ A ]  (K-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W T W^H          or  H^H = I - W T^H W^H</span>
+<span class="c">!</span>
+<span class="c">!        A = A -   T (A + V^H B)  or  A = A -   T^H (A + V^H B)</span>
+<span class="c">!        B = B - V T (A + V^H B)  or  B = B - V T^H (A + V^H B)</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ V ]    (N-by-K)</span>
+<span class="c">!                  [ I ]    (K-by-K)</span>
+<span class="c">!</span>
+<span class="c">!        Form  C H  or  C H^H  where  C = [ B A ] (B is M-by-N, A is M-by-K)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W T W^H          or  H^H = I - W T^H W^H</span>
+<span class="c">!</span>
+<span class="c">!        A = A - (A + B V) T      or  A = A - (A + B V) T^H</span>
+<span class="c">!        B = B - (A + B V) T V^H  or  B = B - (A + B V) T^H V^H</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ I V ] ( I is K-by-K, V is K-by-M )</span>
+<span class="c">!</span>
+<span class="c">!        Form  H C  or  H^H C  where  C = [ A ]  (K-by-N)</span>
+<span class="c">!                                         [ B ]  (M-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W^H T W          or  H^H = I - W^H T^H W</span>
+<span class="c">!</span>
+<span class="c">!        A = A -     T (A + V B)  or  A = A -     T^H (A + V B)</span>
+<span class="c">!        B = B - V^H T (A + V B)  or  B = B - V^H T^H (A + V B)</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">mp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">mp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">mp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">forward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ I V ] ( I is K-by-K, V is K-by-N )</span>
+<span class="c">!</span>
+<span class="c">!        Form  C H  or  C H^H  where  C = [ A B ] (A is M-by-K, B is M-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W^H T W            or  H^H = I - W^H T^H W</span>
+<span class="c">!</span>
+<span class="c">!        A = A - (A + B V^H) T      or  A = A - (A + B V^H) T^H</span>
+<span class="c">!        B = B - (A + B V^H) T V    or  B = B - (A + B V^H) T^H V</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ V I ] ( I is K-by-K, V is K-by-M )</span>
+<span class="c">!</span>
+<span class="c">!        Form  H C  or  H^H C  where  C = [ B ]  (M-by-N)</span>
+<span class="c">!                                         [ A ]  (K-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W^H T W          or  H^H = I - W^H T^H W</span>
+<span class="c">!</span>
+<span class="c">!        A = A -     T (A + V B)  or  A = A -     T^H (A + V B)</span>
+<span class="c">!        B = B - V^H T (A + V B)  or  B = B - V^H T^H (A + V B)</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">mp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">M</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">mp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;L &#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">mp</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">B</span><span class="p">(</span><span class="n">mp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">backward</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!        Let  W =  [ V I ] ( I is K-by-K, V is K-by-N )</span>
+<span class="c">!</span>
+<span class="c">!        Form  C H  or  C H^H  where  C = [ B A ] (A is M-by-K, B is M-by-N)</span>
+<span class="c">!</span>
+<span class="c">!        H = I - W^H T W            or  H^H = I - W^H T^H W</span>
+<span class="c">!</span>
+<span class="c">!        A = A - (A + B V^H) T      or  A = A - (A + B V^H) T^H</span>
+<span class="c">!        B = B - (A + B V^H) T V    or  B = B - (A + B V^H) T^H V</span>
+<span class="c">!</span>
+<span class="c">! ---------------------------------------------------------------------------</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MIN</span><span class="p">(</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span>
+<span class="k">         CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">Trans</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Ldt</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">np</span><span class="p">),</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">SGEMM</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="o">-</span><span class="n">ONE</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Ldwork</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Ldv</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Ldb</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">STRMM</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="n">kp</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldv</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp</span><span class="p">),</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">              </span><span class="n">Ldwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">               </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="n">L</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of STPRFB</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">STPRFB</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

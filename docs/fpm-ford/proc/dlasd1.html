@@ -1,0 +1,1107 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>DLASD1 &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>DLASD1
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">54 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlasd1.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dlasd1.f90.html'>dlasd1.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DLASD1</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-one~345">ONE</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-zero~335">ZERO</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-coltyp~4">coltyp</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-i~364">i</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-idx">idx</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-idxc">idxc</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-idxp">idxp</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-iq~2">iq</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-isigma">isigma</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-iu2">iu2</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-ivt2">ivt2</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-iz~4">iz</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-k~127">k</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-ldq">ldq</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-ldu2">ldu2</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-ldvt2">ldvt2</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-m~20">m</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-n~4">n</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-n1~30">n1</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-n2~27">n2</a>
+            <a class="list-group-item" href="../proc/dlasd1.html#variable-orgnrm~4">orgnrm</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlasd1.html#src">DLASD1</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine DLASD1(Nl, Nr, Sqre, D, Alpha, Beta, U, Ldu, Vt, Ldvt, Idxq, Iwork, Work, Info)  
+</h2>
+    
+
+    <p>\brief \b DLASD1 computes the SVD of an upper bidiagonal matrix B of the specified size. Used by sbdsdc.
+ \htmlonly
+ Download DLASD1 + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dlasd1.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dlasd1.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dlasd1.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>DLASD1 computes the SVD of an upper bidiagonal N-by-M matrix B,
+ where N = NL + NR + 1 and M = N + SQRE. DLASD1 is called from DLASD0.</p>
+<p>A related subroutine DLASD7 handles the case in which the singular
+ values (and the singular vectors in factored form) are desired.</p>
+<p>DLASD1 computes the SVD as follows:</p>
+<div class="codehilite"><pre><span></span><code>           ( D1(in)    0    0       0 )
+</code></pre></div>
+
+<p>B = U(in) * (   Z1<strong>T   a   Z2</strong>T    b ) * VT(in)
+               (   0       0   D2(in)   0 )</p>
+<div class="codehilite"><pre><span></span><code> = U(out) * ( D(out) 0) * VT(out)
+</code></pre></div>
+
+<p>where Z<strong>T = (Z1</strong>T a Z2<strong>T b) = u</strong>T VT**T, and u is a vector of dimension M
+ with ALPHA and BETA in the NL+1 and NL+2 th entries and zeros
+ elsewhere; and the entry b is empty if SQRE = 0.</p>
+<p>The left singular vectors of the original matrix are stored in U, and
+ the transpose of the right singular vectors are stored in VT, and the
+ singular values are in D.  The algorithm consists of three stages:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">The</span> <span class="nv">first</span> <span class="nv">stage</span> <span class="nv">consists</span> <span class="nv">of</span> <span class="nv">deflating</span> <span class="nv">the</span> <span class="nv">size</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">problem</span>
+<span class="nv">when</span> <span class="nv">there</span> <span class="nv">are</span> <span class="nv">multiple</span> <span class="nv">singular</span> <span class="nv">values</span> <span class="nv">or</span> <span class="nv">when</span> <span class="nv">there</span> <span class="nv">are</span> <span class="nv">zeros</span> <span class="nv">in</span>
+<span class="nv">the</span> <span class="nv">Z</span> <span class="nv">vector</span>.  <span class="k">For</span> <span class="nv">each</span> <span class="nv">such</span> <span class="nv">occurrence</span> <span class="nv">the</span> <span class="nv">dimension</span> <span class="nv">of</span> <span class="nv">the</span>
+<span class="nv">secular</span> <span class="nv">equation</span> <span class="nv">problem</span> <span class="nv">is</span> <span class="nv">reduced</span> <span class="nv">by</span> <span class="nv">one</span>.  <span class="nv">This</span> <span class="nv">stage</span> <span class="nv">is</span>
+<span class="nv">performed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">routine</span> <span class="nv">DLASD2</span>.
+
+<span class="nv">The</span> <span class="nv">second</span> <span class="nv">stage</span> <span class="nv">consists</span> <span class="nv">of</span> <span class="nv">calculating</span> <span class="nv">the</span> <span class="nv">updated</span>
+<span class="nv">singular</span> <span class="nv">values</span>. <span class="nv">This</span> <span class="nv">is</span> <span class="nv">done</span> <span class="nv">by</span> <span class="nv">finding</span> <span class="nv">the</span> <span class="nv">square</span> <span class="nv">roots</span> <span class="nv">of</span> <span class="nv">the</span>
+<span class="nv">roots</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">secular</span> <span class="nv">equation</span> <span class="nv">via</span> <span class="nv">the</span> <span class="nv">routine</span> <span class="nv">DLASD4</span> <span class="ss">(</span><span class="nv">as</span> <span class="nv">called</span>
+<span class="nv">by</span> <span class="nv">DLASD3</span><span class="ss">)</span>. <span class="nv">This</span> <span class="nv">routine</span> <span class="nv">also</span> <span class="nv">calculates</span> <span class="nv">the</span> <span class="nv">singular</span> <span class="nv">vectors</span> <span class="nv">of</span>
+<span class="nv">the</span> <span class="nv">current</span> <span class="nv">problem</span>.
+
+<span class="nv">The</span> <span class="nv">final</span> <span class="nv">stage</span> <span class="nv">consists</span> <span class="nv">of</span> <span class="nv">computing</span> <span class="nv">the</span> <span class="nv">updated</span> <span class="nv">singular</span> <span class="nv">vectors</span>
+<span class="nv">directly</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">updated</span> <span class="nv">singular</span> <span class="nv">values</span>.  <span class="nv">The</span> <span class="nv">singular</span> <span class="nv">vectors</span>
+<span class="k">for</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">problem</span> <span class="nv">are</span> <span class="nv">multiplied</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">singular</span> <span class="nv">vectors</span>
+<span class="nv">from</span> <span class="nv">the</span> <span class="nv">overall</span> <span class="nv">problem</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \param[in] NL
+ \verbatim
+          NL is INTEGER
+         The row dimension of the upper block.  NL &gt;= 1.
+ \endverbatim</p>
+<p>\param[in] NR
+ \verbatim
+          NR is INTEGER
+         The row dimension of the lower block.  NR &gt;= 1.
+ \endverbatim</p>
+<p>\param[in] SQRE
+ \verbatim
+          SQRE is INTEGER
+         = 0: the lower block is an NR-by-NR square matrix.
+         = 1: the lower block is an NR-by-(NR+1) rectangular matrix.</p>
+<div class="codehilite"><pre><span></span><code>     The bidiagonal matrix has row dimension N = NL + NR + 1,
+     and column dimension M = N + SQRE.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] D
+ \verbatim
+          D is DOUBLE PRECISION array,
+                        dimension (N = NL+NR+1).
+         On entry D(1:NL,1:NL) contains the singular values of the
+         upper block; and D(NL+2:N) contains the singular values of
+         the lower block. On exit D(1:N) contains the singular values
+         of the modified matrix.
+ \endverbatim</p>
+<p>\param[in,out] ALPHA
+ \verbatim
+          ALPHA is DOUBLE PRECISION
+         Contains the diagonal element associated with the added row.
+ \endverbatim</p>
+<p>\param[in,out] BETA
+ \verbatim
+          BETA is DOUBLE PRECISION
+         Contains the off-diagonal element associated with the added
+         row.
+ \endverbatim</p>
+<p>\param[in,out] U
+ \verbatim
+          U is DOUBLE PRECISION array, dimension(LDU,N)
+         On entry U(1:NL, 1:NL) contains the left singular vectors of
+         the upper block; U(NL+2:N, NL+2:N) contains the left singular
+         vectors of the lower block. On exit U contains the left
+         singular vectors of the bidiagonal matrix.
+ \endverbatim</p>
+<p>\param[in] LDU
+ \verbatim
+          LDU is INTEGER
+         The leading dimension of the array U.  LDU &gt;= max( 1, N ).
+ \endverbatim</p>
+<p>\param[in,out] VT
+ \verbatim
+          VT is DOUBLE PRECISION array, dimension(LDVT,M)
+         where M = N + SQRE.
+         On entry VT(1:NL+1, 1:NL+1)<strong>T contains the right singular
+         vectors of the upper block; VT(NL+2:M, NL+2:M)</strong>T contains
+         the right singular vectors of the lower block. On exit
+         VT**T contains the right singular vectors of the
+         bidiagonal matrix.
+ \endverbatim</p>
+<p>\param[in] LDVT
+ \verbatim
+          LDVT is INTEGER
+         The leading dimension of the array VT.  LDVT &gt;= max( 1, M ).
+ \endverbatim</p>
+<p>\param[in,out] IDXQ
+ \verbatim
+          IDXQ is INTEGER array, dimension(N)
+         This contains the permutation which will reintegrate the
+         subproblem just solved back into sorted order, i.e.
+         D( IDXQ( I = 1, N ) ) will be in ascending order.
+ \endverbatim</p>
+<p>\param[out] IWORK
+ \verbatim
+          IWORK is INTEGER array, dimension( 4 * N )
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is DOUBLE PRECISION array, dimension( 3<em>M</em><em>2 + 2</em>M )
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0:  successful exit.
+          &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
+          &gt; 0:  if INFO = 1, a singular value did not converge
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date June 2016
+ \ingroup OTHERauxiliary
+ \par Contributors:</p>
+<div class="codehilite"><pre><span></span><code> Ming Gu and Huan Ren, Computer Science Division, University of
+ California at Berkeley, USA
+</code></pre></div>
+
+<p>&ndash;DLASD1208</p>
+<p>&ndash; LAPACK auxiliary routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     June 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nl~4"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nr~4"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sqre~6"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Sqre</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~76"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>D</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~38"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Alpha</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-beta~30"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Beta</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~15"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>U</strong>(Ldu,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu~15"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vt~7"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Vt</strong>(Ldvt,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldvt~6"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldvt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idxq~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Idxq</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~72"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~308"></span>
+              double precision
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~417"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~345"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~335"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0D+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-coltyp~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coltyp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~364"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idx"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idxc"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idxc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-idxp"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>idxp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iq~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-isigma"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>isigma</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iu2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iu2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ivt2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ivt2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iz~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~127"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldq"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldu2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldu2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldvt2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ldvt2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~20"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n1~30"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n2~27"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-orgnrm~4"></span>
+              double precision,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>orgnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">DLASD1</span><span class="p">(</span><span class="n">Nl</span><span class="p">,</span><span class="n">Nr</span><span class="p">,</span><span class="n">Sqre</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="n">Vt</span><span class="p">,</span><span class="n">Ldvt</span><span class="p">,</span><span class="n">Idxq</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Iwork</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--DLASD1208</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK auxiliary routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     June 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldu</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldvt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nl</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Nr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Sqre</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">Alpha</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Beta</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Idxq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">D</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">Ldu</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Vt</span><span class="p">(</span><span class="n">Ldvt</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">ONE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0D+0</span><span class="p">,</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0D+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">coltyp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">idxc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">idxp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">isigma</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iu2</span><span class="w"> </span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">ivt2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">iz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldu2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ldvt2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">orgnrm</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">DLAMRG</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASCL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASD2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DLASD3</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nl</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Nr</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Sqre</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Sqre</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;DLASD1&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Nr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Sqre</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     The following values are for bookkeeping purposes only.  They are</span>
+<span class="c">!     integer pointers which indicate the portion of the workspace</span>
+<span class="c">!     used by a particular array in DLASD2 and DLASD3.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ldu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="n">ldvt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">iz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">isigma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="w"></span>
+<span class="w">      </span><span class="n">iu2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isigma</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="n">ivt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iu2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ldu2</span><span class="o">*</span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="n">iq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ivt2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ldvt2</span><span class="o">*</span><span class="n">m</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">idxc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="n">coltyp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">idxc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="n">idxp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coltyp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Scale.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">orgnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Alpha</span><span class="p">),</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Beta</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">D</span><span class="p">(</span><span class="n">Nl</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&gt;</span><span class="n">orgnrm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">orgnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDDO</span>
+<span class="k">      CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">orgnrm</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Alpha</span><span class="o">/</span><span class="n">orgnrm</span><span class="w"></span>
+<span class="w">      </span><span class="n">Beta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Beta</span><span class="o">/</span><span class="n">orgnrm</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Deflate singular values.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLASD2</span><span class="p">(</span><span class="n">Nl</span><span class="p">,</span><span class="n">Nr</span><span class="p">,</span><span class="n">Sqre</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iz</span><span class="p">),</span><span class="n">Alpha</span><span class="p">,</span><span class="n">Beta</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="n">Vt</span><span class="p">,</span><span class="n">Ldvt</span><span class="p">,</span><span class="w">     </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">isigma</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iu2</span><span class="p">),</span><span class="n">ldu2</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">ivt2</span><span class="p">),</span><span class="n">ldvt2</span><span class="p">,</span><span class="w">         </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Iwork</span><span class="p">(</span><span class="n">idxp</span><span class="p">),</span><span class="n">Iwork</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span><span class="n">Iwork</span><span class="p">(</span><span class="n">idxc</span><span class="p">),</span><span class="n">Idxq</span><span class="p">,</span><span class="n">Iwork</span><span class="p">(</span><span class="n">coltyp</span><span class="p">),&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Solve Secular Equation and update singular vectors.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ldq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLASD3</span><span class="p">(</span><span class="n">Nl</span><span class="p">,</span><span class="n">Nr</span><span class="p">,</span><span class="n">Sqre</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">iq</span><span class="p">),</span><span class="n">ldq</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">isigma</span><span class="p">),</span><span class="n">U</span><span class="p">,</span><span class="n">Ldu</span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Work</span><span class="p">(</span><span class="n">iu2</span><span class="p">),</span><span class="n">ldu2</span><span class="p">,</span><span class="n">Vt</span><span class="p">,</span><span class="n">Ldvt</span><span class="p">,</span><span class="n">Work</span><span class="p">(</span><span class="n">ivt2</span><span class="p">),</span><span class="n">ldvt2</span><span class="p">,</span><span class="n">Iwork</span><span class="p">(</span><span class="n">idxc</span><span class="p">),</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">            </span><span class="n">Iwork</span><span class="p">(</span><span class="n">coltyp</span><span class="p">),</span><span class="n">Work</span><span class="p">(</span><span class="n">iz</span><span class="p">),</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Report the convergence failure.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Unscale.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLASCL</span><span class="p">(</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">orgnrm</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Prepare the IDXQ sorting permutation.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">      </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="n">DLAMRG</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Idxq</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of DLASD1</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">DLASD1</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

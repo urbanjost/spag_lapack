@@ -1,0 +1,1123 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>ZHSEQR &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>ZHSEQR
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.0% of total for procedures.">84 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/zhseqr.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/zhseqr.f90.html'>zhseqr.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ZHSEQR</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-nl~3">NL</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-ntiny~8">NTINY</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-one~769">ONE</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-rzero~12">RZERO</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-zero~743">ZERO</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-hl~3">hl</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-initz~4">initz</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-kbot~8">kbot</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-lquery~290">lquery</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-nmin~11">nmin</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-wantt~3">wantt</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-wantz~68">wantz</a>
+            <a class="list-group-item" href="../proc/zhseqr.html#variable-workl~3">workl</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/zhseqr.html#src">ZHSEQR</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine ZHSEQR(Job, Compz, N, Ilo, Ihi, H, Ldh, W, Z, Ldz, Work, Lwork, Info)  
+</h2>
+    
+
+    <p>\brief \b ZHSEQR
+ \htmlonly
+ Download ZHSEQR + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhseqr.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhseqr.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhseqr.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code>ZHSEQR computes the eigenvalues of a Hessenberg matrix H
+and, optionally, the matrices T and Z from the Schur decomposition
+H = Z T Z**H, where T is an upper triangular matrix (the
+Schur form), and Z is the unitary matrix of Schur vectors.
+
+Optionally Z may be postmultiplied into an input unitary
+matrix Q so that this routine can give the Schur factorization
+of a matrix A which has been reduced to the Hessenberg form H
+by the unitary matrix Q:  A = Q*H*Q**H = (QZ)*T*(QZ)**H.
+</code></pre></div>
+
+<p>\endverbatim
+ \param[in] JOB
+ \verbatim
+          JOB is CHARACTER*1
+           = &lsquo;E&rsquo;:  compute eigenvalues only;
+           = &lsquo;S&rsquo;:  compute eigenvalues and the Schur form T.
+ \endverbatim</p>
+<p>\param[in] COMPZ
+ \verbatim
+          COMPZ is CHARACTER<em>1
+           = &lsquo;N&rsquo;:  no Schur vectors are computed;
+           = &lsquo;I&rsquo;:  Z is initialized to the unit matrix and the matrix Z
+                   of Schur vectors of H is returned;
+           = &lsquo;V&rsquo;:  Z must contain an unitary matrix Q on entry, and
+                   the product Q</em>Z is returned.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+           The order of the matrix H.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in] ILO
+ \verbatim
+          ILO is INTEGER
+ \endverbatim</p>
+<p>\param[in] IHI
+ \verbatim
+          IHI is INTEGER</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">It</span> <span class="nv">is</span> <span class="nv">assumed</span> <span class="nv">that</span> <span class="nv">H</span> <span class="nv">is</span> <span class="nv">already</span> <span class="nv">upper</span> <span class="nv">triangular</span> <span class="nv">in</span> <span class="nv">rows</span>
+       <span class="nv">and</span> <span class="nv">columns</span> <span class="mi">1</span>:<span class="nv">ILO</span><span class="o">-</span><span class="mi">1</span> <span class="nv">and</span> <span class="nv">IHI</span><span class="o">+</span><span class="mi">1</span>:<span class="nv">N</span>. <span class="nv">ILO</span> <span class="nv">and</span> <span class="nv">IHI</span> <span class="nv">are</span> <span class="nv">normally</span>
+       <span class="nv">set</span> <span class="nv">by</span> <span class="nv">a</span> <span class="nv">previous</span> <span class="k">call</span> <span class="nl">to</span> <span class="nv">ZGEBAL</span>, <span class="nv">and</span> <span class="k">then</span> <span class="nv">passed</span> <span class="nv">to</span> <span class="nv">ZGEHRD</span>
+       <span class="nv">when</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">output</span> <span class="nv">by</span> <span class="nv">ZGEBAL</span> <span class="nv">is</span> <span class="nv">reduced</span> <span class="nv">to</span> <span class="nv">Hessenberg</span>
+       <span class="nv">form</span>. <span class="nv">Otherwise</span> <span class="nv">ILO</span> <span class="nv">and</span> <span class="nv">IHI</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">set</span> <span class="nv">to</span> <span class="mi">1</span> <span class="nv">and</span> <span class="nv">N</span>
+       <span class="nv">respectively</span>.  <span class="k">If</span> <span class="nv">N</span> <span class="o">&gt;</span> <span class="mi">0</span>, <span class="k">then</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nv">ILO</span> <span class="o">&lt;=</span> <span class="nv">IHI</span> <span class="o">&lt;=</span> <span class="nv">N</span>.
+       <span class="k">If</span> <span class="nv">N</span> <span class="o">=</span> <span class="mi">0</span>, <span class="k">then</span> <span class="nv">ILO</span> <span class="o">=</span> <span class="mi">1</span> <span class="nv">and</span> <span class="nv">IHI</span> <span class="o">=</span> <span class="mi">0</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in,out] H
+ \verbatim
+          H is COMPLEX*16 array, dimension (LDH,N)
+           On entry, the upper Hessenberg matrix H.
+           On exit, if INFO = 0 and JOB = &lsquo;S&rsquo;, H contains the upper
+           triangular matrix T from the Schur decomposition (the
+           Schur form). If INFO = 0 and JOB = &lsquo;E&rsquo;, the contents of
+           H are unspecified on exit.  (The output value of H when
+           INFO &gt; 0 is given under the description of INFO below.)</p>
+<div class="codehilite"><pre><span></span><code>       <span class="nv">Unlike</span> <span class="nv">earlier</span> <span class="nv">versions</span> <span class="nv">of</span> <span class="nv">ZHSEQR</span>, <span class="nv">this</span> <span class="nv">subroutine</span> <span class="nv">may</span>
+       <span class="nv">explicitly</span> <span class="nv">H</span><span class="ss">(</span><span class="nv">i</span>,<span class="nv">j</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">for</span> <span class="nv">i</span> <span class="o">&gt;</span> <span class="nv">j</span> <span class="nv">and</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">1</span>, <span class="mi">2</span>, ... <span class="nv">ILO</span><span class="o">-</span><span class="mi">1</span>
+       <span class="nv">or</span> <span class="nv">j</span> <span class="o">=</span> <span class="nv">IHI</span><span class="o">+</span><span class="mi">1</span>, <span class="nv">IHI</span><span class="o">+</span><span class="mi">2</span>, ... <span class="nv">N</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[in] LDH
+ \verbatim
+          LDH is INTEGER
+           The leading dimension of the array H. LDH &gt;= max(1,N).
+ \endverbatim</p>
+<p>\param[out] W
+ \verbatim
+          W is COMPLEX*16 array, dimension (N)
+           The computed eigenvalues. If JOB = &lsquo;S&rsquo;, the eigenvalues are
+           stored in the same order as on the diagonal of the Schur
+           form returned in H, with W(i) = H(i,i).
+ \endverbatim</p>
+<p>\param[in,out] Z
+ \verbatim
+          Z is COMPLEX<em>16 array, dimension (LDZ,N)
+           If COMPZ = &lsquo;N&rsquo;, Z is not referenced.
+           If COMPZ = &lsquo;I&rsquo;, on entry Z need not be set and on exit,
+           if INFO = 0, Z contains the unitary matrix Z of the Schur
+           vectors of H.  If COMPZ = &lsquo;V&rsquo;, on entry Z must contain an
+           N-by-N matrix Q, which is assumed to be equal to the unit
+           matrix except for the submatrix Z(ILO:IHI,ILO:IHI). On exit,
+           if INFO = 0, Z contains Q</em>Z.
+           Normally Q is the unitary matrix generated by ZUNGHR
+           after the call to ZGEHRD which formed the Hessenberg matrix
+           H. (The output value of Z when INFO &gt; 0 is given under
+           the description of INFO below.)
+ \endverbatim</p>
+<p>\param[in] LDZ
+ \verbatim
+          LDZ is INTEGER
+           The leading dimension of the array Z.  if COMPZ = &lsquo;I&rsquo; or
+           COMPZ = &lsquo;V&rsquo;, then LDZ &gt;= MAX(1,N).  Otherwise, LDZ &gt;= 1.
+ \endverbatim</p>
+<p>\param[out] WORK
+ \verbatim
+          WORK is COMPLEX*16 array, dimension (LWORK)
+           On exit, if INFO = 0, WORK(1) returns an estimate of
+           the optimal value for LWORK.
+ \endverbatim</p>
+<p>\param[in] LWORK
+ \verbatim
+          LWORK is INTEGER
+           The dimension of the array WORK.  LWORK &gt;= max(1,N)
+           is sufficient and delivers very good and sometimes
+           optimal performance.  However, LWORK as large as 11*N
+           may be required for optimal performance.  A workspace
+           query is recommended to determine the optimal workspace
+           size.</p>
+<div class="codehilite"><pre><span></span><code>       <span class="k">If</span> <span class="nv">LWORK</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>, <span class="k">then</span> <span class="nv">ZHSEQR</span> <span class="nv">does</span> <span class="nv">a</span> <span class="nv">workspace</span> <span class="nv">query</span>.
+       <span class="nv">In</span> <span class="nv">this</span> <span class="nv">case</span>, <span class="nv">ZHSEQR</span> <span class="nv">checks</span> <span class="nv">the</span> <span class="nv">input</span> <span class="nv">parameters</span> <span class="nv">and</span>
+       <span class="nv">estimates</span> <span class="nv">the</span> <span class="nv">optimal</span> <span class="nv">workspace</span> <span class="nv">size</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">given</span>
+       <span class="nv">values</span> <span class="nv">of</span> <span class="nv">N</span>, <span class="nv">ILO</span> <span class="nv">and</span> <span class="nv">IHI</span>.  <span class="nv">The</span> <span class="nv">estimate</span> <span class="nv">is</span> <span class="nv">returned</span>
+       <span class="nv">in</span> <span class="nv">WORK</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.  <span class="nv">No</span> <span class="nv">error</span> <span class="nv">message</span> <span class="nv">related</span> <span class="nv">to</span> <span class="nv">LWORK</span> <span class="nv">is</span>
+       <span class="nv">issued</span> <span class="nv">by</span> <span class="nv">XERBLA</span>.  <span class="nv">Neither</span> <span class="nv">H</span> <span class="nv">nor</span> <span class="nv">Z</span> <span class="nv">are</span> <span class="nv">accessed</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+             = 0:  successful exit
+             &lt; 0:  if INFO = -i, the i-th argument had an illegal
+                    value
+             &gt; 0:  if INFO = i, ZHSEQR failed to compute all of
+                the eigenvalues.  Elements 1:ilo-1 and i+1:n of W
+                contain those eigenvalues which have been
+                successfully computed.  (Failures are rare.)</p>
+<div class="codehilite"><pre><span></span><code><span class="w">            </span><span class="n">If</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">JOB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">exit</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">            </span><span class="n">remaining</span><span class="w"> </span><span class="n">unconverged</span><span class="w"> </span><span class="n">eigenvalues</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">eigen</span><span class="o">-</span><span class="w"></span>
+<span class="w">            </span><span class="n">values</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="n">Hessenberg</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="k">and</span><span class="w"></span>
+<span class="w">            </span><span class="n">columns</span><span class="w"> </span><span class="n">ILO</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">final</span><span class="p">,</span><span class="w"> </span><span class="k">output</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">If</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">JOB</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">exit</span><span class="w"></span>
+
+<span class="w">       </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="k">initial</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">H</span><span class="p">)</span><span class="o">*</span><span class="n">U</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">U</span><span class="o">*</span><span class="p">(</span><span class="k">final</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">H</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">where</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">unitary</span><span class="w"> </span><span class="n">matrix</span><span class="p">.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="k">final</span><span class="w"></span>
+<span class="w">            </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w">  </span><span class="n">H</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="n">Hessenberg</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">triangular</span><span class="w"> </span><span class="n">in</span><span class="w"></span>
+<span class="w">            </span><span class="n">rows</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">INFO</span><span class="o">+</span><span class="mh">1</span><span class="w"> </span><span class="n">through</span><span class="w"> </span><span class="n">IHI</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">If</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">COMPZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">exit</span><span class="w"></span>
+
+<span class="w">              </span><span class="p">(</span><span class="k">final</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Z</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="p">(</span><span class="k">initial</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Z</span><span class="p">)</span><span class="o">*</span><span class="n">U</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">where</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unitary</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">regard</span><span class="o">-</span><span class="w"></span>
+<span class="w">            </span><span class="n">less</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">JOB</span><span class="p">.)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">If</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">COMPZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;I&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">exit</span><span class="w"></span>
+<span class="w">                  </span><span class="p">(</span><span class="k">final</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Z</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">U</span><span class="w"></span>
+<span class="w">            </span><span class="n">where</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">unitary</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">regard</span><span class="o">-</span><span class="w"></span>
+<span class="w">            </span><span class="n">less</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">JOB</span><span class="p">.)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">If</span><span class="w"> </span><span class="n">INFO</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">COMPZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;N&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">Z</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="k">not</span><span class="w"></span>
+<span class="w">            </span><span class="n">accessed</span><span class="p">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>\endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup complex16OTHERcomputational
+ \par Contributors:</p>
+<div class="codehilite"><pre><span></span><code>   Karen Braman and Ralph Byers, Department of Mathematics,
+   University of Kansas, USA
+</code></pre></div>
+
+<p>\par Further Details:</p>
+<p>\verbatim</p>
+<div class="codehilite"><pre><span></span><code>         <span class="nv">Default</span> <span class="nv">values</span> <span class="nv">supplied</span> <span class="nv">by</span>
+         <span class="nv">ILAENV</span><span class="ss">(</span><span class="nv">ISPEC</span>,<span class="s1">&#39;</span><span class="s">ZHSEQR</span><span class="s1">&#39;</span>,<span class="nv">JOB</span><span class="ss">(</span>:<span class="mi">1</span><span class="ss">)</span><span class="o">//</span><span class="nv">COMPZ</span><span class="ss">(</span>:<span class="mi">1</span><span class="ss">)</span>,<span class="nv">N</span>,<span class="nv">ILO</span>,<span class="nv">IHI</span>,<span class="nv">LWORK</span><span class="ss">)</span>.
+         <span class="nv">It</span> <span class="nv">is</span> <span class="nv">suggested</span> <span class="nv">that</span> <span class="nv">these</span> <span class="nv">defaults</span> <span class="nv">be</span> <span class="nv">adjusted</span> <span class="nv">in</span> <span class="nv">order</span>
+         <span class="nv">to</span> <span class="nv">attain</span> <span class="nv">best</span> <span class="nv">performance</span> <span class="nv">in</span> <span class="nv">each</span> <span class="nv">particular</span>
+         <span class="nv">computational</span> <span class="nv">environment</span>.
+
+        <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">12</span>: <span class="nv">The</span> <span class="nv">ZLAHQR</span> <span class="nv">vs</span> <span class="nv">ZLAQR0</span> <span class="nv">crossover</span> <span class="nv">point</span>.
+                  <span class="nv">Default</span>: <span class="mi">75</span>. <span class="ss">(</span><span class="nv">Must</span> <span class="nv">be</span> <span class="nv">at</span> <span class="nv">least</span> <span class="mi">11</span>.<span class="ss">)</span>
+
+        <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">13</span>: <span class="nv">Recommended</span> <span class="nv">deflation</span> <span class="nv">window</span> <span class="nv">size</span>.
+                  <span class="nv">This</span> <span class="nv">depends</span> <span class="nv">on</span> <span class="nv">ILO</span>, <span class="nv">IHI</span> <span class="nv">and</span> <span class="nv">NS</span>.  <span class="nv">NS</span> <span class="nv">is</span> <span class="nv">the</span>
+                  <span class="nv">number</span> <span class="nv">of</span> <span class="nv">simultaneous</span> <span class="nv">shifts</span> <span class="nv">returned</span>
+                  <span class="nv">by</span> <span class="nv">ILAENV</span><span class="ss">(</span><span class="nv">ISPEC</span><span class="o">=</span><span class="mi">15</span><span class="ss">)</span>.  <span class="ss">(</span><span class="nv">See</span> <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">15</span> <span class="nv">below</span>.<span class="ss">)</span>
+                  <span class="nv">The</span> <span class="nv">default</span> <span class="k">for</span> <span class="ss">(</span><span class="nv">IHI</span><span class="o">-</span><span class="nv">ILO</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span> <span class="o">&lt;=</span> <span class="mi">500</span> <span class="nv">is</span> <span class="nv">NS</span>.
+                  <span class="nv">The</span> <span class="nv">default</span> <span class="k">for</span> <span class="ss">(</span><span class="nv">IHI</span><span class="o">-</span><span class="nv">ILO</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span> <span class="o">&gt;</span>  <span class="mi">500</span> <span class="nv">is</span> <span class="mi">3</span><span class="o">*</span><span class="nv">NS</span><span class="o">/</span><span class="mi">2</span>.
+
+        <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">14</span>: <span class="nv">Nibble</span> <span class="nv">crossover</span> <span class="nv">point</span>. <span class="ss">(</span><span class="nv">See</span> <span class="nv">IPARMQ</span> <span class="k">for</span>
+                  <span class="nv">details</span>.<span class="ss">)</span>  <span class="nv">Default</span>: <span class="mi">14</span><span class="o">%</span> <span class="nv">of</span> <span class="nv">deflation</span> <span class="nv">window</span>
+                  <span class="nv">size</span>.
+
+        <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">15</span>: <span class="nv">Number</span> <span class="nv">of</span> <span class="nv">simultaneous</span> <span class="nv">shifts</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">multishift</span>
+                  <span class="nv">QR</span> <span class="nv">iteration</span>.
+
+                  <span class="k">If</span> <span class="nv">IHI</span><span class="o">-</span><span class="nv">ILO</span><span class="o">+</span><span class="mi">1</span> <span class="nv">is</span> ...
+
+                  <span class="nv">greater</span> <span class="nv">than</span>      ...<span class="nv">but</span> <span class="nv">less</span>    ... <span class="nv">the</span>
+                  <span class="nv">or</span> <span class="nv">equal</span> <span class="nv">to</span> ...      <span class="nv">than</span>        <span class="nv">default</span> <span class="nv">is</span>
+
+                       <span class="mi">1</span>               <span class="mi">30</span>          <span class="nv">NS</span> <span class="o">=</span>   <span class="mi">2</span><span class="ss">(</span><span class="o">+</span><span class="ss">)</span>
+                      <span class="mi">30</span>               <span class="mi">60</span>          <span class="nv">NS</span> <span class="o">=</span>   <span class="mi">4</span><span class="ss">(</span><span class="o">+</span><span class="ss">)</span>
+                      <span class="mi">60</span>              <span class="mi">150</span>          <span class="nv">NS</span> <span class="o">=</span>  <span class="mi">10</span><span class="ss">(</span><span class="o">+</span><span class="ss">)</span>
+                     <span class="mi">150</span>              <span class="mi">590</span>          <span class="nv">NS</span> <span class="o">=</span>  <span class="o">**</span>
+                     <span class="mi">590</span>             <span class="mi">3000</span>          <span class="nv">NS</span> <span class="o">=</span>  <span class="mi">64</span>
+                    <span class="mi">3000</span>             <span class="mi">6000</span>          <span class="nv">NS</span> <span class="o">=</span> <span class="mi">128</span>
+                    <span class="mi">6000</span>             <span class="nv">infinity</span>      <span class="nv">NS</span> <span class="o">=</span> <span class="mi">256</span>
+
+              <span class="ss">(</span><span class="o">+</span><span class="ss">)</span>  <span class="nv">By</span> <span class="nv">default</span> <span class="nv">some</span> <span class="nv">or</span> <span class="nv">all</span> <span class="nv">matrices</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">order</span>
+                   <span class="nv">are</span> <span class="nv">passed</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">implicit</span> <span class="nv">double</span> <span class="nv">shift</span> <span class="nv">routine</span>
+                   <span class="nv">ZLAHQR</span> <span class="nv">and</span> <span class="nv">this</span> <span class="nv">parameter</span> <span class="nv">is</span> <span class="nv">ignored</span>.  <span class="nv">See</span>
+                   <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">12</span> <span class="nv">above</span> <span class="nv">and</span> <span class="nv">comments</span> <span class="nv">in</span> <span class="nv">IPARMQ</span> <span class="k">for</span>
+                   <span class="nv">details</span>.
+
+             <span class="ss">(</span><span class="o">**</span><span class="ss">)</span>  <span class="nv">The</span> <span class="nv">asterisks</span> <span class="ss">(</span><span class="o">**</span><span class="ss">)</span> <span class="nv">indicate</span> <span class="nv">an</span> <span class="nv">ad</span><span class="o">-</span><span class="nv">hoc</span>
+                   <span class="nv">function</span> <span class="nv">of</span> <span class="nv">N</span> <span class="nv">increasing</span> <span class="nv">from</span> <span class="mi">10</span> <span class="nv">to</span> <span class="mi">64</span>.
+
+        <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">16</span>: <span class="nv">Select</span> <span class="nv">structured</span> <span class="nv">matrix</span> <span class="nv">multiply</span>.
+                  <span class="k">If</span> <span class="nv">the</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">simultaneous</span> <span class="nv">shifts</span> <span class="ss">(</span><span class="nv">specified</span>
+                  <span class="nv">by</span> <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">15</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">less</span> <span class="nv">than</span> <span class="mi">14</span>, <span class="k">then</span> <span class="nv">the</span> <span class="nv">default</span>
+                  <span class="k">for</span> <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">16</span> <span class="nv">is</span> <span class="mi">0</span>.  <span class="nv">Otherwise</span> <span class="nv">the</span> <span class="nv">default</span> <span class="k">for</span>
+                  <span class="nv">ISPEC</span><span class="o">=</span><span class="mi">16</span> <span class="nv">is</span> <span class="mi">2</span>.
+</code></pre></div>
+
+<p>\endverbatim
+ \par References:</p>
+<div class="codehilite"><pre><span></span><code>   K. Braman, R. Byers and R. Mathias, The Multi-Shift QR
+   Algorithm Part I: Maintaining Well Focused Shifts, and Level 3
+   Performance, SIAM Journal of Matrix Analysis, volume 23, pages
+   929--947, 2002.
+</code></pre></div>
+
+<p>\n
+       K. Braman, R. Byers and R. Mathias, The Multi-Shift QR
+       Algorithm Part II: Aggressive Early Deflation, SIAM Journal
+       of Matrix Analysis, volume 23, pages 948&ndash;973, 2002.
+&ndash;ZHSEQR303</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-job~24"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Job</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-compz~16"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Compz</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~1149"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ilo~39"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ilo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ihi~39"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ihi</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-h~26"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>H</strong>(Ldh,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldh~25"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~107"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>W</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z~116"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Z</strong>(Ldz,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldz~93"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldz</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-work~686"></span>
+              complex(kind=16)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Work</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwork~318"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~892"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nl~3"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>NL</strong></td>
+<td> =</td>
+                <td>49</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ntiny~8"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>NTINY</strong></td>
+<td> =</td>
+                <td>15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~769"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>(1.0D0,0.0D0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rzero~12"></span>
+              double precision,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>RZERO</strong></td>
+<td> =</td>
+                <td>0.0D0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~743"></span>
+              complex(kind=16),
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>(0.0D0,0.0D0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hl~3"></span>
+              complex(kind=16),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hl</strong>(NL,NL)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-initz~4"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>initz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kbot~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kbot</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lquery~290"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lquery</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nmin~11"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantt~3"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantt</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wantz~68"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wantz</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-workl~3"></span>
+              complex(kind=16),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>workl</strong>(NL)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">ZHSEQR</span><span class="p">(</span><span class="n">Job</span><span class="p">,</span><span class="n">Compz</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Ldz</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--ZHSEQR303</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ihi</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ilo</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldh</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ldz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Lwork</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Compz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Job</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">H</span><span class="p">(</span><span class="n">Ldh</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Work</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="n">Ldz</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="c">!</span>
+<span class="c">!     ==== Matrices of order NTINY or smaller must be processed by</span>
+<span class="c">!     .    ZLAHQR because of insufficient subdiagonal scratch space.</span>
+<span class="c">!     .    (This is a hard limit.) ====</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">NTINY</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">NTINY</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     ==== NL allocates some local workspace to help small matrices</span>
+<span class="c">!     .    through a rare ZLAHQR failure.  NL &gt; NTINY = 15 is</span>
+<span class="c">!     .    required and NL &lt;= NMIN = ILAENV(ISPEC=12,...) is recom-</span>
+<span class="c">!     .    mended.  (The default value of NMIN is 75.)  Using NL = 49</span>
+<span class="c">!     .    allows up to six simultaneous shifts and a 16-by-16</span>
+<span class="c">!     .    deflation window.  ====</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">NL</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">NL</span><span class="o">=</span><span class="mi">49</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">),</span><span class="n">ONE</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">RZERO</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">RZERO</span><span class="o">=</span><span class="mf">0.0D0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Arrays ..</span>
+<span class="w">      </span><span class="kt">COMPLEX</span><span class="o">*</span><span class="mi">16</span><span class="w"> </span><span class="n">hl</span><span class="p">(</span><span class="n">NL</span><span class="p">,</span><span class="n">NL</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">workl</span><span class="p">(</span><span class="n">NL</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">kbot</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nmin</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">initz</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantt</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wantz</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ILAENV</span><span class="w"></span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">ILAENV</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">LSAME</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">XERBLA</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZCOPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLACPY</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLAHQR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLAQR0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ZLASET</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">DBLE</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DCMPLX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MIN</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     ==== Decode and check the input parameters. ====</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">wantt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Job</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">initz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Compz</span><span class="p">,</span><span class="s1">&#39;I&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">wantz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">initz</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Compz</span><span class="p">,</span><span class="s1">&#39;V&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DCMPLX</span><span class="p">(</span><span class="nb">DBLE</span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)),</span><span class="n">RZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">lquery</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lwork</span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Job</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantt</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Compz</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">wantz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ilo</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Ilo</span><span class="o">&gt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ihi</span><span class="o">&lt;</span><span class="nb">MIN</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Ihi</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldh</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ldz</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">wantz</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">Ldz</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Lwork</span><span class="o">&lt;</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Quick return in case of invalid argument. ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;ZHSEQR&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Quick return in case N = 0; nothing to do. ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lquery</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Quick return in case of a workspace query ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">CALL </span><span class="n">ZLAQR0</span><span class="p">(</span><span class="n">wantt</span><span class="p">,</span><span class="n">wantz</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Ldz</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">               </span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!        ==== Ensure reported workspace size is backward-compatible with</span>
+<span class="c">!        .    previous LAPACK versions. ====</span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DCMPLX</span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="nb">DBLE</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span><span class="nb">DBLE</span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))),</span><span class="n">RZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== copy eigenvalues isolated by ZGEBAL ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ilo</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZCOPY</span><span class="p">(</span><span class="n">Ilo</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ihi</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZCOPY</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">Ihi</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="n">Ihi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Ihi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">W</span><span class="p">(</span><span class="n">Ihi</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Initialize Z, if requested ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">initz</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">CALL </span><span class="n">ZLASET</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ONE</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Ldz</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Quick return if possible ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ilo</span><span class="o">==</span><span class="n">Ihi</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            </span><span class="n">W</span><span class="p">(</span><span class="n">Ilo</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="p">(</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ilo</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">RETURN</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== ZLAHQR/ZLAQR0 crossover point ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">nmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILAENV</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="s1">&#39;ZHSEQR&#39;</span><span class="p">,</span><span class="n">Job</span><span class="p">(:</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="n">Compz</span><span class="p">(:</span><span class="mi">1</span><span class="p">),</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Lwork</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">nmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">NTINY</span><span class="p">,</span><span class="n">nmin</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== ZLAQR0 for big matrices; ZLAHQR for small ones ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="n">nmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">            CALL </span><span class="n">ZLAQR0</span><span class="p">(</span><span class="n">wantt</span><span class="p">,</span><span class="n">wantz</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Ldz</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           ==== Small matrix ====</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">CALL </span><span class="n">ZLAHQR</span><span class="p">(</span><span class="n">wantt</span><span class="p">,</span><span class="n">wantz</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Ldz</span><span class="p">,</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                  </span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              ==== A rare ZLAHQR failure!  ZLAQR0 sometimes succeeds</span>
+<span class="c">!              .    when ZLAHQR fails. ====</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">kbot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Info</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;=</span><span class="n">NL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 ==== Larger matrices have enough subdiagonal scratch</span>
+<span class="c">!                 .    space to call ZLAQR0 directly. ====</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">ZLAQR0</span><span class="p">(</span><span class="n">wantt</span><span class="p">,</span><span class="n">wantz</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">kbot</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                        </span><span class="n">Ldz</span><span class="p">,</span><span class="n">Work</span><span class="p">,</span><span class="n">Lwork</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 ==== Tiny matrices don&#39;t have enough subdiagonal</span>
+<span class="c">!                 .    scratch space to benefit from ZLAQR0.  Hence,</span>
+<span class="c">!                 .    tiny matrices must be copied into a larger</span>
+<span class="c">!                 .    array before calling ZLAQR0. ====</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">NL</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">hl</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">ZLASET</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">NL</span><span class="p">,</span><span class="n">NL</span><span class="o">-</span><span class="n">N</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">hl</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">NL</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">ZLAQR0</span><span class="p">(</span><span class="n">wantt</span><span class="p">,</span><span class="n">wantz</span><span class="p">,</span><span class="n">NL</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">kbot</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">NL</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">Ilo</span><span class="p">,</span><span class="n">Ihi</span><span class="p">,</span><span class="n">Z</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                        </span><span class="n">Ldz</span><span class="p">,</span><span class="n">workl</span><span class="p">,</span><span class="n">NL</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">wantt</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w">                             </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="k">CALL </span><span class="n">ZLACPY</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">NL</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">Ldh</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDIF</span>
+<span class="k">         ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Clear out the trash, if necessary. ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">wantt</span><span class="w"> </span><span class="p">.</span><span class="nb">OR</span><span class="p">.</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="n">N</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w">                          </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="k">CALL </span><span class="n">ZLASET</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">ZERO</span><span class="p">,</span><span class="n">H</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">Ldh</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        ==== Ensure reported workspace size is backward-compatible with</span>
+<span class="c">!        .    previous LAPACK versions. ====</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DCMPLX</span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="nb">DBLE</span><span class="p">(</span><span class="nb">MAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)),</span><span class="nb">DBLE</span><span class="p">(</span><span class="n">Work</span><span class="p">(</span><span class="mi">1</span><span class="p">))),</span><span class="n">RZERO</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     ==== End of ZHSEQR ====</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">ZHSEQR</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

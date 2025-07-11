@@ -1,0 +1,1437 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="spag_lapack module">
+    <meta name="author" content="John S. Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>SSPTRF &ndash; spag_lapack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">spag_lapack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>SSPTRF
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.1% of total for procedures.">224 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/ssptrf.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/ssptrf.f90.html'>ssptrf.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">SSPTRF</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-eight~6">EIGHT</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-one~259">ONE</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-sevten~5">SEVTEN</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-zero~239">ZERO</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-absakk~5">absakk</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-alpha~21">alpha</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-colmax~5">colmax</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-d11~5">d11</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-d12~5">d12</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-d21~5">d21</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-d22~5">d22</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-i~273">i</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-imax~23">imax</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-j~198">j</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-jmax~7">jmax</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-k~98">k</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kc~6">kc</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kk~26">kk</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-knc~2">knc</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kp~15">kp</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kpc~3">kpc</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kstep~8">kstep</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-kx~17">kx</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-npp~3">npp</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-r1~3">r1</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-rowmax~5">rowmax</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-t~17">t</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-upper~98">upper</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-wk~4">wk</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-wkm1~4">wkm1</a>
+            <a class="list-group-item" href="../proc/ssptrf.html#variable-wkp1~4">wkp1</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/ssptrf.html#src">SSPTRF</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine SSPTRF(Uplo, N, Ap, Ipiv, Info)  
+</h2>
+    
+
+    <p>\brief \b SSPTRF
+ \htmlonly
+ Download SSPTRF + dependencies
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssptrf.f">
+ [TGZ]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssptrf.f">
+ [ZIP]</a>
+ <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssptrf.f">
+ [TXT]</a>
+ \endhtmlonly
+ \par Purpose:</p>
+<p>\verbatim</p>
+<p>SSPTRF computes the factorization of a real symmetric matrix A stored
+ in packed format using the Bunch-Kaufman diagonal pivoting method:</p>
+<div class="codehilite"><pre><span></span><code>A = U*D*U**T  or  A = L*D*L**T
+</code></pre></div>
+
+<p>where U (or L) is a product of permutation and unit upper (lower)
+ triangular matrices, and D is symmetric and block diagonal with
+ 1-by-1 and 2-by-2 diagonal blocks.
+ \endverbatim
+ \param[in] UPLO
+ \verbatim
+          UPLO is CHARACTER*1
+          = &lsquo;U&rsquo;:  Upper triangle of A is stored;
+          = &lsquo;L&rsquo;:  Lower triangle of A is stored.
+ \endverbatim</p>
+<p>\param[in] N
+ \verbatim
+          N is INTEGER
+          The order of the matrix A.  N &gt;= 0.
+ \endverbatim</p>
+<p>\param[in,out] AP
+ \verbatim
+          AP is REAL array, dimension (N<em>(N+1)/2)
+          On entry, the upper or lower triangle of the symmetric matrix
+          A, packed columnwise in a linear array.  The j-th column of A
+          is stored in the array AP as follows:
+          if UPLO = &lsquo;U&rsquo;, AP(i + (j-1)</em>j/2) = A(i,j) for 1&lt;=i&lt;=j;
+          if UPLO = &lsquo;L&rsquo;, AP(i + (j-1)*(2n-j)/2) = A(i,j) for j&lt;=i&lt;=n.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">On</span> <span class="k">exit</span>, <span class="nv">the</span> <span class="nv">block</span> <span class="nv">diagonal</span> <span class="nv">matrix</span> <span class="nv">D</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">multipliers</span> <span class="nv">used</span>
+      <span class="nv">to</span> <span class="nv">obtain</span> <span class="nv">the</span> <span class="nv">factor</span> <span class="nv">U</span> <span class="nv">or</span> <span class="nv">L</span>, <span class="nv">stored</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">packed</span> <span class="nv">triangular</span>
+      <span class="nv">matrix</span> <span class="nv">overwriting</span> <span class="nv">A</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">below</span> <span class="k">for</span> <span class="nv">further</span> <span class="nv">details</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>\endverbatim</p>
+<p>\param[out] IPIV
+ \verbatim
+          IPIV is INTEGER array, dimension (N)
+          Details of the interchanges and the block structure of D.
+          If IPIV(k) &gt; 0, then rows and columns k and IPIV(k) were
+          interchanged and D(k,k) is a 1-by-1 diagonal block.
+          If UPLO = &lsquo;U&rsquo; and IPIV(k) = IPIV(k-1) &lt; 0, then rows and
+          columns k-1 and -IPIV(k) were interchanged and D(k-1:k,k-1:k)
+          is a 2-by-2 diagonal block.  If UPLO = &lsquo;L&rsquo; and IPIV(k) =
+          IPIV(k+1) &lt; 0, then rows and columns k+1 and -IPIV(k) were
+          interchanged and D(k:k+1,k:k+1) is a 2-by-2 diagonal block.
+ \endverbatim</p>
+<p>\param[out] INFO
+ \verbatim
+          INFO is INTEGER
+          = 0: successful exit
+          &lt; 0: if INFO = -i, the i-th argument had an illegal value
+          &gt; 0: if INFO = i, D(i,i) is exactly zero.  The factorization
+               has been completed, but the block diagonal matrix D is
+               exactly singular, and division by zero will occur if it
+               is used to solve a system of equations.
+ \endverbatim
+ \author Univ. of Tennessee
+ \author Univ. of California Berkeley
+ \author Univ. of Colorado Denver
+ \author NAG Ltd.
+ \date December 2016
+ \ingroup realOTHERcomputational
+ \par Further Details:</p>
+<p>\verbatim</p>
+<p>5-96 - Based on modifications by J. Lewis, Boeing Computer Services
+         Company</p>
+<p>If UPLO = &lsquo;U&rsquo;, then A = U<em>D</em>U<em><em>T, where
+     U = P(n)</em>U(n)</em> &hellip; <em>P(k)U(k)</em> &hellip;,
+  i.e., U is a product of terms P(k)*U(k), where k decreases from n to
+  1 in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1
+  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as
+  defined by IPIV(k), and U(k) is a unit upper triangular matrix, such
+  that if the diagonal block D(k) is of order s (s = 1 or 2), then</p>
+<div class="codehilite"><pre><span></span><code>         (   I    v    0   )   k-s
+ U(k) =  (   0    I    0   )   s
+         (   0    0    I   )   n-k
+            k-s   s   n-k
+</code></pre></div>
+
+<p>If s = 1, D(k) overwrites A(k,k), and v overwrites A(1:k-1,k).
+  If s = 2, the upper triangle of D(k) overwrites A(k-1,k-1), A(k-1,k),
+  and A(k,k), and v overwrites A(1:k-2,k-1:k).</p>
+<p>If UPLO = &lsquo;L&rsquo;, then A = L<em>D</em>L<em><em>T, where
+     L = P(1)</em>L(1)</em> &hellip; <em>P(k)</em>L(k)<em> &hellip;,
+  i.e., L is a product of terms P(k)</em>L(k), where k increases from 1 to
+  n in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1
+  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as
+  defined by IPIV(k), and L(k) is a unit lower triangular matrix, such
+  that if the diagonal block D(k) is of order s (s = 1 or 2), then</p>
+<div class="codehilite"><pre><span></span><code>         (   I    0     0   )  k-1
+ L(k) =  (   0    I     0   )  s
+         (   0    v     I   )  n-k-s+1
+            k-1   s  n-k-s+1
+</code></pre></div>
+
+<p>If s = 1, D(k) overwrites A(k,k), and v overwrites A(k+1:n,k).
+  If s = 2, the lower triangle of D(k) overwrites A(k,k), A(k+1,k),
+  and A(k+1,k+1), and v overwrites A(k+2:n,k:k+1).
+ \endverbatim</p>
+<p>&ndash;SSPTRF161</p>
+<p>&ndash; LAPACK computational routine (version 3.7.0) &ndash;
+  &ndash; LAPACK is a software package provided by Univ. of Tennessee,    &ndash;
+  &ndash; Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..&ndash;
+     December 2016</p>
+<div class="codehilite"><pre><span></span><code> .. Scalar Arguments ..
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-uplo~170"></span>
+              character(len=1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Uplo</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~386"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ap~32"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ap</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipiv~84"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ipiv</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~315"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eight~6"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EIGHT</strong></td>
+<td> =</td>
+                <td>8.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-one~259"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ONE</strong></td>
+<td> =</td>
+                <td>1.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sevten~5"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>SEVTEN</strong></td>
+<td> =</td>
+                <td>17.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zero~239"></span>
+              real,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>ZERO</strong></td>
+<td> =</td>
+                <td>0.0E+0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absakk~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absakk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-alpha~21"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>alpha</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-colmax~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>colmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d11~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d11</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d12~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d12</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d21~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d21</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d22~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d22</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~273"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imax~23"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~198"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmax~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~98"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kc~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kk~26"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-knc~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>knc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kp~15"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kpc~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kpc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kstep~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kstep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kx~17"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npp~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>npp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r1~3"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rowmax~5"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rowmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~17"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-upper~98"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>upper</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~4"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wkm1~4"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wkm1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wkp1~4"></span>
+              real,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>wkp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">SSPTRF</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ap</span><span class="p">,</span><span class="n">Ipiv</span><span class="p">,</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IMPLICIT NONE</span><span class="w"></span>
+<span class="c">!*--SSPTRF161</span>
+<span class="c">!</span>
+<span class="c">!  -- LAPACK computational routine (version 3.7.0) --</span>
+<span class="c">!  -- LAPACK is a software package provided by Univ. of Tennessee,    --</span>
+<span class="c">!  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..--</span>
+<span class="c">!     December 2016</span>
+<span class="c">!</span>
+<span class="c">!     .. Scalar Arguments ..</span>
+<span class="w">      </span><span class="kt">CHARACTER </span><span class="n">Uplo</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Array Arguments ..</span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">Ipiv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">Ap</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!</span>
+<span class="c">!  =====================================================================</span>
+<span class="c">!</span>
+<span class="c">!     .. Parameters ..</span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">ZERO</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ONE</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">ZERO</span><span class="o">=</span><span class="mf">0.0E+0</span><span class="p">,</span><span class="n">ONE</span><span class="o">=</span><span class="mf">1.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">EIGHT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SEVTEN</span><span class="w"></span>
+<span class="w">      </span><span class="k">PARAMETER</span><span class="w"> </span><span class="p">(</span><span class="n">EIGHT</span><span class="o">=</span><span class="mf">8.0E+0</span><span class="p">,</span><span class="n">SEVTEN</span><span class="o">=</span><span class="mi">1</span><span class="mf">7.0E+0</span><span class="p">)</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Local Scalars ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">upper</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kpc</span><span class="w"> </span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">        </span><span class="n">kstep</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">npp</span><span class="w"></span>
+<span class="w">      </span><span class="kt">REAL </span><span class="n">absakk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">colmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d11</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d12</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d21</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">d22</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="p">,</span><span class="w">       </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">     </span><span class="n">rowmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wk</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wkm1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">wkp1</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Functions ..</span>
+<span class="w">      </span><span class="kt">LOGICAL </span><span class="n">LSAME</span><span class="w"></span>
+<span class="w">      </span><span class="kt">INTEGER </span><span class="n">ISAMAX</span><span class="w"></span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">LSAME</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ISAMAX</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. External Subroutines ..</span>
+<span class="w">      </span><span class="k">EXTERNAL </span><span class="n">SSCAL</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSPR</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">SSWAP</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">XERBLA</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Intrinsic Functions ..</span>
+<span class="w">      </span><span class="k">INTRINSIC </span><span class="nb">ABS</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nb">SQRT</span><span class="w"></span>
+<span class="c">!     ..</span>
+<span class="c">!     .. Executable Statements ..</span>
+<span class="c">!</span>
+<span class="c">!     Test the input parameters.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">upper</span><span class="w"> </span><span class="p">.</span><span class="nb">AND</span><span class="p">.</span><span class="w"> </span><span class="p">.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">LSAME</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="s1">&#39;L&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">N</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="k">ENDIF</span>
+<span class="k">      IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">         CALL </span><span class="n">XERBLA</span><span class="p">(</span><span class="s1">&#39;SSPTRF&#39;</span><span class="p">,</span><span class="o">-</span><span class="n">Info</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">RETURN</span>
+<span class="k">      ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!     Initialize ALPHA for use in choosing pivot block size.</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ONE</span><span class="o">+</span><span class="nb">SQRT</span><span class="p">(</span><span class="n">SEVTEN</span><span class="p">))</span><span class="o">/</span><span class="n">EIGHT</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Factorize A as U*D*U**T using the upper triangle of A</span>
+<span class="c">!</span>
+<span class="c">!        K is the main loop index, decreasing from N to 1 in steps of</span>
+<span class="c">!        1 or 2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="n">kc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO</span>
+<span class="k">            </span><span class="n">knc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        If K &lt; 1, exit from loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span>
+<span class="k">            </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Determine rows and columns to be interchanged and whether</span>
+<span class="c">!        a 1-by-1 or 2-by-2 pivot block will be used</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">absakk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        IMAX is the row-index of the largest off-diagonal element in</span>
+<span class="c">!        column K, and COLMAX is its absolute value</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ISAMAX</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">absakk</span><span class="p">,</span><span class="n">colmax</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Column K is zero: set INFO and continue</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                  </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="o">*</span><span class="p">(</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span><span class="o">&gt;</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                     </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  </span><span class="n">kpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">imax</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ISAMAX</span><span class="p">(</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">rowmax</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="n">jmax</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="o">*</span><span class="p">(</span><span class="n">colmax</span><span class="o">/</span><span class="n">rowmax</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="n">imax</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 interchange rows and columns K and IMAX, use 1-by-1</span>
+<span class="c">!                 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 interchange rows and columns K-1 and IMAX, use 2-by-2</span>
+<span class="c">!                 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                     </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kstep</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">/=</span><span class="n">kk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Interchange rows and columns KK and KP in the leading</span>
+<span class="c">!              submatrix A(1:k,1:k)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">SSWAP</span><span class="p">(</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kpc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">kk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">kk</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Update the leading submatrix</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              1-by-1 pivot block D(k): column k now holds</span>
+<span class="c">!</span>
+<span class="c">!              W(k) = U(k)*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where U(k) is the k-th column of U</span>
+<span class="c">!</span>
+<span class="c">!              Perform a rank-1 update of A(1:k-1,1:k-1) as</span>
+<span class="c">!</span>
+<span class="c">!              A := A - U(k)*D(k)*U(k)**T = A - W(k)*1/D(k)*W(k)**T</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">SSPR</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">r1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Store U(k) in column k</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">CALL </span><span class="n">SSCAL</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              2-by-2 pivot block D(k): columns k and k-1 now hold</span>
+<span class="c">!</span>
+<span class="c">!              ( W(k-1) W(k) ) = ( U(k-1) U(k) )*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where U(k) and U(k-1) are the k-th and (k-1)-th columns</span>
+<span class="c">!              of U</span>
+<span class="c">!</span>
+<span class="c">!              Perform a rank-2 update of A(1:k-2,1:k-2) as</span>
+<span class="c">!</span>
+<span class="c">!              A := A - ( U(k-1) U(k) )*D(k)*( U(k-1) U(k) )**T</span>
+<span class="c">!                 = A - ( W(k-1) W(k) )*inv(D(k))*( W(k-1) W(k) )**T</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">d12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d22</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">d12</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">d12</span><span class="w"></span>
+<span class="w">                  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">ONE</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="o">/</span><span class="n">d12</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wkm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d12</span><span class="o">*</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d12</span><span class="o">*</span><span class="p">(</span><span class="n">d22</span><span class="o">*</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">j</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">j</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">               </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="o">-</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">wk</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="o">*</span><span class="n">wkm1</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span>
+<span class="k">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wk</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wkm1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">ENDIF</span>
+<span class="k">            ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Store details of the interchanges in IPIV</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Decrease K and return to the start of the main loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kstep</span><span class="w"></span>
+<span class="w">            </span><span class="n">kc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Factorize A as L*D*L**T using the lower triangle of A</span>
+<span class="c">!</span>
+<span class="c">!        K is the main loop index, increasing from 1 to N in steps of</span>
+<span class="c">!        1 or 2</span>
+<span class="c">!</span>
+<span class="w">         </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">kc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="n">npp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO</span>
+<span class="k">            </span><span class="n">knc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kc</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        If K &gt; N, exit from loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">EXIT</span>
+<span class="k">            </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Determine rows and columns to be interchanged and whether</span>
+<span class="c">!        a 1-by-1 or 2-by-2 pivot block will be used</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">absakk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        IMAX is the row-index of the largest off-diagonal element in</span>
+<span class="c">!        column K, and COLMAX is its absolute value</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ISAMAX</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">imax</span><span class="o">-</span><span class="n">k</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">colmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">absakk</span><span class="p">,</span><span class="n">colmax</span><span class="p">)</span><span class="o">==</span><span class="n">ZERO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Column K is zero: set INFO and continue</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Info</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              JMAX is the column-index of the largest off-diagonal</span>
+<span class="c">!              element in row IMAX, and ROWMAX is its absolute value</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ZERO</span><span class="w"></span>
+<span class="w">                  </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span><span class="o">&gt;</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                        </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span><span class="w"></span>
+<span class="w">                        </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDIF</span>
+<span class="k">                     </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  </span><span class="n">kpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">npp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">imax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">imax</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">imax</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ISAMAX</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">imax</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">rowmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">MAX</span><span class="p">(</span><span class="n">rowmax</span><span class="p">,</span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="n">jmax</span><span class="o">-</span><span class="n">imax</span><span class="p">)))</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">absakk</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">colmax</span><span class="o">*</span><span class="p">(</span><span class="n">colmax</span><span class="o">/</span><span class="n">rowmax</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 no interchange, use 1-by-1 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">                  </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">ABS</span><span class="p">(</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="p">))</span><span class="o">&gt;=</span><span class="n">alpha</span><span class="o">*</span><span class="n">rowmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 interchange rows and columns K and IMAX, use 1-by-1</span>
+<span class="c">!                 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 interchange rows and columns K+1 and IMAX, use 2-by-2</span>
+<span class="c">!                 pivot block</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">kp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imax</span><span class="w"></span>
+<span class="w">                     </span><span class="n">kstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kstep</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">/=</span><span class="n">kk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              Interchange rows and columns KK and KP in the trailing</span>
+<span class="c">!              submatrix A(k:n,k:n)</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kp</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w">                                           </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                 </span><span class="k">CALL </span><span class="n">SSWAP</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">kp</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="n">kk</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kk</span><span class="w"></span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">kx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="n">kk</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="n">kk</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">                  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ap</span><span class="p">(</span><span class="n">knc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">Ap</span><span class="p">(</span><span class="n">kpc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">                     </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">kp</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span>
+<span class="k">               ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!           Update the trailing submatrix</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              1-by-1 pivot block D(k): column k now holds</span>
+<span class="c">!</span>
+<span class="c">!              W(k) = L(k)*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where L(k) is the k-th column of L</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Perform a rank-1 update of A(k+1:n,k+1:n) as</span>
+<span class="c">!</span>
+<span class="c">!                 A := A - L(k)*D(k)*L(k)**T = A - W(k)*(1/D(k))*W(k)**T</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">SSPR</span><span class="p">(</span><span class="n">Uplo</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="o">-</span><span class="n">r1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Store L(k) in column K</span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">CALL </span><span class="n">SSCAL</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span><span class="n">Ap</span><span class="p">(</span><span class="n">kc</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!              2-by-2 pivot block D(k): columns K and K+1 now hold</span>
+<span class="c">!</span>
+<span class="c">!              ( W(k) W(k+1) ) = ( L(k) L(k+1) )*D(k)</span>
+<span class="c">!</span>
+<span class="c">!              where L(k) and L(k+1) are the k-th and (k+1)-th columns</span>
+<span class="c">!              of L</span>
+<span class="c">!</span>
+<span class="w">               </span><span class="n">ELSEIF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">k</span><span class="o">&lt;</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!                 Perform a rank-2 update of A(k+2:n,k+2:n) as</span>
+<span class="c">!</span>
+<span class="c">!                 A := A - ( L(k) L(k+1) )*D(k)*( L(k) L(k+1) )**T</span>
+<span class="c">!                    = A - ( W(k) W(k+1) )*inv(D(k))*( W(k) W(k+1) )**T</span>
+<span class="c">!</span>
+<span class="c">!                 where L(k) and L(k+1) are the k-th and (k+1)-th</span>
+<span class="c">!                 columns of L</span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="n">d21</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">d21</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d22</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">d21</span><span class="w"></span>
+<span class="w">                  </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ONE</span><span class="o">/</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">d22</span><span class="o">-</span><span class="n">ONE</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">d21</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="o">/</span><span class="n">d21</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">DO </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d21</span><span class="o">*</span><span class="p">(</span><span class="n">d11</span><span class="o">*</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">                </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                    </span><span class="o">-</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="w">                     </span><span class="n">wkp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d21</span><span class="o">*</span><span class="p">(</span><span class="n">d22</span><span class="o">*</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">                </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                      </span><span class="o">-</span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">                        </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="o">-</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w">                      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w">                     </span><span class="o">*</span><span class="n">wk</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ap</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">wkp1</span><span class="w"></span>
+<span class="w">                     </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wk</span><span class="w"></span>
+<span class="w">                     </span><span class="n">Ap</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wkp1</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">                  </span><span class="k">ENDDO</span>
+<span class="k">               ENDIF</span>
+<span class="k">            ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Store details of the interchanges in IPIV</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">kstep</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ELSE</span>
+<span class="k">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">               </span><span class="n">Ipiv</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">kp</span><span class="w"></span>
+<span class="w">            </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!        Increase K and return to the start of the main loop</span>
+<span class="c">!</span>
+<span class="w">            </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kstep</span><span class="w"></span>
+<span class="w">            </span><span class="n">kc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">knc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">ENDIF</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!</span>
+<span class="c">!     End of SSPTRF</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">END SUBROUTINE </span><span class="n">SSPTRF</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              spag_lapack
+ was developed by John S. Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 01:31 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
